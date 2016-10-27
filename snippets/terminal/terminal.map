@@ -1,35 +1,35 @@
 Archive member included because of file (symbol)
 
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(crt1.o)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(crt1.o)
                               (_resetALT)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(crt0.o)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(crt0.o)
                               (_resetPRI)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io)
                               main.o (_isprintf)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strlen.o)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strlen.o)
                               main.o (strlen)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memcpy.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io) (memcpy)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io) (__iPrintf)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xvacopy.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (_Vacopy)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strchr.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (strchr)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (__iPutfld)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputtxt.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (_Puttxt)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io) (_Litob)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memchr.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io) (memchr)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divmoddi3.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o) (__udivdi3)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o) (__muldi3)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(umuldi3.o)
-                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o) (__umuldi3)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memcpy.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io) (memcpy)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io) (__iPrintf)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xvacopy.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (_Vacopy)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strchr.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (strchr)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (__iPutfld)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputtxt.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io) (_Puttxt)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io) (_Litob)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memchr.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io) (memchr)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divmoddi3.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o) (__udivdi3)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o) (__muldi3)
+c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(umuldi3.o)
+                              c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o) (__umuldi3)
 
 
 Selected CodeGuard Options:
@@ -136,21 +136,21 @@ External Symbols in Program Memory (by address):
                   0x000a52                  ___moddi3
                   0x000b2e                  ___muldi3
                   0x000b8a                  ___umuldi3
-                  0x000bce                  _e_init_uart1
-                  0x000bfc                  __U1RXInterrupt
-                  0x000c14                  _e_ischar_uart1
-                  0x000c1c                  _e_getchar_uart1
-                  0x000c38                  __U1TXInterrupt
-                  0x000c7c                  _e_send_uart1_char
-                  0x000c94                  _e_uart1_sending
-                  0x000c98                  _e_init_port
-                  0x000d22                  _e_set_led
-                  0x00118c                  _e_set_body_led
-                  0x0011d0                  _e_set_front_led
-                  0x001210                  _e_led_clear
-                  0x001226                  _getselector
-                  0x00125e                  _echosel
-                  0x00127c                  _main
+                  0x000bce                  _getselector
+                  0x000c06                  _echosel
+                  0x000c24                  _main
+                  0x000c9e                  _e_init_uart1
+                  0x000ccc                  __U1RXInterrupt
+                  0x000ce4                  _e_ischar_uart1
+                  0x000cec                  _e_getchar_uart1
+                  0x000d08                  __U1TXInterrupt
+                  0x000d4c                  _e_send_uart1_char
+                  0x000d64                  _e_uart1_sending
+                  0x000d68                  _e_set_led
+                  0x0011d2                  _e_set_body_led
+                  0x001216                  _e_set_front_led
+                  0x001256                  _e_led_clear
+                  0x00126c                  _e_init_port
                   0x00139c                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
 
@@ -160,8 +160,8 @@ External Symbols in Program Memory (by name):
                   0xf8000a                  __FGS.sec
                   0x000784                  __Litob
                   0x0005f0                  __Puttxt
-                  0x000bfc                  __U1RXInterrupt
-                  0x000c38                  __U1TXInterrupt
+                  0x000ccc                  __U1RXInterrupt
+                  0x000d08                  __U1TXInterrupt
                   0x000342                  __Vacopy
                   0x000a1c                  ___divdi3
                   0x0001d2                  ___iPrintf
@@ -174,19 +174,19 @@ External Symbols in Program Memory (by name):
                   0x000b8a                  ___umuldi3
                   0x000190                  __isprintf
                   0x000104                  __resetPRI
-                  0x000c1c                  _e_getchar_uart1
-                  0x000c98                  _e_init_port
-                  0x000bce                  _e_init_uart1
-                  0x000c14                  _e_ischar_uart1
-                  0x001210                  _e_led_clear
-                  0x000c7c                  _e_send_uart1_char
-                  0x00118c                  _e_set_body_led
-                  0x0011d0                  _e_set_front_led
-                  0x000d22                  _e_set_led
-                  0x000c94                  _e_uart1_sending
-                  0x00125e                  _echosel
-                  0x001226                  _getselector
-                  0x00127c                  _main
+                  0x000cec                  _e_getchar_uart1
+                  0x00126c                  _e_init_port
+                  0x000c9e                  _e_init_uart1
+                  0x000ce4                  _e_ischar_uart1
+                  0x001256                  _e_led_clear
+                  0x000d4c                  _e_send_uart1_char
+                  0x0011d2                  _e_set_body_led
+                  0x001216                  _e_set_front_led
+                  0x000d68                  _e_set_led
+                  0x000d64                  _e_uart1_sending
+                  0x000c06                  _echosel
+                  0x000bce                  _getselector
+                  0x000c24                  _main
                   0x0008ea                  _memchr
                   0x0001c0                  _memcpy
                   0x00034c                  _strchr
@@ -216,12 +216,12 @@ eedata           0x7ff000           0x001000
 
 Linker script and memory map
 
+LOAD main.o
 LOAD e_init_uart1.o
 LOAD e_uart1_rx_char.o
 LOAD e_uart1_tx_char.o
-LOAD e_init_port.o
 LOAD e_led.o
-LOAD main.o
+LOAD e_init_port.o
                     0xf80000                  __FOSC = 0xf80000
                     0xf80002                  __FWDT = 0xf80002
                     0xf80004                  __FBORPOR = 0xf80004
@@ -250,67 +250,67 @@ LOAD main.o
  *(.handle)
  .handle          0x000100          0x4 jump_table
  *(.libc)
- .libc            0x000104         0x80 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(crt0.o)
+ .libc            0x000104         0x80 c:/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(crt0.o)
                   0x000104                  _resetPRI
                   0x000104                  _reset
                   0x000118                  _psv_init
                   0x000128                  _data_init
- .libc            0x000184         0x2e q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io)
+ .libc            0x000184         0x2e c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(sprintf.io)
                   0x000184                  sprintf.io:_prout
                   0x000190                  _isprintf
- .libc            0x0001b2          0xe q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strlen.o)
+ .libc            0x0001b2          0xe c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strlen.o)
                   0x0001b2                  strlen
- .libc            0x0001c0         0x12 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memcpy.o)
+ .libc            0x0001c0         0x12 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memcpy.o)
                   0x0001c0                  memcpy
- .libc            0x0001d2        0x170 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
+ .libc            0x0001d2        0x170 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
                   0x0001d2                  __iPrintf
- .libc            0x000342          0xa q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xvacopy.o)
+ .libc            0x000342          0xa c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xvacopy.o)
                   0x000342                  _Vacopy
- .libc            0x00034c         0x10 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strchr.o)
+ .libc            0x00034c         0x10 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(strchr.o)
                   0x00034c                  strchr
- .libc            0x00035c        0x294 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io)
+ .libc            0x00035c        0x294 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputfld.io)
                   0x00035c                  __iPutfld
- .libc            0x0005f0        0x194 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputtxt.o)
+ .libc            0x0005f0        0x194 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xputtxt.o)
                   0x0005f0                  _Puttxt
- .libc            0x000784        0x166 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o)
+ .libc            0x000784        0x166 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o)
                   0x000784                  _Litob
- .libc            0x0008ea         0x14 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memchr.o)
+ .libc            0x0008ea         0x14 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(memchr.o)
                   0x0008ea                  memchr
  *(.libm)
- .libm            0x0008fe        0x230 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divmoddi3.o)
+ .libm            0x0008fe        0x230 c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divmoddi3.o)
                   0x000924                  __udivmoddi3
                   0x000a06                  __udivdi3
                   0x000a14                  __umoddi3
                   0x000a1c                  __divdi3
                   0x000a52                  __moddi3
- .libm            0x000b2e         0x5c q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o)
+ .libm            0x000b2e         0x5c c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o)
                   0x000b2e                  __muldi3
- .libm            0x000b8a         0x44 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(umuldi3.o)
+ .libm            0x000b8a         0x44 c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(umuldi3.o)
                   0x000b8a                  __umuldi3
  *(.libdsp)
  *(.lib*)
  *(.text)
- .text            0x000bce         0x2e e_init_uart1.o
-                  0x000bce                  e_init_uart1
- .text            0x000bfc         0x3c e_uart1_rx_char.o
-                  0x000bfc                  _U1RXInterrupt
-                  0x000c14                  e_ischar_uart1
-                  0x000c1c                  e_getchar_uart1
- .text            0x000c38         0x60 e_uart1_tx_char.o
-                  0x000c38                  _U1TXInterrupt
-                  0x000c7c                  e_send_uart1_char
-                  0x000c94                  e_uart1_sending
- .text            0x000c98         0x8a e_init_port.o
-                  0x000c98                  e_init_port
- .text            0x000d22        0x504 e_led.o
-                  0x000d22                  e_set_led
-                  0x00118c                  e_set_body_led
-                  0x0011d0                  e_set_front_led
-                  0x001210                  e_led_clear
- .text            0x001226         0xd0 main.o
-                  0x001226                  getselector
-                  0x00125e                  echosel
-                  0x00127c                  main
+ .text            0x000bce         0xd0 main.o
+                  0x000bce                  getselector
+                  0x000c06                  echosel
+                  0x000c24                  main
+ .text            0x000c9e         0x2e e_init_uart1.o
+                  0x000c9e                  e_init_uart1
+ .text            0x000ccc         0x3c e_uart1_rx_char.o
+                  0x000ccc                  _U1RXInterrupt
+                  0x000ce4                  e_ischar_uart1
+                  0x000cec                  e_getchar_uart1
+ .text            0x000d08         0x60 e_uart1_tx_char.o
+                  0x000d08                  _U1TXInterrupt
+                  0x000d4c                  e_send_uart1_char
+                  0x000d64                  e_uart1_sending
+ .text            0x000d68        0x504 e_led.o
+                  0x000d68                  e_set_led
+                  0x0011d2                  e_set_body_led
+                  0x001216                  e_set_front_led
+                  0x001256                  e_led_clear
+ .text            0x00126c         0x8a e_init_port.o
+                  0x00126c                  e_init_port
 
 usercode
  *(usercode)
@@ -408,8 +408,8 @@ userdata
                   0x000020          0x4 LONG 0x139c DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
                   0x000022          0x4 LONG 0x139c DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x139c DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000026          0x4 LONG 0xbfc DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000028          0x4 LONG 0xc38 DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000026          0x4 LONG 0xccc DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000028          0x4 LONG 0xd08 DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
                   0x00002a          0x4 LONG 0x139c DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
                   0x00002c          0x4 LONG 0x139c DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
                   0x00002e          0x4 LONG 0x139c DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
@@ -472,8 +472,8 @@ userdata
                   0x0000a0          0x4 LONG 0x139c DEFINED (__AltT2Interrupt)?<code 336> (__AltT2Interrupt):DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
                   0x0000a2          0x4 LONG 0x139c DEFINED (__AltT3Interrupt)?<code 336> (__AltT3Interrupt):DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
                   0x0000a4          0x4 LONG 0x139c DEFINED (__AltSPI1Interrupt)?<code 336> (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a6          0x4 LONG 0xbfc DEFINED (__AltU1RXInterrupt)?<code 336> (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a8          0x4 LONG 0xc38 DEFINED (__AltU1TXInterrupt)?<code 336> (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a6          0x4 LONG 0xccc DEFINED (__AltU1RXInterrupt)?<code 336> (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a8          0x4 LONG 0xd08 DEFINED (__AltU1TXInterrupt)?<code 336> (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
                   0x0000aa          0x4 LONG 0x139c DEFINED (__AltADCInterrupt)?<code 336> (__AltADCInterrupt):DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
                   0x0000ac          0x4 LONG 0x139c DEFINED (__AltNVMInterrupt)?<code 336> (__AltNVMInterrupt):DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
                   0x0000ae          0x4 LONG 0x139c DEFINED (__AltSI2CInterrupt)?<code 336> (__AltSI2CInterrupt):DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
@@ -1770,9 +1770,9 @@ userdata
                     0x0001                  __MPLAB_BUILD = 0x1
                     0x0001                  __MPLAB_DEBUG = 0x1
 START GROUP
-LOAD q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a
-LOAD q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a
-LOAD q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a
+LOAD c:/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a
+LOAD c:/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a
+LOAD c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a
 END GROUP
 OUTPUT(terminal.cof coff-pic30)
 LOAD FGS
@@ -1794,10 +1794,10 @@ LOAD default_isr
                     0x08a6                  U1RXReadCnt
 
 .ndata              0x08a8         0x22
- .ndata             0x08a8         0x22 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o)
+ .ndata             0x08a8         0x22 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xlitob.o)
 
 .ndata              0x08ca         0x12
- .ndata             0x08ca         0x12 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
+ .ndata             0x08ca         0x12 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
 
 .data               0x08dc          0x6
  .data              0x08dc          0x6 e_uart1_tx_char.o
@@ -1806,7 +1806,7 @@ LOAD default_isr
                     0x08e0                  U1TXOk
 
 .dconst             0x08e2          0x8
- .dconst            0x08e2          0x8 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
+ .dconst            0x08e2          0x8 c:/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
 
 .dinit            0x00131a         0x82
  .dinit           0x00131a         0x82 data_init
