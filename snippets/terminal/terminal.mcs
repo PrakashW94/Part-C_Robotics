@@ -9,90 +9,12 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File001]
-Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_init_uart1.o
-Folder=Intermediary
-DeviceName=dsPIC30F6014A
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
-LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
-SuiteArgsString=
-ToolArgsString=-g
-TraceCmdString=
-DebugOptions=--defsym=__DEBUG=1
-[File002]
-Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_uart1_rx_char.o
-Folder=Intermediary
-DeviceName=dsPIC30F6014A
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
-LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
-SuiteArgsString=
-ToolArgsString=-g
-TraceCmdString=
-DebugOptions=--defsym=__DEBUG=1
-[File003]
-Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_uart1_tx_char.o
-Folder=Intermediary
-DeviceName=dsPIC30F6014A
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
-LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
-SuiteArgsString=
-ToolArgsString=-g
-TraceCmdString=
-DebugOptions=--defsym=__DEBUG=1
-[File004]
-Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_init_port.o
-Folder=Intermediary
-DeviceName=dsPIC30F6014A
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
-LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
-SuiteArgsString=
-ToolArgsString=-g -Wall
-TraceCmdString=
-DebugOptions=-D__DEBUG
-[File005]
-Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_led.o
-Folder=Intermediary
-DeviceName=dsPIC30F6014A
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
-LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
-SuiteArgsString=
-ToolArgsString=-g -Wall
-TraceCmdString=
-DebugOptions=-D__DEBUG
-[File006]
-Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_prox.o
-Folder=Intermediary
-DeviceName=dsPIC30F6014A
-LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
-LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
-LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
-PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
-SuiteArgsString=
-ToolArgsString=-g -Wall
-TraceCmdString=
-DebugOptions=-D__DEBUG
-[File007]
 Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_ad_conv.o
 Folder=Intermediary
 DeviceName=dsPIC30F6014A
@@ -100,7 +22,85 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File002]
+Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_prox.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File003]
+Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_uart1_rx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File004]
+Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_uart1_tx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File005]
+Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_init_uart1.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File006]
+Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_init_port.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File007]
+Location=C:\Users\cgpw\Desktop\Part-C_Robotics\snippets\terminal\e_led.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -113,7 +113,7 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -126,7 +126,7 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
 LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
@@ -139,7 +139,7 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
 LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(INCDIR)|C:\Users\cgpw\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SOLK=<src>|main.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_rx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_uart1_tx_char.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\uart\e_init_uart1.s|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_led.c|C:\Users\cgpw\Desktop\Part-C_Robotics\library\motor_led\e_motors.c||<obj>||<lib>||<lkr>|C:\Users\cgpw\Desktop\Part-C_Robotics\library\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
