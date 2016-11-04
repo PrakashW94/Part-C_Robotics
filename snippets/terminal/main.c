@@ -1,6 +1,8 @@
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_epuck_ports.h"
 #include "uart/e_uart_char.h"
+#include "a_d/e_prox.h"
+#include "p30f6014A.h"
 
 #include "stdio.h"
 
@@ -18,10 +20,24 @@ void echosel()
 	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
 }
 
+void testprox()
+{
+	long i;
+	int value;
+	value = e_get_prox(0);
+	while(1)
+	{
+		sprintf(uartbuffer, "%d, ", value);
+		e_send_uart1_char(uartbuffer, strlen(uartbuffer));
+		for(i=0; i<100000; i++) { asm("nop"); }	
+	}
+}
+
 int main() 
 {
 	e_init_port();
 	e_init_uart1();
+	e_init_prox();
 	
 	int selector;
 	selector=getselector();
@@ -76,6 +92,11 @@ int main()
 			LED7 = 1;
 			echosel();
 			break;
+		}
+		case 8:
+		{
+			//LED8 = 1;
+			testprox();
 		}
 		default:
 		{

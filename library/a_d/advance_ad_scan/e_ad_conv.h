@@ -84,7 +84,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 #define MICRO_ONLY 1
 #define ALL_ADC 0
 
-void e_init_ad_scan(unsigned char only_micro);
+void e_init_ad(unsigned char only_micro);
 unsigned char e_ad_is_array_filled(void);
 unsigned char e_ad_is_acquisition_completed(void);
 void e_ad_scan_on(void);

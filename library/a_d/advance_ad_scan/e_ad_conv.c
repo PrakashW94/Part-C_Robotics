@@ -51,7 +51,7 @@ static unsigned char micro_only = 0;
  * \param only_micro Put MICRO_ONLY to use only the three microphones
  * at 33kHz. Put ALL_ADC to use all the stuff using the ADC.
  */
-void e_init_ad_scan(unsigned char only_micro)
+void e_init_ad(unsigned char only_micro)
 {
 	if(only_micro == MICRO_ONLY)
 		micro_only = MICRO_ONLY;
@@ -129,6 +129,23 @@ void e_init_ad_scan(unsigned char only_micro)
 		while (e_last_acc_scan_id < ACC_SAMP_NB-1);	
 }
 
+/*! \brief Function to sample an AD channel
+ * \param channel The A/D channel you want to sample
+ *                Must be between 0 to 15
+ * \return The sampled value on the specified channel
+ */
+int e_read_ad(unsigned int channel)
+{
+  int delay;
+  if(channel > 0x000F) return(0);
+  ADCHS = channel;
+  ADCON1bits.SAMP = 1;
+  for(delay = 0; delay < 40; delay++);
+  IFS0bits.ADIF = 0;
+  ADCON1bits.SAMP = 0;
+  while(!IFS0bits.ADIF);
+  return(ADCBUF0);
+}
 
 /*! \brief Save the AD buffer registers in differents arrays */
 void __attribute__((__interrupt__, auto_psv)) _ADCInterrupt(void)
