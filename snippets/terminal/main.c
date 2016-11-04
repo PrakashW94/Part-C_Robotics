@@ -16,12 +16,14 @@ int getselector() {
 	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
 }
 
+//function to report the value of the selector via uart1 comms
 void echosel()
 {
 	sprintf(uartbuffer,"The number of the selector is: %d ", getselector());	
 	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
 }
 
+//function to report the value of ir sensor 0 via uart1 comms
 void testprox()
 {
 	long i;
@@ -36,68 +38,86 @@ void testprox()
 	}
 }
 
+//function to report a value via uart1 comms given a piece of str (desc) and a value
+void reportValue(char* title, int value)
+{
+	sprintf(uartbuffer, "(%s - %d), ", title, value);
+	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
+}
+
+//function to get a value for proximity based on (IR7 + IR0)/2 and report it via uart1 comms
+int updateProx()
+{
+	int value0, value1, prox;
+	
+	value0 = e_get_prox(0);
+	value1 = e_get_prox(7);
+	prox = floor((value0+value1)/2);
+	
+	reportValue("prox", prox);
+	
+	return prox;
+}
+
+//main prog function
+//implements movement, leds and object detection
 void move()
 {
 	long i, j;
-	j=0;
-	int value0, value1, prox0;
+	int prox0;
+	j=500;
 	e_set_speed_left(j); 
 	e_set_speed_right(j); 
 	while(1)
 	{
-		value0 = e_get_prox(0);
-		value1 = e_get_prox(7);
-		prox0 = floor((value0+value1)/2);
-		
-		sprintf(uartbuffer, "%d-%d (%d), ", value0, value1, prox0);
-		e_send_uart1_char(uartbuffer, strlen(uartbuffer));
+		prox0 = updateProx();
 		
 		switch(prox0)
 		{
-			case 1 ... 500:
+			case 1 ... 500: //explore
 			{
 				e_led_clear();
-				j = 500;
-				e_set_speed_left(j);
-				e_set_speed_right(j);
+				while(prox0 < 500)
+				{
+					j = 500;
+					e_set_speed_left(j);
+					e_set_speed_right(j);
+					for(i=0; i<25000; i++) { asm("nop"); }
+					prox0 = updateProx();
+				}
 				break;
 			}
-			case 501 ... 2000:
+			case 501 ... 2000: //proceed with caution
 			{
 				e_led_clear();
-				LED0 = 1;
-				j = 150;
-				e_set_speed_left(j); 
-				e_set_speed_right(j);
+				while(prox0 > 501 &&  prox0 < 1500)
+				{
+					LED0 = 1;
+					j = 50;
+					e_set_speed_left(j); 
+					e_set_speed_right(j);
+					for(i=0; i<25000; i++) { asm("nop"); }
+					prox0 = updateProx();
+				}
 				break;
 			}
-			case 2001 ... 4000:
+			case 2001 ... 4000: //turn right
 			{
 				e_led_clear();
-				e_set_led(8, 2);
-				for(i=0; i<500000; i++) { asm("nop"); }
-				j = 500;
-				e_set_speed_left(j); 
-				e_set_speed_right(-j);
+				reportValue("preturn", e_get_steps_left());
+				while(prox0 > 2000)
+				{
+					e_set_led(8, 2);
+					j = 500;
+					e_set_speed_left(j); 
+					e_set_speed_right(-j);
+					for(i=0; i<500000; i++) { asm("nop"); }
+					prox0 = updateProx();
+				}
+				reportValue("postturn", e_get_steps_left());
 				break;
 			}
-		}
-		
-		/*if ((value0 > 500) || (value1 > 500))
-		{
-			LED0 = 1;			
-			j=0;
-			e_set_speed_left(j);
-			e_set_speed_right(j);
-		}
-		else
-		{
-			LED0 = 0;
-			j=500;
-			e_set_speed_left(j);
-			e_set_speed_right(j);
-		}*/
-		for(i=0; i<25000; i++) { asm("nop"); }
+		}		
 	}
 }
 
