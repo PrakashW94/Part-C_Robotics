@@ -27,6 +27,7 @@ void testprox()
 	value = e_get_prox(0);
 	while(1)
 	{
+		value = e_get_prox(0);		
 		sprintf(uartbuffer, "%d, ", value);
 		e_send_uart1_char(uartbuffer, strlen(uartbuffer));
 		for(i=0; i<100000; i++) { asm("nop"); }	
