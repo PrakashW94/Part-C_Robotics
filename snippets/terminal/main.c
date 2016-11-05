@@ -8,7 +8,7 @@
 char uartbuffer[100];
 
 //This function gets the position that the selector is in. 
-int getselector() {
+int getSelector() {
 	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
 }
 
@@ -25,7 +25,7 @@ int main()
 	e_init_uart1();
 	
 	int selector;
-	selector=getselector();
+	selector=getSelector();
 	
 	switch(selector)
 	{
@@ -85,5 +85,4 @@ int main()
 		}
 	}
 	while(1);
-
 }
