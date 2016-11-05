@@ -8,4 +8,4 @@ Selector Programs
 9: Early collision function, playing with and reacting to sensor values in a switch
 10: Funtion to vary the speed of the wheels based on the selector
 11: Function to rotate 180 degrees based on ir2 and ir5 (opposites)
-12: Function to rotate a specified number of steps, used to calculate angle turn at 500 steps/sec (needs testing)
+12: Function to rotate a specified number of steps, used to calculate angle turn at 500 steps/sec

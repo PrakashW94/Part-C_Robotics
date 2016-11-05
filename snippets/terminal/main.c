@@ -169,6 +169,8 @@ void rotateSteps(int steps)
 	long i, stepsTaken;
 	int prox;
 	
+	//compensate for lag?
+	steps = steps - 10;
 	while(1)
 	{
 		prox = updateProx(0);
