@@ -37,8 +37,6 @@ void testprox()
 	}
 }
 
-
-
 //function to get a value for proximity based on (IR7 + IR0)/2 and report it via uart1 comms
 int updateProx(int report)
 {
@@ -162,6 +160,14 @@ void rotate180()
 	}
 }
 
+void waitForSteps( int steps )
+{
+	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
+	{
+		// do nothing..
+	}
+}
+
 //function to rotate a specified number of steps
 //used to calculate angle turn at 500 steps/sec
 void rotateSteps(int steps)
@@ -177,19 +183,8 @@ void rotateSteps(int steps)
 		if (prox > 2000)
 		{
 			stepsTaken = e_get_steps_right();
-			while(stepsTaken <= steps)
-			{
-				LED0 = 1;
-				e_set_speed_left(-500);
-				e_set_speed_right(500);
-				stepsTaken = e_get_steps_right();
-				for(i=0; i<10000; i++) { asm("nop"); }
-			} 
 			reportValue("rotated", e_get_steps_right());
 			e_set_steps_right(0);
-			LED0 = 0;
-			e_set_speed_left(0);
-			e_set_speed_right(0);
 		}
 		for(i=0; i<10000; i++) { asm("nop"); }
 	}
