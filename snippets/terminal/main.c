@@ -175,15 +175,22 @@ void rotateSteps(int steps)
 	long i, stepsTaken;
 	int prox;
 	
-	//compensate for lag?
-	steps = steps - 10;
 	while(1)
 	{
 		prox = updateProx(0);
 		if (prox > 2000)
 		{
+			e_set_speed_left(-500);
+			e_set_speed_right(500);
+			LED0 = 1;
+			waitForSteps(steps);
+			e_set_speed_left(0);
+			e_set_speed_right(0);
+			LED0 = 0;
+			
 			stepsTaken = e_get_steps_right();
 			reportValue("rotated", e_get_steps_right());
+			e_set_steps_left(0);
 			e_set_steps_right(0);
 		}
 		for(i=0; i<10000; i++) { asm("nop"); }
