@@ -9,7 +9,7 @@ int main(void)
 {
 	e_init_motors();
 
-	moveToPoint(1000, 1000);	
+	moveToPoint(-500, -500);	
 
 	e_set_speed_left( 0 );
 	e_set_speed_right( 0 );

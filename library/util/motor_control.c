@@ -44,6 +44,29 @@ void rotateClockwise( float steps )
 	BODY_LED = 0;
 }
 
+void rotateAntiClockwiseDegrees( int degrees )
+{
+	// 1000 steps = 270 degrees
+	// 1 step = 0.27 degrees;
+	// 1 degree = 3.7037 degrees;
+
+	rotateAntiClockwise( degrees * 3.7037 );
+}
+
+void rotateAntiClockwise( float steps )
+{
+	clearSteps();
+
+	BODY_LED = 1;
+
+	e_set_speed_left( -500 );
+	e_set_speed_right( 500 );
+
+	waitForSteps( steps );
+
+	BODY_LED = 0;
+}
+
 void moveForwards( int steps )
 {
 	clearSteps();
@@ -60,7 +83,16 @@ void moveToPoint(int stepsRight, int stepsForward)
 	float b = pow(stepsForward, 2);
 	float h = sqrt(a + b);
 	float angle = acos(stepsForward / h);
+	angle = angle * 180 / PI;
+
+	if (stepsRight < 0)
+	{
+		rotateAntiClockwiseDegrees(angle);
+	}
+	else
+	{
+		rotateClockwiseDegrees(angle);
+	}
 	
-	rotateClockwiseDegrees(angle * 180 / PI);
 	moveForwards(h);
 }
