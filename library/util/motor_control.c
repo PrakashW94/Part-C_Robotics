@@ -1,6 +1,9 @@
-#include "e_epuck_ports.h"
-#include "e_init_port.h"
-#include "e_motors.h"
+#include "motor_led/e_epuck_ports.h"
+#include "motor_led/e_init_port.h"
+#include "motor_led/e_motors.h"
+#include <math.h>
+
+#define PI 3.14159265
 
 void waitForSteps( int steps )
 {
@@ -27,7 +30,7 @@ void rotateClockwiseDegrees( int degrees )
 
 //  Rotates the robot clockwise.
 //  333 steps = 90 degrees
-void rotateClockwise( int steps )
+void rotateClockwise( float steps )
 {
 	clearSteps();
 
@@ -41,14 +44,23 @@ void rotateClockwise( int steps )
 	BODY_LED = 0;
 }
 
-
-
 void moveForwards( int steps )
 {
 	clearSteps();
 
-	e_set_speed_left( 300 );
-	e_set_speed_right( 300 );
+	e_set_speed_left( 1000 );
+	e_set_speed_right( 1000 );
 
 	waitForSteps( steps );
+}
+
+void moveToPoint(int stepsRight, int stepsForward)
+{
+	float a = pow(stepsRight, 2);
+	float b = pow(stepsForward, 2);
+	float h = sqrt(a + b);
+	float angle = acos(stepsForward / h);
+	
+	rotateClockwiseDegrees(angle * 180 / PI);
+	moveForwards(h);
 }

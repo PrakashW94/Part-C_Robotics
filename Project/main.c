@@ -1,27 +1,23 @@
-#include "../library/motor_led/e_epuck_ports.h"
-#include "../library/motor_led/e_init_port.h"
-#include "../library/motor_led/e_motors.h"
+#include "motor_led/e_epuck_ports.h"
+#include "motor_led/e_init_port.h"
+#include "motor_led/e_motors.h"
+#include "util/motor_control.h"
+
+void wait(int steps);
 
 int main(void)
 {
 	e_init_motors();
-	
-	e_set_speed_left(500);
-	e_set_speed_right(500);	
-	
-	while(1) 
-	{
-		if (e_get_steps_left() > 1000)
-		{
-			e_set_speed_left(0);
-			e_set_speed_right(0);
-		}
 
-		Wait(15000);
-	}
+	moveToPoint(1000, 1000);	
+
+	e_set_speed_left( 0 );
+	e_set_speed_right( 0 );
+
+	while(1) { }
 }
 
-void Wait(int steps)
+void wait(int steps)
 {
 	int i = 0;
 
@@ -30,3 +26,4 @@ void Wait(int steps)
  		asm("NOP");
 	}
 }
+
