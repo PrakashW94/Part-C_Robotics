@@ -6,3 +6,4 @@ void rotateAntiClockwiseDegrees( int degrees )
 void rotateAntiClockwise(int steps);
 void moveForwards( int steps );
 void moveToPoint(int stepsRight, int stepsForward);
+int getSelector(); 
