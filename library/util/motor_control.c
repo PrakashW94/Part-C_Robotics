@@ -1,6 +1,36 @@
-#include "e_epuck_ports.h"
-#include "e_init_port.h"
-#include "e_motors.h"
+#include "motor_led/e_epuck_ports.h"
+#include "motor_led/e_init_port.h"
+#include "motor_led/e_motors.h"
+
+#include "util/constants.c"
+
+int normalise_speed( int speed )
+{
+	if( speed > 1000 ) 
+		return 1000;
+	
+	if( speed < 0 )
+		return 0;
+}
+
+void set_speed( int side, int speed )
+{
+	speed = normalise_speed( speed );
+		
+	switch( side ) 
+	{
+		case LEFT:
+			e_set_speed_left( speed );
+			break;
+		case RIGHT:
+			e_set_speed_right( speed );
+			break;
+		case BOTH:
+			e_set_speed_left( speed );
+			e_set_speed_right( speed );
+			break;
+	}
+}
 
 void waitForSteps( int steps )
 {
