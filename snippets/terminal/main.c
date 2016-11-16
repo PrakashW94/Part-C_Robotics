@@ -23,6 +23,12 @@ void reportValue(char* title, int value)
 	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
 }
 
+void reportValueClean(int value)
+{
+	sprintf(uartbuffer, "%d, ", value);
+	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
+}
+
 //function to report the value of ir sensor 0 via uart1 comms
 void testprox()
 {
@@ -32,7 +38,7 @@ void testprox()
 	while(1)
 	{
 		value = e_get_prox(0);		
-		reportValue("", value);
+		reportValue("prox", value);
 		for(i=0; i<100000; i++) { asm("nop"); }
 	}
 }
@@ -48,7 +54,7 @@ int updateProx(int report)
 	
 	if (report > 0)
 	{
-		reportValue("prox", prox);
+		reportValueClean(prox);
 	}
 	
 	return prox;
@@ -113,6 +119,164 @@ void move()
 				break;
 			}
 		}		
+	}
+}
+
+int updateProxRight()
+{
+	int proxRight = floor((e_get_prox(6) + 2*(e_get_prox(5)) + e_get_prox(4)) / 4);
+	reportValue("right", proxRight);
+	return proxRight; 
+}
+
+void turnRightToPerp()
+{
+	int i, j;
+	int proxRight;
+	j=300;
+	e_set_speed_left(j);
+	e_set_speed_right(-j);
+	int turn = 1;
+	while (turn)
+	{
+		proxRight = updateProxRight();
+		switch(proxRight)
+		{
+			case 1 ... 300:
+			{//If nothing detected, turn
+				j = 500;
+				e_set_speed_left(j);
+				e_set_speed_right(-j);
+				break;
+			}
+			case 301 ... 700:
+			{//If something detected but far go straight slow
+				j = 300;
+				e_set_speed_left(j);
+				e_set_speed_right(j);
+				break;
+			}
+			case 701 ... 2000:
+			{//If something detected close, we are perp
+				turn = 0;
+				break;
+			}
+		}
+		for(i=0; i<25000; i++) { asm("nop"); }
+	}
+	proxRight = updateProxRight();
+	for(i=0; i<25000; i++) { asm("nop"); }
+}
+
+int objectDetected()
+{
+	int sense = floor( (e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1)) /4 );
+	if (sense < 300)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+void moveSensory()
+{
+	int i, j;
+	int detector, detected;
+	
+	while (1)
+	{
+		detected = objectDetected();
+		detector = 0;
+		if (detected)
+		{
+			if(e_get_prox(6) > 300)
+			{
+				detector = detector + 1*1;
+			}
+			
+			if(e_get_prox(7) > 300)
+			{
+				detector = detector + 1*2;
+			}
+			
+			if(e_get_prox(0) > 300)
+			{
+				detector = detector + 1*4;
+			}
+			
+			if(e_get_prox(1) > 300)
+			{
+				detector = detector + 1*8;
+			}
+		}
+		else
+		{
+			j = 300;
+			e_set_speed_left(j);
+			e_set_speed_right(j);
+		}
+		reportValue("Sensory", detector);
+		for(i=0; i<500000; i++) { asm("nop"); };
+	}
+}
+
+void avoidObject()
+{
+	long i;
+	int j, proxfront;
+	j=500;
+	e_set_speed_left(j); 
+	e_set_speed_right(j); 
+	while(1)
+	{
+		proxfront = updateProx(1);
+		
+		switch(proxfront)
+		{
+			case 1 ... 500: //explore
+			{
+				e_led_clear();
+				while(proxfront < 500)
+				{
+					j = 500;
+					e_set_speed_left(j);
+					e_set_speed_right(j);
+					for(i=0; i<25000; i++) { asm("nop"); }
+					proxfront = updateProx(1);
+				}
+				break;
+			}
+			case 501 ... 2000: //proceed with caution
+			{
+				e_led_clear();
+				while(proxfront > 501 &&  proxfront < 1500)
+				{
+					LED0 = 1;
+					turnRightToPerp();
+					proxfront = updateProx(1);
+				}
+				break;
+			}
+			case 2001 ... 4000: //turn right
+			{
+				e_led_clear();
+				reportValue("preturn", e_get_steps_left());
+				while(proxfront > 2000)
+				{
+					e_set_led(8, 2);
+					j = 500;
+					e_set_speed_left(j); 
+					e_set_speed_right(-j);
+					for(i=0; i<500000; i++) { asm("nop"); }
+					proxfront = updateProx(1);
+				}
+				reportValue("postturn", e_get_steps_left());
+				break;
+			}
+		}
 	}
 }
 
@@ -218,8 +382,7 @@ int main()
 		}
 		case 1: 
 		{
-			LED1 = 1;
-			reportValue("Selector:", selector);
+			moveSensory();
 			break;
 		}
 		case 2: 
