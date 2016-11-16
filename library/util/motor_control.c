@@ -96,9 +96,3 @@ void moveToPoint(int stepsRight, int stepsForward)
 	
 	moveForwards(h);
 }
-
-//This function gets the position that the selector is in. 
-int getSelector() 
-{
-	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
-}
