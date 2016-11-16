@@ -19,15 +19,6 @@ void clearSteps()
 	e_set_steps_right( 0 );
 }
 
-void rotateClockwiseDegrees( int degrees )
-{
-	// 1000 steps = 270 degrees
-	// 1 step = 0.27 degrees;
-	// 1 degree = 3.7037 degrees;
-
-	rotateClockwise( degrees * 3.7037 );
-}
-
 //  Rotates the robot clockwise.
 //  333 steps = 90 degrees
 void rotateClockwise( float steps )
@@ -44,13 +35,13 @@ void rotateClockwise( float steps )
 	BODY_LED = 0;
 }
 
-void rotateAntiClockwiseDegrees( int degrees )
+void rotateClockwiseDegrees( int degrees )
 {
 	// 1000 steps = 270 degrees
 	// 1 step = 0.27 degrees;
 	// 1 degree = 3.7037 degrees;
 
-	rotateAntiClockwise( degrees * 3.7037 );
+	rotateClockwise( degrees * 3.7037 );
 }
 
 void rotateAntiClockwise( float steps )
@@ -65,6 +56,15 @@ void rotateAntiClockwise( float steps )
 	waitForSteps( steps );
 
 	BODY_LED = 0;
+}
+
+void rotateAntiClockwiseDegrees( int degrees )
+{
+	// 1000 steps = 270 degrees
+	// 1 step = 0.27 degrees;
+	// 1 degree = 3.7037 degrees;
+
+	rotateAntiClockwise( degrees * 3.7037 );
 }
 
 void moveForwards( int steps )

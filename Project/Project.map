@@ -10,10 +10,10 @@ q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm
                               e_motors.o (__divsf3)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixunssfsi.o)
                               e_motors.o (__fixunssfsi)
-q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(mulsf3.o)
-                              motor_control.o (__mulsf3)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixsfsi.o)
                               motor_control.o (__fixsfsi)
+q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(mulsf3.o)
+                              motor_control.o (__mulsf3)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(addsf3.o)
                               motor_control.o (__addsf3)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(sqrtf.o)
@@ -104,8 +104,8 @@ External Symbols in Program Memory (by address):
                   0x000180                  ___floatsisf
                   0x0001d6                  ___divsf3
                   0x00025a                  ___fixunssfsi
-                  0x000290                  ___mulsf3
-                  0x0002f8                  ___fixsfsi
+                  0x000290                  ___fixsfsi
+                  0x0002d2                  ___mulsf3
                   0x00033a                  ___subsf3
                   0x00033c                  ___addsf3
                   0x0003f6                  _sqrtf
@@ -137,10 +137,10 @@ External Symbols in Program Memory (by address):
                   0x0008cc                  _wait
                   0x0008e8                  _waitForSteps
                   0x0008fc                  _clearSteps
-                  0x00090a                  _rotateClockwiseDegrees
-                  0x000920                  _rotateClockwise
-                  0x00093c                  _rotateAntiClockwiseDegrees
-                  0x000952                  _rotateAntiClockwise
+                  0x00090a                  _rotateClockwise
+                  0x000926                  _rotateClockwiseDegrees
+                  0x00093c                  _rotateAntiClockwise
+                  0x000958                  _rotateAntiClockwiseDegrees
                   0x00096e                  _moveForwards
                   0x000984                  _moveToPoint
                   0x000a04                  __DefaultInterrupt
@@ -155,14 +155,14 @@ External Symbols in Program Memory (by name):
                   0x00033c                  ___addsf3
                   0x0001d6                  ___divsf3
                   0x0005dc                  ___eqsf2
-                  0x0002f8                  ___fixsfsi
+                  0x000290                  ___fixsfsi
                   0x00025a                  ___fixunssfsi
                   0x000180                  ___floatsisf
                   0x0005d8                  ___gesf2
                   0x0005d8                  ___gtsf2
                   0x0005dc                  ___lesf2
                   0x0005dc                  ___ltsf2
-                  0x000290                  ___mulsf3
+                  0x0002d2                  ___mulsf3
                   0x00033a                  ___subsf3
                   0x00050a                  __asinacosf
                   0x0004c0                  __fPropagateNaN
@@ -186,10 +186,10 @@ External Symbols in Program Memory (by name):
                   0x0008b8                  _main
                   0x00096e                  _moveForwards
                   0x000984                  _moveToPoint
-                  0x000952                  _rotateAntiClockwise
-                  0x00093c                  _rotateAntiClockwiseDegrees
-                  0x000920                  _rotateClockwise
-                  0x00090a                  _rotateClockwiseDegrees
+                  0x00093c                  _rotateAntiClockwise
+                  0x000958                  _rotateAntiClockwiseDegrees
+                  0x00090a                  _rotateClockwise
+                  0x000926                  _rotateClockwiseDegrees
                   0x0003f6                  _sqrtf
                   0x0008cc                  _wait
                   0x0008e8                  _waitForSteps
@@ -260,10 +260,10 @@ LOAD motor_control.o
                   0x0001d6                  __divsf3
  .libm            0x00025a         0x36 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixunssfsi.o)
                   0x00025a                  __fixunssfsi
- .libm            0x000290         0x68 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(mulsf3.o)
-                  0x000290                  __mulsf3
- .libm            0x0002f8         0x42 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixsfsi.o)
-                  0x0002f8                  __fixsfsi
+ .libm            0x000290         0x42 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixsfsi.o)
+                  0x000290                  __fixsfsi
+ .libm            0x0002d2         0x68 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(mulsf3.o)
+                  0x0002d2                  __mulsf3
  .libm            0x00033a         0xbc q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(addsf3.o)
                   0x00033a                  __subsf3
                   0x00033c                  __addsf3
@@ -313,10 +313,10 @@ LOAD motor_control.o
  .text            0x0008e8        0x10e motor_control.o
                   0x0008e8                  waitForSteps
                   0x0008fc                  clearSteps
-                  0x00090a                  rotateClockwiseDegrees
-                  0x000920                  rotateClockwise
-                  0x00093c                  rotateAntiClockwiseDegrees
-                  0x000952                  rotateAntiClockwise
+                  0x00090a                  rotateClockwise
+                  0x000926                  rotateClockwiseDegrees
+                  0x00093c                  rotateAntiClockwise
+                  0x000958                  rotateAntiClockwiseDegrees
                   0x00096e                  moveForwards
                   0x000984                  moveToPoint
 
