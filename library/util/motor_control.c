@@ -5,18 +5,58 @@
 
 #define PI 3.14159265
 
+int GOAL[] = {-500, -500};
+int currentDegrees = 0;
+double currentPosition[] = {0, 0};
+
+int getGoalX()
+{
+	return GOAL[0];
+}
+
+int getGoalY()
+{
+	return GOAL[1];
+}
+
 void waitForSteps( int steps )
 {
 	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
 	{
 		// do nothing..
 	}
+
+	// If Obstacle Found 
+	
 }
 
 void clearSteps()
 {
 	e_set_steps_left( 0 );
 	e_set_steps_right( 0 );
+}
+
+void updateDegrees(int degrees)
+{
+	currentDegrees += degrees;
+
+	if (currentDegrees < 0)
+		currentDegrees += 360;
+	else if (currentDegrees > 360)
+		currentDegrees -= 360;
+}
+
+void updateCurrentPosition()
+{
+	double stepsAvg = (e_get_steps_left() + e_get_steps_right()) / 2;
+	double currentAngle = currentDegrees * PI / 180;
+	currentPosition[0] += stepsAvg * cos(currentAngle);
+	currentPosition[1] += stepsAvg * sin(currentAngle);
+
+	if (currentPosition[0] > -50 && currentPosition[0] < 50)
+	{
+		LED0 = 1;
+	}
 }
 
 //  Rotates the robot clockwise.
@@ -40,8 +80,9 @@ void rotateClockwiseDegrees( int degrees )
 	// 1000 steps = 270 degrees
 	// 1 step = 0.27 degrees;
 	// 1 degree = 3.7037 degrees;
-
 	rotateClockwise( degrees * 3.7037 );
+
+	updateDegrees(degrees);
 }
 
 void rotateAntiClockwise( float steps )
@@ -63,8 +104,9 @@ void rotateAntiClockwiseDegrees( int degrees )
 	// 1000 steps = 270 degrees
 	// 1 step = 0.27 degrees;
 	// 1 degree = 3.7037 degrees;
-
 	rotateAntiClockwise( degrees * 3.7037 );
+	
+	updateDegrees(-degrees);
 }
 
 void moveForwards( int steps )
@@ -75,6 +117,8 @@ void moveForwards( int steps )
 	e_set_speed_right( 1000 );
 
 	waitForSteps( steps );
+
+	// Detect Obstacle
 }
 
 void moveToPoint(int stepsRight, int stepsForward)
@@ -95,4 +139,15 @@ void moveToPoint(int stepsRight, int stepsForward)
 	}
 	
 	moveForwards(h);
+
+	if (currentDegrees > 180)
+	{
+		rotateClockwiseDegrees( 360 - currentDegrees );
+	}
+	else
+	{
+		rotateAntiClockwiseDegrees(currentDegrees);
+	}
+
+	updateCurrentPosition();
 }
