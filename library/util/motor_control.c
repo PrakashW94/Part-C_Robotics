@@ -5,25 +5,23 @@
 
 #define PI 3.14159265
 
-int GOAL[] = {-500, -500};
+int GOAL[] = {500, 500};
 int currentDegrees = 0;
 double currentPosition[] = {0, 0};
-
-int getGoalX()
-{
-	return GOAL[0];
-}
-
-int getGoalY()
-{
-	return GOAL[1];
-}
 
 void waitForSteps( int steps )
 {
 	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
 	{
-		// do nothing..
+		int val = detectMLine();
+		if (val)
+		{
+			LED6 = 1;
+		}
+		else
+		{
+			LED6 = 0;
+		}
 	}
 
 	// If Obstacle Found 
@@ -152,4 +150,44 @@ void moveToPoint(int stepsRight, int stepsForward)
 	}
 
 	moveForwards(h);
+}
+
+int getGoalX()
+{
+	return GOAL[0];
+}
+
+int getGoalY()
+{
+	return GOAL[1];
+}
+
+void setGoal(int x, int y)
+{
+	GOAL[0] = x;
+	GOAL[1] = y;
+}
+
+void moveToGoal()
+{
+	moveToPoint(GOAL[0], GOAL[1]);
+}
+
+// Returns 1 for true if on m-line
+// Returns 0 for false if not on m-line
+// Allows for slight deviation
+// Assumes start pos is always (0, 0)
+int detectMLine()
+{
+	double gradient = GOAL[1] / GOAL[0];
+
+	if (currentPosition[1] < (gradient * currentPosition[0]) + 50
+		&& currentPosition[1] > (gradient * currentPosition[0]) - 50)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }

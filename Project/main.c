@@ -11,7 +11,9 @@ int main(void)
 	e_init_motors();
 	e_init_prox();
 
-	moveToPoint(-500, -500);
+	setGoal(-500, -500);
+	moveToPoint(0, 500);
+	moveToGoal();
 
 	e_set_speed_left( 0 );
 	e_set_speed_right( 0 );
