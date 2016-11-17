@@ -123,7 +123,7 @@ void moveForwards( int steps )
 	// Detect Obstacle
 }
 
-void moveToPoint(int stepsRight, int stepsForward)
+void move(int stepsRight, int stepsForward)
 {
 	// Pythagoras & Trig
 	float a = pow(stepsRight, 2);
@@ -150,6 +150,14 @@ void moveToPoint(int stepsRight, int stepsForward)
 	}
 
 	moveForwards(h);
+}
+
+void moveToPoint(int x, int y)
+{
+	int stepsRight = (0 - currentPosition[0]) + x;
+	int stepsForward = (0 - currentPosition[1]) + y;
+
+	move(stepsRight, stepsForward);
 }
 
 int getGoalX()
