@@ -1,0 +1,1 @@
+Object avoidance code, uses front 4 ir sensors to detect where objects are.
