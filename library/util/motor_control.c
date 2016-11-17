@@ -53,8 +53,9 @@ void updateCurrentPosition()
 	currentPosition[0] += stepsAvg * cos(currentAngle);
 	currentPosition[1] += stepsAvg * sin(currentAngle);
 
-	if (currentPosition[0] > -50 && currentPosition[0] < 50
-		&& currentPosition[1] > -50 && currentPosition[1] < 50)
+	// Lights up when it reaches GOAL, allowing for small margin of error
+	if (currentPosition[0] > GOAL[0] - 50 && currentPosition[0] < GOAL[0] + 50
+		&& currentPosition[1] > GOAL[1] - 50 && currentPosition[1] < GOAL[1] + 50)
 	{
 		LED0 = 1;
 	}
