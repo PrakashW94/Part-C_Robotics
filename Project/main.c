@@ -11,24 +11,14 @@ int main(void)
 	e_init_motors();
 	e_init_prox();
 
-	moveToPoint(500, 500);
-	moveToPoint(-500, -500);
-	
+	moveToPoint(0, 500);
+	moveToPoint(500, 0);
+	moveToPoint(0, -500);
+	moveToPoint(-500, 0);
+
 	e_set_speed_left( 0 );
 	e_set_speed_right( 0 );
 
-	/*int value;
-	while(1) 
-	{ 
-		long i;
- 		value = e_get_prox(0);
- 		if(value > 1000)
- 			LED0 = 1;
- 		else
-			LED0 = 0;
-
-		wait(100000);		
-	}*/
 	while(1) {}
 }
 

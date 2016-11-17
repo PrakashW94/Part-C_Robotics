@@ -53,7 +53,8 @@ void updateCurrentPosition()
 	currentPosition[0] += stepsAvg * cos(currentAngle);
 	currentPosition[1] += stepsAvg * sin(currentAngle);
 
-	if (currentPosition[0] > -50 && currentPosition[0] < 50)
+	if (currentPosition[0] > -50 && currentPosition[0] < 50
+		&& currentPosition[1] > -50 && currentPosition[1] < 50)
 	{
 		LED0 = 1;
 	}
@@ -106,7 +107,7 @@ void rotateAntiClockwiseDegrees( int degrees )
 	// 1 degree = 3.7037 degrees;
 	rotateAntiClockwise( degrees * 3.7037 );
 	
-	updateDegrees(-degrees);
+	updateDegrees(360 - degrees);
 }
 
 void moveForwards( int steps )
@@ -118,11 +119,14 @@ void moveForwards( int steps )
 
 	waitForSteps( steps );
 
+	updateCurrentPosition();
+
 	// Detect Obstacle
 }
 
 void moveToPoint(int stepsRight, int stepsForward)
 {
+	// Pythagoras & Trig
 	float a = pow(stepsRight, 2);
 	float b = pow(stepsForward, 2);
 	float h = sqrt(a + b);
@@ -130,24 +134,21 @@ void moveToPoint(int stepsRight, int stepsForward)
 	angle = angle * 180 / PI;
 
 	if (stepsRight < 0)
+		angle = 360 - angle;
+
+	// Take into account how we're currently oriented.
+	angle -= currentDegrees;
+	if (angle < 0)
+		angle = 360 + angle;
+	
+	if (angle > 180)
 	{
-		rotateAntiClockwiseDegrees(angle);
+		rotateAntiClockwiseDegrees(360 - angle);	
 	}
-	else
+	else 
 	{
 		rotateClockwiseDegrees(angle);
 	}
-	
+
 	moveForwards(h);
-
-	if (currentDegrees > 180)
-	{
-		rotateClockwiseDegrees( 360 - currentDegrees );
-	}
-	else
-	{
-		rotateAntiClockwiseDegrees(currentDegrees);
-	}
-
-	updateCurrentPosition();
 }
