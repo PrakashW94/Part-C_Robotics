@@ -25,7 +25,7 @@
 * The lower this value, the more potential force is
 * generated from the objects around
 */
-#define PROXSCALING_AGGRESSION 2
+#define PROXSCALING_LOVE 2
 
 /*
 * Increase this value to increase the base speed of the robot.
@@ -34,18 +34,12 @@
 #define BASICSPEED 400
 
 /*
-* Decrease this value to increase the sensitivity of the
-* acceleration when near an object.
+* Change this value to increase the sensitivity of the
+* decelleration when near an object.
 */
-#define ACCELERATE_PER_SCALE 20
+#define DECELLERATE_PER_SCALE 200
 
-
-/*
-* Uses all proximity sensors but the back to create an aggressive braitenburg behaviour.
-* 
-* When the sensors increase on one side, the opposite wheel should increase in speed.
-*/
-void aggression()
+void love()
 {	
 	// Iterator Variables
 	int i, s, m;
@@ -64,7 +58,7 @@ void aggression()
 	
 	// Match LED to proximity sensor
 	int led_array[8] = { 9, 1, 2, 3, 5, 6, 7, 0};
-	
+
 	/* A 2-D array to scale the potential forces of each sensor.
 	* 0 = Potential force on left wheel
 	* 1 = Potential force on right wheel
@@ -73,9 +67,8 @@ void aggression()
 	* Negative value represents a repelling force.
 	*/
 	int matrix_prox[2][8] =
-		{{8,4,8,0,0,0,0,0},
-		{0,0,0,0,0,8,4,8}};
-
+		{{0,0,0,0,0,-8,-4,-8},
+		{-8,-4,-8,0,0,0,0,0}};
 
 	int max_proximity = -1;
 
@@ -89,13 +82,13 @@ void aggression()
 		{	
 			int prox_value = e_get_calibrated_prox( s );
 			
-			// Turn led on/off if the sensor is triggered/not triggered	
+			// Turn led on/off if the sensor is triggered/not triggered
 			int led_on = ( prox_value > 50 ) ? 1 : 0;
 			e_set_led( led_array[s], led_on );
 			
 			int potential_modifier = matrix_prox[m][s];
 
-			// If modifier is 0, we do not care about that sensor.	
+			// If modifier is 0, we do not care about that sensor.
 			if( potential_modifier != 0 )
 			{
 				if( max_proximity ==  -1 )
@@ -108,10 +101,10 @@ void aggression()
 			potential[m] += prox_potential;
 		}
 
-		speed[m] = ( potential[m] / PROXSCALING_AGGRESSION ) + BASICSPEED;
+		speed[m] = ( potential[m] / PROXSCALING_LOVE ) + BASICSPEED;
 	}	
 
-	float scale_raise = ( ( max_proximity > 1000 ? 1000 : max_proximity ) / ACCELERATE_PER_SCALE );
+	float scale_raise = ( ( max_proximity > 1000 ? 1000 : max_proximity ) / DECELLERATE_PER_SCALE );
 	scale_raise = scale_raise + 1.0; 
 	
 	// Scale up each wheel speed
@@ -119,6 +112,8 @@ void aggression()
 	{
 		speed[m] = speed[m] / scale_raise;
 		
+		// TODO:: if speed is between 0 and 50, or 0 and -50, then change to 50/-50		
+
 		if( speed[m] > 1000 )
 			speed[m] = 1000;
 		else if( speed[m] < - 1000 )
@@ -126,16 +121,30 @@ void aggression()
 			speed[m] = -1000;
 		}
 	}	
+	
+	// Perform love
+	if( speed[0] == 0 && speed[1] == 0 )
+	{
+		BODY_LED = 1;
+	}
+	else
+	{
+		BODY_LED = 0;
+	}
 
 	e_set_speed_right( speed[0] );
 	e_set_speed_left( speed[1] );
 }
 
 /*
-* As the sensory value for a sensor on one side increases, the motor for the opposite side of the robot
-* will increase in speed.
+* Uses all proximity sensors except the two back.
+*
+* As the sensory values increase, the robot is `attracted` to the object
+* causing the increase. The robot also slows down as it gets closer.
+*
+* After getting close enough, the robot will stop and perform a signal of `love`.
 */
-void initAggression()
+void initLove()
 {
 	// Initialise components 
 	e_init_port();
@@ -146,7 +155,7 @@ void initAggression()
 	e_calibrate_ir();
 	
 	// Register agendas
-  	e_activate_agenda( aggression, 650 );
+  	e_activate_agenda( love, 650 );
 
 	// Start processing
 	e_start_agendas_processing();

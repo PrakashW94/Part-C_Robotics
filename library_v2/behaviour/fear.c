@@ -25,7 +25,7 @@
 * The lower this value, the more potential force is
 * generated from the objects around
 */
-#define PROXSCALING_AGGRESSION 2
+#define PROXSCALING_FEAR 2
 
 /*
 * Increase this value to increase the base speed of the robot.
@@ -39,14 +39,9 @@
 */
 #define ACCELERATE_PER_SCALE 20
 
-
-/*
-* Uses all proximity sensors but the back to create an aggressive braitenburg behaviour.
-* 
-* When the sensors increase on one side, the opposite wheel should increase in speed.
-*/
-void aggression()
+void fear()
 {	
+	
 	// Iterator Variables
 	int i, s, m;
 	
@@ -62,10 +57,12 @@ void aggression()
 	*/
 	int speed[2];
 	
+	
 	// Match LED to proximity sensor
 	int led_array[8] = { 9, 1, 2, 3, 5, 6, 7, 0};
-	
-	/* A 2-D array to scale the potential forces of each sensor.
+
+	/* 
+	* A 2-D array to scale the potential forces of each sensor.
 	* 0 = Potential force on left wheel
 	* 1 = Potential force on right wheel
 	*
@@ -73,9 +70,8 @@ void aggression()
 	* Negative value represents a repelling force.
 	*/
 	int matrix_prox[2][8] =
-		{{8,4,8,0,0,0,0,0},
-		{0,0,0,0,0,8,4,8}};
-
+		{{0,0,0,0,0,-8,-4,-8},
+		{-8,-4,-8,0,0,0,0,0}};
 
 	int max_proximity = -1;
 
@@ -108,7 +104,7 @@ void aggression()
 			potential[m] += prox_potential;
 		}
 
-		speed[m] = ( potential[m] / PROXSCALING_AGGRESSION ) + BASICSPEED;
+		speed[m] = ( potential[m] / PROXSCALING_FEAR ) + BASICSPEED;
 	}	
 
 	float scale_raise = ( ( max_proximity > 1000 ? 1000 : max_proximity ) / ACCELERATE_PER_SCALE );
@@ -132,10 +128,13 @@ void aggression()
 }
 
 /*
+* Uses the two front proximity sensors and the motors corresponding to the opposite side of each sensot
+* to create the aggressive braitenberg behaviour.
+* 
 * As the sensory value for a sensor on one side increases, the motor for the opposite side of the robot
 * will increase in speed.
 */
-void initAggression()
+void initFear()
 {
 	// Initialise components 
 	e_init_port();
@@ -146,7 +145,7 @@ void initAggression()
 	e_calibrate_ir();
 	
 	// Register agendas
-  	e_activate_agenda( aggression, 650 );
+  	e_activate_agenda( fear, 650 );
 
 	// Start processing
 	e_start_agendas_processing();

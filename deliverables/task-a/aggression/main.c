@@ -1,4 +1,7 @@
 #include "behaviour/aggression.h"
+#include "behaviour/curious.h"
+#include "behaviour/fear.h"
+#include "behaviour/love.h"
 
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_motors.h"
@@ -21,7 +24,16 @@ int main()
 	// Selectors go from 0-14
 	switch( selector ){
 		case 0:
+			initFear();
+			break;
+		case 1:
+			initCuriousity();
+			break;
+		case 2:
 			initAggression();
+			break;
+		case 3:
+			initLove();
 			break;
 		default:
 			BODY_LED = 1;
