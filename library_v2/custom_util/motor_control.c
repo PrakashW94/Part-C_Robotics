@@ -2,6 +2,7 @@
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_motors.h"
 #include "custom_util/constants.c"
+#include "uart/e_uart_char.h"
 #include <math.h>
 
 #define PI 3.14159265
@@ -9,6 +10,14 @@
 double GOAL[] = {500, 500};
 int currentDegrees = 0;
 double currentPosition[] = {0, 0};
+char uartbuffer[100];
+
+void reportValue(char* title, int value)
+{
+	sprintf(uartbuffer, "(%s - %d)\r\n", title, value);
+	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
+	while(e_uart1_sending()){}
+}
 
 void waitForSteps( int steps )
 {
@@ -49,15 +58,34 @@ void updateCurrentPosition()
 	
 	double newX = stepsAvg * sin(currentAngle);
 	double newY = stepsAvg * cos(currentAngle);
+
+	/* Force values down if they are too small
+	double marginForError = 50;
+	if (newX > -marginForError && newX < marginForError)
+		newX = 0;
+	else if (newY > -marginForError && newY < marginForError)
+		newY = 0;*/		
+
+
 	
 	currentPosition[0] += newX;
 	currentPosition[1] += newY;
+
+	reportValue("X: ", currentPosition[0]);
+	reportValue("Y: ", currentPosition[1]);
+
+	reportValue("GOALX", GOAL[0]);
+	reportValue("GOALY", GOAL[1]);
 
 	// Lights up when it reaches GOAL, allowing for small margin of error
 	if (currentPosition[0] > GOAL[0] - 50 && currentPosition[0] < GOAL[0] + 50
 		&& currentPosition[1] > GOAL[1] - 50 && currentPosition[1] < GOAL[1] + 50)
 	{
 		LED0 = 1;
+	}
+	else
+	{
+		LED0 = 0;
 	}
 }
 
