@@ -4,9 +4,9 @@
 #include "motor_led/e_led.h"
 #include "a_d/e_prox.h"
 #include "uart/e_uart_char.h"
+#include <string.h>
 
 #include <math.h>
-
 
 #define threshold 300
 int getSelector();
@@ -16,33 +16,39 @@ void wait(int steps);
 void reportValue(char* title, int value)
 {
 	char uartbuffer[100];
-	sprintf(uartbuffer, "(%s - %d), \n\r", title, value);
-	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
+	int length;
+	sprintf(uartbuffer, "(%s - %d)\r\n", title, value);
+	length = strlen(uartbuffer);
+	e_send_uart1_char(uartbuffer, length);
+	while(e_uart1_sending()){}
 }
 
 int updateDetector()
 {
-	int detector = 0;
+	int d = 0;
 	if(e_get_prox(6) > threshold)
 	{
-		detector = detector + 1*1;
+		d = d + 1*1;
 	}
 	
 	if(e_get_prox(7) > threshold)
 	{
-		detector = detector + 1*2;
+		d = d + 1*2;
 	}
 	
 	if(e_get_prox(0) > threshold)
 	{
-		detector = detector + 1*4;
+		d = d + 1*4;
 	}
 	
 	if(e_get_prox(1) > threshold)
 	{
-		detector = detector + 1*8;
+		d = d + 1*8;
 	}
-	return detector;
+	if (d)
+		return d;
+	else
+		return 0;
 }
 
 void moveSensory()
@@ -50,7 +56,7 @@ void moveSensory()
 	int j;
 	int detector;
 	
-	j = 300;
+	j = 200;
 	e_set_speed_left(j);
 	e_set_speed_right(j);
 	while (1)
@@ -61,28 +67,43 @@ void moveSensory()
 			case 0: 
 			{
 				e_led_clear();
+				e_set_speed_left(j);
+				e_set_speed_right(j);
+				//wait(2000000);
 				break;
 			}
 			case 1: 
 			{
 				LED7 = 1;
+				e_set_speed_left(-3*j);
+				e_set_speed_right(j);
+				//wait(2000000);
 				break;
 			}
 			case 2: 
 			{
 				LED7 = 1;
 				LED0 = 1;
+				e_set_speed_left(-5*j);
+				e_set_speed_right(j);
+				//wait(2000000);
 				break;
 			}
 			case 4: 
 			{
 				LED0 = 1; 
-				LED1 = 1; 
+				LED1 = 1;
+				e_set_speed_left(-j);
+				e_set_speed_right(5*j);
+				//wait(2000000);				
 				break;
 			}
 			case 8: 
 			{
 				LED1 = 1; 
+				e_set_speed_left(-j);
+				e_set_speed_right(3*j);
+				//wait(2000000);
 				break;
 			}
 			default: 
@@ -91,7 +112,7 @@ void moveSensory()
 			}
 		}
 		reportValue("Detector", detector);
-		wait(500000);
+		wait(1000000);
 	}
 }
 
@@ -99,6 +120,8 @@ int main(void)
 {
 	e_init_motors();
 	e_init_prox();
+	e_init_uart1();
+	
 	int selector = getSelector();
 	if (selector > 0)
 	{
