@@ -5,7 +5,7 @@
 
 #define PI 3.14159265
 
-int GOAL[] = {500, 500};
+double GOAL[] = {500, 500};
 int currentDegrees = 0;
 double currentPosition[] = {0, 0};
 
@@ -23,9 +23,6 @@ void waitForSteps( int steps )
 			LED6 = 0;
 		}
 	}
-
-	// If Obstacle Found 
-	
 }
 
 void clearSteps()
@@ -48,8 +45,8 @@ void updateCurrentPosition()
 {
 	double stepsAvg = (e_get_steps_left() + e_get_steps_right()) / 2;
 	double currentAngle = currentDegrees * PI / 180;
-	currentPosition[0] += stepsAvg * cos(currentAngle);
-	currentPosition[1] += stepsAvg * sin(currentAngle);
+	currentPosition[0] += stepsAvg * sin(currentAngle);
+	currentPosition[1] += stepsAvg * cos(currentAngle);
 
 	// Lights up when it reaches GOAL, allowing for small margin of error
 	if (currentPosition[0] > GOAL[0] - 50 && currentPosition[0] < GOAL[0] + 50
@@ -154,8 +151,8 @@ void move(int stepsRight, int stepsForward)
 
 void moveToPoint(int x, int y)
 {
-	int stepsRight = (0 - currentPosition[0]) + x;
-	int stepsForward = (0 - currentPosition[1]) + y;
+	int stepsRight = x - currentPosition[0];
+	int stepsForward = y - currentPosition[1];
 
 	move(stepsRight, stepsForward);
 }
