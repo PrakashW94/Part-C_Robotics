@@ -19,19 +19,32 @@ void reportValue(char* title, int value)
 	while(e_uart1_sending()){}
 }
 
+// 1 For detecting while you move
+void waitForStepsAndDetect( int steps)
+{
+	int objectDetected = 0;
+	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
+	{		
+		objectDetected = updateDetector();
+		if (objectDetected > 0)
+		{			
+			break;
+		}	
+	}
+	
+	if (objectDetected)
+	{
+		rotateClockwiseDegrees(90);
+		moveForwards(1000);
+		moveToGoal();
+	}
+}
+
 void waitForSteps( int steps )
 {
 	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
 	{
-		int val = detectMLine();
-		if (val)
-		{
-			LED6 = 1;
-		}
-		else
-		{
-			LED6 = 0;
-		}
+
 	}
 }
 
@@ -59,15 +72,6 @@ void updateCurrentPosition()
 	double newX = stepsAvg * sin(currentAngle);
 	double newY = stepsAvg * cos(currentAngle);
 
-	/* Force values down if they are too small
-	double marginForError = 50;
-	if (newX > -marginForError && newX < marginForError)
-		newX = 0;
-	else if (newY > -marginForError && newY < marginForError)
-		newY = 0;*/		
-
-
-	
 	currentPosition[0] += newX;
 	currentPosition[1] += newY;
 
@@ -87,6 +91,19 @@ void updateCurrentPosition()
 	{
 		LED0 = 0;
 	}
+
+	// Light up LED when on m-line, for testing
+	int val = detectMLine();
+	if (val)
+	{
+		LED6 = 1;
+	}
+	else
+	{
+		LED6 = 0;
+	}
+
+	clearSteps();
 }
 
 //  Rotates the robot clockwise.
@@ -100,7 +117,9 @@ void rotateClockwise( float steps )
 	e_set_speed_left( 500 );
 	e_set_speed_right( -500 );
 
+	reportValue("rotating 90", 1);
 	waitForSteps( steps );
+	reportValue("done rotating 90", 1);
 
 	BODY_LED = 0;
 }
@@ -143,10 +162,10 @@ void moveForwards( int steps )
 {
 	clearSteps();
 
-	e_set_speed_left( 1000 );
-	e_set_speed_right( 1000 );
+	e_set_speed_left( 500 );
+	e_set_speed_right( 500 );
 
-	waitForSteps( steps );
+	waitForStepsAndDetect( steps );
 
 	updateCurrentPosition();
 }
