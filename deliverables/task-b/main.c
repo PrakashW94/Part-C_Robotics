@@ -2,7 +2,7 @@
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_motors.h"
 #include "a_d/e_prox.h"
-#include "util/motor_control.h"
+#include "custom_util/motor_control.h"
 
 void wait(int steps);
 

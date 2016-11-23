@@ -1,12 +1,7 @@
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_motors.h"
-
-#include "constants.c"
-#include "motor_led/e_epuck_ports.h"
-#include "motor_led/e_init_port.h"
-#include "motor_led/e_motors.h"
-#include "util/constants.c"
+#include "custom_util/constants.c"
 #include <math.h>
 
 #define PI 3.14159265
