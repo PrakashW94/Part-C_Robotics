@@ -8,13 +8,14 @@
 char uartbuffer[100];
 
 //This function gets the position that the selector is in. 
-int getselector() {
+int getSelector() {
 	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
 }
 
-void echosel()
+//function to report a value via uart1 comms given a piece of str (desc) and a value
+void reportValue(char* title, int value)
 {
-	sprintf(uartbuffer,"The number of the selector is: %d ", getselector());	
+	sprintf(uartbuffer, "(%s - %d), ", title, value);
 	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
 }
 
@@ -24,7 +25,7 @@ int main()
 	e_init_uart1();
 	
 	int selector;
-	selector=getselector();
+	selector=getSelector();
 	
 	switch(selector)
 	{
@@ -38,51 +39,50 @@ int main()
 		case 1: 
 		{
 			LED1 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		case 2: 
 		{
 			LED2 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		case 3: 
 		{
 			LED3 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		case 4: 
 		{
 			LED4 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		case 5: 
 		{
 			LED5 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		case 6: 
 		{
 			LED6 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		case 7: 
 		{
 			LED7 = 1;
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 		default:
 		{
-			echosel();
+			reportValue("Selector:", selector);
 			break;
 		}
 	}
 	while(1);
-
 }

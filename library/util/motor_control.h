@@ -11,3 +11,14 @@ void moveToPoint(int stepsRight, int stepsForward);
 
 void setGoal(int x, int y);
 void moveToGoal();
+
+#ifndef _MOTOR_CONTROL
+#define _MOTOR_CONTROL
+
+
+int normalise_speed( int speed );
+
+void set_speed( int side, int speed );
+
+
+#endif
