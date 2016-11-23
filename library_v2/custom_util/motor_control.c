@@ -46,8 +46,12 @@ void updateCurrentPosition()
 {
 	double stepsAvg = (e_get_steps_left() + e_get_steps_right()) / 2;
 	double currentAngle = currentDegrees * PI / 180;
-	currentPosition[0] += stepsAvg * sin(currentAngle);
-	currentPosition[1] += stepsAvg * cos(currentAngle);
+	
+	double newX = stepsAvg * sin(currentAngle);
+	double newY = stepsAvg * cos(currentAngle);
+	
+	currentPosition[0] += newX;
+	currentPosition[1] += newY;
 
 	// Lights up when it reaches GOAL, allowing for small margin of error
 	if (currentPosition[0] > GOAL[0] - 50 && currentPosition[0] < GOAL[0] + 50
@@ -183,17 +187,16 @@ void moveToGoal()
 // Assumes start pos is always (0, 0)
 int detectMLine()
 {
-	double gradient = GOAL[1] / GOAL[0];
+	// Calculate vector lengths
+	double currentDistance = sqrt(pow(currentPosition[0], 2) + pow(currentPosition[1], 2));
+	double currentToGoal = sqrt(pow(currentPosition[0] - GOAL[0], 2) + pow(currentPosition[1] - GOAL[1], 2));
+	double goalDistance = sqrt(pow(GOAL[0], 2) + pow(GOAL[1], 2));	
 
-	if (currentPosition[1] < (gradient * currentPosition[0]) + 50
-		&& currentPosition[1] > (gradient * currentPosition[0]) - 50)
-	{
+	if (currentDistance + currentToGoal > goalDistance - 50
+		&& currentDistance + currentToGoal < goalDistance + 50)
 		return 1;
-	}
 	else
-	{
 		return 0;
-	}
 }
 
 int normalise_speed( int speed )

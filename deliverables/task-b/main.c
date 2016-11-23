@@ -1,6 +1,7 @@
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_motors.h"
+#include "uart/e_uart_char.h"
 #include "a_d/e_prox.h"
 #include "custom_util/motor_control.h"
 
@@ -10,12 +11,12 @@ int main(void)
 {
 	e_init_motors();
 	e_init_prox();
+	e_init_uart1();
 
-	setGoal(0, 1000);
-	moveToPoint(0, 500);
-	moveToPoint(500, 500);
-	moveToPoint(500, 0);
-	moveToPoint(0, 0);
+	setGoal(0, 1500);
+	moveToPoint(0, 200);
+	move(400, 0);
+	move(-400, 0);
 	moveToGoal();
 
 	e_set_speed_left( 0 );

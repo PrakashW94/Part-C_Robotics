@@ -13,7 +13,7 @@ History:
 ****************************************************************************************************************/
 ;to be used with uart_txrx_char.h
 
-.include "e_epuck_ports.inc"
+.include "uart/e_epuck_ports.inc"
 
 
 .equiv	BAUDRATE, 115000 
