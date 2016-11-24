@@ -48,11 +48,11 @@ void updateCurrentPosition()
 	currentPosition[0] += newX;
 	currentPosition[1] += newY;
 
-	reportValue("X: ", currentPosition[0]);
-	reportValue("Y: ", currentPosition[1]);
+	//reportValue("X: ", currentPosition[0]);
+	//reportValue("Y: ", currentPosition[1]);
 
-	reportValue("GOALX", GOAL[0]);
-	reportValue("GOALY", GOAL[1]);
+	//reportValue("GOALX", GOAL[0]);
+	//reportValue("GOALY", GOAL[1]);
 
 	// Lights up when it reaches GOAL, allowing for small margin of error
 	if (currentPosition[0] > GOAL[0] - 50 && currentPosition[0] < GOAL[0] + 50
@@ -85,14 +85,10 @@ void rotateClockwise( float steps )
 {
 	clearSteps();
 
-	BODY_LED = 1;
-
 	e_set_speed_left( 500 );
 	e_set_speed_right( -500 );
 
 	waitForSteps( steps );
-
-	BODY_LED = 0;
 }
 
 void rotateClockwiseDegrees( int degrees )
@@ -109,14 +105,10 @@ void rotateAntiClockwise( float steps )
 {
 	clearSteps();
 
-	BODY_LED = 1;
-
 	e_set_speed_left( -500 );
 	e_set_speed_right( 500 );
 
 	waitForSteps( steps );
-
-	BODY_LED = 0;
 }
 
 void rotateAntiClockwiseDegrees( int degrees )
@@ -129,14 +121,18 @@ void rotateAntiClockwiseDegrees( int degrees )
 	updateDegrees(360 - degrees);
 }
 
-void moveForwards( int steps )
+// 1 to use detection loop
+void moveForwards( int steps, int detect )
 {
 	clearSteps();
 
 	e_set_speed_left( 500 );
 	e_set_speed_right( 500 );
 
-	waitForStepsAndDetect( steps );
+	if (detect)
+		waitForStepsAndDetect( steps );
+	else
+		waitForSteps(steps);
 
 	updateCurrentPosition();
 }
@@ -167,7 +163,7 @@ void move(int stepsRight, int stepsForward)
 		rotateClockwiseDegrees(angle);
 	}
 
-	moveForwards(h);
+	moveForwards(h, 1);
 }
 
 void moveToPoint(int x, int y)
@@ -223,18 +219,41 @@ void waitForStepsAndDetect(int steps)
 	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
 	{		
 		objectDetected = updateDetector();
-		if (objectDetected > 0)
+		if (objectDetected == 1)
 		{			
+			updateCurrentPosition();
 			break;
 		}	
 	}
 	
 	if (objectDetected)
 	{
-		rotateClockwiseDegrees(90);
-		moveForwards(1000);
-		moveToGoal();
+		// Rotate anticlockwise until it is perpendicular to object
+		int d = updateDetector();
+		//while (d != 2)
+		//{				
+			//reportValue("Rotating", d);
+			rotateAntiClockwiseDegrees(90);
+			//d = updateDetector();
+		//}
+
+		traceObject();
+		moveToGoal();	
 	}
+}
+
+void traceObject()
+{
+	int d = updateDetector();
+	while (d == 2)
+	{		
+		//reportValue("Moving Forwards", d);
+		moveForwards(100, 0);
+		d = updateDetector;
+	}
+
+	// Move forwards a little offset to clear the robot length
+	//moveForwards(300, 1);
 }
 
 int normalise_speed( int speed )
@@ -271,4 +290,9 @@ void set_speed( int side, int speed )
 			set_speed( RIGHT, speed );
 			break;
 	}
+}
+
+void beginBug()
+{
+	
 }

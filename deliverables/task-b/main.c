@@ -7,6 +7,8 @@
 #include "motor_led/e_led.h"
 #include "a_d/e_prox.h"
 #include <string.h>
+#include "custom_util/constants.c"
+#include "utility/utility.h"
 
 #include <math.h>
 
@@ -18,30 +20,30 @@ int getSelector();
 int updateDetector()
 {
 	int d = 0;
-	if(e_get_prox(6) > threshold)
+
+	// FRONT Detected
+	if (e_get_prox(0) > threshold
+		&& e_get_prox(7) > threshold)
 	{
-		d = d + 1*1;
-	}
-	
-	if(e_get_prox(7) > threshold)
-	{
-		d = d + 1*2;
-	}
-	
-	if(e_get_prox(0) > threshold)
-	{
-		d = d + 1*4;
-	}
-	
-	if(e_get_prox(1) > threshold)
-	{
-		d = d + 1*8;
+		d = d + 1;
 	}
 
-	if (d)
-		return d;
-	else
-		return 0;
+	// RIGHT SIDE Detected
+	if (e_get_prox(2) > threshold)
+	{
+		d = d + 2;
+	}
+
+	// LEFT SIDE Detected
+	if (e_get_prox(5) > threshold)
+	{
+		d = d + 4;
+	}
+
+	// Don't do this too often
+	//wait(1000000);
+
+	return d;
 }
 
 void moveSensory()
@@ -111,8 +113,8 @@ int main(void)
 	int selector = getSelector();
 	if (selector == 1)
 	{		
-		setGoal(0, 1500);
-		moveToGoal();
+		setGoal(0, 2200);
+		moveToGoal();		
 		
 		e_set_speed_left( 0 );
 		e_set_speed_right( 0 );		
@@ -127,6 +129,15 @@ int main(void)
 	
 		e_set_speed_left( 0 );
 		e_set_speed_right( 0 );
+	}
+	else if (selector == 3)
+	{
+		while(1) 
+		{ 
+			int val = updateDetector();
+			reportValue("Detector", val);
+			wait(10000000);
+		}
 	}
 
 	while(1) {}

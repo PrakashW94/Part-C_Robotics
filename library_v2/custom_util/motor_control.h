@@ -6,7 +6,7 @@ void rotateClockwise( int steps );
 void rotateAntiClockwiseDegrees( int degrees );
 void rotateAntiClockwise(int steps);
 
-void moveForwards( int steps );
+void moveForwards( int steps, int detect );
 void moveToPoint(int stepsRight, int stepsForward);
 
 void setGoal(int x, int y);

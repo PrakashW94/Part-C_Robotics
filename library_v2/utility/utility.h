@@ -1,5 +1,4 @@
 
-void wait(long num);
 int getselector();
 unsigned int getBatteryValueRaw();
 unsigned int getBatteryValuePercentage();
