@@ -1,0 +1,1 @@
+void reportValue(char* title, int value);

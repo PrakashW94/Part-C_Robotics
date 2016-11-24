@@ -2,43 +2,16 @@
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_motors.h"
 #include "custom_util/constants.c"
-#include "uart/e_uart_char.h"
+#include "custom_util/terminal_reporting.h"
 #include <math.h>
 
-#define PI 3.14159265
-
+// Global Vars
 double GOAL[] = {500, 500};
 int currentDegrees = 0;
 double currentPosition[] = {0, 0};
-char uartbuffer[100];
 
-void reportValue(char* title, int value)
-{
-	sprintf(uartbuffer, "(%s - %d)\r\n", title, value);
-	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
-	while(e_uart1_sending()){}
-}
-
-// 1 For detecting while you move
-void waitForStepsAndDetect( int steps)
-{
-	int objectDetected = 0;
-	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
-	{		
-		objectDetected = updateDetector();
-		if (objectDetected > 0)
-		{			
-			break;
-		}	
-	}
-	
-	if (objectDetected)
-	{
-		rotateClockwiseDegrees(90);
-		moveForwards(1000);
-		moveToGoal();
-	}
-}
+// Explicit Function Declarations
+void waitForStepsAndDetect( int steps);
 
 void waitForSteps( int steps )
 {
@@ -117,9 +90,7 @@ void rotateClockwise( float steps )
 	e_set_speed_left( 500 );
 	e_set_speed_right( -500 );
 
-	reportValue("rotating 90", 1);
 	waitForSteps( steps );
-	reportValue("done rotating 90", 1);
 
 	BODY_LED = 0;
 }
@@ -244,6 +215,26 @@ int detectMLine()
 		return 1;
 	else
 		return 0;
+}
+
+void waitForStepsAndDetect(int steps)
+{
+	int objectDetected = 0;
+	while( e_get_steps_left() < steps && e_get_steps_right() < steps )
+	{		
+		objectDetected = updateDetector();
+		if (objectDetected > 0)
+		{			
+			break;
+		}	
+	}
+	
+	if (objectDetected)
+	{
+		rotateClockwiseDegrees(90);
+		moveForwards(1000);
+		moveToGoal();
+	}
 }
 
 int normalise_speed( int speed )
