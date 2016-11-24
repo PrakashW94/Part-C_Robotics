@@ -2,9 +2,7 @@
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_led.h"
 
-#include "custom_util/constants.c"
-#include "custom_util/motor_control.h"
-#include "custom_util/math.c"
+#include "custom_util/utility.h"
 
 #include "motor_led/e_motors.h"
 
@@ -21,109 +19,83 @@
 #include "string.h"
 #include "p30f6014a.h"
 
-/*
-* The lower this value, the more potential force is
-* generated from the objects around
-*/
-#define PROXSCALING_LOVE 2
-
-/*
-* Increase this value to increase the base speed of the robot.
-* This speed is constant. 
-*/
-#define BASICSPEED 400
-
-/*
-* Change this value to increase the sensitivity of the
-* decelleration when near an object.
-*/
-#define DECELLERATE_PER_SCALE 200
 
 void love()
-{	
+{		
 	// Iterator Variables
-	int i, s, m;
-	
-	/* Potential Force per side of the vehicle.
-	* 0 = Potential Force to apply to left wheel.
-	* 1 = Potential Force to apply to right wheel.
-	*/
-	long potential[2];
-	
-	/* Speed per side of the vehicle.
-	* 0 = Speed to apply to left wheel
-	* 1 = Speed to apply to right wheel
-	*/
-	int speed[2];
-	
-	// Match LED to proximity sensor
-	int led_array[8] = { 9, 1, 2, 3, 5, 6, 7, 0};
+	int m , s;
 
-	/* A 2-D array to scale the potential forces of each sensor.
-	* 0 = Potential force on left wheel
-	* 1 = Potential force on right wheel
-	*
-	* Positive value represents an attract force.
-	* Negative value represents a repelling force.
+	// The base speed of the robot. This is the speed of the wheels when there is no sensory input.
+	int base_speed = 700;
+
+	// The sensory value when the robot is too close. This will cause the wheel speeds to the opposite sign ( Positive <-> Negative ).
+	int too_close = 4000;
+	
+	// The maximum speed of the wheels
+	int max_speed = 1000;
+	
+	// The minimum speed of the wheels
+	// In the case of the epuck, this value is the fastest speed the wheels can go in reverse.
+	int min_speed = 0;
+	
+
+	/*
+	* Sensor ids to use in order of front to back of the robot.
+	* First array is left sensors.
+	* Second array is right sensors.
 	*/
-	int matrix_prox[2][8] =
-		{{0,0,0,0,0,-8,-4,-8},
-		{-8,-4,-8,0,0,0,0,0}};
+	int sensors[2][3] = {
+							{7,6,5},
+							{0,1,2}
+						};		
+	
+	/*
+	* The weight of each sensor ( how much the sensor affects the wheel speed )
+	* Each sensor values' position corresponds to the position in the 'sensors' array definition.
+	* The 'sensors' and 'weights' array must be the same size.
+	*/
+	int weights[2][3] = {
+							{3,2,1},
+							{3,2,1}
+						};	
+			
+	// Starting sensor intensity.			
+	int sensor_intensity[2] = {0,0};
 
-	int max_proximity = -1;
 
-	// For each side of the robot 
-	for( m = 0; m < 2; m++)
+	// For each side
+	for( m=0; m < (sizeof(sensors) / sizeof(sensors[0])); m++)
 	{	
-		potential[m] = 0;
 
-		// For each proximity sensor
-		for( s = 0; s < 8 ; s++ )
-		{	
-			int prox_value = e_get_calibrated_prox( s );
-			
-			// Turn led on/off if the sensor is triggered/not triggered
-			int led_on = ( prox_value > 50 ) ? 1 : 0;
-			e_set_led( led_array[s], led_on );
-			
-			int potential_modifier = matrix_prox[m][s];
-
-			// If modifier is 0, we do not care about that sensor.
-			if( potential_modifier != 0 )
-			{
-				if( max_proximity ==  -1 )
-					max_proximity = prox_value;
-				else
-					max_proximity = fmax( max_proximity, prox_value );
-			}
-		
-			int prox_potential = prox_value * potential_modifier;
-			potential[m] += prox_potential;
-		}
-
-		speed[m] = ( potential[m] / PROXSCALING_LOVE ) + BASICSPEED;
-	}	
-
-	float scale_raise = ( ( max_proximity > 1000 ? 1000 : max_proximity ) / DECELLERATE_PER_SCALE );
-	scale_raise = scale_raise + 1.0; 
-	
-	// Scale up each wheel speed
-	for( m = 0; m < 2 ; m++ )
-	{
-		speed[m] = speed[m] / scale_raise;
-		
-		// TODO:: if speed is between 0 and 50, or 0 and -50, then change to 50/-50		
-
-		if( speed[m] > 1000 )
-			speed[m] = 1000;
-		else if( speed[m] < - 1000 )
+		// For each sensor on that side
+		for( s=0; s < (sizeof(sensors[m]) / sizeof(sensors[m][0]) ); s++ )
 		{
-			speed[m] = -1000;
+			int prox_value = e_get_calibrated_prox( sensors[m][s] );
+			int weight = weights[m][s];
+			sensor_intensity[m] += (prox_value*weight);
 		}
-	}	
+		sensor_intensity[m] = base_speed - sensor_intensity[m];
+	}
 	
-	// Perform love
-	if( speed[0] == 0 && speed[1] == 0 )
+	int left_sensor = sensor_intensity[0];
+	int right_sensor = sensor_intensity[1];
+
+	// If sensors are too close, then invert so that the robot can move back slightly and continue love from expected distance.
+	int left_speed =  right_sensor < too_close ? left_sensor : -left_sensor;
+	int right_speed = left_sensor < too_close ? right_sensor : -right_sensor;
+	
+    if( left_speed > max_speed ) 
+		left_speed = max_speed;
+    if( left_speed < min_speed )
+		left_speed = min_speed;
+    if( right_speed > max_speed )
+		right_speed = max_speed;
+    if( right_speed < min_speed ) 
+		right_speed = min_speed;
+
+	// Perform love.
+	if( left_speed == min_speed &&
+		right_speed == min_speed )
 	{
 		BODY_LED = 1;
 	}
@@ -132,8 +104,8 @@ void love()
 		BODY_LED = 0;
 	}
 
-	e_set_speed_right( speed[0] );
-	e_set_speed_left( speed[1] );
+	e_set_speed_left( left_speed );
+	e_set_speed_right( right_speed );
 }
 
 /*

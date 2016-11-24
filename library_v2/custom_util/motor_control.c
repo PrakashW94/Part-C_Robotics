@@ -7,10 +7,12 @@
 int normalise_speed( int speed )
 {
 	if( speed > 1000 ) 
-		return 1000;
+		speed = 1000;
 	
 	if( speed < -1000 )
-		return -1000;
+		speed = -1000;
+
+	return speed;
 }
 
 int wheel_speeds[2] = { 0 , 0 };

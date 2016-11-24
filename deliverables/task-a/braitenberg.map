@@ -2431,7 +2431,7 @@ LOAD c:/program files (x86)/microchip/mplab c30 compiler/bin/../lib\libpic30-cof
 LOAD c:/program files (x86)/microchip/mplab c30 compiler/bin/../lib\libm-coff.a
 LOAD c:/program files (x86)/microchip/mplab c30 compiler/bin/../lib\libc-coff.a
 END GROUP
-OUTPUT(aggr.cof coff-pic30)
+OUTPUT(braitenberg.cof coff-pic30)
 LOAD FGS
 LOAD jump_table
 LOAD data_init
