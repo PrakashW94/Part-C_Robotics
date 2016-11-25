@@ -1,0 +1,15 @@
+follow boundary
+//start state: at boundary
+//end state: ?
+{
+	turn left until front sensors don't pick up values
+	repeat
+		move forwards
+		if front/right sensors pick up values
+			turn left
+	until 
+	(
+		front + right sensors don't pick up values
+	)
+	turn right until front + left picks up value
+}
