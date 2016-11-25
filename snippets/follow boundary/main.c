@@ -8,9 +8,12 @@
 #include "a_d/e_prox.h"
 
 #include "math.h"
+#include "string.h"
+#include <stdio.h>
 
 #define s 300
-#define spaceLimit 400
+
+#define delayTimer 500000
 
 int getProx(int sensors[], int noOfSensors)
 {
@@ -23,24 +26,6 @@ int getProx(int sensors[], int noOfSensors)
 	return floor(prox/noOfSensors);
 }
 
-int getProxWeighted(int sensors[], int weightedSensor, int noOfSensors)
-{
-	int i;
-	int prox, temp;
-	for (i = 0;i < noOfSensors; i++)
-	{
-		if (sensors[i] == weightedSensor)
-		{
-			prox = prox + 2*e_get_prox(sensors[i]);
-		}
-		else
-		{
-			prox = prox + e_get_prox(sensors[i]);
-		}
-	}
-	return floor(prox/(noOfSensors+1));
-}
-
 void updateLeft(int speed)
 {
 	e_set_speed_left(speed);
@@ -51,10 +36,10 @@ void updateRight(int speed)
 	e_set_speed_right(speed);
 }
 
-void wait(int ms)
+void wait(int timer)
 {
 	int i;
-	for (i = 0; i < ms; i++)
+	for (i = 0; i < timer; i++)
 	{
 		asm("NOP");
 	}	
@@ -75,30 +60,40 @@ void avoidBoundary()
 	int frontright[] = {0, 1, 2};
 	int frontleft[] = {0, 7, 6, 5};
 	int frontProx = getProx(front, 2);
-	while (frontProx > spaceLimit)
+	//front led on
+	e_set_led(0, 2);
+	while (frontProx > 400)
 	{
 		//turn left until front prox doesn't detect object
 		reportValue("turning left", frontProx);
 		updateLeft(-s);
 		updateRight(s);
 		frontProx = getProx(front, 2);
-		wait(500000);
+		wait(delayTimer);
 	}
+	//front led off
+	e_set_led(0, 2);
 	
+	//right leds on
+	e_set_led(1, 2);
+	e_set_led(2, 2);
+	e_set_led(3, 2);
 	int frontrightProx = getProx(frontright, 3);
-	while (frontrightProx > 200)
+	//home boundary: 200
+	//uni boundary: 400
+	while (frontrightProx > 350)
 	{
 		//go straight, if frontright senses object, turn left a bit
 		switch(frontrightProx)
 		{
-			case 200 ... 700: 
+			case 350 ... 650: 
 			{//go straight, increasing frontright
 				reportValue("going straight, object on right", frontrightProx);
 				updateLeft(s);
 				updateRight(s);
 				break;
 			}
-			case 701 ... 2000:
+			case 651 ... 2000:
 			{//object found, turn left, decreasing frontright
 				reportValue("turning left a bit", frontrightProx);
 				updateLeft(-s);
@@ -107,23 +102,40 @@ void avoidBoundary()
 			}
 			default: 
 			{
+				reportValue("outside range", frontrightProx);
 				break;
 			}
 		}
 		frontrightProx = getProx(frontright, 3);
-		wait(500000);
+		wait(delayTimer);
 	}
+	//right leds off
+	e_set_led(1, 2);
+	e_set_led(2, 2);
+	e_set_led(3, 2);
 
+	//left leds on
+	e_set_led(7, 2);
+	e_set_led(6, 2);
+	e_set_led(5, 2);
+	//this need to be initialised as 0 as first value is incorrect.
 	int frontleftProx = 0;
-	while (frontleftProx < 50)
+	//home boundary: 50
+	//uni boundary: 130
+	while (frontleftProx < 150)
 	{
 		//turn right until frontleft senses object
 		reportValue("turning right", frontleftProx);
 		updateLeft(s);
 		updateRight(-s);
 		frontleftProx = getProx(frontleft, 4);
-		wait(500000);
+		wait(delayTimer);
+		//TO DO: bug where this loop breaks prematurely?
 	}
+	//left leds off
+	e_set_led(7, 2);
+	e_set_led(6, 2);
+	e_set_led(5, 2);
 }
 
 int getSelector() {
@@ -147,16 +159,15 @@ int main()
 		while(1)
 		{	
 			reportValue("front", frontProx);
-			if (frontProx > spaceLimit)
+			if (frontProx > 400)
 			{
 				reportValue("Entering Main", frontProx);
-				LED0 = 1;
 				avoidBoundary();
 			}
 			updateLeft(s);
 			updateRight(s);
 			frontProx = getProx(front, 4);
-			wait(500000);
+			wait(delayTimer);
 		}
 	}
 	else
@@ -164,5 +175,4 @@ int main()
 		e_set_led(8,1);
 		while(1);
 	}
-	
 }
