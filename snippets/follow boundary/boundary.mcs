@@ -9,7 +9,7 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c|avoid_objects.c|constants.c|pathfinding.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -158,6 +158,58 @@ ToolArgsString=-g
 TraceCmdString=
 DebugOptions=--defsym=__DEBUG=1
 [File012]
+Location=D:\Work\Repos\Part-C_Robotics\snippets\follow boundary\utility.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File013]
+Location=D:\Work\Repos\Part-C_Robotics\snippets\follow boundary\avoid_objects.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c|avoid_objects.c|constants.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File014]
+Location=D:\Work\Repos\Part-C_Robotics\snippets\follow boundary\constants.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c|avoid_objects.c|constants.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File015]
+Location=D:\Work\Repos\Part-C_Robotics\snippets\follow boundary\pathfinding.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c|avoid_objects.c|constants.c|pathfinding.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File016]
 Location=D:\Work\Repos\Part-C_Robotics\snippets\follow boundary\boundary.cof
 Folder=Output
 DeviceName=dsPIC30F6014A
@@ -165,12 +217,12 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c|avoid_objects.c|constants.c|pathfinding.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
 DebugOptions=--defsym=__MPLAB_DEBUG=1
-[File013]
+[File017]
 Location=D:\Work\Repos\Part-C_Robotics\snippets\follow boundary\boundary.hex
 Folder=Output
 DeviceName=dsPIC30F6014A
@@ -178,7 +230,7 @@ LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|D:\Work\Repos\Part-C_Robotics\library_v2\uart||$(INCDIR)|D:\Work\Repos\Part-C_Robotics\library_v2||$(LIBDIR)|C:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
-SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
+SOLK=<src>|main.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_init_port.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_led.c|D:\Work\Repos\Part-C_Robotics\library_v2\motor_led\e_motors.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_prox.c|D:\Work\Repos\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|D:\Work\Repos\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|D:\Work\Repos\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_init_uart1.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|D:\Work\Repos\Part-C_Robotics\library_v2\custom_util\utility.c|avoid_objects.c|constants.c|pathfinding.c||<obj>||<lib>||<lkr>|D:\Work\Repos\Part-C_Robotics\library_v2\p30f6014A.gld||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=

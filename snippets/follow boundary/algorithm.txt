@@ -1,3 +1,38 @@
+store start state (q[0])
+store end state (q[g])
+initialise i = 1
+initialise m-line as q[m]
+	//q[m] is a set of states on the m line
+REPEAT
+	repeat
+		from q[i-1] move towards q[g] on m-line
+	until
+	(
+		q[i] = q[g] OR 
+		obstacle at q[i]
+	)
+	if (q[i] = q[g]) exit (SUCCESS)
+	//otherwise obstacle at q[i]
+	q[boundaryStart] = q[i]
+	repeat
+		follow boundary
+	until
+	(
+		q[i] = q[g] OR
+		q[i] = q[boundaryStart] OR
+		(
+			q[i] = q[m] AND 
+			q[i] <> q[boundaryStart] AND
+			dist(q[i], q[g]) < dist(q[boundaryStart], q[goal]) AND
+			q[i+1] <> obstacle
+		)
+	)
+	if (q[i] = q[g]) exit (SUCCESS)
+	if q[i] = q[boundaryStart] exit (FAILURE)
+	q[i] = q[m]
+	i=i+1
+UNTIL(exit)
+
 follow boundary
 //start state: at boundary
 //end state: ?
