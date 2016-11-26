@@ -23,7 +23,16 @@ int getProx(int sensors[], int noOfSensors)
 	{
 		prox = prox + e_get_prox(sensors[i]);
 	}
-	return floor(prox/noOfSensors);
+	return (int)(prox/noOfSensors);
+}
+
+void setLeds(int leds[], int noOfLeds)
+{
+	int i;
+	for (i = 0; i < noOfLeds; i++)
+	{
+		e_set_led(leds[i], 2);
+	}
 }
 
 void updateLeft(int speed)
@@ -54,14 +63,33 @@ void reportValue(char* title, int value)
 	while(e_uart1_sending()){}
 }
 
+int testProx(int sensors[], int noOfSensors, char* direction)
+{
+	
+	updateLeft(0);
+	updateRight(0);
+	int prox;
+	while (1)
+	{
+		prox = getProx(sensors, noOfSensors);
+		reportValue(direction, prox);
+		wait(delayTimer);
+	}
+}
+
 void avoidBoundary()
 {
 	int front[] = {7, 0};
+	int frontLeds[] = {0};
 	int frontright[] = {0, 1, 2};
+	int rightLeds[] = {1, 2, 3};
 	int frontleft[] = {0, 7, 6, 5};
+	int leftLeds[] = {5, 6, 7};
 	int frontProx = getProx(front, 2);
-	//front led on
-	e_set_led(0, 2);
+	
+	//testProx(frontleft, 4, "frontleft");
+	//left led on
+	setLeds(leftLeds, 3);
 	while (frontProx > 400)
 	{
 		//turn left until front prox doesn't detect object
@@ -71,16 +99,13 @@ void avoidBoundary()
 		frontProx = getProx(front, 2);
 		wait(delayTimer);
 	}
-	//front led off
-	e_set_led(0, 2);
+	//left led off
+	setLeds(leftLeds, 3);
 	
-	//right leds on
-	e_set_led(1, 2);
-	e_set_led(2, 2);
-	e_set_led(3, 2);
 	int frontrightProx = getProx(frontright, 3);
-	//home boundary: 200
-	//uni boundary: 400
+	wait(delayTimer); //wait to get correct prox value
+	int frontleftProx = getProx(frontleft, 4);
+	wait(delayTimer); //wait to get correct prox value
 	while (frontrightProx > 350)
 	{
 		//go straight, if frontright senses object, turn left a bit
@@ -88,16 +113,39 @@ void avoidBoundary()
 		{
 			case 350 ... 650: 
 			{//go straight, increasing frontright
-				reportValue("going straight, object on right", frontrightProx);
-				updateLeft(s);
-				updateRight(s);
+				setLeds(frontLeds, 1);
+				while ((frontrightProx < 650) && (frontrightProx > 350))
+				{
+					if(frontleftProx > 400)
+					{
+						reportValue("entering recursion loop", frontleftProx);
+						avoidBoundary();
+					}
+					else
+					{	
+						reportValue("going straight, object on right", frontrightProx);
+						updateLeft(s);
+						updateRight(s);
+					}
+					frontrightProx = getProx(frontright, 3);
+					wait(delayTimer); //wait to get correct prox value
+					frontleftProx = getProx(frontleft, 4);
+					wait(delayTimer); //wait to get correct prox value
+				}
+				setLeds(frontLeds, 1);
 				break;
 			}
 			case 651 ... 2000:
 			{//object found, turn left, decreasing frontright
-				reportValue("turning left a bit", frontrightProx);
-				updateLeft(-s);
-				updateRight(s);
+				setLeds(leftLeds, 3);
+				while (frontrightProx > 650)
+				{
+					reportValue("turning left a bit", frontrightProx);
+					updateLeft(-s);
+					updateRight(s);
+					frontrightProx = getProx(frontright, 3);
+				}
+				setLeds(leftLeds, 3);
 				break;
 			}
 			default: 
@@ -109,19 +157,10 @@ void avoidBoundary()
 		frontrightProx = getProx(frontright, 3);
 		wait(delayTimer);
 	}
-	//right leds off
-	e_set_led(1, 2);
-	e_set_led(2, 2);
-	e_set_led(3, 2);
 
-	//left leds on
-	e_set_led(7, 2);
-	e_set_led(6, 2);
-	e_set_led(5, 2);
+	setLeds(rightLeds, 3);
 	//this need to be initialised as 0 as first value is incorrect.
-	int frontleftProx = 0;
-	//home boundary: 50
-	//uni boundary: 130
+	frontleftProx = 0;
 	while (frontleftProx < 150)
 	{
 		//turn right until frontleft senses object
@@ -133,9 +172,7 @@ void avoidBoundary()
 		//TO DO: bug where this loop breaks prematurely?
 	}
 	//left leds off
-	e_set_led(7, 2);
-	e_set_led(6, 2);
-	e_set_led(5, 2);
+	setLeds(rightLeds, 3);
 }
 
 int getSelector() {
@@ -154,8 +191,8 @@ int main()
 	{
 		updateLeft(s);
 		updateRight(s);
-		int front[] = {6, 7, 0, 1};
-		int frontProx = getProx(front, 4);
+		int frontwide[] = {6, 7, 0, 1};
+		int frontProx = getProx(frontwide, 4);
 		while(1)
 		{	
 			reportValue("front", frontProx);
@@ -166,7 +203,7 @@ int main()
 			}
 			updateLeft(s);
 			updateRight(s);
-			frontProx = getProx(front, 4);
+			frontProx = getProx(frontwide, 4);
 			wait(delayTimer);
 		}
 	}
