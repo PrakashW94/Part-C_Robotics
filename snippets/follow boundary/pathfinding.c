@@ -181,12 +181,9 @@ void progressReport()
 
 void avoidBoundary()
 {	
-	//int front[] = {7, 0};
-	int frontLeds[] = {0};
-	//int right[] = {0, 1, 2};
-	int rightLeds[] = {1, 2, 3};
-	//int left[] = {0, 7, 6, 5};
-	int leftLeds[] = {5, 6, 7};
+	//int frontLeds[] = {0};
+	//int rightLeds[] = {1, 2, 3};
+	//int leftLeds[] = {5, 6, 7};
 	
 	int frontProx = getProx(front, 2);
 	
@@ -196,7 +193,7 @@ void avoidBoundary()
 	h = e_get_steps_left();
 	
 	//left led on
-	setLeds(leftLeds, 3);
+	//setLeds(leftLeds, 3);
 	int rl0 = e_get_steps_right();
 	while (frontProx > 400)
 	{
@@ -207,7 +204,7 @@ void avoidBoundary()
 		wait(delayTimer);
 	}
 	//left led off
-	setLeds(leftLeds, 3);
+	//setLeds(leftLeds, 3);
 	rl = e_get_steps_right() - rl0;
 	
 	int rightProx = getProx(right, 3);
@@ -221,7 +218,7 @@ void avoidBoundary()
 		{
 			case 350 ... 650: 
 			{//go straight, increasing right
-				setLeds(frontLeds, 1);
+				//setLeds(frontLeds, 1);
 				int h0 = e_get_steps_left();
 				while ((rightProx < 650) && (rightProx > 350))
 				{
@@ -240,13 +237,13 @@ void avoidBoundary()
 					leftProx = getProx(left, 4);
 					wait(delayTimer); //wait to get correct prox value
 				}
-				setLeds(frontLeds, 1);
+				//setLeds(frontLeds, 1);
 				h += e_get_steps_left() - h0;
 				break;
 			}
 			case 651 ... 2000:
 			{//object found, turn left, decreasing right
-				setLeds(leftLeds, 3);
+				//setLeds(leftLeds, 3);
 				rl0 = e_get_steps_right();
 				while (rightProx > 650)
 				{
@@ -254,7 +251,7 @@ void avoidBoundary()
 					setSpeed(-s, s);
 					rightProx = getProx(right, 3);
 				}
-				setLeds(leftLeds, 3);
+				//setLeds(leftLeds, 3);
 				rl = e_get_steps_right() - rl0;
 				break;
 			}
@@ -268,7 +265,7 @@ void avoidBoundary()
 		wait(delayTimer);
 	}
 
-	setLeds(rightLeds, 3);
+	//setLeds(rightLeds, 3);
 	int rr0 = e_get_steps_left();
 	//this need to be initialised as 0 as first value is incorrect.
 	leftProx = 0;
@@ -282,7 +279,7 @@ void avoidBoundary()
 		//TO DO: bug where this loop breaks prematurely?
 	}
 	//left leds off
-	setLeds(rightLeds, 3);
+	//setLeds(rightLeds, 3);
 	rr = e_get_steps_left() - rr0;
 	
 	r += rl - rr;
