@@ -11,11 +11,11 @@
 
 int getProx(int sensors[], int noOfSensors)
 {
-	int i;
+	int k;
 	int prox;
-	for (i = 0;i < noOfSensors; i++)
+	for (k = 0;k < noOfSensors; k++)
 	{
-		prox = prox + e_get_prox(sensors[i]);
+		prox = prox + e_get_prox(sensors[k]);
 	}
 	return (int)(prox/noOfSensors);
 }
@@ -52,6 +52,7 @@ void avoidBoundary()
 	int frontleft[] = {0, 7, 6, 5};
 	int leftLeds[] = {5, 6, 7};
 	int frontProx = getProx(front, 2);
+	int x, y, xg, yg, h, r;
 	
 	//testProx(frontleft, 4, "frontleft");
 	//left led on

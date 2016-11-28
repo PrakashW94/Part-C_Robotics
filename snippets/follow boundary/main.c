@@ -28,8 +28,8 @@ int main()
 	int selector = getSelector();
 	if (selector > 0)
 	{
-		pathfinder();
-		/*
+		//pathfinder();
+		
 		updateLeft(s);
 		updateRight(s);
 		int frontwide[] = {6, 7, 0, 1};
@@ -46,8 +46,7 @@ int main()
 			updateRight(s);
 			frontProx = getProx(frontwide, 4);
 			wait(delayTimer);
-		}
-		*/
+		}		
 	}
 	else
 	{
