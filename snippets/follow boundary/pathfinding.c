@@ -308,30 +308,27 @@ void pathfinder()
 			while(1){}
 		}
 		int qb = q[i];
-		int db = d[i];
+		double db = d[i];
 		int mDist = 0;
 		int onMline = 0;
-		while
-		(
-			q[i] < 90 &&
-			q[i] == qb &&
-			(
-				!onMline &&
-				db < d[i] &&
-				fp < 400
-			)
-		)
+		
+		do 
 		{
 			onMline = 0;
 			avoidBoundary();
 			updateProgress();
-			mDist = distToM_line(x, y, xg, xg);
+			mDist = distToM_line(x, y, xg, yg);
 			if (mDist < 50)
 			{
 				onMline = 1;
 			}
 			fp = getProx(frontwide, 4);
-		}
+		} while
+		(
+			q[i] < 90 &&
+			q[i] == qb &&
+			!(onMline && db < d[i])
+		);
 /*
 		if (q[i] > 90)
 		{
