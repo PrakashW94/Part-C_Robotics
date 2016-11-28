@@ -9,6 +9,8 @@
 #include "custom_util/utility.h"
 #include "constants.c"
 
+#include "math.h"
+
 int getProx(int sensors[], int noOfSensors)
 {
 	int k;
@@ -52,11 +54,14 @@ void avoidBoundary()
 	int frontleft[] = {0, 7, 6, 5};
 	int leftLeds[] = {5, 6, 7};
 	int frontProx = getProx(front, 2);
-	int x, y, xg, yg, h, r;
+	int x, y, xg, yg, h, r, invr;
+	h = 0; r = 0;
+	
 	
 	//testProx(frontleft, 4, "frontleft");
 	//left led on
 	setLeds(leftLeds, 3);
+	int r0 = e_get_steps_right();
 	while (frontProx > 400)
 	{
 		//turn left until front prox doesn't detect object
@@ -66,6 +71,8 @@ void avoidBoundary()
 		frontProx = getProx(front, 2);
 		wait(delayTimer);
 	}
+	r = e_get_steps_right() - r0;
+	
 	//left led off
 	setLeds(leftLeds, 3);
 	
@@ -81,6 +88,7 @@ void avoidBoundary()
 			case 350 ... 650: 
 			{//go straight, increasing frontright
 				setLeds(frontLeds, 1);
+				int h0 = e_get_steps_left();
 				while ((frontrightProx < 650) && (frontrightProx > 350))
 				{
 					if(frontleftProx > 400)
@@ -100,11 +108,13 @@ void avoidBoundary()
 					wait(delayTimer); //wait to get correct prox value
 				}
 				setLeds(frontLeds, 1);
+				h += e_get_steps_left() - h0;
 				break;
 			}
 			case 651 ... 2000:
 			{//object found, turn left, decreasing frontright
 				setLeds(leftLeds, 3);
+				r0 = e_get_steps_right();
 				while (frontrightProx > 650)
 				{
 					reportValue("turning left a bit", frontrightProx);
@@ -113,6 +123,7 @@ void avoidBoundary()
 					frontrightProx = getProx(frontright, 3);
 				}
 				setLeds(leftLeds, 3);
+				r += e_get_steps_right() - r0;
 				break;
 			}
 			default: 
@@ -124,11 +135,12 @@ void avoidBoundary()
 		frontrightProx = getProx(frontright, 3);
 		wait(delayTimer);
 	}
-
+	
 	setLeds(rightLeds, 3);
+	int invr0 = e_get_steps_left();
 	//this need to be initialised as 0 as first value is incorrect.
 	frontleftProx = 0;
-	while (frontleftProx < 150)
+	while (frontleftProx < 90)
 	{
 		//turn right until frontleft senses object
 		reportValue("turning right", frontleftProx);
@@ -140,4 +152,12 @@ void avoidBoundary()
 	}
 	//left leds off
 	setLeds(rightLeds, 3);
+	invr = e_get_steps_left() - invr0;
+	
+	reportValue("r", r);
+	reportValue("h", h);
+	reportValue("invr", invr);
+	updateLeft(0);
+	updateRight(0);
+	while(1){}
 }
