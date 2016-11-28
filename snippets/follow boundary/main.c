@@ -9,7 +9,6 @@
 #include "uart/e_uart_char.h"
 
 #include "custom_util/utility.h"
-#include "avoid_objects.h"
 #include "constants.c"
 
 #include "pathfinding.h"
@@ -28,8 +27,9 @@ int main()
 	int selector = getSelector();
 	if (selector > 0)
 	{
-		//pathfinder();
-		
+		pathfinder();
+	}	
+/*
 		updateLeft(s);
 		updateRight(s);
 		int frontwide[] = {6, 7, 0, 1};
@@ -46,8 +46,8 @@ int main()
 			updateRight(s);
 			frontProx = getProx(frontwide, 4);
 			wait(delayTimer);
-		}		
-	}
+		}
+*/	
 	else
 	{
 		e_set_led(8,1);

@@ -1,3 +1,10 @@
+/*
+TO DO LIST
+- Fix condition for entering/exiting avoidBoundary
+- Add updateProgress while going straight within avoidBoundary
+- Fix reporting(?)
+*/
+
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_led.h"
@@ -8,7 +15,6 @@
 
 #include "uart/e_uart_char.h"
 
-#include "avoid_objects.h"
 #include "custom_util/utility.h"
 #include "constants.c"
 
@@ -145,7 +151,7 @@ void moveToGoal()
 	rotateToGoal();
 	setSpeed(s, s);
 }
-/*
+
 int getProx(int sensors[], int noOfSensors)
 {
 	int k;
@@ -155,7 +161,7 @@ int getProx(int sensors[], int noOfSensors)
 		prox = prox + e_get_prox(sensors[k]);
 	}
 	return (int)(prox/noOfSensors);
-}*/
+}
 
 void progressReport()
 {
@@ -172,10 +178,9 @@ void progressReport()
 	reportValue("Number of states", j);
 	reportValue("****END PROGRESS REPORT****", -1);
 }
-/*
+
 void avoidBoundary()
-{
-	
+{	
 	//int front[] = {7, 0};
 	int frontLeds[] = {0};
 	//int right[] = {0, 1, 2};
@@ -185,19 +190,25 @@ void avoidBoundary()
 	
 	int frontProx = getProx(front, 2);
 	
+	int rl, rr, h;
+	rl = 0;
+	rr = 0;
+	h = e_get_steps_left();
+	
 	//left led on
 	setLeds(leftLeds, 3);
+	int rl0 = e_get_steps_right();
 	while (frontProx > 400)
 	{
 		//turn left until front prox doesn't detect object
 		reportValue("turning left", frontProx);
-		updateLeft(-s);
-		updateRight(s);
+		setSpeed(-s, s);
 		frontProx = getProx(front, 2);
 		wait(delayTimer);
 	}
 	//left led off
 	setLeds(leftLeds, 3);
+	rl = e_get_steps_right() - rl0;
 	
 	int rightProx = getProx(right, 3);
 	wait(delayTimer); //wait to get correct prox value
@@ -211,6 +222,7 @@ void avoidBoundary()
 			case 350 ... 650: 
 			{//go straight, increasing right
 				setLeds(frontLeds, 1);
+				int h0 = e_get_steps_left();
 				while ((rightProx < 650) && (rightProx > 350))
 				{
 					if(leftProx > 400)
@@ -221,8 +233,7 @@ void avoidBoundary()
 					else
 					{	
 						reportValue("going straight, object on right", rightProx);
-						updateLeft(s);
-						updateRight(s);
+						setSpeed(s, s);
 					}
 					rightProx = getProx(right, 3);
 					wait(delayTimer); //wait to get correct prox value
@@ -230,19 +241,21 @@ void avoidBoundary()
 					wait(delayTimer); //wait to get correct prox value
 				}
 				setLeds(frontLeds, 1);
+				h += e_get_steps_left() - h0;
 				break;
 			}
 			case 651 ... 2000:
 			{//object found, turn left, decreasing right
 				setLeds(leftLeds, 3);
+				rl0 = e_get_steps_right();
 				while (rightProx > 650)
 				{
 					reportValue("turning left a bit", rightProx);
-					updateLeft(-s);
-					updateRight(s);
+					setSpeed(-s, s);
 					rightProx = getProx(right, 3);
 				}
 				setLeds(leftLeds, 3);
+				rl = e_get_steps_right() - rl0;
 				break;
 			}
 			default: 
@@ -256,29 +269,32 @@ void avoidBoundary()
 	}
 
 	setLeds(rightLeds, 3);
+	int rr0 = e_get_steps_left();
 	//this need to be initialised as 0 as first value is incorrect.
 	leftProx = 0;
 	while (leftProx < 150)
 	{
 		//turn right until left senses object
 		reportValue("turning right", leftProx);
-		updateLeft(s);
-		updateRight(-s);
+		setSpeed(s, -s);	
 		leftProx = getProx(left, 4);
 		wait(delayTimer);
 		//TO DO: bug where this loop breaks prematurely?
 	}
 	//left leds off
 	setLeds(rightLeds, 3);
+	rr = e_get_steps_left() - rr0;
+	
+	r += rl - rr;
+	e_set_steps_left(h);
 }
-*/
+
 void pathfinder()
 {	
 	setGoal();
 	while(1)
 	{
 		moveToGoal();
-		reportValue("Frontwide", fp);
 		while (fp < 400 && q[i] < 90)
 		{
 			fp = getProx(frontwide, 4);
@@ -294,17 +310,16 @@ void pathfinder()
 			setSpeed(0,0);
 			while(1){}
 		}
-/*
 		int qb = q[i];
 		int db = d[i];
 		int mDist = 0;
-		int onMline;
+		int onMline = 0;
 		while
 		(
 			q[i] < 90 &&
-			q[i] != qb &&
+			q[i] == qb &&
 			(
-				onMline &&
+				!onMline &&
 				db < d[i] &&
 				fp < 400
 			)
@@ -318,8 +333,9 @@ void pathfinder()
 			{
 				onMline = 1;
 			}
+			fp = getProx(frontwide, 4);
 		}
-		
+/*
 		if (q[i] > 90)
 		{
 			e_set_led(8, 2);
