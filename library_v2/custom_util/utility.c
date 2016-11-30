@@ -26,6 +26,15 @@ void reportValue(char* title, int value)
 	while(e_uart1_sending()){}
 }
 
+void reportXY(int x, int y, int mDist)
+{
+	char uartbuffer[100];
+	sprintf(uartbuffer, "(%d, %d) - %d\r\n", x, y, mDist);
+	int length = strlen(uartbuffer);
+	e_send_uart1_char(uartbuffer, length);
+	while(e_uart1_sending()){}
+}
+
 //function to turn given leds on/off given an array leds (0-7) and the number of leds in the array
 void setLeds(int leds[], int noOfLeds)
 {
