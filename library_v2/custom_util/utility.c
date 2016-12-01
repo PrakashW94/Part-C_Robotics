@@ -26,10 +26,10 @@ void reportValue(char* title, int value)
 	while(e_uart1_sending()){}
 }
 
-void reportXY(int x, int y, int mDist)
+void reportXY(int x, int y, int a, int mDist)
 {
 	char uartbuffer[100];
-	sprintf(uartbuffer, "(%d, %d) - %d\r\n", x, y, mDist);
+	sprintf(uartbuffer, "%d, %d, %d, %d\r\n", x, y, a, mDist);
 	int length = strlen(uartbuffer);
 	e_send_uart1_char(uartbuffer, length);
 	while(e_uart1_sending()){}

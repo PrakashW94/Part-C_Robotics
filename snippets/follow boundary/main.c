@@ -29,28 +29,9 @@ int main()
 	{
 		pathfinder();
 	}	
-/*
-		updateLeft(s);
-		updateRight(s);
-		int frontwide[] = {6, 7, 0, 1};
-		int frontProx = getProx(frontwide, 4);
-		while(1)
-		{	
-			reportValue("front", frontProx);
-			if (frontProx > 400)
-			{
-				reportValue("Entering Main", frontProx);
-				avoidBoundary();
-			}
-			updateLeft(s);
-			updateRight(s);
-			frontProx = getProx(frontwide, 4);
-			wait(delayTimer);
-		}
-*/	
 	else
 	{
-		e_set_led(8,1);
+		e_set_led(0,1);
 		while(1);
 	}
 }
