@@ -60,6 +60,8 @@ int front[] = {0, 1};
 int left[] = {0, 7, 6, 5};
 int right[] = {0, 1, 2};
 
+int avoidBoundary();
+
 double distToGoal(double x, double y, double xg, double yg)
 {
 	return sqrt(pow((xg-x), 2) + pow((yg-y),2));
@@ -67,7 +69,7 @@ double distToGoal(double x, double y, double xg, double yg)
 
 double angleToRotate(double steps)
 {
-    return ((steps/1000)*Wd*PI*2*PI)/(Rd*PI);
+	return ((steps/1000)*Wd*PI*2*PI)/(Rd*PI);
 }
 
 int stepsToRotate(double angle)
@@ -75,7 +77,7 @@ int stepsToRotate(double angle)
 	return floor((1000 * angle * Rd * PI)/(Wd * PI * 2 * PI));
 }
 
-double angleFromGoal(double x, double y, double xg, double yg, int stepsRotated)
+double angleFromGoal(double x, double y, double xg, double yg)
 {
 	double diffX = xg-x;
 	double diffY = yg-y;
@@ -89,7 +91,7 @@ double angleFromGoal(double x, double y, double xg, double yg, int stepsRotated)
 		angle = (2 * PI) - angle;
 	}
 	// Take into account how we're currently oriented.
-	angle -= angleToRotate(stepsRotated);;
+	angle -= angleToRotate(rCurrent);
 	if (angle < 0)
 	{
 		angle = 2*PI + angle;
@@ -122,15 +124,17 @@ void clearSteps()
 {
 	e_set_steps_left(0);
 	e_set_steps_right(0);
+	h = 0;
+	r = 0;
 }
 
-void setGoal()
+void setGoal(int gx, int gy)
 {
 	x = 0;
 	y = 0;
 	r = 0;
-	xg = 0;
-	yg = 5000;
+	xg = gx;
+	yg = gy;
 	fp = 0;
 	h = 0;
 	r = 0;
@@ -152,8 +156,8 @@ void setSpeed(int l, int r)
 void updateProgress()
 {
 	rCurrent += r;
-	double angle = angleToRotate(r);
-
+	double angle = angleToRotate(rCurrent);
+	
 	x += floor(h * sin(angle));
 	y += floor(h * cos(angle));
 	
@@ -165,20 +169,25 @@ void updateProgress()
 
 void moveToGoal()
 {
-	double angle = angleFromGoal(x, y, xg, yg, rCurrent);
+	double angle = angleFromGoal(x, y, xg, yg);
 	
 	if (angle > PI)
 	{
 		angle = 2*PI - angle; 
+		r = stepsToRotate(angle);
 		setSpeed(-s, s);
+		waitForSteps(r);
+		setSpeed(s, s);
+		r = stepsToRotate(2 * PI - angle);
 	}
 	else
 	{
+		r = stepsToRotate(angle);
 		setSpeed(s, -s);
+		waitForSteps(r);
+		setSpeed(s, s);
 	}
-	r = stepsToRotate(angle);
-	waitForSteps(r);
-	setSpeed(s, s);
+	updateProgress();
 }
 
 int getProx(int sensors[], int noOfSensors)
@@ -209,111 +218,15 @@ void progressReport()
 	reportValue("****END PROGRESS REPORT****", -1);
 }
 
-int avoidBoundary()
-{	
-	//int frontLeds[] = {0};
-	//int rightLeds[] = {1, 2, 3};
-	//int leftLeds[] = {5, 6, 7};
-	
-	//reportValue("Avoiding object IN", -1);
-	int mDist;
-	
-	clearSteps();
-	r = 0;
-
-	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
-	while (frontProx > 400)
-	{
-		//turn left until front prox doesn't detect object
-		setSpeed(-s, s);
-		frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
-		wait(delayTimer);
-	}
-
-	r += e_get_steps_left();
-	reportValue("rotated", RADtoDEG(angleToRotate(r)));
-	
-	int rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
-	int leftProx =  (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
-	while (rightProx > 300)
-	{
-		switch(rightProx)
-		{
-			case 300 ... 650: 
-			{//go straight with the object on the right
-				while ((rightProx < 650) && (rightProx > 300))
-				{
-					if(leftProx > 300)
-					{//detect object on left, loop function to avoid
-						reportValue("entering recursion loop", leftProx);
-						avoidBoundary();
-					}
-					else
-					{//go straight and check for mline
-						setSpeed(s, s);
-						h = e_get_steps_left();
-						updateProgress();
-						mDist = distToMline(x, y, xg, yg);
-						//reportXY(x, y, mDist);
-						//if (mDist < 50)
-						//{
-							//reportValue("ON MLINE, returning to main code", -1);
-							//return 1;
-						//}
-					}
-					//reportValue("linear movement", h);
-					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
-					leftProx = (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
-					wait(delayTimer);
-				}
-				break;
-			}
-			case 651 ... 2000:
-			{//moving towards object, turn left slightly
-				clearSteps();
-				while (rightProx > 650)
-				{
-					setSpeed(-s, s);
-					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
-					wait(delayTimer);
-				}
-				r += e_get_steps_left();
-				reportValue("rotated", RADtoDEG(angleToRotate(r)));
-				e_set_steps_left(0);
-				break;
-			}
-			default: 
-			{
-				reportValue("outside range", rightProx);
-				break;
-			}
-		}
-		rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
-	}
-	
-	clearSteps();
-	leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
-	while (leftProx < 150)
-	{//turn right until object is on the right
-		setSpeed(s, -s);
-		leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
-		wait(delayTimer);
-	}
-	r += e_get_steps_left();
-	wait(delayTimer);
-	setSpeed(s, s);
-	progressReport();
-	return 0;
-}
 
 void pathfinder()
 {
-	setGoal();
+	setGoal(0, 5000);
 	while(1)
 	{
 		moveToGoal();
 		e_set_steps_left(0);
-		while (fp < 300 && q[i] < 95)
+		while (fp < 150 && q[i] < 95)
 		{
 			//fp = getProx(frontwide, 4);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
@@ -341,14 +254,14 @@ void pathfinder()
 		{
 			onMline = avoidBoundary();
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
-			/*if (onMline)
+			if (onMline)
 			{
 				progressReport();
 				reportValue("ON MLINE, Main Prog", -1);
 				reportValue("db", db);
 				reportValue("d[i]", d[i]);
 				reportValue("fp", fp);
-			}*/
+			}
 		} while
 		(
 			q[i] < 95 &&
@@ -375,4 +288,106 @@ void pathfinder()
 */
 		i++;
 	}
+}
+
+int avoidBoundary()
+{	
+	//int frontLeds[] = {0};
+	//int rightLeds[] = {1, 2, 3};
+	//int leftLeds[] = {5, 6, 7};
+	
+	int mDist;
+	double db = d[i];
+	
+	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
+	clearSteps();
+	while (frontProx > 150)
+	{
+		//turn left until front prox doesn't detect object
+		setSpeed(-s, s);
+		frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
+		wait(delayTimer);
+	}
+
+	r = e_get_steps_left();
+	updateProgress();
+
+	int rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
+	int leftProx =  (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
+	while (rightProx > 300)
+	{
+		switch(rightProx)
+		{
+			case 300 ... 650: 
+			{//go straight with the object on the right
+				while ((rightProx < 650) && (rightProx > 300))
+				{
+					if(leftProx > 400)
+					{//detect object on left, loop function to avoid
+						reportValue("entering recursion loop", leftProx);
+						avoidBoundary();
+					}
+					else
+					{//go straight and check for mline
+						setSpeed(s, s);
+						h = e_get_steps_left();
+						updateProgress();
+						mDist = distToMline(x, y, xg, yg);
+						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
+						if (mDist < 50)
+						{
+							LED0 = 1;
+							//report the d values and check
+							if (d[i] < db)
+							{
+								reportValue("ON MLINE, returning to main code", -1);
+								return 1;
+							}
+						}
+						else
+						{
+							LED0 = 0;
+						}
+					}
+					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
+					leftProx = (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
+					waitForSteps(50);
+				}
+				break;
+			}
+			case 651 ... 5000:
+			{//moving towards object, turn left slightly
+				clearSteps();
+				while (rightProx > 650)
+				{
+					setSpeed(-s, s);
+					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
+					wait(delayTimer);
+				}
+				r = e_get_steps_left();
+				
+				updateProgress();
+				break;
+			}
+			default: 
+			{
+				break;
+			}
+		}
+		rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
+	}
+	
+	leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
+	clearSteps();
+	while (leftProx < 150)
+	{//turn right until object is on the right
+		setSpeed(s, -s);
+		leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
+		wait(delayTimer);
+	}
+	r = e_get_steps_left();
+	setSpeed(s, s);
+	updateProgress();
+	wait(delayTimer);
+	return 0;
 }
