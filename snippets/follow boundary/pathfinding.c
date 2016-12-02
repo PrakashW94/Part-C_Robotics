@@ -1,8 +1,9 @@
 /*
 TO DO LIST
-- Fix condition for entering/exiting avoidBoundary
-- Add updateProgress while going straight within avoidBoundary
-- Fix reporting(?)
+- mDist and dDist as percentages?
+- Play with refresh/wait rates
+- Test recursion loop
+- Suitable LEDs
 */
 
 #include "motor_led/e_epuck_ports.h"
@@ -60,6 +61,10 @@ int front[] = {0, 1};
 int left[] = {0, 7, 6, 5};
 int right[] = {0, 1, 2};
 
+/*
+Refresh rates
+*/
+
 int avoidBoundary(int db);
 
 double distToGoal(double x, double y, double xg, double yg)
@@ -116,8 +121,13 @@ int RADtoDEG(double rad)
 
 void waitForSteps(int steps)
 {
+	int startSteps = e_get_steps_left();
+	e_set_steps_left(0);
+	
 	int endSteps = e_get_steps_left() + steps;
 	while( abs(e_get_steps_left()) < endSteps );
+	
+	e_set_steps_left(startSteps);
 }
 
 void clearSteps()
@@ -157,15 +167,18 @@ void updateProgress()
 {
 	rCurrent += r;
 	double angle = angleToRotate(rCurrent);
-	
+	if (angle > 2*PI)
+	{
+		angle = angle - 2 * PI;
+		rCurrent = rCurrent - stepsToRotate(2*PI);
+	}
 	x += floor(h * sin(angle));
 	y += floor(h * cos(angle));
 	
 	d[i] = distToGoal(x, y, xg, yg);
 	q[i] = 100 - floor((d[i]/d[0])*100);
 	j++;
-	clearSteps();
-	reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), j);
+	clearSteps();	
 }
 
 void moveToGoal()
@@ -176,6 +189,7 @@ void moveToGoal()
 	{
 		angle = 2*PI - angle; 
 		r = stepsToRotate(angle);
+		reportValue("rotating ACW", RADtoDEG(angle));
 		setSpeed(-s, s);
 		waitForSteps(r);
 		setSpeed(s, s);
@@ -184,6 +198,7 @@ void moveToGoal()
 	else
 	{
 		r = stepsToRotate(angle);
+		reportValue("rotating CW", RADtoDEG(angle));
 		setSpeed(s, -s);
 		waitForSteps(r);
 		setSpeed(s, s);
@@ -219,28 +234,29 @@ void progressReport()
 	reportValue("****END PROGRESS REPORT****", -1);
 }
 
-
 void pathfinder()
 {
-	setGoal(0, 5000);
+	setGoal(0, 1000);
 	while(1)
 	{
 		moveToGoal();
-		e_set_steps_left(0);
+		clearSteps();
 		while (fp < 150 && q[i] < 95)
 		{
 			//fp = getProx(frontwide, 4);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
-			waitForSteps(50);
+			waitForSteps(10);
 			h = e_get_steps_left();
 			updateProgress();
-			reportValue("q[i]", q[i]);
+			reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), q[i]);
+			//reportValue("q[i]", q[i]);
 		}
-		if (q[i] > 95)
+		if (q[i] >= 95)
 		{
 			e_set_led(8, 2);
 			setSpeed(0,0);
 			reportValue("Finished, Success!", -1);
+			progressReport();
 			while(1){}
 		}
 		
@@ -256,10 +272,6 @@ void pathfinder()
 			if (onMline)
 			{
 				progressReport();
-				reportValue("ON MLINE, Main Prog", -1);
-				reportValue("db", db);
-				reportValue("d[i]", d[i]);
-				reportValue("fp", fp);
 			}
 		} while
 		(
@@ -330,20 +342,16 @@ int avoidBoundary(int db)
 						h = e_get_steps_left();
 						updateProgress();
 						mDist = distToMline(x, y, xg, yg);
-						
-						if (mDist < 50)
+						int dDiff = db - d[i];
+						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
+						if (mDist < 50 && dDiff > 50)
 						{
 							LED0 = 1;
-							//report the d values and check
-							
+
 							reportValue("db", db);
 							reportValue("d[i]", d[i]);
-							int dDiff = db - d[i];
-							if (dDiff > 50)
-							{
-								reportValue("ON MLINE, returning to main code", -1);
-								return 1;
-							}
+							reportValue("ON MLINE, returning to main code", -1);
+							return 1;
 						}
 						else
 						{
@@ -352,7 +360,7 @@ int avoidBoundary(int db)
 					}
 					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
 					leftProx = (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
-					waitForSteps(50);
+					waitForSteps(10);
 				}
 				break;
 			}
