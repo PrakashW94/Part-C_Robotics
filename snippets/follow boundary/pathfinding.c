@@ -60,7 +60,7 @@ int front[] = {0, 1};
 int left[] = {0, 7, 6, 5};
 int right[] = {0, 1, 2};
 
-int avoidBoundary();
+int avoidBoundary(int db);
 
 double distToGoal(double x, double y, double xg, double yg)
 {
@@ -165,6 +165,7 @@ void updateProgress()
 	q[i] = 100 - floor((d[i]/d[0])*100);
 	j++;
 	clearSteps();
+	reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), j);
 }
 
 void moveToGoal()
@@ -233,9 +234,7 @@ void pathfinder()
 			waitForSteps(50);
 			h = e_get_steps_left();
 			updateProgress();
-			//reportValue("Frontwide", fp);
 			reportValue("q[i]", q[i]);
-			//progressReport();
 		}
 		if (q[i] > 95)
 		{
@@ -252,7 +251,7 @@ void pathfinder()
 		
 		do 
 		{
-			onMline = avoidBoundary();
+			onMline = avoidBoundary(db);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
 			if (onMline)
 			{
@@ -290,15 +289,13 @@ void pathfinder()
 	}
 }
 
-int avoidBoundary()
+int avoidBoundary(int db)
 {	
 	//int frontLeds[] = {0};
 	//int rightLeds[] = {1, 2, 3};
 	//int leftLeds[] = {5, 6, 7};
-	
 	int mDist;
-	double db = d[i];
-	
+
 	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
 	clearSteps();
 	while (frontProx > 150)
@@ -325,7 +322,7 @@ int avoidBoundary()
 					if(leftProx > 400)
 					{//detect object on left, loop function to avoid
 						reportValue("entering recursion loop", leftProx);
-						avoidBoundary();
+						avoidBoundary(db);
 					}
 					else
 					{//go straight and check for mline
@@ -333,12 +330,16 @@ int avoidBoundary()
 						h = e_get_steps_left();
 						updateProgress();
 						mDist = distToMline(x, y, xg, yg);
-						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
+						
 						if (mDist < 50)
 						{
 							LED0 = 1;
 							//report the d values and check
-							if (d[i] < db)
+							
+							reportValue("db", db);
+							reportValue("d[i]", d[i]);
+							int dDiff = db - d[i];
+							if (dDiff > 50)
 							{
 								reportValue("ON MLINE, returning to main code", -1);
 								return 1;
@@ -386,7 +387,11 @@ int avoidBoundary()
 		wait(delayTimer);
 	}
 	r = e_get_steps_left();
+	updateProgress();
+	
+	clearSteps();
 	setSpeed(s, s);
+	h = e_get_steps_left();
 	updateProgress();
 	wait(delayTimer);
 	return 0;
