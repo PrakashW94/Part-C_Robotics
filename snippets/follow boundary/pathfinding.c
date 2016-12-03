@@ -245,7 +245,7 @@ void pathfinder()
 		{
 			//fp = getProx(frontwide, 4);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
-			waitForSteps(10);
+			waitForSteps(50);
 			h = e_get_steps_left();
 			updateProgress();
 			reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), q[i]);
@@ -360,7 +360,7 @@ int avoidBoundary(int db)
 					}
 					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
 					leftProx = (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
-					waitForSteps(10);
+					waitForSteps(50);
 				}
 				break;
 			}
