@@ -1,9 +1,11 @@
 /*
 TO DO LIST
 - mDist and dDist as percentages?
-- Play with refresh/wait rates
 - Test recursion loop
 - Suitable LEDs
+
+- BUGS
+	- Rotating cw at mline when entering object at top of edge?
 */
 
 #include "motor_led/e_epuck_ports.h"
@@ -241,17 +243,17 @@ void pathfinder()
 	{
 		moveToGoal();
 		clearSteps();
-		while (fp < 150 && q[i] < 95)
+		while (fp < 400 && q[i] < 95)
 		{
 			//fp = getProx(frontwide, 4);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
-			waitForSteps(50);
+			waitForSteps(10);
 			h = e_get_steps_left();
 			updateProgress();
 			reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), q[i]);
 			//reportValue("q[i]", q[i]);
 		}
-		if (q[i] >= 95)
+		if (q[i] >= 98)
 		{
 			e_set_led(8, 2);
 			setSpeed(0,0);
@@ -275,12 +277,12 @@ void pathfinder()
 			}
 		} while
 		(
-			q[i] < 95 &&
+			q[i] < 98 &&
 			//q[i] == qb &&
 			!(onMline && db > d[i] && fp < 300)
 		);
 		
-		if (q[i] > 95)
+		if (q[i] >= 98)
 		{
 			e_set_led(8, 2);
 			setSpeed(0,0);
@@ -310,7 +312,7 @@ int avoidBoundary(int db)
 
 	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
 	clearSteps();
-	while (frontProx > 150)
+	while (frontProx > 300)
 	{
 		//turn left until front prox doesn't detect object
 		setSpeed(-s, s);
@@ -344,7 +346,7 @@ int avoidBoundary(int db)
 						mDist = distToMline(x, y, xg, yg);
 						int dDiff = db - d[i];
 						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
-						if (mDist < 50 && dDiff > 50)
+						if (mDist < 10 && dDiff > 50)
 						{
 							LED0 = 1;
 
@@ -360,7 +362,7 @@ int avoidBoundary(int db)
 					}
 					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
 					leftProx = (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
-					waitForSteps(50);
+					waitForSteps(10);
 				}
 				break;
 			}
@@ -388,7 +390,7 @@ int avoidBoundary(int db)
 	
 	leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
 	clearSteps();
-	while (leftProx < 150)
+	while (leftProx < 250)
 	{//turn right until object is on the right
 		setSpeed(s, -s);
 		leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
