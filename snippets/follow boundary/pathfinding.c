@@ -3,9 +3,6 @@ TO DO LIST
 - mDist and dDist as percentages?
 - Test recursion loop
 - Suitable LEDs
-
-- BUGS
-	- Rotating cw at mline when entering object at top of edge?
 */
 
 #include "motor_led/e_epuck_ports.h"
@@ -89,7 +86,7 @@ double angleFromGoal(double x, double y, double xg, double yg)
 {
 	double diffX = xg-x;
 	double diffY = yg-y;
-    double a = pow(diffX, 2);
+	double a = pow(diffX, 2);
 	double b = pow(diffY, 2);
 	double linDist = sqrt(a + b);
 	double angle = acos(diffY / linDist);
