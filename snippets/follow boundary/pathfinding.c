@@ -56,6 +56,7 @@ double d[100];
 
 /*
 Sensor ranges
+NOT USED
 */
 
 int frontwide[] = {6, 7, 0, 1};
@@ -227,12 +228,12 @@ void progressReport()
 	reportValue("Goal x", xg);
 	reportValue("Current y", y);
 	reportValue("Goal y", yg);
-	reportValue("Steps h", e_get_steps_left());
 	reportValue("Distance from Goal", d[i]);
 	reportValue("Percentage Complete", q[i]);
 	reportValue("Current Direction (steps)", (rCurrent));
 	reportValue("Current Direction", RADtoDEG(angleToRotate(rCurrent)));
-	reportValue("Number of states", j);
+	reportValue("Number of states", i);
+	reportValue("Number of updates", j);
 	reportValue("****END PROGRESS REPORT****", -1);
 }
 
@@ -243,15 +244,13 @@ void pathfinder()
 	{
 		moveToGoal();
 		clearSteps();
-		while (fp < 400 && q[i] < 95)
+		while (fp < 400 && q[i] <= 98)
 		{
-			//fp = getProx(frontwide, 4);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
 			waitForSteps(10);
 			h = e_get_steps_left();
 			updateProgress();
 			reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), q[i]);
-			//reportValue("q[i]", q[i]);
 		}
 		if (q[i] >= 98)
 		{
@@ -304,7 +303,7 @@ void pathfinder()
 }
 
 int avoidBoundary(int db)
-{	
+{
 	//int frontLeds[] = {0};
 	//int rightLeds[] = {1, 2, 3};
 	//int leftLeds[] = {5, 6, 7};
