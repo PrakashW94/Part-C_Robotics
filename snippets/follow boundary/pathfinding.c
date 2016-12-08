@@ -277,6 +277,7 @@ void pathfinder()
 			{//Check whether or not the point on mline is improvement
 				progressReport();
 				//Check if qb is the same?
+				//Check if d[i] has decreased by enough?
 			}
 			//END DEBUGGING
 			
