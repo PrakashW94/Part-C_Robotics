@@ -62,8 +62,10 @@ int left[] = {0, 7, 6, 5};
 int right[] = {0, 1, 2};
 
 /*
-Refresh rates
+Other
 */
+
+int checkMline = 0;
 
 int avoidBoundary(int db);
 
@@ -203,6 +205,7 @@ void moveToGoal()
 		waitForSteps(r);
 		setSpeed(s, s);
 	}
+	LED0 = 0;
 	updateProgress();
 }
 
@@ -260,6 +263,7 @@ void pathfinder()
 		
 		progressReport();
 		//int qb = q[i];
+		checkMline = 0;
 		double db = d[i];
 		int onMline = 0;
 		
@@ -267,10 +271,15 @@ void pathfinder()
 		{
 			onMline = avoidBoundary(db);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
+			
+			//DEBUGGING
 			if (onMline)
-			{
+			{//Check whether or not the point on mline is improvement
 				progressReport();
+				//Check if qb is the same?
 			}
+			//END DEBUGGING
+			
 		} while
 		(
 			q[i] < 98 &&
@@ -301,11 +310,6 @@ void pathfinder()
 
 int avoidBoundary(int db)
 {
-	//int frontLeds[] = {0};
-	//int rightLeds[] = {1, 2, 3};
-	//int leftLeds[] = {5, 6, 7};
-	int mDist;
-
 	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
 	clearSteps();
 	while (frontProx > 300)
@@ -339,21 +343,16 @@ int avoidBoundary(int db)
 						setSpeed(s, s);
 						h = e_get_steps_left();
 						updateProgress();
-						mDist = distToMline(x, y, xg, yg);
-						int dDiff = db - d[i];
+						
+						int mDist = distToMline(x, y, xg, yg);
 						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
-						if (mDist < 10 && dDiff > 50)
+						if (checkMline)
 						{
-							LED0 = 1;
-
-							reportValue("db", db);
-							reportValue("d[i]", d[i]);
-							reportValue("ON MLINE, returning to main code", -1);
-							return 1;
-						}
-						else
-						{
-							LED0 = 0;
+							if (mDist < 10)
+							{
+								LED0 = 1;
+								return 1;
+							}
 						}
 					}
 					rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
@@ -394,7 +393,7 @@ int avoidBoundary(int db)
 	}
 	r = e_get_steps_left();
 	updateProgress();
-	
+	checkMline = 1;
 	clearSteps();
 	setSpeed(s, s);
 	h = e_get_steps_left();
