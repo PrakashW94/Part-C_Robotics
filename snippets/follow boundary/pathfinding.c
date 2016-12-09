@@ -47,7 +47,7 @@ j: program steps counter
 fp: front(wide) prox value
 */
 
-int x, y, xg, yg, r, h, rCurrent, i, j, fp;
+int x, y, xg, yg, r, h, rCurrent, i, j, fp, hCurrent;
 int q[100];
 double d[100];
 
@@ -262,8 +262,8 @@ void pathfinder()
 		}
 		
 		progressReport();
-		//int qb = q[i];
-		checkMline = 0;
+		int qb = q[i];
+		hCurrent = 0;
 		double db = d[i];
 		int onMline = 0;
 		
@@ -276,6 +276,9 @@ void pathfinder()
 			if (onMline)
 			{//Check whether or not the point on mline is improvement
 				progressReport();
+				reportValue("qb", qb);
+				reportValue("qi", q[i]);
+				
 				//Check if qb is the same?
 				//Check if d[i] has decreased by enough?
 			}
@@ -343,16 +346,26 @@ int avoidBoundary(int db)
 					{//go straight and check for mline
 						setSpeed(s, s);
 						h = e_get_steps_left();
+						hCurrent += h;
 						updateProgress();
 						
 						int mDist = distToMline(x, y, xg, yg);
-						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
+						reportXY(x, y, checkMline, mDist);
 						if (checkMline)
 						{
 							if (mDist < 10)
 							{
 								LED0 = 1;
 								return 1;
+							}
+						}
+						else
+						{
+							if (hCurrent > 300)
+							{
+								reportValue("hCurrent", hCurrent);
+								reportValue("Now searching for m-line", -1);
+								checkMline = 1;
 							}
 						}
 					}
@@ -394,7 +407,6 @@ int avoidBoundary(int db)
 	}
 	r = e_get_steps_left();
 	updateProgress();
-	checkMline = 1;
 	clearSteps();
 	setSpeed(s, s);
 	h = e_get_steps_left();

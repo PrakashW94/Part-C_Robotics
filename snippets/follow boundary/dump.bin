@@ -7,209 +7,768 @@
 0, 54, 0, 6
 0, 65, 0, 7
 0, 76, 0, 8
-0, 87, 0, 9
-0, 98, 0, 10
-0, 110, 0, 11
-0, 123, 0, 13
-0, 136, 0, 14
-0, 149, 0, 15
-0, 162, 0, 17
-0, 175, 0, 18
-0, 188, 0, 19
-0, 201, 0, 21
-0, 214, 0, 22
-0, 227, 0, 23
 (****START PROGRESS REPORT**** - -1)
-(Front Proximity - 461)
+(Front Proximity - 420)
 (Current x - 0)
 (Goal x - 0)
-(Current y - 227)
+(Current y - 76)
 (Goal y - 1000)
-(Steps h - 39)
-(Distance from Goal - 773)
-(Percentage Complete - 23)
+(Distance from Goal - 924)
+(Percentage Complete - 8)
 (Current Direction (steps) - 0)
 (Current Direction - 0)
-(Number of states - 21)
+(Number of states - 1)
+(Number of updates - 9)
 (****END PROGRESS REPORT**** - -1)
-0, 227, -112, 0
--14, 221, -112, 14
--30, 214, -112, 30
--30, 214, -68, 30
--45, 219, -68, 45
--60, 224, -68, 60
--60, 224, -93, 60
--76, 222, -93, 76
--76, 222, -43, 76
--88, 233, -43, 88
--100, 244, -43, 100
--113, 257, -43, 113
--113, 257, -74, 113
--131, 261, -74, 131
--131, 261, -28, 131
--140, 276, -28, 140
--140, 276, -59, 140
--156, 285, -59, 156
--172, 294, -59, 172
--172, 294, -12, 172
--176, 311, -12, 176
--180, 328, -12, 180
--180, 328, -34, 180
--191, 342, -34, 191
--202, 356, -34, 202
--213, 370, -34, 213
--224, 384, -34, 224
--235, 398, -34, 235
--235, 398, 6, 235
--234, 414, 6, 234
--233, 430, 6, 233
--232, 446, 6, 232
--231, 462, 6, 231
--230, 478, 6, 230
--229, 494, 6, 229
--228, 510, 6, 228
--227, 526, 6, 227
--226, 542, 6, 226
--225, 558, 6, 225
--224, 574, 6, 224
--223, 590, 6, 223
--222, 606, 6, 222
--221, 622, 6, 221
--220, 638, 6, 220
--220, 638, 0, 220
--220, 655, 0, 220
--220, 672, 0, 220
--220, 689, 0, 220
--220, 706, 0, 220
--220, 723, 0, 220
--220, 740, 0, 220
--220, 757, 0, 220
--220, 774, 0, 220
--220, 791, 0, 220
--220, 808, 0, 220
--220, 825, 0, 220
--220, 842, 0, 220
--220, 859, 0, 220
--220, 859, 46, 220
--207, 871, 46, 207
--194, 883, 46, 194
--181, 895, 46, 181
--168, 907, 46, 168
--155, 919, 46, 155
--142, 931, 46, 142
--129, 943, 46, 129
--116, 955, 46, 116
--103, 967, 46, 103
--90, 979, 46, 90
--79, 989, 46, 79
--68, 999, 46, 68
--57, 1009, 46, 57
--45, 1020, 46, 45
--33, 1031, 46, 33
--33, 1031, 87, 33
--17, 1031, 87, 17
--1, 1031, 87, 1
-(db - 773)
-(d[i] - 31)
-(ON MLINE, returning to main code - -1)
+0, 76, 0, 0
+-11, 71, 0, 11
+-24, 66, 0, 24
+-37, 61, 0, 37
+-50, 56, 0, 50
+-63, 51, 0, 63
+-76, 46, 0, 76
+-89, 41, 0, 89
+-102, 36, 0, 102
+-117, 29, 0, 117
+-132, 22, 0, 132
+-147, 15, 0, 147
+-162, 8, 0, 162
+-176, 2, 0, 176
+-190, -4, 0, 190
+-204, -10, 0, 204
+(entering recursion loop - 480)
+-204, -10, 0, 204
+-203, -26, 0, 203
+-202, -42, 0, 202
+-201, -58, 0, 201
+-200, -74, 0, 200
+-199, -90, 0, 199
+-198, -106, 0, 198
+(hCurrent - 307)
+(Now searching for m-line - -1)
+-198, -106, 1, 198
+-195, -123, 1, 195
+-192, -140, 1, 192
+-189, -157, 1, 189
+-186, -174, 1, 186
+-183, -191, 1, 183
+-180, -208, 1, 180
+-177, -225, 1, 177
+-177, -225, 1, 177
+-173, -242, 1, 173
+-169, -259, 1, 169
+-165, -276, 1, 165
+-165, -276, 1, 165
+-158, -292, 1, 158
+-151, -308, 1, 151
+-144, -324, 1, 144
+-137, -340, 1, 137
+-130, -356, 1, 130
+-123, -372, 1, 123
+-116, -388, 1, 116
+-109, -404, 1, 109
+-102, -420, 1, 102
+-95, -436, 1, 95
+-89, -450, 1, 89
+-83, -464, 1, 83
+-77, -478, 1, 77
+-71, -492, 1, 71
+-65, -506, 1, 65
+-59, -520, 1, 59
+-53, -534, 1, 53
+-47, -548, 1, 47
+-41, -562, 1, 41
+-35, -576, 1, 35
+-29, -590, 1, 29
+-23, -604, 1, 23
+-17, -618, 1, 17
+-11, -632, 1, 11
+-5, -646, 1, 5
+-5, -646, 1, 5
 (****START PROGRESS REPORT**** - -1)
-(Front Proximity - 245)
-(Current x - -1)
+(Front Proximity - 363)
+(Current x - -5)
 (Goal x - 0)
-(Current y - 1031)
+(Current y - -646)
 (Goal y - 1000)
-(Steps h - 55)
-(Distance from Goal - 31)
-(Percentage Complete - 97)
-(Current Direction (steps) - 308)
-(Current Direction - 87)
-(Number of states - 127)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -869)
+(Current Direction - -246)
+(Number of states - 1)
+(Number of updates - 79)
 (****END PROGRESS REPORT**** - -1)
-(rotating CW - 90)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
 (****START PROGRESS REPORT**** - -1)
-(Front Proximity - 245)
-(Current x - -1)
+(Front Proximity - 244)
+(Current x - -5)
 (Goal x - 0)
-(Current y - 1031)
+(Current y - -646)
 (Goal y - 1000)
-(Steps h - 27)
-(Distance from Goal - 31)
-(Percentage Complete - 97)
-(Current Direction (steps) - 627)
-(Current Direction - 177)
-(Number of states - 128)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -957)
+(Current Direction - -271)
+(Number of states - 1)
+(Number of updates - 82)
 (****END PROGRESS REPORT**** - -1)
--1, 1031, 56, 1
-11, 1039, 56, 11
-25, 1048, 56, 25
-39, 1057, 56, 39
-53, 1066, 56, 53
-67, 1075, 56, 67
-67, 1075, 96, 67
-83, 1072, 96, 83
-99, 1069, 96, 99
-115, 1066, 96, 115
-134, 1063, 96, 134
-153, 1060, 96, 153
-172, 1057, 96, 172
-191, 1054, 96, 191
-210, 1051, 96, 210
-229, 1048, 96, 229
-248, 1045, 96, 248
-267, 1042, 96, 267
-286, 1039, 96, 286
-286, 1039, 90, 286
-305, 1038, 90, 305
-324, 1037, 90, 324
-343, 1036, 90, 343
-362, 1035, 90, 362
-381, 1034, 90, 381
-400, 1033, 90, 400
-419, 1032, 90, 419
-438, 1031, 90, 438
-457, 1030, 90, 457
-476, 1029, 90, 476
-495, 1028, 90, 495
-514, 1027, 90, 514
-533, 1026, 90, 533
-552, 1025, 90, 552
-571, 1024, 90, 571
-590, 1023, 90, 590
-609, 1022, 90, 609
-628, 1021, 90, 628
-647, 1020, 90, 647
-666, 1019, 90, 666
-685, 1018, 90, 685
-704, 1017, 90, 704
-723, 1016, 90, 723
-723, 1016, 134, 723
-738, 1001, 134, 738
-753, 986, 134, 753
-767, 972, 134, 767
-781, 958, 134, 781
-795, 944, 134, 795
-809, 930, 134, 809
-823, 916, 134, 823
-837, 902, 134, 837
-837, 902, 115, 837
-855, 893, 115, 855
-855, 893, 162, 855
-861, 873, 162, 861
-867, 853, 162, 867
-867, 853, 134, 867
-881, 839, 134, 881
-895, 825, 134, 895
-895, 825, 177, 895
-895, 805, 177, 895
-895, 785, 177, 895
-895, 765, 177, 895
-895, 745, 177, 895
-895, 725, 177, 895
-895, 705, 177, 895
-895, 685, 177, 895
-895, 685, 215, 895
-883, 668, 215, 883
-871, 651, 215, 871
-859, 634, 215, 859
-847, 617, 215, 847
-835, 600, 215, 835
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 248)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -957)
+(Current Direction - -271)
+(Number of states - 1)
+(Number of updates - 84)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 249)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -957)
+(Current Direction - -271)
+(Number of states - 1)
+(Number of updates - 86)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 256)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -957)
+(Current Direction - -271)
+(Number of states - 1)
+(Number of updates - 88)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 222)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -979)
+(Current Direction - -277)
+(Number of states - 1)
+(Number of updates - 91)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 230)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -979)
+(Current Direction - -277)
+(Number of states - 1)
+(Number of updates - 93)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 240)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -979)
+(Current Direction - -277)
+(Number of states - 1)
+(Number of updates - 95)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 251)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -979)
+(Current Direction - -277)
+(Number of states - 1)
+(Number of updates - 97)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 277)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -979)
+(Current Direction - -277)
+(Number of states - 1)
+(Number of updates - 99)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 322)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -979)
+(Current Direction - -277)
+(Number of states - 1)
+(Number of updates - 101)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 331)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1089)
+(Current Direction - -309)
+(Number of states - 1)
+(Number of updates - 103)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 393)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1166)
+(Current Direction - -330)
+(Number of states - 1)
+(Number of updates - 106)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 190)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 109)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 184)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 111)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 183)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 113)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 187)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 115)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 189)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 117)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 192)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 119)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 197)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 121)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 202)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 123)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 209)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 125)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 224)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 127)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 247)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 129)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 291)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1309)
+(Current Direction - -371)
+(Number of states - 1)
+(Number of updates - 131)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 325)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1397)
+(Current Direction - -396)
+(Number of states - 1)
+(Number of updates - 133)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 394)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1485)
+(Current Direction - -421)
+(Number of states - 1)
+(Number of updates - 136)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 193)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 139)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 185)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 141)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 179)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 143)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 171)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 145)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 169)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 147)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 169)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 149)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 173)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 151)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 179)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 153)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 190)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 155)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 208)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 157)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 239)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 159)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 291)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1628)
+(Current Direction - -462)
+(Number of states - 1)
+(Number of updates - 161)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 339)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1760)
+(Current Direction - -499)
+(Number of states - 1)
+(Number of updates - 163)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 368)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1848)
+(Current Direction - -524)
+(Number of states - 1)
+(Number of updates - 166)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 222)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1958)
+(Current Direction - -555)
+(Number of states - 1)
+(Number of updates - 169)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
+-5, -646, 1, 5
+(****START PROGRESS REPORT**** - -1)
+(Front Proximity - 234)
+(Current x - -5)
+(Goal x - 0)
+(Current y - -646)
+(Goal y - 1000)
+(Distance from Goal - 1646)
+(Percentage Complete - -64)
+(Current Direction (steps) - -1958)
+(Current Direction - -555)
+(Number of states - 1)
+(Number of updates - 171)
+(****END PROGRESS REPORT**** - -1)
+(qb - 8)
+(qi - -64)
