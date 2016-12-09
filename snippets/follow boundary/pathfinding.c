@@ -266,7 +266,7 @@ void pathfinder()
 		hCurrent = 0;
 		double db = d[i];
 		int onMline = 0;
-		
+		int failed = 0;
 		do 
 		{
 			onMline = avoidBoundary(db);
@@ -279,6 +279,13 @@ void pathfinder()
 				reportValue("qb", qb);
 				reportValue("qi", q[i]);
 				
+				int dDiff = d[i] - db;
+				if (dDiff < 200 && dDiff > 0)
+				{
+					failed = 1;
+				}					
+				//setSpeed(0, 0);
+				//while(1){}
 				//Check if qb is the same?
 				//Check if d[i] has decreased by enough?
 			}
@@ -286,8 +293,8 @@ void pathfinder()
 			
 		} while
 		(
-			q[i] < 98 &&
-			//q[i] == qb &&
+			q[i] <= 98 &&
+			!failed &&
 			!(onMline && db > d[i] && fp < 300)
 		);
 		
@@ -299,15 +306,13 @@ void pathfinder()
 			while(1){}
 		}
 		
-/*
-		if (q[i] == qb)
+		if (failed)
 		{
-			e_set_led(1,2);
+			//e_set_led(0,2);
 			setSpeed(0,0);
 			reportValue("Finished, Failure!", -1);
 			while(1){}
 		}
-*/
 		i++;
 	}
 }
@@ -338,9 +343,18 @@ int avoidBoundary(int db)
 				while ((rightProx < 650) && (rightProx > 300))
 				{
 					if(leftProx > 400)
-					{//detect object on left, loop function to avoid
-						reportValue("entering recursion loop", leftProx);
-						avoidBoundary(db);
+					{//detect object on left, turn left if found
+						reportValue("object found on left", -1);
+						clearSteps();
+						while (leftProx > 400)
+						{
+							//turn left until front prox doesn't detect object
+							setSpeed(-s, s);
+							leftProx =  (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
+							wait(delayTimer);
+						}
+						r = e_get_steps_left();
+						updateProgress();
 					}
 					else
 					{//go straight and check for mline
@@ -355,8 +369,17 @@ int avoidBoundary(int db)
 						{
 							if (mDist < 10)
 							{
-								LED0 = 1;
-								return 1;
+								int dDiff = d[i] - db;
+								reportValue("db", db);
+								reportValue("d[i]", d[i]);
+								reportValue("dDiff", dDiff);
+								//setSpeed(0, 0);
+								//while(1){}
+								if (d[i] < db || dDiff < 200)
+								{
+									LED0 = 1;
+									return 1;
+								}
 							}
 						}
 						else
