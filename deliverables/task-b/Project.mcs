@@ -1,0 +1,345 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\e_init_port.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File001]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\e_motors.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File002]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\main.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File003]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\motor_control.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File004]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\e_prox.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File005]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\e_ad_conv.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File006]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\main.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File007]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\constants.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File008]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\motor_control.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File009]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_prox.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File010]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_motors.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File011]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_lsm330.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File012]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_init_port.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File013]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_I2C_protocol.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File014]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_I2C_master_module.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File015]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_init_uart1.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File016]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_uart1_tx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File017]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_uart1_rx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File018]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_led.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File019]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\terminal_reporting.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File020]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\prox_util.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File021]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\e_ad_conv.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File022]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\Project.cof
+Folder=Output
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File023]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\Project\Project.hex
+Folder=Output
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\motor_led\e_motors.c|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library\a_d\e_ad_conv.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File024]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\Project.cof
+Folder=Output
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File025]
+Location=C:\Users\cojam\Desktop\Part-C_Robotics\deliverables\task-b\Project.hex
+Folder=Output
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(INCDIR)|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2||$(LIBDIR)|Q:\Program Files (x86)\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|main.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\constants.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\motor_control.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_prox.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_motors.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\acc_gyro\e_lsm330.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_init_port.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_protocol.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\I2C\e_I2C_master_module.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\a_d\e_ad_conv.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_init_uart1.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_tx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\uart\e_uart1_rx_char.s|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\motor_led\e_led.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\terminal_reporting.c|C:\Users\cojam\Desktop\Part-C_Robotics\library_v2\custom_util\prox_util.c||<obj>||<lib>||<lkr>|C:\Users\cojam\Desktop\Part-C_Robotics\library\p30f6014A.gld||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[TOOL_LOC_STAMPS]
+tool_loc{DE18EB1A-B46B-486B-B96F-A811A635DFAC}=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-as.exe
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=Q:\Program Files (x86)\Microchip\MPLAB C30\bin\pic30-ld.exe
