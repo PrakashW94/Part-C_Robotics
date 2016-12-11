@@ -1,0 +1,280 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\btcom\object\btcom.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File001]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_agenda.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File002]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_init_port.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File003]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_init_uart1.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File004]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_init_uart2.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File005]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_led.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File006]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_motors.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File007]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_remote_control.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File008]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_uart1_rx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File009]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_uart1_tx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File010]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_uart2_rx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File011]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\epfl\object\e_uart2_tx_char.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={DE18EB1A-B46B-486B-B96F-A811A635DFAC}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=--defsym=__DEBUG=1
+[File012]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\ircom\object\e_ad_conv.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File013]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\ircom\object\ircom.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File014]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\ircom\object\ircomMessages.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File015]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\ircom\object\ircomReceive.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File016]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\ircom\object\ircomSend.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File017]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\ircom\object\ircomTools.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File018]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\src\test\object\main.o
+Folder=Intermediary
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File019]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\bin\test.cof
+Folder=Output
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-ld.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=--heap=512 -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File020]
+Location=C:\Part-C_Robotics\libIrcom-1.0.7\libIrcom-1.0.7\e-puck\bin\test.hex
+Folder=Output
+DeviceName=dsPIC30F6014A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-ld.exe
+PPAD=$(BINDIR)|..\..\bin||$(TMPDIR)|./object||$(AINDIR)||$(INCDIR)|..\ircom;..\epfl;..\btcom||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\btcom\btcom.c|..\epfl\e_agenda.c|..\epfl\e_init_port.c|..\epfl\e_init_uart1.s|..\epfl\e_init_uart2.s|..\epfl\e_led.c|..\epfl\e_motors.c|..\epfl\e_remote_control.c|..\epfl\e_uart1_rx_char.s|..\epfl\e_uart1_tx_char.s|..\epfl\e_uart2_rx_char.s|..\epfl\e_uart2_tx_char.s|..\ircom\e_ad_conv.c|..\ircom\ircom.c|..\ircom\ircomMessages.c|..\ircom\ircomReceive.c|..\ircom\ircomSend.c|..\ircom\ircomTools.c|main.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=--heap=512 -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[TOOL_LOC_STAMPS]
+tool_loc{DE18EB1A-B46B-486B-B96F-A811A635DFAC}=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-as.exe
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=\\psf\Home\Documents\Windows\Robotics\Programs\MPLAB_IDE_v8_56\MPLAB C30 Compiler\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files (x86)\Microchip\MPLAB C30 Compiler\bin\pic30-ld.exe

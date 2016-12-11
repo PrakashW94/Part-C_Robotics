@@ -1,10 +1,10 @@
+#include <string.h>
+#include <stdio.h>
+
 #include <motor_led/e_epuck_ports.h>
 #include <motor_led/e_init_port.h>
 
 #include "uart/e_uart_char.h"
-
-//char buffer that will hold the message that will be transferred
-char uartbuffer[100];
 
 void wait(long num) {
 	long i;
@@ -19,6 +19,8 @@ int getselector() {
 //function to report a value via uart1 comms given a piece of str (desc) and a value
 void reportValue(char* title, int value)
 {
-	sprintf(uartbuffer, "(%s - %d), ", title, value);
+	char uartbuffer[100];
+
+	sprintf(uartbuffer, "(%s - %d), \r\n", title, value);
 	e_send_uart1_char(uartbuffer, strlen(uartbuffer));
 }

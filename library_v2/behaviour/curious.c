@@ -6,14 +6,11 @@
 #include "custom_util/motor_control.h"
 #include "custom_util/math.c"
 
-#include "motor_led/e_motors.h"
-
 #include "motor_led/advance_one_timer/e_agenda.h"
 #include "motor_led/advance_one_timer/e_led.h"
 #include "motor_led/advance_one_timer/e_motors.h"
 
-#include "a_d/advance_ad_scan/e_ad_conv.h"
-#include "a_d/advance_ad_scan/e_prox.h"
+#include "ircom/e_ad_conv.h"
 
 #include "uart/e_uart_char.h"
 
@@ -32,9 +29,6 @@ void curiousity()
 	// The base speed of the robot. This is the speed of the wheels when there is no sensory input.
 	int base_speed = 700;
 
-	// The sensory value when the robot is too close. This will cause the wheel speeds to the opposite sign ( Positive <-> Negative ).
-	int too_close = 4000;
-	
 	// The maximum speed of the wheels
 	int max_speed = 1000;
 	
@@ -119,7 +113,7 @@ void initCuriousity()
 	e_init_motors();
 	e_init_uart1();
 	
-	e_init_ad_scan(ALL_ADC);
+	e_init_ad_scan();
 	e_calibrate_ir();
 	
 	// Register agendas

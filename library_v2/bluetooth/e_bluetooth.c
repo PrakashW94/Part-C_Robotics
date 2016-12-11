@@ -43,7 +43,7 @@ char local_bt_PIN[4];
 
 /*! \brief Try to find other e-puck
 *
-* This function make global inguiry and check which device are e-puck, 
+* This function make global inguiry and check which device are e-puck,
 * and list them in globales tables.
 * \return number of e-puck found
 * \sa e_bt_present_device, e_bt_present_epuck
@@ -52,17 +52,17 @@ int e_bt_find_epuck(void)
 {
 	int device_find, e_puck_find;
 	int i,j;
-	
+
 	e_puck_find=0;
 	device_find=e_bt_inquiry(e_bt_present_device);
-	
+
 	for (i=0;i<device_find;i++)
 	{
 		if((e_bt_present_device[i].class[0]==0)&(e_bt_present_device[i].class[1]==0)&(e_bt_present_device[i].class[2]==0)&(e_bt_present_device[i].address[5]==0x08))//marque of e-puck
 		{
 			e_bt_get_friendly_name(&e_bt_present_device[i]);
 			if((e_bt_present_device[i].friendly_name[0]=='e')&(e_bt_present_device[i].friendly_name[1]=='-')&(e_bt_present_device[i].friendly_name[2]=='p'))
-			{				
+			{
 				for(j=0;j<4;j++)
 				{
 					e_bt_present_epuck[e_puck_find].address[j]=e_bt_present_device[i].address[j];//copy address
@@ -71,7 +71,7 @@ int e_bt_find_epuck(void)
 					e_bt_present_epuck[e_puck_find].number[4]='\0';//end with null
 				for(j=4;j<6;j++)
 					e_bt_present_epuck[e_puck_find].address[j]=e_bt_present_device[i].address[j];
-				e_puck_find++;	
+				e_puck_find++;
 			}
 		}
 	}
@@ -85,7 +85,7 @@ char e_bt_connect_epuck(void)
 {
 	int e_puck_find;
 	char error;
-	
+
 	e_bt_read_local_pin_number(local_bt_PIN);
 	e_puck_find=e_bt_find_epuck();
 	if(e_puck_find)
@@ -94,9 +94,9 @@ char e_bt_connect_epuck(void)
 		error=e_bt_etablish_SPP_link(&e_bt_present_epuck[0].address[0]);
 		e_bt_write_local_pin_number(local_bt_PIN);
 		return error;
-	}	
+	}
 	else
-		return 99; 
+		return 99;
 }
 
 
@@ -112,7 +112,7 @@ int e_bt_reset(void)
 	int i;
 	char c;
 	char version[5];
-	
+
 	send[0]=0x02; //send reset request
 	send[1]=0x52;
 	send[2]=0x26;
@@ -121,21 +121,21 @@ int e_bt_reset(void)
 	send[5]=0x78;
 	send[6]=0x03;
 	e_send_uart1_char(send,7);
-	
+
 	i=0;
 	c=0;
-	
+
 	 do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
-	
+
 		for(i=0;i<read[6];i++)			//extract version
 			version[i]=read[i+7];
 		version[i]=	'\0';
@@ -153,29 +153,29 @@ char e_bt_factory_reset(void)
 	char read[10];
 	int i;
 	char c;
-	
+
 	send[0]=0x02;
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x1A;
 	send[3]=0x00;
 	send[4]=0x00;
 	send[5]=0x6c;
 	send[6]=0x03;//link number 1-30
 	e_send_uart1_char(send,7);
-	
+
 	 i=0;
 	 c=0;
 		do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
-	return read[6];	//return error 0=no error	
+	return read[6];	//return error 0=no error
 }
 
 /*! \brief Change to transparent mode
@@ -187,9 +187,9 @@ char e_bt_tranparent_mode(void)
 	char read[10];
 	int i;
 	char c;
-	
+
 	send[0]=0x02;
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x11;
 	send[3]=0x01;
 	send[4]=0x00;
@@ -197,20 +197,20 @@ char e_bt_tranparent_mode(void)
 	send[6]=0x01;//link number 1-30
 	send[7]=0x03;
 	e_send_uart1_char(send,8);
-	
+
 	 i=0;
 	 c=0;
 		do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
-	return read[6];	//return error 0=no error	
+	return read[6];	//return error 0=no error
 }
 
 
@@ -224,7 +224,7 @@ void e_bt_exit_tranparent_mode(void)
 	for(i=0;i<MILLISEC;i++);//wait at least 1ms
 	_LATF3=1;//uart 1 TX
 	_TRISF3=1;
-	e_init_uart1();	
+	e_init_uart1();
 }
 
 /*! \brief Read the PIN number of this e-puck's bluetooth module
@@ -237,7 +237,7 @@ char e_bt_read_local_pin_number(char *PIN)
 	unsigned char read[30];
 	int i;
 	char c;
-	
+
 	send[0]=0x02; //send PIN request
 	send[1]=0x52;
 	send[2]=0x16;
@@ -246,21 +246,21 @@ char e_bt_read_local_pin_number(char *PIN)
 	send[5]=0x68;
 	send[6]=0x03;
 	e_send_uart1_char(send,7);
-	
+
 	 i=0;
 	 c=0;
-	
+
 	 do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
-	
+
 		for(i=0;i<read[7];i++)			//extract PIN
 			PIN[i]=read[i+8];
 		PIN[i]=	'\0';
@@ -277,33 +277,33 @@ char e_bt_read_local_name(char *name)
 	char read[40];
 	int i;
 	char c;
-	
-	send[0]=0x02; 
-	send[1]=0x52; 
+
+	send[0]=0x02;
+	send[1]=0x52;
 	send[2]=0x03;//send Name request
 	send[3]=0x00;
 	send[4]=0x00;
 	send[5]=0x55;
 	send[6]=0x03;
 	e_send_uart1_char(send,7);
-	
+
 	 i=0;
 	 c=0;
-	
+
 	 do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
-	
+
 		for(i=0;i<read[7];i++)			//extract Name
 			name[i]=read[i+8];
-	
+
 	return read[6];//return error 0=no error
 }
 
@@ -318,10 +318,10 @@ char e_bt_write_local_pin_number(char *PIN)
 	int i;
 	char c;
 	int numberlenght;
-	
+
 	numberlenght=strlen(PIN);
 	//send_uart2(PIN,numberlenght);
-	send[0]=0x02; 
+	send[0]=0x02;
 	send[1]=0x52;
 	send[2]=0x17;
 	send[3]=numberlenght+1;
@@ -332,17 +332,17 @@ char e_bt_write_local_pin_number(char *PIN)
 		send[i+7]=PIN[i];
 	send[7+numberlenght]=0x03;
 	e_send_uart1_char(send,numberlenght+8);
-	
+
 	 i=0;
 	 c=0;
-	
+
 	 do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
@@ -360,7 +360,7 @@ char e_bt_write_local_name(char *name)
 	int i;
 	char c;
 	int namelenght;
-	
+
 	namelenght=strlen(name);
 	namelenght++;//add null caracter
 	//send_uart2(PIN,numberlenght);
@@ -375,17 +375,17 @@ char e_bt_write_local_name(char *name)
 		send[i+7]=name[i];
 	send[7+namelenght]=0x03;
 	e_send_uart1_char(send,namelenght+8);
-	
+
 	 i=0;
 	 c=0;
-	
+
 	 do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
@@ -405,9 +405,9 @@ int e_bt_inquiry(struct BtDevice *device)
 	int devicefound;
 	int i,j;
 	char c;
-	
+
 	send[0]=0x02; //send Name request
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x00;
 	send[3]=0x03;
 	send[4]=0x00;
@@ -425,10 +425,10 @@ int e_bt_inquiry(struct BtDevice *device)
 	 		do
 	    	{
 	      		if (e_getchar_uart1(&read[i]))		//read response
-				{	
+				{
 					c=read[i];
 	     			i++;
-				}	
+				}
 	    	}
 	   		while (((char)c != 0x03)||(i<(read[3]+6)));
 	    	if(read[1]==0x69)
@@ -436,9 +436,9 @@ int e_bt_inquiry(struct BtDevice *device)
 					device[devicefound].address[i]=read[i+6];
 				for(i=0;i<3;i++)			//extract BTaddress
 					device[devicefound].class[i]=read[i+12];
-				devicefound++;	
+				devicefound++;
 			}
-		}		
+		}
 	    while((read[1]!=0x43)&(read[2]!=0x00));
 	return devicefound;//return number of device found
 }
@@ -452,12 +452,12 @@ char e_bt_get_friendly_name(struct BtDevice *device)
 {
 	char send[13];
 	char read[50];
-	
+
 	int i;
 	char c;
-	
+
 	send[0]=0x02; //send Name request
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x02;
 	send[3]=0x06;
 	send[4]=0x00;
@@ -470,16 +470,16 @@ char e_bt_get_friendly_name(struct BtDevice *device)
 	send[11]=device[0].address[5];
 	send[12]=0x03;
 	e_send_uart1_char(send,13);
-	
+
 	i=0;
 	c=0;
 	do
     {
     	if (e_getchar_uart1(&read[i]))		//read response
-		{	
+		{
 			c=read[i];
      		i++;
-		}	
+		}
     }
     while (((char)c != 0x03)||(i<(read[3]+6)));
     read[i]='\0';
@@ -499,12 +499,12 @@ char e_bt_etablish_SPP_link(char *address)
 {
 	char send[15];
 	char read[50];
-	
+
 	int i;
 	char c;
-	
+
 	send[0]=0x02; //send Name request
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x0a;
 	send[3]=0x08;
 	send[4]=0x00;
@@ -519,7 +519,7 @@ char e_bt_etablish_SPP_link(char *address)
 	send[13]=0x01;
 	send[14]=0x03;
 	e_send_uart1_char(send,15);
-	
+
 	i=0;
 	c=0;
 	do{
@@ -527,16 +527,16 @@ char e_bt_etablish_SPP_link(char *address)
  		do
     	{
       		if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
      			i++;
-			}	
+			}
     	}
    		while (((char)c != 0x03)||(i<(read[3]+6)));
-	}		
+	}
 	while((read[2]!=0x69)&(read[2]!=0x0B));//spp link etablished
-	    
-	return read[6];	//return rfcomm error 0=no error	
+
+	return read[6];	//return rfcomm error 0=no error
 }
 
 /*! \brief Unconnect from the current bluetooth device
@@ -548,9 +548,9 @@ char e_bt_release_SPP_link(void)
 	char read[10];
 	int i;
 	char c;
-	
+
 	send[0]=0x02;
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x0d;
 	send[3]=0x01;
 	send[4]=0x00;
@@ -558,38 +558,38 @@ char e_bt_release_SPP_link(void)
 	send[6]=0x01;//link number 1-30
 	send[7]=0x03;
 	e_send_uart1_char(send,8);
-	
+
 	 i=0;
 	 c=0;
 	do
     {
       if (e_getchar_uart1(&read[i]))		//read response
-		{	
+		{
 			c=read[i];
      		i++;
-		}	
+		}
     }
     while (((char)c != 0x03)||(i<(read[3]+6)));
     read[i]='\0';
 	if((read[2]==0x0d)&(read[6]!=0x00))//control confirm request (in case no link etablished)
 		return read[6];	//return error 0=no error
-		
-		
+
+
 	do{
  		i=0;
  		do
     	{
       		if (e_getchar_uart1(&read[i]))//read response
-			{	
+			{
 				c=read[i];
      			i++;
-			}	
+			}
     	}
    		while (((char)c != 0x03)||(i<(read[3]+6)));
-	}		
+	}
 	while((read[1]!=0x69)&(read[2]!=0x051));//spp link released
-	    
-	return read[6];	//return rfcomm error 0=no error	
+
+	return read[6];	//return rfcomm error 0=no error
 }
 
 /*! \brief Send data to the current bluetooth device
@@ -604,7 +604,7 @@ char e_bt_send_SPP_data(char *data, char datalength)
 	char read[10];
 	int i;
 	char c;
-	
+
 	//send_uart2(PIN,numberlenght);
 	send[0]=0x02; //send PIN request
 	send[1]=0x52;
@@ -619,17 +619,17 @@ char e_bt_send_SPP_data(char *data, char datalength)
 		send[i+9]=data[i];
 	send[9+datalength]=0x03;
 	e_send_uart1_char(send,datalength+10);
-	
+
 	 i=0;
 	 c=0;
-	
+
 	 do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
@@ -647,9 +647,9 @@ char e_bt_list_local_paired_device(void)
 	int devicefound;
 	int i;
 	char c;
-	
-	send[0]=0x02; 
-	send[1]=0x52; 
+
+	send[0]=0x02;
+	send[1]=0x52;
 	send[2]=0x1c;
 	send[3]=0x00;
 	send[4]=0x00;
@@ -662,10 +662,10 @@ char e_bt_list_local_paired_device(void)
 		do
 	   	{
 	     	if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	    			i++;
-			}	
+			}
 	   	}
 	  	while (((char)c != 0x03)||(i<(read[3]+6)));
 	   	devicefound=read[7];
@@ -674,7 +674,7 @@ char e_bt_list_local_paired_device(void)
 		   	for(i=0;i<6*devicefound;i++)			//extract BTaddress
 				e_bt_local_paired_device[i]=read[i+8];
 		}
-	
+
 	return devicefound;//return number of device found
 }
 
@@ -689,9 +689,9 @@ char e_bt_remove_local_paired_device(int j)
 	char read[10];
 	int i;
 	char c;
-	
+
 	send[0]=0x02; //send Name request
-	send[1]=0x52; 
+	send[1]=0x52;
 	send[2]=0x1b;
 	send[3]=0x06;
 	send[4]=0x00;
@@ -704,16 +704,16 @@ char e_bt_remove_local_paired_device(int j)
 	send[11]=e_bt_local_paired_device[5+j*6];
 	send[12]=0x03;
 	e_send_uart1_char(send,13);
-	
+
 	 i=0;
 	 c=0;
 		do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
@@ -722,7 +722,7 @@ char e_bt_remove_local_paired_device(int j)
 
 
 /*! \brief Set event filter of module
- * \warning this function can change the Bluetooth behaviours and than this library could not work anymore. 
+ * \warning this function can change the Bluetooth behaviours and than this library could not work anymore.
  * \param event 0x00: All events reported
  * 0x01: No ACL Link Indicators (default)
  * 0x02: No events reported
@@ -735,7 +735,7 @@ char e_bt_set_event_filter(char event)
 	char read[10];
 	int i;
 	char c;
-	
+
 	send[0]=0x02;
 	send[1]=0x52; //request
 	send[2]=0x4E; //opcode set event
@@ -745,7 +745,7 @@ char e_bt_set_event_filter(char event)
 	send[6]=event;//link number 1-30
  	send[7]=0x03; //end
 	e_send_uart1_char(send,8);
-	
+
 	i=0;
 	c=0;
 	if(event>1)
@@ -754,19 +754,19 @@ char e_bt_set_event_filter(char event)
 	do
     {
       if (e_getchar_uart1(&read[i]))		//read response
-		{	
+		{
 			c=read[i];
      		i++;
-		}	
+		}
     }
     while (((char)c != 0x03)||(i<(read[3]+6)));
     read[i]='\0';
-	return read[6];	//return error 0=no error	
+	return read[6];	//return error 0=no error
 }
 
 /*! \brief Get event filter of module if it is different than 0x02
- * 
- * \return event filter 
+ *
+ * \return event filter
  *	0x00: All events reported
  * 	0x01: No ACL Link Indicators (default)
  * 	0x02: No events reported
@@ -777,7 +777,7 @@ char e_bt_get_event_filter(void)
 	char read[10];
 	int i;
 	char c;
-	
+
 	send[0]=0x02;
 	send[1]=0x52; //request
 	send[2]=0x4F; //opcode get event
@@ -786,16 +786,16 @@ char e_bt_get_event_filter(void)
 	send[5]=0xA1; //checksum
 	send[6]=0x03; //end
 	e_send_uart1_char(send,7);
-	
+
 	 i=0;
 	 c=0;
 		do
 	    {
 	      if (e_getchar_uart1(&read[i]))		//read response
-			{	
+			{
 				c=read[i];
 	     		i++;
-			}	
+			}
 	    }
 	    while (((char)c != 0x03)||(i<(read[3]+6)));
 	    read[i]='\0';
