@@ -11,6 +11,10 @@ extern unsigned int tickAdcIsr;
 #define MIN_BATT_VALUE 2070 // corresponds to 3.4 volts
 #define BATT_VALUES_RANGE (MAX_BATT_VALUE-MIN_BATT_VALUE)
 
+void wait(long num) {
+	long i;
+	for(i=0;i<num;i++);
+}
 
 int getselector() {
 	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
