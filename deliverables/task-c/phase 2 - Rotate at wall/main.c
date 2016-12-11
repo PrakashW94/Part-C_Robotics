@@ -1,7 +1,5 @@
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
-#include "motor_led/e_led.h"
-#include "motor_led/e_motors.h"
 
 #include "a_d/e_ad_conv.h"
 #include "a_d/e_prox.h"
@@ -12,6 +10,11 @@
 #include "constants.c"
 
 #include "phase2.h"
+#include "agendacontrol.h"
+
+#include "motor_led/advance_one_timer/e_agenda.h"
+#include "motor_led/advance_one_timer/e_led.h"
+#include "motor_led/advance_one_timer/e_motors.h"
 
 int getSelector() {
 	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
@@ -30,17 +33,11 @@ int main()
 	{
 		e_set_speed_left(300);
 		e_set_speed_right(300);
-		int frontProx;
-		while(1)
-		{
-			frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
-			reportValue("frontProx", frontProx);
-			if (frontProx > 600)
-			{
-				rotateAtWall();		
-			}
-			wait(delayTimer);
-		}
+		
+		e_start_agendas_processing();
+		
+		controlAgenda();
+		while(1){}
 	}	
 	else
 	{

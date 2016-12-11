@@ -2,8 +2,6 @@
 
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
-#include "motor_led/e_led.h"
-#include "motor_led/e_motors.h"
 
 #include "a_d/e_ad_conv.h"
 #include "a_d/e_prox.h"
@@ -16,6 +14,12 @@
 #include "math.h"
 #include "string.h"
 #include <stdio.h>
+
+#include "motor_led/advance_one_timer/e_agenda.h"
+#include "motor_led/advance_one_timer/e_led.h"
+#include "motor_led/advance_one_timer/e_motors.h"
+
+#include "agendacontrol.h"
 
 /*
 PI: Pi (duh)
@@ -43,21 +47,28 @@ void waitForSteps(int steps)
 	e_set_steps_left(0);
 	
 	int endSteps = e_get_steps_left() + steps;
-	while( abs(e_get_steps_left()) < endSteps );
-	
+	reportValue("End steps", endSteps);
+	int currentSteps = abs(e_get_steps_left());
+	while(currentSteps < endSteps )
+	{
+		reportValue("stuck in loop", currentSteps);
+		currentSteps = abs(e_get_steps_left());
+	}
 	e_set_steps_left(startSteps);
 }
 
 void setSpeed(int l, int r)
 {
-	e_set_speed_left(l);
-	e_set_speed_right(r);
+	e_set_speed_left(300);
+	e_set_speed_right(-300);
 }
 
 int direction = 1;
 //direction is current movement direction 
 //up = 1 (default)
 //down = 0
+
+void moveAndSense();
 
 void rotateAtWall()
 {
@@ -80,13 +91,30 @@ void rotateAtWall()
 		direction = 1;
 	}
 	setSpeed(s*lMod, s*rMod);
+	reportValue("steps to turn", stepsToTurn);
+	reportValue("speed left", s*lMod);
+	reportValue("speed right", s*rMod);
 	waitForSteps(stepsToTurn);
 	
+	reportValue("rotated", -1);
 	setSpeed(s, s);
 	waitForSteps(500);
+	reportValue("moved", -1);
 	
 	setSpeed(s*lMod, s*rMod);
 	waitForSteps(stepsToTurn);
+	reportValue("rotated", -1);
 	
-	setSpeed(s, s);	
+	status = 2;
+	controlAgenda();
+}
+
+void moveAndSense()
+{
+	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
+	if (frontProx > 600)
+	{
+		status = 1;
+		controlAgenda();
+	}
 }
