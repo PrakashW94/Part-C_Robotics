@@ -21,7 +21,7 @@ int main(void)
 	
 	if (getSelector() == 1)
 	{
-		findRed();
+		findGreen();
 	}
 	while(1) {}
 }
