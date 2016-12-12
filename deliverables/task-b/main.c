@@ -8,8 +8,7 @@
 #include "motor_led/advance_one_timer/e_motors.h"
 #include "motor_led/advance_one_timer/e_agenda.h"
 
-#include "imageCapture.h"
-#include "findRed.h"
+#include "findGreen.h"
 
 int getSelector();
 

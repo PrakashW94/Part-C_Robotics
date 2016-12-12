@@ -14,21 +14,7 @@
 
 char fbwbuffer[160];
 int numbuffer[80];
-double isGreenVisable;
-
-void reportValue(char* title, int value)
-{
-	char uartbuffer[100];
-	sprintf(uartbuffer, "(%s - %d)\r\n", title, value);
-	int length = strlen(uartbuffer);
-	e_send_uart1_char(uartbuffer, length);
-	while(e_uart1_sending()){}
-}
-
-void wait(long num) {
-	long i;
-	for(i=0;i<num;i++);
-}
+double isGreenVisible;
 
 //custom cam picture load
 void getImage(){
@@ -54,14 +40,14 @@ void Image(){
 
 	//If green is visable then isGreenVisable turns to true
 	if(vis>1){
-		isGreenVisable = 1;
+		isGreenVisible = 1;
 	}else{
-		isGreenVisable = 0;
+		isGreenVisible = 0;
 	}
 }
 
 //Main function of follower
-void findGreen(void){
+int findGreen(void){
 	//basic set up for camera
 	e_poxxxx_init_cam();
 	e_poxxxx_config_cam(0,(ARRAY_HEIGHT - 4)/2,640,4,8,4,RGB_565_MODE);
@@ -76,12 +62,14 @@ void findGreen(void){
 
 		//Take a section of the center, this means if there is an error with one it won't effect it as a whole.
 		centreValue = numbuffer[38] + numbuffer[39] + numbuffer[40] + numbuffer[41] + numbuffer[42] + numbuffer[43]; // removes stray 	
-		if(centreValue > 3){ //If green is in the middle then stay still	
+		if(centreValue > 3){ //If green is in the middle 
 			e_set_led(6,1);
-		}else if(isGreenVisable){//If green isn't in the center but is visable then picks a direction to turn to face it
+			return 1;
+		}else if(isGreenVisible){//If green isn't in the center but is visable
 			e_set_led(6,1);
-		}else{// if green isn't visible and no true values it will turn left
-			
+			return 1;
+		}else{// if green isn't visible and no true values 
+			return 0;
 		}
 	}
 }
