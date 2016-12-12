@@ -8,6 +8,7 @@
 #include "motor_led/advance_one_timer/e_motors.h"
 #include "motor_led/advance_one_timer/e_agenda.h"
 
+#include "findRed.h"
 #include "findGreen.h"
 
 int getSelector();
@@ -17,10 +18,16 @@ int main(void)
 	e_init_port();
 	e_init_uart1();
 	e_init_motors();
-	
+
 	if (getSelector() == 1)
 	{
-		findGreen();
+		initRed();
+		while (1) {findRed(); }
+	}
+	else if (getSelector() == 2)
+	{
+		initGreen();
+		while (1) { findGreen(); }
 	}
 	while(1) {}
 }
