@@ -1,2 +1,1 @@
 void rotateAtWall();
-void moveAndSense();
