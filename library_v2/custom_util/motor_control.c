@@ -28,16 +28,15 @@ void set_speed( int side, int speed )
 	switch( side ) 
 	{
 		case LEFT:
-			if( global.speed[0] != speed ){
 				e_set_speed_left( speed );
-				global.speed[0] = speed;
-			}
+			//	btcomSendString( "Left Speed - ");
+			//	btcomSendInt( speed );
 			break;
 		case RIGHT:
-			if( global.speed[1] != speed ){
+			//	btcomSendString( "Right Speed - ");
+			//	btcomSendInt( speed );
 				e_set_speed_right( speed );
-				global.speed[1] = speed;
-			}
+				
 			break;
 	}
 }
@@ -62,6 +61,22 @@ void clearSteps()
 	e_set_steps_left( 0 );
 	e_set_steps_right( 0 );
 }
+
+
+//  Rotates the robot anti-clockwise.
+//  333 steps = 90 degrees
+void rotateAntiClockwise( int steps )
+{
+	clearSteps();
+
+	BODY_LED = 1;
+
+	e_set_speed_left( -500 );
+	e_set_speed_right( 500 );
+
+	waitForSteps( steps );
+}
+
 
 //  Rotates the robot clockwise.
 //  333 steps = 90 degrees
@@ -91,32 +106,26 @@ void rotateClockwiseDegrees( int degrees )
 
 
 
-
-void moveForwards( int steps )
+void moveForwards( int speed, int steps )
 {
 	clearSteps();
 
-	e_set_speed_left( 300 );
-	e_set_speed_right( 300 );
+	e_set_speed_left( speed );
+	e_set_speed_right( speed );
 
 	waitForSteps( steps );
 }
 
-void turn90DegreesLeft()
+void turn90DegreesTo( int side )
 {
-	btcomSendInt( e_get_steps_left() );
-	btcomSendInt( e_get_steps_right() );
-	btcomSendString( "\r\n" );
-
-	if( e_get_steps_left() > 1000 || e_get_steps_right() > 1000 )
-	{
-		
-		rotateClockwise( 333 );
-
-		e_set_speed_left( 300 );
-		e_set_speed_right( 300 );
-	
-		clearSteps();
+	switch( side )
+	{	
+		case RIGHT:
+			rotateClockwise( 333 );
+			break;
+		case LEFT: 
+			rotateAntiClockwise( 333 );
+			break;		
 	}
 }
 
