@@ -239,12 +239,12 @@ void progressReport()
 
 void pathfinder()
 {
-	setGoal(0, 1000);
+	setGoal(0, 10000);
 	while(1)
 	{
 		moveToGoal();
 		clearSteps();
-		while (fp < 400 && q[i] <= 98)
+		while (fp < 200 && q[i] <= 98)
 		{
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
 			waitForSteps(10);
@@ -295,7 +295,7 @@ void pathfinder()
 		(
 			q[i] <= 98 &&
 			!failed &&
-			!(onMline && db > d[i] && fp < 300)
+			!(onMline && db > d[i] && fp < 200)
 		);
 		
 		if (q[i] >= 98)
@@ -321,7 +321,7 @@ int avoidBoundary(int db)
 {
 	int frontProx = (int)((e_get_prox(7) + e_get_prox(0))/2);
 	clearSteps();
-	while (frontProx > 300)
+	while (frontProx > 200)
 	{
 		//turn left until front prox doesn't detect object
 		setSpeed(-s, s);
@@ -334,17 +334,16 @@ int avoidBoundary(int db)
 
 	int rightProx = (int)((e_get_prox(0) + e_get_prox(1) + e_get_prox(2))/3);
 	int leftProx =  (int)((e_get_prox(0) + e_get_prox(7) + e_get_prox(6) + e_get_prox(5))/4);
-	while (rightProx > 300)
+	while (rightProx > 250)
 	{
 		switch(rightProx)
 		{
-			case 300 ... 650: 
+			case 150 ... 750: 
 			{//go straight with the object on the right
-				while ((rightProx < 650) && (rightProx > 300))
+				while ((rightProx < 750) && (rightProx > 150))
 				{
 					if(leftProx > 400)
 					{//detect object on left, turn left if found
-						reportValue("object found on left", -1);
 						clearSteps();
 						while (leftProx > 400)
 						{
@@ -370,11 +369,6 @@ int avoidBoundary(int db)
 							if (mDist < 10)
 							{
 								int dDiff = d[i] - db;
-								reportValue("db", db);
-								reportValue("d[i]", d[i]);
-								reportValue("dDiff", dDiff);
-								//setSpeed(0, 0);
-								//while(1){}
 								if (d[i] < db || dDiff < 200)
 								{
 									LED0 = 1;
@@ -386,8 +380,6 @@ int avoidBoundary(int db)
 						{
 							if (hCurrent > 300)
 							{
-								reportValue("hCurrent", hCurrent);
-								reportValue("Now searching for m-line", -1);
 								checkMline = 1;
 							}
 						}
@@ -398,7 +390,7 @@ int avoidBoundary(int db)
 				}
 				break;
 			}
-			case 651 ... 5000:
+			case 751 ... 5000:
 			{//moving towards object, turn left slightly
 				clearSteps();
 				while (rightProx > 650)
@@ -408,7 +400,6 @@ int avoidBoundary(int db)
 					wait(delayTimer);
 				}
 				r = e_get_steps_left();
-				
 				updateProgress();
 				break;
 			}
@@ -422,7 +413,7 @@ int avoidBoundary(int db)
 	
 	leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
 	clearSteps();
-	while (leftProx < 250)
+	while (leftProx < 150)
 	{//turn right until object is on the right
 		setSpeed(s, -s);
 		leftProx = (int)((e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/3);
