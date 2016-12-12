@@ -45,7 +45,7 @@ static unsigned char micro_only = 0;
 int selector;
 
 unsigned char updateAccI2CCounter = 0;
-extern int centre_z;
+int centre_z;
 unsigned int tickAdcIsr = 0;    // tick resolution = ADC_ISR_PERIOD = 1/16384 = about 61 us
 
 /*! \brief Initialize all the A/D register needed

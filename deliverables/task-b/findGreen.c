@@ -16,6 +16,7 @@ char fbwbuffer[160];
 int numbuffer[80];
 double isGreenVisible;
 
+
 //custom cam picture load
 void getImage(){
 	e_poxxxx_launch_capture((char *)fbwbuffer);
