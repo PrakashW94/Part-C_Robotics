@@ -1,10 +1,15 @@
+#include "btcom/btcom.h"
+
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_epuck_ports.h"
+
 #include "motor_led/advance_one_timer/e_motors.h"
 #include "motor_led/advance_one_timer/e_agenda.h"
-#include "uart/e_uart_char.h"
-#include "camera/fast_2_timer/e_poxxxx.h"
 #include "motor_led/advance_one_timer/e_led.h"
+
+#include "uart/e_uart_char.h"
+
+#include "camera/fast_2_timer/e_poxxxx.h"
 
 #include "stdio.h"
 #include "string.h"
@@ -19,7 +24,9 @@ double isGreenVisible;
 //custom cam picture load
 void getImage(){
 	e_poxxxx_launch_capture((char *)fbwbuffer);
+	btcomSendString( "Waiting for image to be captured. \r\n" );
     while(!e_poxxxx_is_img_ready()){};
+	btcomSendString( "Finishing waiting for image to be captured. \r\n" );
 }
 // Image processing removes useless information
 void Image(){	
