@@ -44,46 +44,33 @@ void set_speed( int side, int speed )
 	switch( side ) 
 	{
 		case LEFT:
-<<<<<<< HEAD
-				if( global.speed[0] != speed )
-				{
-					e_set_speed_left( speed );
-					global.speed[0] = speed;
-					//btcomSendString( "Changed left speed. \r\n" );
-				}
-				else
-				{
-					//btcomSendString( "Old speed" );
-				}
-				//	btcomSendString( "Left Speed - ");
-				//	btcomSendInt( speed );
-=======
+			if( global.speed[0] != speed )
+			{
 				e_set_speed_left( speed );
+				global.speed[0] = speed;
+				//btcomSendString( "Changed left speed. \r\n" );
+			}
+			else
+			{
+				//btcomSendString( "Old speed" );
+			}
 			//	btcomSendString( "Left Speed - ");
 			//	btcomSendInt( speed );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 			break;
 
 		case RIGHT:
-<<<<<<< HEAD
-				if( global.speed[1] != speed )
-				{
-					e_set_speed_right( speed );
-					global.speed[1] = speed;
-					//btcomSendString( "Changed right speed. \r\n" );
-				}
-				else
-				{
-					//btcomSendString( "Old speed" );
-				}
-				//	btcomSendString( "Right Speed - ");
-				//	btcomSendInt( speed );
-=======
+			if( global.speed[1] != speed )
+			{
+				e_set_speed_right( speed );
+				global.speed[1] = speed;
+				//btcomSendString( "Changed right speed. \r\n" );
+			}
+			else
+			{
+				//btcomSendString( "Old speed" );
+			}
 			//	btcomSendString( "Right Speed - ");
 			//	btcomSendInt( speed );
-				e_set_speed_right( speed );
-				
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 			break;
 	}
 }
@@ -126,16 +113,7 @@ void rotateAntiClockwise( int steps )
 {
 	clearSteps();
 
-<<<<<<< HEAD
-//	BODY_LED = 1;
-	
 	set_wheel_speeds( -500, 500 );
-=======
-	BODY_LED = 1;
-
-	e_set_speed_left( -500 );
-	e_set_speed_right( 500 );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 
 	waitForSteps( steps );
 }
@@ -172,7 +150,6 @@ void followWallOn( int side, int stepsTofollowFor, int prox, int closest, int in
 
 	int diff = closest - prox;
 
-<<<<<<< HEAD
 	switch( side )
 	{
 		case RIGHT:		
@@ -207,28 +184,21 @@ void followWallOn( int side, int stepsTofollowFor, int prox, int closest, int in
 	}
 }
 
-=======
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
+
 void moveForwards( int speed, int steps )
 {
 	clearSteps();
 
-<<<<<<< HEAD
 	set_wheel_speeds( speed, speed );
 	
 	//	e_set_speed_left( speed );
 	//e_set_speed_right( speed );
-=======
-	e_set_speed_left( speed );
-	e_set_speed_right( speed );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 
 	waitForSteps( steps );
 }
 
 void turn90DegreesTo( int side )
 {
-<<<<<<< HEAD
 	int angleSteps;
 	angleSteps = stepsToRotate( DEGtoRAD( 90 ) );
 	//angleSteps = 333;
@@ -243,15 +213,6 @@ void turn90DegreesTo( int side )
 			break;
 		case LEFT: 
 			rotateAntiClockwise( angleSteps );
-=======
-	switch( side )
-	{	
-		case RIGHT:
-			rotateClockwise( 333 );
-			break;
-		case LEFT: 
-			rotateAntiClockwise( 333 );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 			break;		
 	}
 }

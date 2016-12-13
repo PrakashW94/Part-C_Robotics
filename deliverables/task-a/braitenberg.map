@@ -22,6 +22,8 @@ Archive member included because of file (symbol)
                               ircomTools.o (__subsf3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fgtge.o)
                               receiver.o (__gtsf2)
+//psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divsi3.o)
+                              e_po3030k_registers.o (__divsi3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(funpack2.o)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(mulsf3.o) (_funpack2)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(futil.o)
@@ -34,6 +36,8 @@ Archive member included because of file (symbol)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fixsfsi.o) (_funpack)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fcompare.o)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(feqltle.o) (_fcompare)
+//psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(udivsi3.o)
+                              //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divsi3.o) (__udivsi3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(sprintf.io)
                               utility.o (_isprintf)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(strlen.o)
@@ -104,8 +108,6 @@ Archive member included because of file (symbol)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o) (__subdf3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dgtge.o)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o) (__gtdf2)
-//psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divsi3.o)
-                              //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o) (__divsi3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(muldf3.o)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o) (__muldf3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divdf3.o)
@@ -124,8 +126,6 @@ Archive member included because of file (symbol)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(floatsidf.o) (__floatdidf)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(adddf3.o)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(subdf3.o) (__adddf3)
-//psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(udivsi3.o)
-                              //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divsi3.o) (__udivsi3)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dpack.o)
                               //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(muldf3.o) (_dpack)
 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dtype.o)
@@ -161,16 +161,16 @@ section                    address   length (PC units)   length (bytes) (dec)
 .reset                           0                 0x4             0x6  (6)
 .ivt                           0x4                0x7c            0xba  (186)
 .aivt                         0x84                0x7c            0xba  (186)
-.text                        0x100              0x5f3c          0x8eda  (36570)
-.const                      0x603c               0x5de           0x8cd  (2253)
-.dinit                      0x661a               0x27e           0x3bd  (957)
-.isr                        0x6898                 0x2             0x3  (3)
+.text                        0x100              0x7c8e          0xbad5  (47829)
+.dinit                      0x838e               0x32e           0x4c5  (1221)
+.isr                        0x86bc                 0x2             0x3  (3)
+.const                      0x86be               0x600           0x900  (2304)
 __FOSC                    0xf80000                 0x2             0x3  (3)
 __FWDT                    0xf80002                 0x2             0x3  (3)
 __FBORPOR                 0xf80004                 0x2             0x3  (3)
 __FGS                     0xf8000a                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):         0x9ced  (40173) 27%
+                     Total program memory used (bytes):         0xca23  (51747) 35%
 
 
 Data Memory Usage
@@ -179,50 +179,55 @@ section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
 .nbss                        0x800                   0           0x456  (1110)
 .nbss                        0xc56                   0           0x1e2  (482)
-.ndata                       0xe38                   0           0x118  (280)
-.ndata                       0xf50                   0            0x48  (72)
-.data                        0xf98                   0            0x44  (68)
-.nbss                        0xfdc                   0            0x44  (68)
-.nbss                       0x1020                   0            0x40  (64)
-.ndata                      0x1060                   0            0x22  (34)
-.nbss                       0x1082                   0            0x20  (32)
-.ndata                      0x10a2                   0            0x20  (32)
-.ndata                      0x10c2                   0            0x18  (24)
-.ndata                      0x10da                   0            0x12  (18)
-.nbss                       0x10ec                   0            0x10  (16)
-.nbss                       0x10fc                   0            0x10  (16)
-.nbss                       0x110c                   0             0x8  (8)
-.ndata                      0x1114                   0             0x6  (6)
-.nbss                       0x111a                   0             0x6  (6)
-.nbss                       0x1120                   0             0x6  (6)
-.ndata                      0x1126                   0             0x6  (6)
-.data                       0x112c                   0             0x6  (6)
-.ndata                      0x1132                   0             0x6  (6)
-.ndata                      0x1138                   0             0x6  (6)
-.ndata                      0x113e                   0             0x4  (4)
-.nbss                       0x1142                   0             0x4  (4)
-.nbss                       0x1146                   0             0x2  (2)
-.ndata                      0x1148                   0             0x2  (2)
-.ndata                      0x114a                   0             0x2  (2)
-.ndata                      0x114c                   0             0x2  (2)
-.ndata                      0x114e                   0             0x2  (2)
-.ndata                      0x1150                   0             0x2  (2)
-.nbss                       0x1152                   0             0x2  (2)
-.dconst                     0x1154                   0            0x32  (50)
-.dconst                     0x1186                   0             0x8  (8)
-.dconst                     0x118e                   0             0x2  (2)
+.nbss                        0xe38                   0           0x154  (340)
+.nbss                        0xf8c                   0           0x140  (320)
+.ndata                      0x10cc                   0           0x118  (280)
+.ndata                      0x11e4                   0            0xd8  (216)
+.ndata                      0x12bc                   0            0x48  (72)
+.data                       0x1304                   0            0x44  (68)
+.nbss                       0x1348                   0            0x44  (68)
+.nbss                       0x138c                   0            0x40  (64)
+.ndata                      0x13cc                   0            0x22  (34)
+.nbss                       0x13ee                   0            0x20  (32)
+.ndata                      0x140e                   0            0x20  (32)
+.ndata                      0x142e                   0            0x18  (24)
+.ndata                      0x1446                   0            0x12  (18)
+.nbss                       0x1458                   0            0x10  (16)
+.nbss                       0x1468                   0            0x10  (16)
+.nbss                       0x1478                   0             0x8  (8)
+.ndata                      0x1480                   0             0x6  (6)
+.nbss                       0x1486                   0             0x6  (6)
+.nbss                       0x148c                   0             0x6  (6)
+.ndata                      0x1492                   0             0x6  (6)
+.data                       0x1498                   0             0x6  (6)
+.ndata                      0x149e                   0             0x6  (6)
+.ndata                      0x14a4                   0             0x6  (6)
+.ndata                      0x14aa                   0             0x4  (4)
+.nbss                       0x14ae                   0             0x4  (4)
+.nbss                       0x14b2                   0             0x2  (2)
+.ndata                      0x14b4                   0             0x2  (2)
+.ndata                      0x14b6                   0             0x2  (2)
+.ndata                      0x14b8                   0             0x2  (2)
+.ndata                      0x14ba                   0             0x2  (2)
+.nbss                       0x14bc                   0             0x2  (2)
+.ndata                      0x14be                   0             0x2  (2)
+.ndata                      0x14c0                   0             0x2  (2)
+.nbss                       0x14c2                   0             0x2  (2)
+.dconst                     0x14c4                   0            0x32  (50)
+.dconst                     0x14f6                   0             0x8  (8)
+.dconst                     0x14fe                   0             0x2  (2)
 
-                        Total data memory used (bytes):          0x990  (2448) 30%
+                        Total data memory used (bytes):          0xd00  (3328) 41%
 
 
 Dynamic Memory Usage
 
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
-heap                        0x1190                               0x200  (512)
-stack                       0x1390                              0x1410  (5136)
+heap                        0x1500                               0x200  (512)
+stack                       0x1700                              0x10a0  (4256)
 
-                        Maximum dynamic memory (bytes):         0x1610  (5648)
+                        Maximum dynamic memory (bytes):         0x12a0  (4768)
 
 
 External Symbols in Data Memory (by address):
@@ -247,50 +252,63 @@ External Symbols in Data Memory (by address):
                     0x0c56                  _ircomData
                     0x0da4                  _ircomReceiveData
                     0x0dc6                  _ircomSendData
-                    0x0f98                  _U1RXBuf
-                    0x0fd8                  _U1RXRcvCnt
-                    0x0fda                  _U1RXReadCnt
-                    0x1082                  _global
-                    0x10a2                  _follow_weightleft
-                    0x10b2                  _follow_weightright
-                    0x10c2                  _sensor_sides
-                    0x10d2                  _traverse_weights
-                    0x10fc                  _follow_sensorzero
-                    0x110c                  _e_i2c_mode
-                    0x110e                  _e_interrupts
-                    0x1114                  _gyroOffsetX
-                    0x1116                  _gyroOffsetY
-                    0x1118                  _gyroOffsetZ
-                    0x1126                  _array_filled
-                    0x1128                  _e_last_ir_scan_id
-                    0x112a                  _e_ad_samples_to_skip
-                    0x112c                  U1TXPtr
-                    0x112e                  U1TXLength
-                    0x1130                  U1TXOk
-                    0x1132                  __Size_block
-                    0x1134                  __Aldata
-                    0x1138                  __Atcount
-                    0x113a                  __Atfuns
-                    0x1142                  _front_right_prox
-                    0x1144                  _front_left_prox
-                    0x114a                  _isPresentFlag
-                    0x114c                  _TURNING
-                    0x1152                  ___curbrk
+                    0x0e3a                  __poxxxx_buffer
+                    0x0e3c                  __poxxxx_img_ready
+                    0x0e3e                  __poxxxx_current_row
+                    0x0e40                  __poxxxx_row
+                    0x0e42                  __poxxxx_line_conf
+                    0x0f8c                  _fbwbuffer
+                    0x102c                  _numbuffer
+                    0x1304                  _U1RXBuf
+                    0x1344                  _U1RXRcvCnt
+                    0x1346                  _U1RXReadCnt
+                    0x13ee                  _global
+                    0x140e                  _follow_weightleft
+                    0x141e                  _follow_weightright
+                    0x142e                  _sensor_sides
+                    0x143e                  _traverse_weights
+                    0x1468                  _follow_sensorzero
+                    0x1478                  _e_i2c_mode
+                    0x147a                  _e_interrupts
+                    0x1480                  _gyroOffsetX
+                    0x1482                  _gyroOffsetY
+                    0x1484                  _gyroOffsetZ
+                    0x1492                  _array_filled
+                    0x1494                  _e_last_ir_scan_id
+                    0x1496                  _e_ad_samples_to_skip
+                    0x1498                  U1TXPtr
+                    0x149a                  U1TXLength
+                    0x149c                  U1TXOk
+                    0x149e                  __Size_block
+                    0x14a0                  __Aldata
+                    0x14a4                  __Atcount
+                    0x14a6                  __Atfuns
+                    0x14ae                  _front_right_prox
+                    0x14b0                  _front_left_prox
+                    0x14b6                  _isPresentFlag
+                    0x14b8                  _TURNING
+                    0x14ba                  _isGreenVisible
+                    0x14c2                  ___curbrk
 
 External Symbols in Data Memory (by name):
 
-                    0x112e                  U1TXLength
-                    0x1130                  U1TXOk
-                    0x112c                  U1TXPtr
-                    0x114c                  _TURNING
-                    0x0f98                  _U1RXBuf
-                    0x0fd8                  _U1RXRcvCnt
-                    0x0fda                  _U1RXReadCnt
-                    0x1134                  __Aldata
-                    0x1138                  __Atcount
-                    0x113a                  __Atfuns
-                    0x1132                  __Size_block
-                    0x1152                  ___curbrk
+                    0x149a                  U1TXLength
+                    0x149c                  U1TXOk
+                    0x1498                  U1TXPtr
+                    0x14b8                  _TURNING
+                    0x1304                  _U1RXBuf
+                    0x1344                  _U1RXRcvCnt
+                    0x1346                  _U1RXReadCnt
+                    0x14a0                  __Aldata
+                    0x14a4                  __Atcount
+                    0x14a6                  __Atfuns
+                    0x149e                  __Size_block
+                    0x14c2                  ___curbrk
+                    0x0e3a                  __poxxxx_buffer
+                    0x0e3e                  __poxxxx_current_row
+                    0x0e3c                  __poxxxx_img_ready
+                    0x0e42                  __poxxxx_line_conf
+                    0x0e40                  __poxxxx_row
                     0x0804                  _ad_activate_proximity
                     0x084a                  _ad_buffer1
                     0x0a4a                  _ad_buffer2
@@ -298,36 +316,39 @@ External Symbols in Data Memory (by name):
                     0x0806                  _ad_disable_proximity
                     0x0802                  _ad_received
                     0x0800                  _ad_sampling
-                    0x1126                  _array_filled
+                    0x1492                  _array_filled
                     0x0c4a                  _e_ad_mode
                     0x0c4e                  _e_ad_prox_counter
                     0x0c52                  _e_ad_prox_index
                     0x0c50                  _e_ad_prox_maxcounter
                     0x0c54                  _e_ad_prox_phase
                     0x0c4c                  _e_ad_prox_trigger
-                    0x112a                  _e_ad_samples_to_skip
+                    0x1496                  _e_ad_samples_to_skip
                     0x081a                  _e_ambient_and_reflected_ir
                     0x080a                  _e_ambient_ir
-                    0x110c                  _e_i2c_mode
+                    0x1478                  _e_i2c_mode
                     0x083a                  _e_init_value_ir
-                    0x110e                  _e_interrupts
-                    0x1128                  _e_last_ir_scan_id
+                    0x147a                  _e_interrupts
+                    0x1494                  _e_last_ir_scan_id
                     0x082a                  _e_reflected_ir
-                    0x10fc                  _follow_sensorzero
-                    0x10a2                  _follow_weightleft
-                    0x10b2                  _follow_weightright
-                    0x1144                  _front_left_prox
-                    0x1142                  _front_right_prox
-                    0x1082                  _global
-                    0x1114                  _gyroOffsetX
-                    0x1116                  _gyroOffsetY
-                    0x1118                  _gyroOffsetZ
+                    0x0f8c                  _fbwbuffer
+                    0x1468                  _follow_sensorzero
+                    0x140e                  _follow_weightleft
+                    0x141e                  _follow_weightright
+                    0x14b0                  _front_left_prox
+                    0x14ae                  _front_right_prox
+                    0x13ee                  _global
+                    0x1480                  _gyroOffsetX
+                    0x1482                  _gyroOffsetY
+                    0x1484                  _gyroOffsetZ
                     0x0c56                  _ircomData
                     0x0da4                  _ircomReceiveData
                     0x0dc6                  _ircomSendData
-                    0x114a                  _isPresentFlag
-                    0x10c2                  _sensor_sides
-                    0x10d2                  _traverse_weights
+                    0x14ba                  _isGreenVisible
+                    0x14b6                  _isPresentFlag
+                    0x102c                  _numbuffer
+                    0x142e                  _sensor_sides
+                    0x143e                  _traverse_weights
 
 External Symbols in Program Memory (by address):
 
@@ -337,8 +358,8 @@ External Symbols in Program Memory (by address):
                   0x000260                  _exit
                   0x000284                  _free
                   0x0002ea                  sprintf.o:_prout
-                  0x0002f6                  _sprintf
                   0x0002f6                  __isprintf
+                  0x0002f6                  _sprintf
                   0x000318                  _memcpy
                   0x00032a                  __Getmem
                   0x000338                  __Printf
@@ -346,8 +367,8 @@ External Symbols in Program Memory (by address):
                   0x0004a8                  __Vacopy
                   0x0004b2                  _strchr
                   0x0004c2                  __Puttxt
-                  0x000656                  ___iPutfld
                   0x000656                  __Putfld
+                  0x000656                  ___iPutfld
                   0x000960                  __Litob
                   0x000ac6                  _memchr
                   0x000ada                  __Ldtob
@@ -368,44 +389,44 @@ External Symbols in Program Memory (by address):
                   0x001646                  ___eqsf2
                   0x00164a                  ___subsf3
                   0x00164c                  ___addsf3
-                  0x001706                  ___gtsf2
                   0x001706                  ___gesf2
-                  0x00170a                  __funpack2
-                  0x00171a                  __fPropagateNaN
-                  0x00172c                  __fbopExit
-                  0x001734                  __fbopReturnNaN
-                  0x00173a                  __fpack
-                  0x001786                  __fchop
-                  0x0017d4                  __funpack
-                  0x0017fe                  __fcompare
-                  0x001834                  ___extendsfdf2
-                  0x001898                  ___udivmoddi3
-                  0x00197a                  ___udivdi3
-                  0x001988                  ___umoddi3
-                  0x001990                  ___divdi3
-                  0x0019c6                  ___moddi3
-                  0x001aa2                  ___muldi3
-                  0x001afe                  ___eqdf2
-                  0x001afe                  ___ledf2
-                  0x001afe                  ___ltdf2
-                  0x001b08                  ___fixdfsi
-                  0x001b60                  ___floatsidf
-                  0x001b66                  ___subdf3
-                  0x001b6a                  ___gtdf2
-                  0x001b6a                  ___gedf2
-                  0x001b74                  ___divsi3
-                  0x001b92                  ___muldf3
-                  0x001c7c                  ___divdf3
-                  0x001d30                  ___mulsi3
-                  0x001d3c                  ___umuldi3
-                  0x001d80                  __dcompare
-                  0x001dd2                  __dunpack
-                  0x001e20                  __dunpack2
-                  0x001e42                  __dreturnNaN
-                  0x001e48                  __dunpack2exit
-                  0x001e52                  ___floatdidf
-                  0x001ec0                  ___adddf3
-                  0x001fba                  ___udivsi3
+                  0x001706                  ___gtsf2
+                  0x00170a                  ___divsi3
+                  0x001728                  __funpack2
+                  0x001738                  __fPropagateNaN
+                  0x00174a                  __fbopExit
+                  0x001752                  __fbopReturnNaN
+                  0x001758                  __fpack
+                  0x0017a4                  __fchop
+                  0x0017f2                  __funpack
+                  0x00181c                  __fcompare
+                  0x001852                  ___udivsi3
+                  0x001872                  ___extendsfdf2
+                  0x0018d6                  ___udivmoddi3
+                  0x0019b8                  ___udivdi3
+                  0x0019c6                  ___umoddi3
+                  0x0019ce                  ___divdi3
+                  0x001a04                  ___moddi3
+                  0x001ae0                  ___muldi3
+                  0x001b3c                  ___ltdf2
+                  0x001b3c                  ___ledf2
+                  0x001b3c                  ___eqdf2
+                  0x001b46                  ___fixdfsi
+                  0x001b9e                  ___floatsidf
+                  0x001ba4                  ___subdf3
+                  0x001ba8                  ___gedf2
+                  0x001ba8                  ___gtdf2
+                  0x001bb2                  ___muldf3
+                  0x001c9c                  ___divdf3
+                  0x001d50                  ___mulsi3
+                  0x001d5c                  ___umuldi3
+                  0x001da0                  __dcompare
+                  0x001df2                  __dunpack
+                  0x001e40                  __dunpack2
+                  0x001e62                  __dreturnNaN
+                  0x001e68                  __dunpack2exit
+                  0x001e72                  ___floatdidf
+                  0x001ee0                  ___adddf3
                   0x001fda                  __dpack
                   0x002032                  __dtype
                   0x002056                  __dPropagateNaN
@@ -621,31 +642,125 @@ External Symbols in Program Memory (by address):
                   0x005ac6                  _initFollower
                   0x005ad6                  _initHighLevelMaster
                   0x005b1a                  _initHighLevelFollower
-                  0x005b48                  _followSide
-                  0x005b80                  _initSideFollow
-                  0x005b8c                  _initTraverse
-                  0x005ba4                  _endTraverse
-                  0x005bb4                  _traverse
-                  0x005bf6                  _cruise
-                  0x005c38                  _stillTurning
-                  0x005c7a                  _followWall
-                  0x005cb0                  _avoidWall
-                  0x005cf8                  _triggerAvoidWall
-                  0x005d1a                  _approachingWall
-                  0x005d3c                  _approachWall
-                  0x005d74                  _foundObject
-                  0x005d7c                  _follow_sensor_calibrate
-                  0x005e3e                  _followGetSensorValues
-                  0x005e76                  _followsetSpeed
-                  0x005eb2                  _runWallFollow
-                  0x006898                  __DefaultInterrupt
+                  0x005b4c                  _followSide
+                  0x005b84                  _initSideFollow
+                  0x005b90                  _initTraverse
+                  0x005bb2                  _endTraverse
+                  0x005bc2                  _traverse
+                  0x005c04                  _cruise
+                  0x005c46                  _stillTurning
+                  0x005c88                  _followWall
+                  0x005cbe                  _avoidWall
+                  0x005d06                  _triggerAvoidWall
+                  0x005d28                  _approachingWall
+                  0x005d4a                  _approachWall
+                  0x005d82                  _foundObject
+                  0x005d8e                  _follow_sensor_calibrate
+                  0x005e50                  _followGetSensorValues
+                  0x005e88                  _followsetSpeed
+                  0x005ec4                  _runWallFollow
+                  0x00604e                  _getImage
+                  0x00605e                  _Image
+                  0x006140                  _initGreen
+                  0x00615a                  _findGreen
+                  0x00619a                  _e_po3030k_config_cam
+                  0x0063d6                  _e_po3030k_get_bytes_per_pixel
+                  0x00640e                  _e_po6030k_config_cam
+                  0x006680                  _e_po6030k_get_bytes_per_pixel
+                  0x0066b8                  _e_po8030d_config_cam
+                  0x00692a                  _e_po8030d_get_bytes_per_pixel
+                  0x006962                  _e_poxxxx_config_cam
+                  0x0069d6                  _e_poxxxx_set_mirror
+                  0x006a14                  _e_poxxxx_write_cam_registers
+                  0x006a26                  _e_poxxxx_init_cam
+                  0x006aea                  _e_poxxxx_get_orientation
+                  0x006b50                  _e_poxxxx_set_awb_ae
+                  0x006b8e                  _e_poxxxx_set_rgb_gain
+                  0x006bd8                  _e_poxxxx_set_exposure
+                  0x006c0e                  _getCameraVersion
+                  0x006c16                  _e_po3030k_write_cam_registers
+                  0x006c48                  _e_po3030k_read_cam_registers
+                  0x006c7e                  _e_po3030k_set_color_mode
+                  0x006cbc                  _e_po3030k_set_sampling_mode
+                  0x006ce6                  _e_po3030k_set_speed
+                  0x006d2c                  _e_po3030k_set_wx
+                  0x006d82                  _e_po3030k_set_wy
+                  0x006dd2                  _e_po3030k_set_vsync
+                  0x006e44                  _e_po3030k_set_mirror
+                  0x006e80                  _e_po3030k_set_register
+                  0x006ebe                  _e_po3030k_get_register
+                  0x006efe                  _e_po3030k_set_bias
+                  0x006f10                  _e_po3030k_set_color_gain
+                  0x006f46                  _e_po3030k_set_integr_time
+                  0x006f6a                  _e_po3030k_set_adc_offset
+                  0x006f76                  _e_po3030k_set_sepia
+                  0x006f92                  _e_po3030k_set_lens_gain
+                  0x006faa                  _e_po3030k_set_edge_prop
+                  0x006fc0                  _e_po3030k_set_gamma_coef
+                  0x007008                  _e_po3030k_write_gamma_coef
+                  0x007026                  _e_po3030k_sync_register_array
+                  0x007086                  _e_po3030k_SetColorMatrix
+                  0x0070b4                  _e_po3030k_set_cb_cr_gain
+                  0x0070c6                  _e_po3030k_set_brigh_contr
+                  0x0070d8                  _e_po3030k_set_sepia_tone
+                  0x0070ea                  _e_po3030k_set_ww
+                  0x007100                  _e_po3030k_set_awb_ae_tol
+                  0x00711e                  _e_po3030k_set_ae_speed
+                  0x00713e                  _e_po3030k_set_exposure
+                  0x00715e                  _e_po3030k_set_ref_exposure
+                  0x00716a                  _e_po3030k_set_max_min_exp
+                  0x007188                  _e_po3030k_set_max_min_awb
+                  0x0071b2                  _e_po3030k_set_weight_win
+                  0x007258                  _e_po3030k_set_awb_ae
+                  0x007294                  _e_po3030k_set_flicker_mode
+                  0x0072b2                  _e_po3030k_set_flicker_detection
+                  0x0073a8                  _e_po3030k_set_flicker_man_set
+                  0x007466                  _e_po6030k_set_bank
+                  0x00747a                  _e_po6030k_write_register
+                  0x007496                  _e_po6030k_read_register
+                  0x0074b2                  _e_po6030k_set_bayer_clkdiv
+                  0x0074c2                  _e_po6030k_set_pclkdiv
+                  0x0075f6                  _e_po6030k_set_mode
+                  0x00764e                  _e_po6030k_set_wx
+                  0x0076a4                  _e_po6030k_set_wy
+                  0x0076b0                  _e_po6030k_set_vsync
+                  0x007710                  _e_po6030k_set_sketch_mode
+                  0x00776e                  _e_po6030k_set_mirror
+                  0x0077a8                  _e_po6030k_set_awb_ae
+                  0x0077f0                  _e_po6030k_set_rgb_gain
+                  0x007814                  _e_po6030k_set_exposure
+                  0x007854                  _e_po8030d_set_bank
+                  0x007868                  _e_po8030d_write_register
+                  0x007884                  _e_po8030d_read_register
+                  0x0078a0                  _testWriteReg
+                  0x0078ba                  _enablePO8030
+                  0x0078fa                  _init_po8030
+                  0x00790e                  _e_po8030d_set_bayer_clkdiv
+                  0x00791e                  _e_po8030d_set_pclkdiv
+                  0x007a22                  _e_po8030d_set_mode
+                  0x007a7a                  _e_po8030d_set_wx
+                  0x007ad0                  _e_po8030d_set_wy
+                  0x007adc                  _e_po8030d_set_vsync
+                  0x007b3c                  _e_po8030d_set_sketch_mode
+                  0x007b58                  _e_po8030d_set_mirror
+                  0x007b92                  _e_po8030d_set_awb_ae
+                  0x007bda                  _e_po8030d_set_rgb_gain
+                  0x007bfe                  _e_po8030d_set_exposure
+                  0x007c3e                  _e_po8030d_set_brightness
+                  0x007c4e                  __T5Interrupt
+                  0x007c98                  _e_poxxxx_launch_capture
+                  0x007cb0                  _e_poxxxx_apply_timer_config
+                  0x007d4e                  _e_poxxxx_is_img_ready
+                  0x007d56                  __T4Interrupt
+                  0x0086bc                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
                   0x002270                  _DEGtoRAD
+                  0x00605e                  _Image
                   0x004508                  __ADCInterrupt
-                  0x006898                  __DefaultInterrupt
+                  0x0086bc                  __DefaultInterrupt
                   0x00131a                  __Dnorm
                   0xf8000a                  __FGS.sec
                   0x0010b2                  __Genld
@@ -661,68 +776,70 @@ External Symbols in Program Memory (by name):
                   0x0004c2                  __Puttxt
                   0x00481a                  __T1Interrupt
                   0x00307c                  __T2Interrupt
+                  0x007d56                  __T4Interrupt
+                  0x007c4e                  __T5Interrupt
                   0x005502                  __U1RXInterrupt
                   0x0054a2                  __U1TXInterrupt
                   0x0004a8                  __Vacopy
-                  0x001ec0                  ___adddf3
+                  0x001ee0                  ___adddf3
                   0x00164c                  ___addsf3
-                  0x001c7c                  ___divdf3
-                  0x001990                  ___divdi3
+                  0x001c9c                  ___divdf3
+                  0x0019ce                  ___divdi3
                   0x0014e4                  ___divsf3
-                  0x001b74                  ___divsi3
-                  0x001afe                  ___eqdf2
+                  0x00170a                  ___divsi3
+                  0x001b3c                  ___eqdf2
                   0x001646                  ___eqsf2
-                  0x001834                  ___extendsfdf2
-                  0x001b08                  ___fixdfsi
+                  0x001872                  ___extendsfdf2
+                  0x001b46                  ___fixdfsi
                   0x001578                  ___fixsfsi
                   0x001610                  ___fixunssfsi
-                  0x001e52                  ___floatdidf
-                  0x001b60                  ___floatsidf
+                  0x001e72                  ___floatdidf
+                  0x001b9e                  ___floatsidf
                   0x0015ba                  ___floatsisf
-                  0x001b6a                  ___gedf2
+                  0x001ba8                  ___gedf2
                   0x001706                  ___gesf2
-                  0x001b6a                  ___gtdf2
+                  0x001ba8                  ___gtdf2
                   0x001706                  ___gtsf2
                   0x000338                  ___iPrintf
                   0x000656                  ___iPutfld
-                  0x001afe                  ___ledf2
+                  0x001b3c                  ___ledf2
                   0x001646                  ___lesf2
-                  0x001afe                  ___ltdf2
+                  0x001b3c                  ___ltdf2
                   0x001646                  ___ltsf2
-                  0x0019c6                  ___moddi3
-                  0x001b92                  ___muldf3
-                  0x001aa2                  ___muldi3
+                  0x001a04                  ___moddi3
+                  0x001bb2                  ___muldf3
+                  0x001ae0                  ___muldi3
                   0x00147c                  ___mulsf3
-                  0x001d30                  ___mulsi3
-                  0x001b66                  ___subdf3
+                  0x001d50                  ___mulsi3
+                  0x001ba4                  ___subdf3
                   0x00164a                  ___subsf3
-                  0x00197a                  ___udivdi3
-                  0x001898                  ___udivmoddi3
-                  0x001fba                  ___udivsi3
-                  0x001988                  ___umoddi3
-                  0x001d3c                  ___umuldi3
+                  0x0019b8                  ___udivdi3
+                  0x0018d6                  ___udivmoddi3
+                  0x001852                  ___udivsi3
+                  0x0019c6                  ___umoddi3
+                  0x001d5c                  ___umuldi3
                   0x002056                  __dPropagateNaN
-                  0x001d80                  __dcompare
+                  0x001da0                  __dcompare
                   0x001fda                  __dpack
-                  0x001e42                  __dreturnNaN
+                  0x001e62                  __dreturnNaN
                   0x002032                  __dtype
-                  0x001dd2                  __dunpack
-                  0x001e20                  __dunpack2
-                  0x001e48                  __dunpack2exit
-                  0x00171a                  __fPropagateNaN
-                  0x00172c                  __fbopExit
-                  0x001734                  __fbopReturnNaN
-                  0x001786                  __fchop
-                  0x0017fe                  __fcompare
-                  0x00173a                  __fpack
-                  0x0017d4                  __funpack
-                  0x00170a                  __funpack2
+                  0x001df2                  __dunpack
+                  0x001e40                  __dunpack2
+                  0x001e68                  __dunpack2exit
+                  0x001738                  __fPropagateNaN
+                  0x00174a                  __fbopExit
+                  0x001752                  __fbopReturnNaN
+                  0x0017a4                  __fchop
+                  0x00181c                  __fcompare
+                  0x001758                  __fpack
+                  0x0017f2                  __funpack
+                  0x001728                  __funpack2
                   0x0002f6                  __isprintf
                   0x000130                  __resetPRI
                   0x002830                  _aggression
-                  0x005d3c                  _approachWall
-                  0x005d1a                  _approachingWall
-                  0x005cb0                  _avoidWall
+                  0x005d4a                  _approachWall
+                  0x005d28                  _approachingWall
+                  0x005cbe                  _avoidWall
                   0x0052e0                  _btcomSendChar
                   0x00526c                  _btcomSendDouble
                   0x0052c2                  _btcomSendFloat
@@ -733,7 +850,7 @@ External Symbols in Program Memory (by name):
                   0x0052f4                  _btcomWaitForCommand
                   0x002ce8                  _calibrateGyroscope
                   0x002332                  _clearSteps
-                  0x005bf6                  _cruise
+                  0x005c04                  _cruise
                   0x003de8                  _curiousity
                   0x00140c                  _div
                   0x002efa                  _e_activate_agenda
@@ -791,6 +908,89 @@ External Symbols in Program Memory (by name):
                   0x005520                  _e_ischar_uart1
                   0x00343c                  _e_led_clear
                   0x003014                  _e_pause_agenda
+                  0x007086                  _e_po3030k_SetColorMatrix
+                  0x00619a                  _e_po3030k_config_cam
+                  0x0063d6                  _e_po3030k_get_bytes_per_pixel
+                  0x006ebe                  _e_po3030k_get_register
+                  0x006c48                  _e_po3030k_read_cam_registers
+                  0x006f6a                  _e_po3030k_set_adc_offset
+                  0x00711e                  _e_po3030k_set_ae_speed
+                  0x007258                  _e_po3030k_set_awb_ae
+                  0x007100                  _e_po3030k_set_awb_ae_tol
+                  0x006efe                  _e_po3030k_set_bias
+                  0x0070c6                  _e_po3030k_set_brigh_contr
+                  0x0070b4                  _e_po3030k_set_cb_cr_gain
+                  0x006f10                  _e_po3030k_set_color_gain
+                  0x006c7e                  _e_po3030k_set_color_mode
+                  0x006faa                  _e_po3030k_set_edge_prop
+                  0x00713e                  _e_po3030k_set_exposure
+                  0x0072b2                  _e_po3030k_set_flicker_detection
+                  0x0073a8                  _e_po3030k_set_flicker_man_set
+                  0x007294                  _e_po3030k_set_flicker_mode
+                  0x006fc0                  _e_po3030k_set_gamma_coef
+                  0x006f46                  _e_po3030k_set_integr_time
+                  0x006f92                  _e_po3030k_set_lens_gain
+                  0x007188                  _e_po3030k_set_max_min_awb
+                  0x00716a                  _e_po3030k_set_max_min_exp
+                  0x006e44                  _e_po3030k_set_mirror
+                  0x00715e                  _e_po3030k_set_ref_exposure
+                  0x006e80                  _e_po3030k_set_register
+                  0x006cbc                  _e_po3030k_set_sampling_mode
+                  0x006f76                  _e_po3030k_set_sepia
+                  0x0070d8                  _e_po3030k_set_sepia_tone
+                  0x006ce6                  _e_po3030k_set_speed
+                  0x006dd2                  _e_po3030k_set_vsync
+                  0x0071b2                  _e_po3030k_set_weight_win
+                  0x0070ea                  _e_po3030k_set_ww
+                  0x006d2c                  _e_po3030k_set_wx
+                  0x006d82                  _e_po3030k_set_wy
+                  0x007026                  _e_po3030k_sync_register_array
+                  0x006c16                  _e_po3030k_write_cam_registers
+                  0x007008                  _e_po3030k_write_gamma_coef
+                  0x00640e                  _e_po6030k_config_cam
+                  0x006680                  _e_po6030k_get_bytes_per_pixel
+                  0x007496                  _e_po6030k_read_register
+                  0x0077a8                  _e_po6030k_set_awb_ae
+                  0x007466                  _e_po6030k_set_bank
+                  0x0074b2                  _e_po6030k_set_bayer_clkdiv
+                  0x007814                  _e_po6030k_set_exposure
+                  0x00776e                  _e_po6030k_set_mirror
+                  0x0075f6                  _e_po6030k_set_mode
+                  0x0074c2                  _e_po6030k_set_pclkdiv
+                  0x0077f0                  _e_po6030k_set_rgb_gain
+                  0x007710                  _e_po6030k_set_sketch_mode
+                  0x0076b0                  _e_po6030k_set_vsync
+                  0x00764e                  _e_po6030k_set_wx
+                  0x0076a4                  _e_po6030k_set_wy
+                  0x00747a                  _e_po6030k_write_register
+                  0x0066b8                  _e_po8030d_config_cam
+                  0x00692a                  _e_po8030d_get_bytes_per_pixel
+                  0x007884                  _e_po8030d_read_register
+                  0x007b92                  _e_po8030d_set_awb_ae
+                  0x007854                  _e_po8030d_set_bank
+                  0x00790e                  _e_po8030d_set_bayer_clkdiv
+                  0x007c3e                  _e_po8030d_set_brightness
+                  0x007bfe                  _e_po8030d_set_exposure
+                  0x007b58                  _e_po8030d_set_mirror
+                  0x007a22                  _e_po8030d_set_mode
+                  0x00791e                  _e_po8030d_set_pclkdiv
+                  0x007bda                  _e_po8030d_set_rgb_gain
+                  0x007b3c                  _e_po8030d_set_sketch_mode
+                  0x007adc                  _e_po8030d_set_vsync
+                  0x007a7a                  _e_po8030d_set_wx
+                  0x007ad0                  _e_po8030d_set_wy
+                  0x007868                  _e_po8030d_write_register
+                  0x007cb0                  _e_poxxxx_apply_timer_config
+                  0x006962                  _e_poxxxx_config_cam
+                  0x006aea                  _e_poxxxx_get_orientation
+                  0x006a26                  _e_poxxxx_init_cam
+                  0x007d4e                  _e_poxxxx_is_img_ready
+                  0x007c98                  _e_poxxxx_launch_capture
+                  0x006b50                  _e_poxxxx_set_awb_ae
+                  0x006bd8                  _e_poxxxx_set_exposure
+                  0x0069d6                  _e_poxxxx_set_mirror
+                  0x006b8e                  _e_poxxxx_set_rgb_gain
+                  0x006a14                  _e_poxxxx_write_cam_registers
                   0x003cec                  _e_read_remote_control
                   0x002fe0                  _e_reset_agenda
                   0x003048                  _e_restart_agenda
@@ -813,23 +1013,27 @@ External Symbols in Program Memory (by name):
                   0x005372                  _emitFollow
                   0x00533c                  _emitMasterAcks
                   0x00538c                  _emitPos
-                  0x005ba4                  _endTraverse
+                  0x0078ba                  _enablePO8030
+                  0x005bb2                  _endTraverse
                   0x000260                  _exit
                   0x003f2e                  _fear
+                  0x00615a                  _findGreen
                   0x001568                  _floorf
                   0x0037a6                  _flow_led
-                  0x005e3e                  _followGetSensorValues
-                  0x005b48                  _followSide
-                  0x005c7a                  _followWall
+                  0x005e50                  _followGetSensorValues
+                  0x005b4c                  _followSide
+                  0x005c88                  _followWall
                   0x002380                  _followWallOn
-                  0x005d7c                  _follow_sensor_calibrate
-                  0x005e76                  _followsetSpeed
-                  0x005d74                  _foundObject
+                  0x005d8e                  _follow_sensor_calibrate
+                  0x005e88                  _followsetSpeed
+                  0x005d82                  _foundObject
                   0x000284                  _free
                   0x002a98                  _getAllAxesAcc
                   0x002a82                  _getAllAxesAccRaw
                   0x002bb8                  _getAllAxesGyro
                   0x002ba2                  _getAllAxesGyroRaw
+                  0x006c0e                  _getCameraVersion
+                  0x00604e                  _getImage
                   0x005492                  _getOtherRobotPosX
                   0x00549a                  _getOtherRobotPosY
                   0x005470                  _getRobotPosX
@@ -851,12 +1055,14 @@ External Symbols in Program Memory (by name):
                   0x00408a                  _initFear
                   0x005ac6                  _initFollower
                   0x0053c8                  _initGlobal
+                  0x006140                  _initGreen
                   0x005b1a                  _initHighLevelFollower
                   0x005ad6                  _initHighLevelMaster
                   0x004212                  _initLove
                   0x005aac                  _initMaster
-                  0x005b80                  _initSideFollow
-                  0x005b8c                  _initTraverse
+                  0x005b84                  _initSideFollow
+                  0x005b90                  _initTraverse
+                  0x0078fa                  _init_po8030
                   0x0051e4                  _ircomBin2Int
                   0x0047d4                  _ircomDisableContinuousListening
                   0x0047c0                  _ircomDisableProximity
@@ -920,7 +1126,7 @@ External Symbols in Program Memory (by name):
                   0x002340                  _rotateAntiClockwise
                   0x002354                  _rotateClockwise
                   0x002368                  _rotateClockwiseDegrees
-                  0x005eb2                  _runWallFollow
+                  0x005ec4                  _runWallFollow
                   0x003970                  _run_left_motor
                   0x003a54                  _run_right_motor
                   0x002ea8                  _setLeds
@@ -937,16 +1143,17 @@ External Symbols in Program Memory (by name):
                   0x0059f6                  _startSpeed
                   0x0022fe                  _stepsOver
                   0x00224a                  _stepsToRotate
-                  0x005c38                  _stillTurning
+                  0x005c46                  _stillTurning
                   0x0004b2                  _strchr
                   0x0001b0                  _strlen
                   0x005440                  _switchTraverseSide
                   0x005572                  _testAccGyroPresence
+                  0x0078a0                  _testWriteReg
                   0x005a4c                  _toBin
                   0x005a6e                  _toBinFromInts
                   0x005a2c                  _toPacket
-                  0x005bb4                  _traverse
-                  0x005cf8                  _triggerAvoidWall
+                  0x005bc2                  _traverse
+                  0x005d06                  _triggerAvoidWall
                   0x0023ee                  _turn90DegreesTo
                   0x002de2                  _wait
                   0x00231e                  _waitForSteps
@@ -1010,6 +1217,16 @@ LOAD packet.o
 LOAD init.o
 LOAD traverse.o
 LOAD wall_follow.o
+LOAD findGreen.o
+LOAD e_calc_po3030k.o
+LOAD e_calc_po6030k.o
+LOAD e_calc_po8030d.o
+LOAD e_common.o
+LOAD e_po3030k_registers.o
+LOAD e_po6030k_registers.o
+LOAD e_po8030d_registers.o
+LOAD e_timers.o
+LOAD e_interrupt.o
                     0xf80000                  __FOSC = 0xf80000
                     0xf80002                  __FWDT = 0xf80002
                     0xf80004                  __FBORPOR = 0xf80004
@@ -1034,7 +1251,7 @@ LOAD wall_follow.o
                   0x000002          0x2 SHORT 0x0 ((<code 336> (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000100       0x5f3c
+.text             0x000100       0x7c8e
  *(.handle)
  .handle          0x000100         0x30 jump_table
  *(.libc)
@@ -1118,67 +1335,67 @@ LOAD wall_follow.o
  .libm            0x001706          0x4 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fgtge.o)
                   0x001706                  __gesf2
                   0x001706                  __gtsf2
- .libm            0x00170a         0x10 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(funpack2.o)
-                  0x00170a                  _funpack2
- .libm            0x00171a         0x20 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(futil.o)
-                  0x00171a                  _fPropagateNaN
-                  0x00172c                  _fbopExit
-                  0x001734                  _fbopReturnNaN
- .libm            0x00173a         0x4c //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fpack.o)
-                  0x00173a                  _fpack
- .libm            0x001786         0x4e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fchop.o)
-                  0x001786                  _fchop
- .libm            0x0017d4         0x2a //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(funpack.o)
-                  0x0017d4                  _funpack
- .libm            0x0017fe         0x36 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fcompare.o)
-                  0x0017fe                  _fcompare
- .libm            0x001834         0x3e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(extendsfdf.o)
-                  0x001834                  __extendsfdf2
- .libm            0x001872        0x230 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divmoddi3.o)
-                  0x001898                  __udivmoddi3
-                  0x00197a                  __udivdi3
-                  0x001988                  __umoddi3
-                  0x001990                  __divdi3
-                  0x0019c6                  __moddi3
- .libm            0x001aa2         0x5c //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(muldi3.o)
-                  0x001aa2                  __muldi3
- .libm            0x001afe          0xa //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(deqltle.o)
-                  0x001afe                  __eqdf2
-                  0x001afe                  __ltdf2
-                  0x001afe                  __ledf2
- .libm            0x001b08         0x58 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fixdfsi.o)
-                  0x001b08                  __fixdfsi
- .libm            0x001b60          0x6 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(floatsidf.o)
-                  0x001b60                  __floatsidf
- .libm            0x001b66          0x4 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(subdf3.o)
-                  0x001b66                  __subdf3
- .libm            0x001b6a          0xa //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dgtge.o)
-                  0x001b6a                  __gtdf2
-                  0x001b6a                  __gedf2
- .libm            0x001b74         0x1e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divsi3.o)
-                  0x001b74                  __divsi3
- .libm            0x001b92         0xea //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(muldf3.o)
-                  0x001b92                  __muldf3
- .libm            0x001c7c         0xb4 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divdf3.o)
-                  0x001c7c                  __divdf3
- .libm            0x001d30          0xc //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(mulsi3.o)
-                  0x001d30                  __mulsi3
- .libm            0x001d3c         0x44 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(umuldi3.o)
-                  0x001d3c                  __umuldi3
- .libm            0x001d80         0x52 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dcompare.o)
-                  0x001d80                  _dcompare
- .libm            0x001dd2         0x4e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dunpack.o)
-                  0x001dd2                  _dunpack
- .libm            0x001e20         0x32 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dunpack2.o)
-                  0x001e20                  _dunpack2
-                  0x001e42                  _dreturnNaN
-                  0x001e48                  _dunpack2exit
- .libm            0x001e52         0x6e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(floatdidf.o)
-                  0x001e52                  __floatdidf
- .libm            0x001ec0         0xfa //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(adddf3.o)
-                  0x001ec0                  __adddf3
- .libm            0x001fba         0x20 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(udivsi3.o)
-                  0x001fba                  __udivsi3
+ .libm            0x00170a         0x1e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divsi3.o)
+                  0x00170a                  __divsi3
+ .libm            0x001728         0x10 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(funpack2.o)
+                  0x001728                  _funpack2
+ .libm            0x001738         0x20 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(futil.o)
+                  0x001738                  _fPropagateNaN
+                  0x00174a                  _fbopExit
+                  0x001752                  _fbopReturnNaN
+ .libm            0x001758         0x4c //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fpack.o)
+                  0x001758                  _fpack
+ .libm            0x0017a4         0x4e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fchop.o)
+                  0x0017a4                  _fchop
+ .libm            0x0017f2         0x2a //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(funpack.o)
+                  0x0017f2                  _funpack
+ .libm            0x00181c         0x36 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fcompare.o)
+                  0x00181c                  _fcompare
+ .libm            0x001852         0x20 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(udivsi3.o)
+                  0x001852                  __udivsi3
+ .libm            0x001872         0x3e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(extendsfdf.o)
+                  0x001872                  __extendsfdf2
+ .libm            0x0018b0        0x230 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divmoddi3.o)
+                  0x0018d6                  __udivmoddi3
+                  0x0019b8                  __udivdi3
+                  0x0019c6                  __umoddi3
+                  0x0019ce                  __divdi3
+                  0x001a04                  __moddi3
+ .libm            0x001ae0         0x5c //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(muldi3.o)
+                  0x001ae0                  __muldi3
+ .libm            0x001b3c          0xa //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(deqltle.o)
+                  0x001b3c                  __eqdf2
+                  0x001b3c                  __ltdf2
+                  0x001b3c                  __ledf2
+ .libm            0x001b46         0x58 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(fixdfsi.o)
+                  0x001b46                  __fixdfsi
+ .libm            0x001b9e          0x6 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(floatsidf.o)
+                  0x001b9e                  __floatsidf
+ .libm            0x001ba4          0x4 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(subdf3.o)
+                  0x001ba4                  __subdf3
+ .libm            0x001ba8          0xa //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dgtge.o)
+                  0x001ba8                  __gtdf2
+                  0x001ba8                  __gedf2
+ .libm            0x001bb2         0xea //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(muldf3.o)
+                  0x001bb2                  __muldf3
+ .libm            0x001c9c         0xb4 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(divdf3.o)
+                  0x001c9c                  __divdf3
+ .libm            0x001d50          0xc //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(mulsi3.o)
+                  0x001d50                  __mulsi3
+ .libm            0x001d5c         0x44 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(umuldi3.o)
+                  0x001d5c                  __umuldi3
+ .libm            0x001da0         0x52 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dcompare.o)
+                  0x001da0                  _dcompare
+ .libm            0x001df2         0x4e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dunpack.o)
+                  0x001df2                  _dunpack
+ .libm            0x001e40         0x32 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dunpack2.o)
+                  0x001e40                  _dunpack2
+                  0x001e62                  _dreturnNaN
+                  0x001e68                  _dunpack2exit
+ .libm            0x001e72         0x6e //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(floatdidf.o)
+                  0x001e72                  __floatdidf
+ .libm            0x001ee0         0xfa //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(adddf3.o)
+                  0x001ee0                  __adddf3
  .libm            0x001fda         0x58 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dpack.o)
                   0x001fda                  _dpack
  .libm            0x002032         0x24 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libm-coff.a(dtype.o)
@@ -1424,31 +1641,134 @@ LOAD wall_follow.o
                   0x005a2c                  toPacket
                   0x005a4c                  toBin
                   0x005a6e                  toBinFromInts
- .text            0x005a8c        0x100 init.o
+ .text            0x005a8c        0x104 init.o
                   0x005a8c                  init
                   0x005aac                  initMaster
                   0x005ac6                  initFollower
                   0x005ad6                  initHighLevelMaster
                   0x005b1a                  initHighLevelFollower
-                  0x005b48                  followSide
-                  0x005b80                  initSideFollow
- .text            0x005b8c        0x1f0 traverse.o
-                  0x005b8c                  initTraverse
-                  0x005ba4                  endTraverse
-                  0x005bb4                  traverse
-                  0x005bf6                  cruise
-                  0x005c38                  stillTurning
-                  0x005c7a                  followWall
-                  0x005cb0                  avoidWall
-                  0x005cf8                  triggerAvoidWall
-                  0x005d1a                  approachingWall
-                  0x005d3c                  approachWall
-                  0x005d74                  foundObject
- .text            0x005d7c        0x2c0 wall_follow.o
-                  0x005d7c                  follow_sensor_calibrate
-                  0x005e3e                  followGetSensorValues
-                  0x005e76                  followsetSpeed
-                  0x005eb2                  runWallFollow
+                  0x005b4c                  followSide
+                  0x005b84                  initSideFollow
+ .text            0x005b90        0x1fe traverse.o
+                  0x005b90                  initTraverse
+                  0x005bb2                  endTraverse
+                  0x005bc2                  traverse
+                  0x005c04                  cruise
+                  0x005c46                  stillTurning
+                  0x005c88                  followWall
+                  0x005cbe                  avoidWall
+                  0x005d06                  triggerAvoidWall
+                  0x005d28                  approachingWall
+                  0x005d4a                  approachWall
+                  0x005d82                  foundObject
+ .text            0x005d8e        0x2c0 wall_follow.o
+                  0x005d8e                  follow_sensor_calibrate
+                  0x005e50                  followGetSensorValues
+                  0x005e88                  followsetSpeed
+                  0x005ec4                  runWallFollow
+ .text            0x00604e        0x14c findGreen.o
+                  0x00604e                  getImage
+                  0x00605e                  Image
+                  0x006140                  initGreen
+                  0x00615a                  findGreen
+ .text            0x00619a        0x274 e_calc_po3030k.o
+                  0x00619a                  e_po3030k_config_cam
+                  0x0063d6                  e_po3030k_get_bytes_per_pixel
+ .text            0x00640e        0x2aa e_calc_po6030k.o
+                  0x00640e                  e_po6030k_config_cam
+                  0x006680                  e_po6030k_get_bytes_per_pixel
+ .text            0x0066b8        0x2aa e_calc_po8030d.o
+                  0x0066b8                  e_po8030d_config_cam
+                  0x00692a                  e_po8030d_get_bytes_per_pixel
+ .text            0x006962        0x2b4 e_common.o
+                  0x006962                  e_poxxxx_config_cam
+                  0x0069d6                  e_poxxxx_set_mirror
+                  0x006a14                  e_poxxxx_write_cam_registers
+                  0x006a26                  e_poxxxx_init_cam
+                  0x006aea                  e_poxxxx_get_orientation
+                  0x006b50                  e_poxxxx_set_awb_ae
+                  0x006b8e                  e_poxxxx_set_rgb_gain
+                  0x006bd8                  e_poxxxx_set_exposure
+                  0x006c0e                  getCameraVersion
+ .text            0x006c16        0x850 e_po3030k_registers.o
+                  0x006c16                  e_po3030k_write_cam_registers
+                  0x006c48                  e_po3030k_read_cam_registers
+                  0x006c7e                  e_po3030k_set_color_mode
+                  0x006cbc                  e_po3030k_set_sampling_mode
+                  0x006ce6                  e_po3030k_set_speed
+                  0x006d2c                  e_po3030k_set_wx
+                  0x006d82                  e_po3030k_set_wy
+                  0x006dd2                  e_po3030k_set_vsync
+                  0x006e44                  e_po3030k_set_mirror
+                  0x006e80                  e_po3030k_set_register
+                  0x006ebe                  e_po3030k_get_register
+                  0x006efe                  e_po3030k_set_bias
+                  0x006f10                  e_po3030k_set_color_gain
+                  0x006f46                  e_po3030k_set_integr_time
+                  0x006f6a                  e_po3030k_set_adc_offset
+                  0x006f76                  e_po3030k_set_sepia
+                  0x006f92                  e_po3030k_set_lens_gain
+                  0x006faa                  e_po3030k_set_edge_prop
+                  0x006fc0                  e_po3030k_set_gamma_coef
+                  0x007008                  e_po3030k_write_gamma_coef
+                  0x007026                  e_po3030k_sync_register_array
+                  0x007086                  e_po3030k_SetColorMatrix
+                  0x0070b4                  e_po3030k_set_cb_cr_gain
+                  0x0070c6                  e_po3030k_set_brigh_contr
+                  0x0070d8                  e_po3030k_set_sepia_tone
+                  0x0070ea                  e_po3030k_set_ww
+                  0x007100                  e_po3030k_set_awb_ae_tol
+                  0x00711e                  e_po3030k_set_ae_speed
+                  0x00713e                  e_po3030k_set_exposure
+                  0x00715e                  e_po3030k_set_ref_exposure
+                  0x00716a                  e_po3030k_set_max_min_exp
+                  0x007188                  e_po3030k_set_max_min_awb
+                  0x0071b2                  e_po3030k_set_weight_win
+                  0x007258                  e_po3030k_set_awb_ae
+                  0x007294                  e_po3030k_set_flicker_mode
+                  0x0072b2                  e_po3030k_set_flicker_detection
+                  0x0073a8                  e_po3030k_set_flicker_man_set
+ .text            0x007466        0x3ee e_po6030k_registers.o
+                  0x007466                  e_po6030k_set_bank
+                  0x00747a                  e_po6030k_write_register
+                  0x007496                  e_po6030k_read_register
+                  0x0074b2                  e_po6030k_set_bayer_clkdiv
+                  0x0074c2                  e_po6030k_set_pclkdiv
+                  0x0075f6                  e_po6030k_set_mode
+                  0x00764e                  e_po6030k_set_wx
+                  0x0076a4                  e_po6030k_set_wy
+                  0x0076b0                  e_po6030k_set_vsync
+                  0x007710                  e_po6030k_set_sketch_mode
+                  0x00776e                  e_po6030k_set_mirror
+                  0x0077a8                  e_po6030k_set_awb_ae
+                  0x0077f0                  e_po6030k_set_rgb_gain
+                  0x007814                  e_po6030k_set_exposure
+ .text            0x007854        0x3fa e_po8030d_registers.o
+                  0x007854                  e_po8030d_set_bank
+                  0x007868                  e_po8030d_write_register
+                  0x007884                  e_po8030d_read_register
+                  0x0078a0                  testWriteReg
+                  0x0078ba                  enablePO8030
+                  0x0078fa                  init_po8030
+                  0x00790e                  e_po8030d_set_bayer_clkdiv
+                  0x00791e                  e_po8030d_set_pclkdiv
+                  0x007a22                  e_po8030d_set_mode
+                  0x007a7a                  e_po8030d_set_wx
+                  0x007ad0                  e_po8030d_set_wy
+                  0x007adc                  e_po8030d_set_vsync
+                  0x007b3c                  e_po8030d_set_sketch_mode
+                  0x007b58                  e_po8030d_set_mirror
+                  0x007b92                  e_po8030d_set_awb_ae
+                  0x007bda                  e_po8030d_set_rgb_gain
+                  0x007bfe                  e_po8030d_set_exposure
+                  0x007c3e                  e_po8030d_set_brightness
+ .text            0x007c4e        0x108 e_timers.o
+                  0x007c4e                  _T5Interrupt
+                  0x007c98                  e_poxxxx_launch_capture
+                  0x007cb0                  e_poxxxx_apply_timer_config
+                  0x007d4e                  e_poxxxx_is_img_ready
+ .text            0x007d56         0x38 e_interrupt.o
+                  0x007d56                  _T4Interrupt
 
 usercode
  *(usercode)
@@ -1529,132 +1849,132 @@ userdata
  *(.debug_aranges)
 
 .ivt              0x000004         0x7c
-                  0x000004          0x4 LONG 0x6898 DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
-                  0x000006          0x4 LONG 0x6898 DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
-                  0x000008          0x4 LONG 0x6898 DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
-                  0x00000a          0x4 LONG 0x6898 DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
-                  0x00000c          0x4 LONG 0x6898 DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
-                  0x00000e          0x4 LONG 0x6898 DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
-                  0x000010          0x4 LONG 0x6898 DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
-                  0x000012          0x4 LONG 0x6898 DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
+                  0x000004          0x4 LONG 0x86bc DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
+                  0x000006          0x4 LONG 0x86bc DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
+                  0x000008          0x4 LONG 0x86bc DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
+                  0x00000a          0x4 LONG 0x86bc DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
+                  0x00000c          0x4 LONG 0x86bc DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
+                  0x00000e          0x4 LONG 0x86bc DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
+                  0x000010          0x4 LONG 0x86bc DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
+                  0x000012          0x4 LONG 0x86bc DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
                   0x000014          0x4 LONG 0x3cb6 DEFINED (__INT0Interrupt)?<code 336> (__INT0Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000016          0x4 LONG 0x6898 DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000018          0x4 LONG 0x6898 DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000016          0x4 LONG 0x86bc DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000018          0x4 LONG 0x86bc DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
                   0x00001a          0x4 LONG 0x481a DEFINED (__T1Interrupt)?<code 336> (__T1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00001c          0x4 LONG 0x6898 DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00001e          0x4 LONG 0x6898 DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00001c          0x4 LONG 0x86bc DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00001e          0x4 LONG 0x86bc DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x307c DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x6898 DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000024          0x4 LONG 0x6898 DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x86bc DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000024          0x4 LONG 0x86bc DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x5502 DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x54a2 DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
                   0x00002a          0x4 LONG 0x4508 DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00002c          0x4 LONG 0x6898 DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00002e          0x4 LONG 0x6898 DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00002c          0x4 LONG 0x86bc DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00002e          0x4 LONG 0x86bc DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
                   0x000030          0x4 LONG 0x2774 DEFINED (__MI2CInterrupt)?<code 336> (__MI2CInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000032          0x4 LONG 0x6898 DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000034          0x4 LONG 0x6898 DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000036          0x4 LONG 0x6898 DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000038          0x4 LONG 0x6898 DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00003a          0x4 LONG 0x6898 DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00003c          0x4 LONG 0x6898 DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00003e          0x4 LONG 0x6898 DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000040          0x4 LONG 0x6898 DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000042          0x4 LONG 0x6898 DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000044          0x4 LONG 0x6898 DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000046          0x4 LONG 0x6898 DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000048          0x4 LONG 0x6898 DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00004a          0x4 LONG 0x6898 DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00004c          0x4 LONG 0x6898 DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00004e          0x4 LONG 0x6898 DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000050          0x4 LONG 0x6898 DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000052          0x4 LONG 0x6898 DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000054          0x4 LONG 0x6898 DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000056          0x4 LONG 0x6898 DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000058          0x4 LONG 0x6898 DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00005a          0x4 LONG 0x6898 DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00005c          0x4 LONG 0x6898 DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00005e          0x4 LONG 0x6898 DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000060          0x4 LONG 0x6898 DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000062          0x4 LONG 0x6898 DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000064          0x4 LONG 0x6898 DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000066          0x4 LONG 0x6898 DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000068          0x4 LONG 0x6898 DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00006a          0x4 LONG 0x6898 DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00006c          0x4 LONG 0x6898 DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00006e          0x4 LONG 0x6898 DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
-                  0x000070          0x4 LONG 0x6898 DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
-                  0x000072          0x4 LONG 0x6898 DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
-                  0x000074          0x4 LONG 0x6898 DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
-                  0x000076          0x4 LONG 0x6898 DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
-                  0x000078          0x4 LONG 0x6898 DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
-                  0x00007a          0x4 LONG 0x6898 DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
-                  0x00007c          0x4 LONG 0x6898 DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
-                  0x00007e          0x4 LONG 0x6898 DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
+                  0x000032          0x4 LONG 0x86bc DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000034          0x4 LONG 0x86bc DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000036          0x4 LONG 0x86bc DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000038          0x4 LONG 0x86bc DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00003a          0x4 LONG 0x86bc DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00003c          0x4 LONG 0x86bc DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00003e          0x4 LONG 0x7d56 DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000040          0x4 LONG 0x7c4e DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000042          0x4 LONG 0x86bc DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000044          0x4 LONG 0x86bc DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000046          0x4 LONG 0x86bc DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000048          0x4 LONG 0x86bc DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00004a          0x4 LONG 0x86bc DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00004c          0x4 LONG 0x86bc DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00004e          0x4 LONG 0x86bc DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000050          0x4 LONG 0x86bc DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x86bc DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000054          0x4 LONG 0x86bc DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000056          0x4 LONG 0x86bc DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000058          0x4 LONG 0x86bc DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00005a          0x4 LONG 0x86bc DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00005c          0x4 LONG 0x86bc DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00005e          0x4 LONG 0x86bc DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000060          0x4 LONG 0x86bc DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000062          0x4 LONG 0x86bc DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000064          0x4 LONG 0x86bc DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000066          0x4 LONG 0x86bc DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000068          0x4 LONG 0x86bc DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00006a          0x4 LONG 0x86bc DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00006c          0x4 LONG 0x86bc DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00006e          0x4 LONG 0x86bc DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
+                  0x000070          0x4 LONG 0x86bc DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
+                  0x000072          0x4 LONG 0x86bc DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
+                  0x000074          0x4 LONG 0x86bc DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
+                  0x000076          0x4 LONG 0x86bc DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
+                  0x000078          0x4 LONG 0x86bc DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
+                  0x00007a          0x4 LONG 0x86bc DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
+                  0x00007c          0x4 LONG 0x86bc DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
+                  0x00007e          0x4 LONG 0x86bc DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
 
 .aivt             0x000084         0x7c
-                  0x000084          0x4 LONG 0x6898 DEFINED (__AltReservedTrap0)?<code 336> (__AltReservedTrap0):DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
-                  0x000086          0x4 LONG 0x6898 DEFINED (__AltOscillatorFail)?<code 336> (__AltOscillatorFail):DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
-                  0x000088          0x4 LONG 0x6898 DEFINED (__AltAddressError)?<code 336> (__AltAddressError):DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
-                  0x00008a          0x4 LONG 0x6898 DEFINED (__AltStackError)?<code 336> (__AltStackError):DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
-                  0x00008c          0x4 LONG 0x6898 DEFINED (__AltMathError)?<code 336> (__AltMathError):DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
-                  0x00008e          0x4 LONG 0x6898 DEFINED (__AltReservedTrap5)?<code 336> (__AltReservedTrap5):DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
-                  0x000090          0x4 LONG 0x6898 DEFINED (__AltReservedTrap6)?<code 336> (__AltReservedTrap6):DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
-                  0x000092          0x4 LONG 0x6898 DEFINED (__AltReservedTrap7)?<code 336> (__AltReservedTrap7):DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
+                  0x000084          0x4 LONG 0x86bc DEFINED (__AltReservedTrap0)?<code 336> (__AltReservedTrap0):DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
+                  0x000086          0x4 LONG 0x86bc DEFINED (__AltOscillatorFail)?<code 336> (__AltOscillatorFail):DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
+                  0x000088          0x4 LONG 0x86bc DEFINED (__AltAddressError)?<code 336> (__AltAddressError):DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
+                  0x00008a          0x4 LONG 0x86bc DEFINED (__AltStackError)?<code 336> (__AltStackError):DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
+                  0x00008c          0x4 LONG 0x86bc DEFINED (__AltMathError)?<code 336> (__AltMathError):DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
+                  0x00008e          0x4 LONG 0x86bc DEFINED (__AltReservedTrap5)?<code 336> (__AltReservedTrap5):DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
+                  0x000090          0x4 LONG 0x86bc DEFINED (__AltReservedTrap6)?<code 336> (__AltReservedTrap6):DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
+                  0x000092          0x4 LONG 0x86bc DEFINED (__AltReservedTrap7)?<code 336> (__AltReservedTrap7):DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
                   0x000094          0x4 LONG 0x3cb6 DEFINED (__AltINT0Interrupt)?<code 336> (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?<code 336> (__INT0Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000096          0x4 LONG 0x6898 DEFINED (__AltIC1Interrupt)?<code 336> (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000098          0x4 LONG 0x6898 DEFINED (__AltOC1Interrupt)?<code 336> (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000096          0x4 LONG 0x86bc DEFINED (__AltIC1Interrupt)?<code 336> (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000098          0x4 LONG 0x86bc DEFINED (__AltOC1Interrupt)?<code 336> (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
                   0x00009a          0x4 LONG 0x481a DEFINED (__AltT1Interrupt)?<code 336> (__AltT1Interrupt):DEFINED (__T1Interrupt)?<code 336> (__T1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00009c          0x4 LONG 0x6898 DEFINED (__AltIC2Interrupt)?<code 336> (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00009e          0x4 LONG 0x6898 DEFINED (__AltOC2Interrupt)?<code 336> (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00009c          0x4 LONG 0x86bc DEFINED (__AltIC2Interrupt)?<code 336> (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00009e          0x4 LONG 0x86bc DEFINED (__AltOC2Interrupt)?<code 336> (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
                   0x0000a0          0x4 LONG 0x307c DEFINED (__AltT2Interrupt)?<code 336> (__AltT2Interrupt):DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a2          0x4 LONG 0x6898 DEFINED (__AltT3Interrupt)?<code 336> (__AltT3Interrupt):DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a4          0x4 LONG 0x6898 DEFINED (__AltSPI1Interrupt)?<code 336> (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a2          0x4 LONG 0x86bc DEFINED (__AltT3Interrupt)?<code 336> (__AltT3Interrupt):DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a4          0x4 LONG 0x86bc DEFINED (__AltSPI1Interrupt)?<code 336> (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
                   0x0000a6          0x4 LONG 0x5502 DEFINED (__AltU1RXInterrupt)?<code 336> (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
                   0x0000a8          0x4 LONG 0x54a2 DEFINED (__AltU1TXInterrupt)?<code 336> (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
                   0x0000aa          0x4 LONG 0x4508 DEFINED (__AltADCInterrupt)?<code 336> (__AltADCInterrupt):DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ac          0x4 LONG 0x6898 DEFINED (__AltNVMInterrupt)?<code 336> (__AltNVMInterrupt):DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ae          0x4 LONG 0x6898 DEFINED (__AltSI2CInterrupt)?<code 336> (__AltSI2CInterrupt):DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ac          0x4 LONG 0x86bc DEFINED (__AltNVMInterrupt)?<code 336> (__AltNVMInterrupt):DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ae          0x4 LONG 0x86bc DEFINED (__AltSI2CInterrupt)?<code 336> (__AltSI2CInterrupt):DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
                   0x0000b0          0x4 LONG 0x2774 DEFINED (__AltMI2CInterrupt)?<code 336> (__AltMI2CInterrupt):DEFINED (__MI2CInterrupt)?<code 336> (__MI2CInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b2          0x4 LONG 0x6898 DEFINED (__AltCNInterrupt)?<code 336> (__AltCNInterrupt):DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b4          0x4 LONG 0x6898 DEFINED (__AltINT1Interrupt)?<code 336> (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b6          0x4 LONG 0x6898 DEFINED (__AltIC7Interrupt)?<code 336> (__AltIC7Interrupt):DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b8          0x4 LONG 0x6898 DEFINED (__AltIC8Interrupt)?<code 336> (__AltIC8Interrupt):DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ba          0x4 LONG 0x6898 DEFINED (__AltOC3Interrupt)?<code 336> (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000bc          0x4 LONG 0x6898 DEFINED (__AltOC4Interrupt)?<code 336> (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000be          0x4 LONG 0x6898 DEFINED (__AltT4Interrupt)?<code 336> (__AltT4Interrupt):DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c0          0x4 LONG 0x6898 DEFINED (__AltT5Interrupt)?<code 336> (__AltT5Interrupt):DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c2          0x4 LONG 0x6898 DEFINED (__AltINT2Interrupt)?<code 336> (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c4          0x4 LONG 0x6898 DEFINED (__AltU2RXInterrupt)?<code 336> (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c6          0x4 LONG 0x6898 DEFINED (__AltU2TXInterrupt)?<code 336> (__AltU2TXInterrupt):DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c8          0x4 LONG 0x6898 DEFINED (__AltSPI2Interrupt)?<code 336> (__AltSPI2Interrupt):DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ca          0x4 LONG 0x6898 DEFINED (__AltC1Interrupt)?<code 336> (__AltC1Interrupt):DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000cc          0x4 LONG 0x6898 DEFINED (__AltIC3Interrupt)?<code 336> (__AltIC3Interrupt):DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ce          0x4 LONG 0x6898 DEFINED (__AltIC4Interrupt)?<code 336> (__AltIC4Interrupt):DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d0          0x4 LONG 0x6898 DEFINED (__AltIC5Interrupt)?<code 336> (__AltIC5Interrupt):DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d2          0x4 LONG 0x6898 DEFINED (__AltIC6Interrupt)?<code 336> (__AltIC6Interrupt):DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d4          0x4 LONG 0x6898 DEFINED (__AltOC5Interrupt)?<code 336> (__AltOC5Interrupt):DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d6          0x4 LONG 0x6898 DEFINED (__AltOC6Interrupt)?<code 336> (__AltOC6Interrupt):DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d8          0x4 LONG 0x6898 DEFINED (__AltOC7Interrupt)?<code 336> (__AltOC7Interrupt):DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000da          0x4 LONG 0x6898 DEFINED (__AltOC8Interrupt)?<code 336> (__AltOC8Interrupt):DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000dc          0x4 LONG 0x6898 DEFINED (__AltINT3Interrupt)?<code 336> (__AltINT3Interrupt):DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000de          0x4 LONG 0x6898 DEFINED (__AltINT4Interrupt)?<code 336> (__AltINT4Interrupt):DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e0          0x4 LONG 0x6898 DEFINED (__AltC2Interrupt)?<code 336> (__AltC2Interrupt):DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e2          0x4 LONG 0x6898 DEFINED (__AltPWMInterrupt)?<code 336> (__AltPWMInterrupt):DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e4          0x4 LONG 0x6898 DEFINED (__AltQEIInterrupt)?<code 336> (__AltQEIInterrupt):DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e6          0x4 LONG 0x6898 DEFINED (__AltDCIInterrupt)?<code 336> (__AltDCIInterrupt):DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e8          0x4 LONG 0x6898 DEFINED (__AltLVDInterrupt)?<code 336> (__AltLVDInterrupt):DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ea          0x4 LONG 0x6898 DEFINED (__AltFLTAInterrupt)?<code 336> (__AltFLTAInterrupt):DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ec          0x4 LONG 0x6898 DEFINED (__AltFLTBInterrupt)?<code 336> (__AltFLTBInterrupt):DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ee          0x4 LONG 0x6898 DEFINED (__AltInterrupt45)?<code 336> (__AltInterrupt45):DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
-                  0x0000f0          0x4 LONG 0x6898 DEFINED (__AltInterrupt46)?<code 336> (__AltInterrupt46):DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
-                  0x0000f2          0x4 LONG 0x6898 DEFINED (__AltInterrupt47)?<code 336> (__AltInterrupt47):DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
-                  0x0000f4          0x4 LONG 0x6898 DEFINED (__AltInterrupt48)?<code 336> (__AltInterrupt48):DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
-                  0x0000f6          0x4 LONG 0x6898 DEFINED (__AltInterrupt49)?<code 336> (__AltInterrupt49):DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
-                  0x0000f8          0x4 LONG 0x6898 DEFINED (__AltInterrupt50)?<code 336> (__AltInterrupt50):DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
-                  0x0000fa          0x4 LONG 0x6898 DEFINED (__AltInterrupt51)?<code 336> (__AltInterrupt51):DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
-                  0x0000fc          0x4 LONG 0x6898 DEFINED (__AltInterrupt52)?<code 336> (__AltInterrupt52):DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
-                  0x0000fe          0x4 LONG 0x6898 DEFINED (__AltInterrupt53)?<code 336> (__AltInterrupt53):DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
+                  0x0000b2          0x4 LONG 0x86bc DEFINED (__AltCNInterrupt)?<code 336> (__AltCNInterrupt):DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b4          0x4 LONG 0x86bc DEFINED (__AltINT1Interrupt)?<code 336> (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b6          0x4 LONG 0x86bc DEFINED (__AltIC7Interrupt)?<code 336> (__AltIC7Interrupt):DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b8          0x4 LONG 0x86bc DEFINED (__AltIC8Interrupt)?<code 336> (__AltIC8Interrupt):DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ba          0x4 LONG 0x86bc DEFINED (__AltOC3Interrupt)?<code 336> (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000bc          0x4 LONG 0x86bc DEFINED (__AltOC4Interrupt)?<code 336> (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000be          0x4 LONG 0x7d56 DEFINED (__AltT4Interrupt)?<code 336> (__AltT4Interrupt):DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c0          0x4 LONG 0x7c4e DEFINED (__AltT5Interrupt)?<code 336> (__AltT5Interrupt):DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c2          0x4 LONG 0x86bc DEFINED (__AltINT2Interrupt)?<code 336> (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c4          0x4 LONG 0x86bc DEFINED (__AltU2RXInterrupt)?<code 336> (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c6          0x4 LONG 0x86bc DEFINED (__AltU2TXInterrupt)?<code 336> (__AltU2TXInterrupt):DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c8          0x4 LONG 0x86bc DEFINED (__AltSPI2Interrupt)?<code 336> (__AltSPI2Interrupt):DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ca          0x4 LONG 0x86bc DEFINED (__AltC1Interrupt)?<code 336> (__AltC1Interrupt):DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000cc          0x4 LONG 0x86bc DEFINED (__AltIC3Interrupt)?<code 336> (__AltIC3Interrupt):DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ce          0x4 LONG 0x86bc DEFINED (__AltIC4Interrupt)?<code 336> (__AltIC4Interrupt):DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d0          0x4 LONG 0x86bc DEFINED (__AltIC5Interrupt)?<code 336> (__AltIC5Interrupt):DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d2          0x4 LONG 0x86bc DEFINED (__AltIC6Interrupt)?<code 336> (__AltIC6Interrupt):DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d4          0x4 LONG 0x86bc DEFINED (__AltOC5Interrupt)?<code 336> (__AltOC5Interrupt):DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d6          0x4 LONG 0x86bc DEFINED (__AltOC6Interrupt)?<code 336> (__AltOC6Interrupt):DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d8          0x4 LONG 0x86bc DEFINED (__AltOC7Interrupt)?<code 336> (__AltOC7Interrupt):DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000da          0x4 LONG 0x86bc DEFINED (__AltOC8Interrupt)?<code 336> (__AltOC8Interrupt):DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000dc          0x4 LONG 0x86bc DEFINED (__AltINT3Interrupt)?<code 336> (__AltINT3Interrupt):DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000de          0x4 LONG 0x86bc DEFINED (__AltINT4Interrupt)?<code 336> (__AltINT4Interrupt):DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e0          0x4 LONG 0x86bc DEFINED (__AltC2Interrupt)?<code 336> (__AltC2Interrupt):DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e2          0x4 LONG 0x86bc DEFINED (__AltPWMInterrupt)?<code 336> (__AltPWMInterrupt):DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e4          0x4 LONG 0x86bc DEFINED (__AltQEIInterrupt)?<code 336> (__AltQEIInterrupt):DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e6          0x4 LONG 0x86bc DEFINED (__AltDCIInterrupt)?<code 336> (__AltDCIInterrupt):DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e8          0x4 LONG 0x86bc DEFINED (__AltLVDInterrupt)?<code 336> (__AltLVDInterrupt):DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ea          0x4 LONG 0x86bc DEFINED (__AltFLTAInterrupt)?<code 336> (__AltFLTAInterrupt):DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ec          0x4 LONG 0x86bc DEFINED (__AltFLTBInterrupt)?<code 336> (__AltFLTBInterrupt):DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ee          0x4 LONG 0x86bc DEFINED (__AltInterrupt45)?<code 336> (__AltInterrupt45):DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
+                  0x0000f0          0x4 LONG 0x86bc DEFINED (__AltInterrupt46)?<code 336> (__AltInterrupt46):DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
+                  0x0000f2          0x4 LONG 0x86bc DEFINED (__AltInterrupt47)?<code 336> (__AltInterrupt47):DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
+                  0x0000f4          0x4 LONG 0x86bc DEFINED (__AltInterrupt48)?<code 336> (__AltInterrupt48):DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
+                  0x0000f6          0x4 LONG 0x86bc DEFINED (__AltInterrupt49)?<code 336> (__AltInterrupt49):DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
+                  0x0000f8          0x4 LONG 0x86bc DEFINED (__AltInterrupt50)?<code 336> (__AltInterrupt50):DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
+                  0x0000fa          0x4 LONG 0x86bc DEFINED (__AltInterrupt51)?<code 336> (__AltInterrupt51):DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
+                  0x0000fc          0x4 LONG 0x86bc DEFINED (__AltInterrupt52)?<code 336> (__AltInterrupt52):DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
+                  0x0000fe          0x4 LONG 0x86bc DEFINED (__AltInterrupt53)?<code 336> (__AltInterrupt53):DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -2918,17 +3238,17 @@ LOAD jump_table
 LOAD data_init
 LOAD default_isr
 
-.const              0xe03c        0x5de
- .const             0xe03c        0x192 main.o
- .const             0xe1ce         0x12 motor_control.o
- .const             0xe1e0         0x1e utility.o
- .const             0xe1fe         0x1a btcom.o
- .const             0xe218         0x16 emitter.o
- .const             0xe22e         0x50 global.o
- .const             0xe27e        0x120 receiver.o
- .const             0xe39e        0x156 init.o
- .const             0xe4f4         0xc6 traverse.o
- .const             0xe5ba         0x60 wall_follow.o
+.const            0x0086be        0x600
+ .const           0x0086be        0x192 main.o
+ .const           0x008850         0x12 motor_control.o
+ .const           0x008862         0x1e utility.o
+ .const           0x008880         0x1a btcom.o
+ .const           0x00889a         0x16 emitter.o
+ .const           0x0088b0         0x50 global.o
+ .const           0x008900        0x120 receiver.o
+ .const           0x008a20        0x154 init.o
+ .const           0x008b74         0xea traverse.o
+ .const           0x008c5e         0x60 wall_follow.o
 
 .nbss               0x0800        0x456
  .nbss              0x0800        0x456 e_ad_conv.o
@@ -2956,134 +3276,157 @@ LOAD default_isr
                     0x0da4                  ircomReceiveData
                     0x0dc6                  ircomSendData
 
-.ndata              0x0e38        0x118
- .ndata             0x0e38        0x118 ircomTools.o
+.nbss               0x0e38        0x154
+ .nbss              0x0e38        0x154 e_timers.o
+                    0x0e3a                  _poxxxx_buffer
+                    0x0e3c                  _poxxxx_img_ready
+                    0x0e3e                  _poxxxx_current_row
+                    0x0e40                  _poxxxx_row
+                    0x0e42                  _poxxxx_line_conf
 
-.ndata              0x0f50         0x48
- .ndata             0x0f50         0x48 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o)
+.nbss               0x0f8c        0x140
+ .nbss              0x0f8c        0x140 findGreen.o
+                    0x0f8c                  fbwbuffer
+                    0x102c                  numbuffer
 
-.data               0x0f98         0x44
- .data              0x0f98         0x44 e_uart1_rx_char.o
-                    0x0f98                  U1RXBuf
-                    0x0fd8                  U1RXRcvCnt
-                    0x0fda                  U1RXReadCnt
+.ndata              0x10cc        0x118
+ .ndata             0x10cc        0x118 ircomTools.o
 
-.nbss               0x0fdc         0x44
- .nbss              0x0fdc         0x44 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(exit.o)
+.ndata              0x11e4         0xd8
+ .ndata             0x11e4         0xd8 e_po3030k_registers.o
 
-.nbss               0x1020         0x40
- .nbss              0x1020         0x40 ircomReceive.o
+.ndata              0x12bc         0x48
+ .ndata             0x12bc         0x48 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o)
 
-.ndata              0x1060         0x22
- .ndata             0x1060         0x22 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xlitob.o)
+.data               0x1304         0x44
+ .data              0x1304         0x44 e_uart1_rx_char.o
+                    0x1304                  U1RXBuf
+                    0x1344                  U1RXRcvCnt
+                    0x1346                  U1RXReadCnt
 
-.nbss               0x1082         0x20
- .nbss              0x1082         0x20 global.o
-                    0x1082                  global
+.nbss               0x1348         0x44
+ .nbss              0x1348         0x44 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(exit.o)
 
-.ndata              0x10a2         0x20
- .ndata             0x10a2         0x20 wall_follow.o
-                    0x10a2                  follow_weightleft
-                    0x10b2                  follow_weightright
+.nbss               0x138c         0x40
+ .nbss              0x138c         0x40 ircomReceive.o
 
-.ndata              0x10c2         0x18
- .ndata             0x10c2         0x18 receiver.o
-                    0x10c2                  sensor_sides
-                    0x10d2                  traverse_weights
+.ndata              0x13cc         0x22
+ .ndata             0x13cc         0x22 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xlitob.o)
 
-.ndata              0x10da         0x12
- .ndata             0x10da         0x12 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xprintf.o)
+.nbss               0x13ee         0x20
+ .nbss              0x13ee         0x20 global.o
+                    0x13ee                  global
 
-.nbss               0x10ec         0x10
- .nbss              0x10ec         0x10 e_motors.o
+.ndata              0x140e         0x20
+ .ndata             0x140e         0x20 wall_follow.o
+                    0x140e                  follow_weightleft
+                    0x141e                  follow_weightright
 
-.nbss               0x10fc         0x10
- .nbss              0x10fc         0x10 wall_follow.o
-                    0x10fc                  follow_sensorzero
+.ndata              0x142e         0x18
+ .ndata             0x142e         0x18 receiver.o
+                    0x142e                  sensor_sides
+                    0x143e                  traverse_weights
 
-.nbss               0x110c          0x8
- .nbss              0x110c          0x8 e_I2C_master_module.o
-                    0x110c                  e_i2c_mode
-                    0x110e                  e_interrupts
+.ndata              0x1446         0x12
+ .ndata             0x1446         0x12 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xprintf.o)
 
-.ndata              0x1114          0x6
- .ndata             0x1114          0x6 e_lsm330.o
-                    0x1114                  gyroOffsetX
-                    0x1116                  gyroOffsetY
-                    0x1118                  gyroOffsetZ
+.nbss               0x1458         0x10
+ .nbss              0x1458         0x10 e_motors.o
 
-.nbss               0x111a          0x6
- .nbss              0x111a          0x6 e_led.o
+.nbss               0x1468         0x10
+ .nbss              0x1468         0x10 wall_follow.o
+                    0x1468                  follow_sensorzero
 
-.nbss               0x1120          0x6
- .nbss              0x1120          0x6 e_remote_control.o
+.nbss               0x1478          0x8
+ .nbss              0x1478          0x8 e_I2C_master_module.o
+                    0x1478                  e_i2c_mode
+                    0x147a                  e_interrupts
 
-.ndata              0x1126          0x6
- .ndata             0x1126          0x6 e_ad_conv.o
-                    0x1126                  array_filled
-                    0x1128                  e_last_ir_scan_id
-                    0x112a                  e_ad_samples_to_skip
+.ndata              0x1480          0x6
+ .ndata             0x1480          0x6 e_lsm330.o
+                    0x1480                  gyroOffsetX
+                    0x1482                  gyroOffsetY
+                    0x1484                  gyroOffsetZ
 
-.data               0x112c          0x6
- .data              0x112c          0x6 e_uart1_tx_char.o
-                    0x112c                  U1TXPtr
-                    0x112e                  U1TXLength
-                    0x1130                  U1TXOk
+.nbss               0x1486          0x6
+ .nbss              0x1486          0x6 e_led.o
 
-.ndata              0x1132          0x6
- .ndata             0x1132          0x6 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(malloc.o)
-                    0x1132                  _Size_block
-                    0x1134                  _Aldata
+.nbss               0x148c          0x6
+ .nbss              0x148c          0x6 e_remote_control.o
 
-.ndata              0x1138          0x6
- .ndata             0x1138          0x6 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(exit.o)
-                    0x1138                  _Atcount
-                    0x113a                  _Atfuns
+.ndata              0x1492          0x6
+ .ndata             0x1492          0x6 e_ad_conv.o
+                    0x1492                  array_filled
+                    0x1494                  e_last_ir_scan_id
+                    0x1496                  e_ad_samples_to_skip
 
-.ndata              0x113e          0x4
- .ndata             0x113e          0x4 e_remote_control.o
+.data               0x1498          0x6
+ .data              0x1498          0x6 e_uart1_tx_char.o
+                    0x1498                  U1TXPtr
+                    0x149a                  U1TXLength
+                    0x149c                  U1TXOk
 
-.nbss               0x1142          0x4
- .nbss              0x1142          0x4 traverse.o
-                    0x1142                  front_right_prox
-                    0x1144                  front_left_prox
+.ndata              0x149e          0x6
+ .ndata             0x149e          0x6 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(malloc.o)
+                    0x149e                  _Size_block
+                    0x14a0                  _Aldata
 
-.nbss               0x1146          0x2
- .nbss              0x1146          0x2 e_agenda.o
+.ndata              0x14a4          0x6
+ .ndata             0x14a4          0x6 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(exit.o)
+                    0x14a4                  _Atcount
+                    0x14a6                  _Atfuns
 
-.ndata              0x1148          0x2
- .ndata             0x1148          0x2 e_led.o
+.ndata              0x14aa          0x4
+ .ndata             0x14aa          0x4 e_remote_control.o
 
-.ndata              0x114a          0x2
- .ndata             0x114a          0x2 e_init_port.o
-                    0x114a                  isPresentFlag
+.nbss               0x14ae          0x4
+ .nbss              0x14ae          0x4 traverse.o
+                    0x14ae                  front_right_prox
+                    0x14b0                  front_left_prox
 
-.ndata              0x114c          0x2
- .ndata             0x114c          0x2 traverse.o
-                    0x114c                  TURNING
+.nbss               0x14b2          0x2
+ .nbss              0x14b2          0x2 e_agenda.o
 
-.ndata              0x114e          0x2
- .ndata             0x114e          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(ldiv.o)
+.ndata              0x14b4          0x2
+ .ndata             0x14b4          0x2 e_led.o
 
-.ndata              0x1150          0x2
- .ndata             0x1150          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(div.o)
+.ndata              0x14b6          0x2
+ .ndata             0x14b6          0x2 e_init_port.o
+                    0x14b6                  isPresentFlag
 
-.nbss               0x1152          0x2
- .nbss              0x1152          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libpic30-coff.a(brk.o)
-                    0x1152                  __curbrk
+.ndata              0x14b8          0x2
+ .ndata             0x14b8          0x2 traverse.o
+                    0x14b8                  TURNING
 
-.dconst             0x1154         0x32
- .dconst            0x1154         0x32 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o)
+.ndata              0x14ba          0x2
+ .ndata             0x14ba          0x2 findGreen.o
+                    0x14ba                  isGreenVisible
 
-.dconst             0x1186          0x8
- .dconst            0x1186          0x8 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xprintf.o)
+.nbss               0x14bc          0x2
+ .nbss              0x14bc          0x2 e_common.o
 
-.dconst             0x118e          0x2
- .dconst            0x118e          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xgenld.o)
+.ndata              0x14be          0x2
+ .ndata             0x14be          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(ldiv.o)
 
-.dinit            0x00661a        0x27e
- .dinit           0x00661a        0x27e data_init
+.ndata              0x14c0          0x2
+ .ndata             0x14c0          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(div.o)
 
-.isr              0x006898          0x2
- .isr             0x006898          0x2 default_isr
-                  0x006898                  _DefaultInterrupt
+.nbss               0x14c2          0x2
+ .nbss              0x14c2          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libpic30-coff.a(brk.o)
+                    0x14c2                  __curbrk
+
+.dconst             0x14c4         0x32
+ .dconst            0x14c4         0x32 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xldtob.o)
+
+.dconst             0x14f6          0x8
+ .dconst            0x14f6          0x8 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xprintf.o)
+
+.dconst             0x14fe          0x2
+ .dconst            0x14fe          0x2 //psf/home/documents/windows/robotics/programs/mplab_ide_v8_56/mplab c30 compiler/bin/../lib\libc-coff.a(xgenld.o)
+
+.dinit            0x00838e        0x32e
+ .dinit           0x00838e        0x32e data_init
+
+.isr              0x0086bc          0x2
+ .isr             0x0086bc          0x2 default_isr
+                  0x0086bc                  _DefaultInterrupt
