@@ -23,7 +23,11 @@
 void init()
 {
 	// Initialise global vars
+<<<<<<< HEAD
 	initGlobal( RIGHT );
+=======
+	initGlobal( LEFT );
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	
 	// Start agenda processing
 	e_start_agendas_processing();
@@ -35,6 +39,7 @@ void init()
     ircomListen();
 
 	// Prepare comms agenda.
+<<<<<<< HEAD
 
 	// Emit needs to be long (10000) for follow msg to be received by follower.
 	e_activate_agenda( emit, 10000 );
@@ -58,6 +63,14 @@ void initFollower()
 	e_activate_agenda( receive, 1000 );	
 }
 
+=======
+	e_activate_agenda( emit, 5000 );
+//	e_activate_agenda( emitPos, 50000 );	
+	e_activate_agenda( receive, 500 );			
+}
+
+
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 void initHighLevelMaster( int isMaster )
 {	
 	init();
@@ -69,8 +82,11 @@ void initHighLevelMaster( int isMaster )
 	while( global.phase < PHASE_INIT_COMPLETE );	
 	btcomSendString( "Finished initialising. \r\n" );
 
+<<<<<<< HEAD
 	initMaster();
 
+=======
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	btcomSendString( "Start searching... \r\n" );
 	initTraverse();
 	btcomSendString( "Waiting to complete search phase... \r\n" );
@@ -85,7 +101,10 @@ void initHighLevelMaster( int isMaster )
 void initHighLevelFollower()
 {
 	init();
+<<<<<<< HEAD
 	initFollower();	
+=======
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	
 	btcomSendString( "Waiting to handshake with master... \r\n" ); 		
 	while( global.phase < PHASE_INIT_COMPLETE );
@@ -93,7 +112,11 @@ void initHighLevelFollower()
 	emitMasterAcks();
 
 	btcomSendString( "Completed handshake." );
+<<<<<<< HEAD
 	e_destroy_agenda( emit );	
+=======
+	setPacketToEmit( CMD_SET_STATE, STATE_NOP );	
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 
 	BODY_LED = 1;
 

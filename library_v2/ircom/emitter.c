@@ -28,7 +28,11 @@ void emitMasterAcks()
 
 	int i;
 		
+<<<<<<< HEAD
 	for( i = 0; i < 5 ; i++ )
+=======
+	for( i = 0; i < 20 ; i++ )
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	{
 		int packet = toBinFromInts( CMD_SET_STATE, STATE_ACK_MASTER );
 	

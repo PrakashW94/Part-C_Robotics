@@ -52,6 +52,7 @@ int triggerAvoidWall();
 void avoidWall();
 int stillTurning();
 
+<<<<<<< HEAD
 /**
 * The "approach wall" behaviour.
 *
@@ -62,6 +63,8 @@ int stillTurning();
 */
 int approachingWall();
 void approachWall();
+=======
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 
 /**
 * The "search" behaviour.

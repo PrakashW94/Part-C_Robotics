@@ -157,13 +157,19 @@ void setOrigins( int isMaster )
 		setOtherRobotPos( 0, 0 );	
 	}
 }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 // Only able to ack state requests
 void processAck()
 {	
 	switch( global.payloadToEmit )
 	{
+<<<<<<< HEAD
 		case STATE_PROPOSE_MASTER:	
 			if( global.phase != PHASE_INIT_COMPLETE )
 			{
@@ -198,6 +204,34 @@ void processStateChange( IrcomMessage imsg, Packet packet )
 		case STATE_ACK_MASTER:
 			processAck();
 			break;
+=======
+		case STATE_PROPOSE_MASTER:
+			btcomSendString( "Master ACK received by other epuck. \r\n" );
+			global.isMaster = 1;
+			setRobotPos( 0, 0 );
+			setOtherRobotPos( 0, 100 );
+			global.phase = PHASE_INIT_COMPLETE;
+			break;
+
+	}
+}
+
+
+void processStateChange( IrcomMessage imsg, Packet packet )
+{	
+	// btcomSendInt( packet.payload );
+
+	switch( packet.payload )
+	{	
+		case STATE_NOP:
+			asm("nop");
+			break;
+		
+		case STATE_ACK:
+		case STATE_ACK_MASTER:
+			processAck();
+			break;
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 		
 		case STATE_TEST_SIDE_FOLLOW:
 			setSideTraverseSpeed( BASE_SPEED, imsg );
@@ -243,6 +277,7 @@ void processStateChange( IrcomMessage imsg, Packet packet )
 					
 	}
 }
+<<<<<<< HEAD
 
 /*
 * Process a received message.
@@ -259,6 +294,17 @@ void process( IrcomMessage imsg )
 	btcomSendString( "============== \r\n" );
 */
 
+=======
+
+/*
+* Process a received message.
+*/
+void process( IrcomMessage imsg )
+{	
+	Packet packet;
+	toPacket( &packet, imsg.value);
+		
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	switch( packet.command )
 	{
 		case CMD_SET_STATE:

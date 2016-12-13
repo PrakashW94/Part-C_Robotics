@@ -164,8 +164,13 @@ int main()
     		ircomEnableContinuousListening();
     		ircomListen();
 
+<<<<<<< HEAD
 			e_activate_agenda( emit, 30000 );
 			e_activate_agenda( receive, 30000 );
+=======
+			e_activate_agenda( emit, 3000 );
+			e_activate_agenda( receive, 500 );
+>>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 			
 			setPacketToEmit( CMD_SET_STATE, STATE_TEST_SIDE_FOLLOW );
 
