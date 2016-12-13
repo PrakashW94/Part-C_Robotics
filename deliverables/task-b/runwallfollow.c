@@ -154,7 +154,7 @@ void run_wallfollow() {
 	int finishedLeft = 0;
 	int lineDist = 0;
 
-	int firstRobot = 1;
+	int firstRobot = 0;
 	
 	loopcount=0;
 	selector_change = !(followgetSelectorValue() & 0x0001);
@@ -256,7 +256,7 @@ void run_wallfollow() {
 			turningLeft = 0;
 			finishedLeft = 1;		
 		}
-		else if (finishedLeft && abs(currSteps) > 600 && !firstRobot)
+		else if (finishedLeft && abs(currSteps) > 500 && !firstRobot)
 		{
 			followsetSpeed(0, 0);
 			break;
@@ -281,10 +281,25 @@ void run_wallfollow() {
 		waitForSteps(200);
 		followsetSpeed(0, 0);
 
-		// Move towards box slightly
+		// Move towards box
 		followsetSpeed(200, 200);
-		waitForSteps(200);
+		followGetSensorValues(distances);
+		while (distances[0] < 1400 && distances[7] < 1400)
+		{
+			followGetSensorValues(distances);
+			wait(15000);
+		}
 		followsetSpeed(0, 0);
+		reportValue("sensor0", distances[0]);
+		reportValue("sensor7", distances[7]);
+
+		// Rotate towards box more exact
+		if (distances[7] > distances[0] + 500)
+		{
+			followsetSpeed(-200, 200);
+			waitForSteps(100);
+			followsetSpeed(0, 0);
+		}
 	}	
 	else
 	{
@@ -292,5 +307,17 @@ void run_wallfollow() {
 		followsetSpeed(-200, 200);
 		waitForSteps(333);
 		followsetSpeed(0, 0);
+
+		// Move towards box
+		followsetSpeed(200, 200);
+		followGetSensorValues(distances);
+		while (distances[0] < 1400 && distances[7] < 1400)
+		{
+			followGetSensorValues(distances);
+			wait(15000);
+		}
+		followsetSpeed(0, 0);
+		reportValue("sensor0", distances[0]);
+		reportValue("sensor7", distances[7]);
 	}
 }
