@@ -3,6 +3,8 @@
 #include "custom_util/motor_control.h"
 
 #include "high_level/global.h"
+#include "high_level/packet.h"
+#include "high_level/init.h"
 
 #include "motor_led/advance_one_timer/e_motors.h"
 
@@ -25,8 +27,10 @@ int traverse_weights[4] = { 200,100,0,150 };
 */
 void moveToSensor( int base_speed, IrcomMessage imsg )
 {
+	//btcomSendString( "Following \r\n" );
+	
 	int weights[8] = { 50,100,300,400,400,300,100,50 };
-	float CLOSEST_DISTANCE = 8.0;
+	float CLOSEST_DISTANCE = 8.5;
 
 	double left_speed = base_speed;
 	double right_speed = base_speed;
@@ -35,6 +39,9 @@ void moveToSensor( int base_speed, IrcomMessage imsg )
 	double speed_scale;
 	
 	int receivingSensor = imsg.receivingSensor;
+
+	btcomSendString( "\r\n --> DISTANCE: \r\n" );
+	btcomSendInt( distance ); 
 
 	if( distance < CLOSEST_DISTANCE )
 	{
@@ -94,39 +101,33 @@ void setSideTraverseSpeed( int base_speed, IrcomMessage imsg )
 				right_speed = base_speed + traverse_weights[j];
 				
 				if( imsg.distance > FURTHEST_DISTANCE )
-				{
-					if( j == 2 ) 
+				{		
+					if( global.traverseDirection == LEFT )
 					{
-						if( global.traverseSide == LEFT )
-						{
-							left_speed = base_speed + traverse_weights[j];
-							right_speed = base_speed - traverse_weights[j];
-						}
-						else
-						{	
-							left_speed = base_speed - traverse_weights[j];
-							right_speed = base_speed + traverse_weights[j];
-						}
+						left_speed = base_speed + 200;
+						right_speed = base_speed - 200;
+					}
+					else
+					{	
+						left_speed = base_speed - 200;
+						right_speed = base_speed + 200;
 					}
 				}
-				else if( imsg.distance < CLOSEST_DISTANCE )
-				{
-					if( j == 2 )
-					{
-						if( global.traverseSide == LEFT )
-						{
-							left_speed = base_speed - traverse_weights[j];
-							right_speed = base_speed + traverse_weights[j];
-						}
-						else
-						{	
-							left_speed = base_speed + traverse_weights[j];
-							right_speed = base_speed - traverse_weights[j];
-						}	
-					}			
-				}			
 			}
-	
+			else if( imsg.distance < CLOSEST_DISTANCE )
+			{
+				if( global.traverseDirection == LEFT )
+				{
+					left_speed = base_speed - 200;
+					right_speed = base_speed + 200;
+				}
+				else
+				{	
+					left_speed = base_speed + 200;
+					right_speed = base_speed - 200;
+				}	
+						
+			}			
 		}
 	}
 
@@ -137,30 +138,144 @@ void setSideTraverseSpeed( int base_speed, IrcomMessage imsg )
 	set_wheel_speeds( left_speed, right_speed );
 }
 
+/**
+* Set the robots position.
+* The origin is always the master robot. This should be the bottom robot.
+* 
+* Robots should start side-by-side, facing east
+*/
+void setOrigins( int isMaster )
+{
+	if( isMaster == 1 )
+	{
+		setRobotPos( 0, 0 );
+		setOtherRobotPos( 0, 100 );
+	}
+	else
+	{
+		setRobotPos( 0, 100 );
+		setOtherRobotPos( 0, 0 );	
+	}
+}
+
+
+// Only able to ack state requests
+void processAck()
+{	
+	switch( global.payloadToEmit )
+	{
+		case STATE_PROPOSE_MASTER:	
+			if( global.phase != PHASE_INIT_COMPLETE )
+			{
+				btcomSendString( "Master ACK received by other epuck. \r\n" );
+				global.isMaster = 1;
+				setRobotPos( 0, 0 );
+				setOtherRobotPos( 0, 100 );
+				global.phase = PHASE_INIT_COMPLETE;
+			}
+			else
+			{
+				btcomSendString( "Init already completed." );
+			}
+			break;
+			
+
+	}
+}
+
+
+void processStateChange( IrcomMessage imsg, Packet packet )
+{	
+	// btcomSendInt( packet.payload );
+
+	switch( packet.payload )
+	{	
+		case STATE_NOP:
+			asm("nop");
+			break;
+		
+		case STATE_ACK:
+		case STATE_ACK_MASTER:
+			processAck();
+			break;
+		
+		case STATE_TEST_SIDE_FOLLOW:
+			setSideTraverseSpeed( BASE_SPEED, imsg );
+			break;
+		case STATE_SIDE_FOLLOW:
+			if( global.payloadToEmit == STATE_ACK_MASTER )
+			{
+				global.payloadToEmit == STATE_NOP;
+			}
+			
+			if( global.phase < PHASE_SEARCH )
+			{
+				global.phase = PHASE_SEARCH;
+				initSideFollow();
+			}	
+			break;
+		
+		
+		case STATE_PROPOSE_MASTER:
+			if( global.masterProposed == 0 )
+			{	
+				global.masterProposed = 1;
+				global.isMaster = 0;
+				setRobotPos( 0, 100 );
+				setOtherRobotPos( 0, 0 );
+				setPacketToEmit( CMD_SET_STATE, STATE_ACK_MASTER );
+				global.phase = PHASE_INIT_COMPLETE;
+				btcomSendString( "Master proposed. \r\n" );
+				btcomSendString( "Given some time to send ack..." );
+			}
+			btcomSendString( "Master already proposed. \r\n" );
+			break;
+
+		// Move to direction signal was received from.
+		case STATE_FOLLOW:
+			moveToSensor( BASE_SPEED, imsg );
+			break;
+			
+		default:
+			btcomSendString( "Unrecognized state change message:\r\n" );
+			btcomSendInt( packet.payload );
+			break;
+					
+	}
+}
 
 /*
 * Process a received message.
 */
 void process( IrcomMessage imsg )
-{
-	//btcomSendString( "Message received: " );
-	//btcomSendInt( imsg.value );		
+{	
+	Packet packet;
+	toPacket( &packet, imsg.value);
+	
+/*	
+	btcomSendString( "=== PACKET === \r\n" );	
+	btcomSendInt( packet.command );
+	btcomSendInt( packet.payload );
+	btcomSendString( "============== \r\n" );
+*/
 
-	switch( imsg.value )
+	switch( packet.command )
 	{
-		// Change wheels to move to sensor.
-		case MSG_FOLLOW:	
-			moveToSensor( BASE_SPEED, imsg );		
+		case CMD_SET_STATE:
+			processStateChange( imsg, packet );
 			break;
-		case MSG_SIDE_TRAVERSE:
-			setSideTraverseSpeed( BASE_SPEED, imsg );
+		case CMD_BROADCAST_POS_X:
+			btcomSendString( "Got X broadcast \r\n" );
+			global.other_robot_pos[0] = packet.payload;
 			break;
-		default:
-			btcomSendString( "Unknown message received. \r\n" );
+		case CMD_BROADCAST_POS_Y:
+			btcomSendString( "Got Y broadcast \r\n" );
+			global.other_robot_pos[1] = packet.payload;
 			break;
-			
-	}
-
+		case CMD_FINISH:
+			btcomSendString( "Got finish messsage \r\n" );
+			break;
+	}	
 }
 
 

@@ -19,5 +19,6 @@ int toBin( Packet packet );
 // Command is 0-4, Payload is 0-63.
 int toBinFromInts( int command, int payload );
 
+#include "messages.h"
 
 #endif

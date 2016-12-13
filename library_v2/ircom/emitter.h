@@ -6,5 +6,20 @@
 */ 
 void emit();
 
+/*
+* Emit some master ACKs.
+*/
+void emitMasterAcks();
+
+/*
+* Emit a follow message via IR.
+*/ 
+void emitFollow();
+
+
+/*
+* Emits position.
+*/
+void emitPos();
 
 #endif

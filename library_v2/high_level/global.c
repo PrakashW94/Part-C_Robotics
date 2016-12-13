@@ -1,33 +1,100 @@
+#include "btcom/btcom.h"
+
 #include "global.h"
+#include "packet.h"
 
-struct Globals global;
+volatile struct Globals global;
 
-void initGlobal( int side )	
+void initGlobal( int direction )	
 {
-	global.messageToEmit = MSG_NOP;
-	global.traverseSide = side;
+	
+	// Packet emit info
+	global.commandToEmit = CMD_SET_STATE;
+	global.payloadToEmit = STATE_NOP;
+	
+	global.phase = PHASE_INIT_START;	
+
+	global.masterProposed = 0;
+	global.isMaster = 0;
+
+	global.traverseDirection = direction;
+
+	global.robot_pos[0] = -1;
+	global.robot_pos[1] = -1;
+	
+	global.totalRotationSteps = 0;
+	global.totalLinearSteps = 0;
+
+	global.rotationSteps = 0;
+	global.linearSteps = 0;
+
+	global.other_robot_pos[0] = -1;
+	global.other_robot_pos[1] = -1;	
 }
 
-void setMessageToEmit( int msg )
+void outputGlobals()
 {
-	global.messageToEmit = msg;
+	btcomSendString(" ---- Globals ---- (p,isM,x,y) \r\n" );
+	btcomSendInt( global.phase );
+	btcomSendInt( global.isMaster );
+	btcomSendInt( global.robot_pos[0] );
+	btcomSendInt( global.robot_pos[1] );
 }
 
-void setTraverseSide( int side )
+void setPacketToEmit( int command, int payload )
 {
-	global.traverseSide = side;
+	global.commandToEmit = command;
+	global.payloadToEmit = payload;
+}
+
+void setTraverseSide( int direction )
+{
+	global.traverseDirection = direction;
 }
 
 void switchTraverseSide()
 {
-	if( global.traverseSide == LEFT )
+	if( global.traverseDirection == LEFT )
 	{
-		global.traverseSide == RIGHT;
+		btcomSendString( "Switched to RIGHT (1)." );
+		global.traverseDirection = RIGHT;
 	}	
 	else
-	{
-		global.traverseSide == LEFT;
+	{	
+		btcomSendString( "Switched to LEFT (0)." );
+		global.traverseDirection = LEFT;
 	}
 }
 
 
+void setRobotPos( int x, int y )
+{
+	global.robot_pos[0] = x;
+	global.robot_pos[1] = y;
+}
+
+int getRobotPosX()
+{
+	return global.robot_pos[0];
+}
+
+int getRobotPosY()
+{
+	return global.robot_pos[1];
+}
+
+void setOtherRobotPos( int x, int y)
+{
+	global.other_robot_pos[0] = x;
+	global.other_robot_pos[1] = y;
+} 
+
+int getOtherRobotPosX()
+{
+	return global.other_robot_pos[0];
+}
+
+int getOtherRobotPosY()
+{
+	return global.other_robot_pos[1];
+}
