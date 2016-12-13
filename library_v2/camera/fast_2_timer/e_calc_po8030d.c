@@ -38,7 +38,7 @@ int e_po8030d_config_cam(unsigned int sensor_x1,unsigned int sensor_y1,
 	int zoom_sample;
 	int sampl_mode;
 
-	sensor_x1 += ARRAY_ORIGINE_X - 64;  //+4
+	sensor_x1 += ARRAY_ORIGINE_X; // - 64;  //+4
 	sensor_y1 += ARRAY_ORIGINE_Y;   //+4
 	/* testing if the mode is acceptable */
 	if(zoom_fact_height < 1 || zoom_fact_width < 1)
@@ -180,6 +180,5 @@ int e_po8030d_get_bytes_per_pixel(int color_mode) {
 	/* UNKNOW ! */
 	return 1;
 }
-
 
 
