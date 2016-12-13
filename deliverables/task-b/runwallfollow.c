@@ -48,6 +48,8 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 #include "utility.h"
 #include "runwallfollow.h"
 
+#include "math.h"
+
 
 #define LEFT_FOLLOW			0		// behaviors IDs	
 #define RIGHT_FOLLOW		1 
@@ -127,6 +129,17 @@ void followsetSpeed(int LeftSpeed, int RightSpeed) {
 	e_set_speed_right(RightSpeed); 
 }
 
+void waitForSteps(int steps)
+{
+	int startSteps = e_get_steps_left();
+	e_set_steps_left(0);
+	
+	int endSteps = e_get_steps_left() + steps;
+	while( abs(e_get_steps_left()) < endSteps );
+	
+	e_set_steps_left(startSteps);
+}
+
 /*! \brief The "main" function of the program */
 void run_wallfollow() {
 	int leftwheel, rightwheel;		// motor speed left and right
@@ -139,6 +152,7 @@ void run_wallfollow() {
 	int turningRight = 0;
 	int turningLeft = 0;
 	int finishedLeft = 0;
+	int lineDist = 0;
 	
 	loopcount=0;
 	selector_change = !(followgetSelectorValue() & 0x0001);
@@ -218,8 +232,10 @@ void run_wallfollow() {
 				reportValue("starting 2nd turn", 1);
 				int lsteps = e_get_steps_left();
 				int rsteps = e_get_steps_right();
+				lineDist = sqrt(pow(lsteps, 2) + pow(rsteps, 2));
 				reportValue("left steps", lsteps);
 				reportValue("right steps", rsteps);
+				reportValue("lineDist", lineDist);
 				finishedLeft = 0;
 				followsetSpeed(0, 0);
 				break;
@@ -239,4 +255,10 @@ void run_wallfollow() {
 
 		wait(15000);
 	}	
+
+	// Get robot to move back 20% of box side length
+	int firstRobotPos = lineDist * 0.2;
+	followsetSpeed(-400, -400);
+	waitForSteps(firstRobotPos);
+	followsetSpeed(0, 0);
 }

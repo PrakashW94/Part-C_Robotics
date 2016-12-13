@@ -22,6 +22,8 @@ q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm
                               e_prox.o (__divsf3)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixsfsi.o)
                               e_prox.o (__fixsfsi)
+q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(sqrtf.o)
+                              runwallfollow.o (sqrtf)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(udivsi3.o)
                               q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divsi3.o) (__udivsi3)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fpack.o)
@@ -34,6 +36,8 @@ q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm
                               q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(feqltle.o) (_fcompare)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(funpack.o)
                               q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixsfsi.o) (_funpack)
+q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(errno.o)
+                              q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(sqrtf.o) (errno)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(malloc.o)
                               e_agenda.o (malloc)
 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(exit.o)
@@ -103,16 +107,16 @@ section                    address   length (PC units)   length (bytes) (dec)
 .reset                           0                 0x4             0x6  (6)
 .ivt                           0x4                0x7c            0xba  (186)
 .aivt                         0x84                0x7c            0xba  (186)
-.text                        0x100              0x5262          0x7b93  (31635)
-.const                      0x5362                0x5a            0x87  (135)
-.dinit                      0x53bc               0x1b6           0x291  (657)
-.isr                        0x5572                 0x2             0x3  (3)
+.text                        0x100              0x531c          0x7caa  (31914)
+.const                      0x541c                0x64            0x96  (150)
+.dinit                      0x5480               0x1bc           0x29a  (666)
+.isr                        0x563c                 0x2             0x3  (3)
 __FOSC                    0xf80000                 0x2             0x3  (3)
 __FWDT                    0xf80002                 0x2             0x3  (3)
 __FBORPOR                 0xf80004                 0x2             0x3  (3)
 __FGS                     0xf8000a                 0x2             0x3  (3)
 
-                     Total program memory used (bytes):         0x8034  (32820) 22%
+                     Total program memory used (bytes):         0x8163  (33123) 22%
 
 
 Data Memory Usage
@@ -144,19 +148,20 @@ section                    address      alignment gaps    total length  (dec)
 .nbss                       0x11ac                   0             0x2  (2)
 .ndata                      0x11ae                   0             0x2  (2)
 .nbss                       0x11b0                   0             0x2  (2)
-.dconst                     0x11b2                   0             0x8  (8)
+.nbss                       0x11b2                   0             0x2  (2)
+.dconst                     0x11b4                   0             0x8  (8)
 
-                        Total data memory used (bytes):          0x9ba  (2490) 30%
+                        Total data memory used (bytes):          0x9bc  (2492) 30%
 
 
 Dynamic Memory Usage
 
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
-heap                        0x11ba                               0x200  (512)
-stack                       0x13ba                              0x13e6  (5094)
+heap                        0x11bc                               0x200  (512)
+stack                       0x13bc                              0x13e4  (5092)
 
-                        Maximum dynamic memory (bytes):         0x15e6  (5606)
+                        Maximum dynamic memory (bytes):         0x15e4  (5604)
 
 
 External Symbols in Data Memory (by address):
@@ -201,7 +206,7 @@ External Symbols in Data Memory (by address):
                     0x11a2                  __Atcount
                     0x11a4                  __Atfuns
                     0x11a8                  _isPresentFlag
-                    0x11b0                  ___curbrk
+                    0x11b2                  ___curbrk
 
 External Symbols in Data Memory (by name):
 
@@ -215,7 +220,7 @@ External Symbols in Data Memory (by name):
                     0x11a2                  __Atcount
                     0x11a4                  __Atfuns
                     0x119c                  __Size_block
-                    0x11b0                  ___curbrk
+                    0x11b2                  ___curbrk
                     0x0bb8                  __poxxxx_buffer
                     0x0bbc                  __poxxxx_current_row
                     0x0bba                  __poxxxx_img_ready
@@ -278,254 +283,255 @@ External Symbols in Program Memory (by address):
                   0x000c3e                  ___nesf2
                   0x000c42                  ___divsf3
                   0x000cc6                  ___fixsfsi
-                  0x000d08                  ___udivsi3
-                  0x000d28                  __fpack
-                  0x000d74                  __funpack2
-                  0x000d84                  __fPropagateNaN
-                  0x000d96                  __fbopExit
-                  0x000d9e                  __fbopReturnNaN
-                  0x000da4                  __fcompare
-                  0x000dda                  __funpack
-                  0x000e2a                  ___udivmoddi3
-                  0x000f0c                  ___udivdi3
-                  0x000f1a                  ___umoddi3
-                  0x000f22                  ___divdi3
-                  0x000f58                  ___moddi3
-                  0x001034                  ___muldi3
-                  0x001090                  ___umuldi3
-                  0x0010d4                  _main
-                  0x001122                  _getSelector
-                  0x00115a                  _testAccGyroPresence
-                  0x001180                  _e_init_port
-                  0x001214                  _isEpuckVersion1_3
-                  0x00121e                  _run_left_motor
-                  0x001302                  _run_right_motor
-                  0x0013e6                  _e_init_motors
-                  0x0013f8                  _e_set_speed_left
-                  0x001472                  _e_set_speed_right
-                  0x0014ec                  _e_set_speed
-                  0x00152e                  _e_get_steps_left
-                  0x001536                  _e_set_steps_left
-                  0x001542                  _e_get_steps_right
-                  0x00154a                  _e_set_steps_right
-                  0x001556                  _e_start_agendas_processing
-                  0x001578                  _e_end_agendas_processing
-                  0x001580                  _e_activate_agenda
-                  0x0015e0                  _e_destroy_agenda
-                  0x001630                  _e_set_agenda_cycle
-                  0x001666                  _e_reset_agenda
-                  0x00169a                  _e_pause_agenda
-                  0x0016ce                  _e_restart_agenda
-                  0x001702                  __T2Interrupt
-                  0x00176c                  _e_po8030d_config_cam
-                  0x0019de                  _e_po8030d_get_bytes_per_pixel
-                  0x001a16                  _e_poxxxx_config_cam
-                  0x001a8a                  _e_poxxxx_set_mirror
-                  0x001ac8                  _e_poxxxx_write_cam_registers
-                  0x001ada                  _e_poxxxx_init_cam
-                  0x001b9e                  _e_poxxxx_get_orientation
-                  0x001c04                  _e_poxxxx_set_awb_ae
-                  0x001c42                  _e_poxxxx_set_rgb_gain
-                  0x001c8c                  _e_poxxxx_set_exposure
-                  0x001cc2                  _getCameraVersion
-                  0x001cca                  __T4Interrupt
-                  0x001d02                  _e_po3030k_write_cam_registers
-                  0x001d34                  _e_po3030k_read_cam_registers
-                  0x001d6a                  _e_po3030k_set_color_mode
-                  0x001da8                  _e_po3030k_set_sampling_mode
-                  0x001dd2                  _e_po3030k_set_speed
-                  0x001e18                  _e_po3030k_set_wx
-                  0x001e6e                  _e_po3030k_set_wy
-                  0x001ebe                  _e_po3030k_set_vsync
-                  0x001f30                  _e_po3030k_set_mirror
-                  0x001f6c                  _e_po3030k_set_register
-                  0x001faa                  _e_po3030k_get_register
-                  0x001fea                  _e_po3030k_set_bias
-                  0x001ffc                  _e_po3030k_set_color_gain
-                  0x002032                  _e_po3030k_set_integr_time
-                  0x002056                  _e_po3030k_set_adc_offset
-                  0x002062                  _e_po3030k_set_sepia
-                  0x00207e                  _e_po3030k_set_lens_gain
-                  0x002096                  _e_po3030k_set_edge_prop
-                  0x0020ac                  _e_po3030k_set_gamma_coef
-                  0x0020f4                  _e_po3030k_write_gamma_coef
-                  0x002112                  _e_po3030k_sync_register_array
-                  0x002172                  _e_po3030k_SetColorMatrix
-                  0x0021a0                  _e_po3030k_set_cb_cr_gain
-                  0x0021b2                  _e_po3030k_set_brigh_contr
-                  0x0021c4                  _e_po3030k_set_sepia_tone
-                  0x0021d6                  _e_po3030k_set_ww
-                  0x0021ec                  _e_po3030k_set_awb_ae_tol
-                  0x00220a                  _e_po3030k_set_ae_speed
-                  0x00222a                  _e_po3030k_set_exposure
-                  0x00224a                  _e_po3030k_set_ref_exposure
-                  0x002256                  _e_po3030k_set_max_min_exp
-                  0x002274                  _e_po3030k_set_max_min_awb
-                  0x00229e                  _e_po3030k_set_weight_win
-                  0x002344                  _e_po3030k_set_awb_ae
-                  0x002380                  _e_po3030k_set_flicker_mode
-                  0x00239e                  _e_po3030k_set_flicker_detection
-                  0x002494                  _e_po3030k_set_flicker_man_set
-                  0x002552                  _e_po6030k_set_bank
-                  0x002566                  _e_po6030k_write_register
-                  0x002582                  _e_po6030k_read_register
-                  0x00259e                  _e_po6030k_set_bayer_clkdiv
-                  0x0025ae                  _e_po6030k_set_pclkdiv
-                  0x0026e2                  _e_po6030k_set_mode
-                  0x00273a                  _e_po6030k_set_wx
-                  0x002790                  _e_po6030k_set_wy
-                  0x00279c                  _e_po6030k_set_vsync
-                  0x0027fc                  _e_po6030k_set_sketch_mode
-                  0x00285a                  _e_po6030k_set_mirror
-                  0x002894                  _e_po6030k_set_awb_ae
-                  0x0028dc                  _e_po6030k_set_rgb_gain
-                  0x002900                  _e_po6030k_set_exposure
-                  0x002940                  _e_po8030d_set_bank
-                  0x002954                  _e_po8030d_write_register
-                  0x002970                  _e_po8030d_read_register
-                  0x00298c                  _testWriteReg
-                  0x0029a6                  _enablePO8030
-                  0x0029e6                  _init_po8030
-                  0x0029fa                  _e_po8030d_set_bayer_clkdiv
-                  0x002a0a                  _e_po8030d_set_pclkdiv
-                  0x002b0e                  _e_po8030d_set_mode
-                  0x002b66                  _e_po8030d_set_wx
-                  0x002bbc                  _e_po8030d_set_wy
-                  0x002bc8                  _e_po8030d_set_vsync
-                  0x002c28                  _e_po8030d_set_sketch_mode
-                  0x002c44                  _e_po8030d_set_mirror
-                  0x002c7e                  _e_po8030d_set_awb_ae
-                  0x002cc6                  _e_po8030d_set_rgb_gain
-                  0x002cea                  _e_po8030d_set_exposure
-                  0x002d2a                  _e_po8030d_set_brightness
-                  0x002d3a                  __T5Interrupt
-                  0x002d84                  _e_poxxxx_launch_capture
-                  0x002d9c                  _e_poxxxx_apply_timer_config
-                  0x002e3a                  _e_poxxxx_is_img_ready
-                  0x002e42                  _e_po3030k_config_cam
-                  0x00307e                  _e_po3030k_get_bytes_per_pixel
-                  0x0030b6                  _e_po6030k_config_cam
-                  0x003328                  _e_po6030k_get_bytes_per_pixel
-                  0x003360                  _e_i2cp_init
-                  0x003368                  _e_i2cp_deinit
-                  0x003370                  _e_i2cp_enable
-                  0x003378                  _e_i2cp_disable
-                  0x003380                  _e_i2cp_read
-                  0x0033c8                  _e_i2cp_write
-                  0x003404                  _idle_i2c
-                  0x003434                  _e_i2c_init
-                  0x00346e                  _e_i2c_deinit
-                  0x003480                  _e_i2c_reset
-                  0x0034cc                  _e_i2c_enable
-                  0x0034d8                  _e_i2c_disable
-                  0x0034e4                  _e_i2c_start
-                  0x003528                  _e_i2c_restart
-                  0x00356c                  _e_i2c_stop
-                  0x0035a2                  _e_i2c_ack
-                  0x003608                  _e_i2c_nack
-                  0x00366e                  _e_i2c_read
-                  0x00371a                  _e_i2c_write
-                  0x003754                  __MI2CInterrupt
-                  0x00376c                  _e_init_uart1
-                  0x00379a                  __U1RXInterrupt
-                  0x0037b8                  _e_ischar_uart1
-                  0x0037c0                  _e_getchar_uart1
-                  0x0037dc                  __U1TXInterrupt
-                  0x003820                  _e_send_uart1_char
-                  0x003838                  _e_uart1_sending
-                  0x00383c                  _writeReg
-                  0x003854                  _readReg
-                  0x00386c                  _readRegMulti
-                  0x003916                  _initAccAndGyro
-                  0x003948                  _getAllAxesAccRaw
-                  0x00395e                  _getAllAxesAcc
-                  0x0039d8                  _getXAxisAcc
-                  0x003a08                  _getYAxisAcc
-                  0x003a38                  _getZAxisAcc
-                  0x003a68                  _getAllAxesGyroRaw
-                  0x003a7e                  _getAllAxesGyro
-                  0x003b04                  _getXAxisGyro
-                  0x003b38                  _getYAxisGyro
-                  0x003b6c                  _getZAxisGyro
-                  0x003ba0                  _getTemperature
-                  0x003bae                  _calibrateGyroscope
-                  0x003c80                  _rawToDps
-                  0x003c94                  _rawToDpms
-                  0x003ca8                  _getImageRed
-                  0x003cb8                  _ImageRed
-                  0x003d9a                  _initRed
-                  0x003db4                  _findRed
-                  0x003e16                  _getImage
-                  0x003e26                  _Image
-                  0x003f08                  _initGreen
-                  0x003f22                  _findGreen
-                  0x003f84                  _waitForSteps
-                  0x003fb6                  _clearSteps
-                  0x003fc4                  _setSpeed
-                  0x003fd6                  _getFrontProx
-                  0x003fde                  _getLeftProx
-                  0x004014                  _getRightProx
-                  0x004038                  _avoidBox
-                  0x0040a4                  _e_init_ad_scan
-                  0x00419c                  __ADCInterrupt
-                  0x004610                  _e_ad_is_acquisition_completed
-                  0x00461a                  _e_ad_is_array_filled
-                  0x004624                  _e_ad_scan_on
-                  0x00462c                  _e_ad_scan_off
-                  0x004634                  _e_calibrate_ir
-                  0x00470a                  _e_get_prox
-                  0x004738                  _e_get_calibrated_prox
-                  0x00477e                  _e_get_ambient_light
-                  0x0047a0                  _followgetSelectorValue
-                  0x0047d8                  _reportValue
-                  0x004808                  _followGetSensorValues
-                  0x004832                  _followsetSpeed
-                  0x004870                  _run_wallfollow
-                  0x004a7e                  _wait
-                  0x004aa0                  _getselector
-                  0x004ad8                  _e_set_led
-                  0x004e2e                  _e_led_clear
-                  0x004e44                  _e_set_body_led
-                  0x004e88                  _e_set_front_led
-                  0x004ec8                  _e_blink_led
-                  0x004fda                  _e_blink_led0
-                  0x005006                  _e_blink_led1
-                  0x00502c                  _e_blink_led2
-                  0x00504e                  _e_blink_led3
-                  0x005076                  _e_blink_led4
-                  0x00509a                  _e_blink_led5
-                  0x0050c4                  _e_blink_led6
-                  0x0050f0                  _e_blink_led7
-                  0x005116                  _e_start_led_blinking
-                  0x005124                  _e_stop_led_blinking
-                  0x00512e                  _e_set_blinking_cycle
-                  0x005140                  _snake_led
-                  0x005198                  _flow_led
-                  0x005216                  _k2000_led
-                  0x005296                  _right_led
-                  0x0052fc                  _left_led
-                  0x005572                  __DefaultInterrupt
+                  0x000d08                  _sqrtf
+                  0x000d72                  ___udivsi3
+                  0x000d92                  __fpack
+                  0x000dde                  __funpack2
+                  0x000dee                  __fPropagateNaN
+                  0x000e00                  __fbopExit
+                  0x000e08                  __fbopReturnNaN
+                  0x000e0e                  __fcompare
+                  0x000e44                  __funpack
+                  0x000e94                  ___udivmoddi3
+                  0x000f76                  ___udivdi3
+                  0x000f84                  ___umoddi3
+                  0x000f8c                  ___divdi3
+                  0x000fc2                  ___moddi3
+                  0x00109e                  ___muldi3
+                  0x0010fa                  ___umuldi3
+                  0x00113e                  _main
+                  0x00118c                  _getSelector
+                  0x0011c4                  _testAccGyroPresence
+                  0x0011ea                  _e_init_port
+                  0x00127e                  _isEpuckVersion1_3
+                  0x001288                  _run_left_motor
+                  0x00136c                  _run_right_motor
+                  0x001450                  _e_init_motors
+                  0x001462                  _e_set_speed_left
+                  0x0014dc                  _e_set_speed_right
+                  0x001556                  _e_set_speed
+                  0x001598                  _e_get_steps_left
+                  0x0015a0                  _e_set_steps_left
+                  0x0015ac                  _e_get_steps_right
+                  0x0015b4                  _e_set_steps_right
+                  0x0015c0                  _e_start_agendas_processing
+                  0x0015e2                  _e_end_agendas_processing
+                  0x0015ea                  _e_activate_agenda
+                  0x00164a                  _e_destroy_agenda
+                  0x00169a                  _e_set_agenda_cycle
+                  0x0016d0                  _e_reset_agenda
+                  0x001704                  _e_pause_agenda
+                  0x001738                  _e_restart_agenda
+                  0x00176c                  __T2Interrupt
+                  0x0017d6                  _e_po8030d_config_cam
+                  0x001a48                  _e_po8030d_get_bytes_per_pixel
+                  0x001a80                  _e_poxxxx_config_cam
+                  0x001af4                  _e_poxxxx_set_mirror
+                  0x001b32                  _e_poxxxx_write_cam_registers
+                  0x001b44                  _e_poxxxx_init_cam
+                  0x001c08                  _e_poxxxx_get_orientation
+                  0x001c6e                  _e_poxxxx_set_awb_ae
+                  0x001cac                  _e_poxxxx_set_rgb_gain
+                  0x001cf6                  _e_poxxxx_set_exposure
+                  0x001d2c                  _getCameraVersion
+                  0x001d34                  __T4Interrupt
+                  0x001d6c                  _e_po3030k_write_cam_registers
+                  0x001d9e                  _e_po3030k_read_cam_registers
+                  0x001dd4                  _e_po3030k_set_color_mode
+                  0x001e12                  _e_po3030k_set_sampling_mode
+                  0x001e3c                  _e_po3030k_set_speed
+                  0x001e82                  _e_po3030k_set_wx
+                  0x001ed8                  _e_po3030k_set_wy
+                  0x001f28                  _e_po3030k_set_vsync
+                  0x001f9a                  _e_po3030k_set_mirror
+                  0x001fd6                  _e_po3030k_set_register
+                  0x002014                  _e_po3030k_get_register
+                  0x002054                  _e_po3030k_set_bias
+                  0x002066                  _e_po3030k_set_color_gain
+                  0x00209c                  _e_po3030k_set_integr_time
+                  0x0020c0                  _e_po3030k_set_adc_offset
+                  0x0020cc                  _e_po3030k_set_sepia
+                  0x0020e8                  _e_po3030k_set_lens_gain
+                  0x002100                  _e_po3030k_set_edge_prop
+                  0x002116                  _e_po3030k_set_gamma_coef
+                  0x00215e                  _e_po3030k_write_gamma_coef
+                  0x00217c                  _e_po3030k_sync_register_array
+                  0x0021dc                  _e_po3030k_SetColorMatrix
+                  0x00220a                  _e_po3030k_set_cb_cr_gain
+                  0x00221c                  _e_po3030k_set_brigh_contr
+                  0x00222e                  _e_po3030k_set_sepia_tone
+                  0x002240                  _e_po3030k_set_ww
+                  0x002256                  _e_po3030k_set_awb_ae_tol
+                  0x002274                  _e_po3030k_set_ae_speed
+                  0x002294                  _e_po3030k_set_exposure
+                  0x0022b4                  _e_po3030k_set_ref_exposure
+                  0x0022c0                  _e_po3030k_set_max_min_exp
+                  0x0022de                  _e_po3030k_set_max_min_awb
+                  0x002308                  _e_po3030k_set_weight_win
+                  0x0023ae                  _e_po3030k_set_awb_ae
+                  0x0023ea                  _e_po3030k_set_flicker_mode
+                  0x002408                  _e_po3030k_set_flicker_detection
+                  0x0024fe                  _e_po3030k_set_flicker_man_set
+                  0x0025bc                  _e_po6030k_set_bank
+                  0x0025d0                  _e_po6030k_write_register
+                  0x0025ec                  _e_po6030k_read_register
+                  0x002608                  _e_po6030k_set_bayer_clkdiv
+                  0x002618                  _e_po6030k_set_pclkdiv
+                  0x00274c                  _e_po6030k_set_mode
+                  0x0027a4                  _e_po6030k_set_wx
+                  0x0027fa                  _e_po6030k_set_wy
+                  0x002806                  _e_po6030k_set_vsync
+                  0x002866                  _e_po6030k_set_sketch_mode
+                  0x0028c4                  _e_po6030k_set_mirror
+                  0x0028fe                  _e_po6030k_set_awb_ae
+                  0x002946                  _e_po6030k_set_rgb_gain
+                  0x00296a                  _e_po6030k_set_exposure
+                  0x0029aa                  _e_po8030d_set_bank
+                  0x0029be                  _e_po8030d_write_register
+                  0x0029da                  _e_po8030d_read_register
+                  0x0029f6                  _testWriteReg
+                  0x002a10                  _enablePO8030
+                  0x002a50                  _init_po8030
+                  0x002a64                  _e_po8030d_set_bayer_clkdiv
+                  0x002a74                  _e_po8030d_set_pclkdiv
+                  0x002b78                  _e_po8030d_set_mode
+                  0x002bd0                  _e_po8030d_set_wx
+                  0x002c26                  _e_po8030d_set_wy
+                  0x002c32                  _e_po8030d_set_vsync
+                  0x002c92                  _e_po8030d_set_sketch_mode
+                  0x002cae                  _e_po8030d_set_mirror
+                  0x002ce8                  _e_po8030d_set_awb_ae
+                  0x002d30                  _e_po8030d_set_rgb_gain
+                  0x002d54                  _e_po8030d_set_exposure
+                  0x002d94                  _e_po8030d_set_brightness
+                  0x002da4                  __T5Interrupt
+                  0x002dee                  _e_poxxxx_launch_capture
+                  0x002e06                  _e_poxxxx_apply_timer_config
+                  0x002ea4                  _e_poxxxx_is_img_ready
+                  0x002eac                  _e_po3030k_config_cam
+                  0x0030e8                  _e_po3030k_get_bytes_per_pixel
+                  0x003120                  _e_po6030k_config_cam
+                  0x003392                  _e_po6030k_get_bytes_per_pixel
+                  0x0033ca                  _e_i2cp_init
+                  0x0033d2                  _e_i2cp_deinit
+                  0x0033da                  _e_i2cp_enable
+                  0x0033e2                  _e_i2cp_disable
+                  0x0033ea                  _e_i2cp_read
+                  0x003432                  _e_i2cp_write
+                  0x00346e                  _idle_i2c
+                  0x00349e                  _e_i2c_init
+                  0x0034d8                  _e_i2c_deinit
+                  0x0034ea                  _e_i2c_reset
+                  0x003536                  _e_i2c_enable
+                  0x003542                  _e_i2c_disable
+                  0x00354e                  _e_i2c_start
+                  0x003592                  _e_i2c_restart
+                  0x0035d6                  _e_i2c_stop
+                  0x00360c                  _e_i2c_ack
+                  0x003672                  _e_i2c_nack
+                  0x0036d8                  _e_i2c_read
+                  0x003784                  _e_i2c_write
+                  0x0037be                  __MI2CInterrupt
+                  0x0037d6                  _e_init_uart1
+                  0x003804                  __U1RXInterrupt
+                  0x003822                  _e_ischar_uart1
+                  0x00382a                  _e_getchar_uart1
+                  0x003846                  __U1TXInterrupt
+                  0x00388a                  _e_send_uart1_char
+                  0x0038a2                  _e_uart1_sending
+                  0x0038a6                  _writeReg
+                  0x0038be                  _readReg
+                  0x0038d6                  _readRegMulti
+                  0x003980                  _initAccAndGyro
+                  0x0039b2                  _getAllAxesAccRaw
+                  0x0039c8                  _getAllAxesAcc
+                  0x003a42                  _getXAxisAcc
+                  0x003a72                  _getYAxisAcc
+                  0x003aa2                  _getZAxisAcc
+                  0x003ad2                  _getAllAxesGyroRaw
+                  0x003ae8                  _getAllAxesGyro
+                  0x003b6e                  _getXAxisGyro
+                  0x003ba2                  _getYAxisGyro
+                  0x003bd6                  _getZAxisGyro
+                  0x003c0a                  _getTemperature
+                  0x003c18                  _calibrateGyroscope
+                  0x003cea                  _rawToDps
+                  0x003cfe                  _rawToDpms
+                  0x003d12                  _getImageRed
+                  0x003d22                  _ImageRed
+                  0x003e04                  _initRed
+                  0x003e1e                  _findRed
+                  0x003e80                  _getImage
+                  0x003e90                  _Image
+                  0x003f72                  _initGreen
+                  0x003f8c                  _findGreen
+                  0x003fee                  _clearSteps
+                  0x003ffc                  _setSpeed
+                  0x00400e                  _getFrontProx
+                  0x004016                  _getLeftProx
+                  0x00404c                  _getRightProx
+                  0x004070                  _avoidBox
+                  0x0040dc                  _e_init_ad_scan
+                  0x0041d4                  __ADCInterrupt
+                  0x004648                  _e_ad_is_acquisition_completed
+                  0x004652                  _e_ad_is_array_filled
+                  0x00465c                  _e_ad_scan_on
+                  0x004664                  _e_ad_scan_off
+                  0x00466c                  _e_calibrate_ir
+                  0x004742                  _e_get_prox
+                  0x004770                  _e_get_calibrated_prox
+                  0x0047b6                  _e_get_ambient_light
+                  0x0047d8                  _followgetSelectorValue
+                  0x004810                  _reportValue
+                  0x004840                  _followGetSensorValues
+                  0x00486a                  _followsetSpeed
+                  0x0048a8                  _waitForSteps
+                  0x0048da                  _run_wallfollow
+                  0x004b38                  _wait
+                  0x004b5a                  _getselector
+                  0x004b92                  _e_set_led
+                  0x004ee8                  _e_led_clear
+                  0x004efe                  _e_set_body_led
+                  0x004f42                  _e_set_front_led
+                  0x004f82                  _e_blink_led
+                  0x005094                  _e_blink_led0
+                  0x0050c0                  _e_blink_led1
+                  0x0050e6                  _e_blink_led2
+                  0x005108                  _e_blink_led3
+                  0x005130                  _e_blink_led4
+                  0x005154                  _e_blink_led5
+                  0x00517e                  _e_blink_led6
+                  0x0051aa                  _e_blink_led7
+                  0x0051d0                  _e_start_led_blinking
+                  0x0051de                  _e_stop_led_blinking
+                  0x0051e8                  _e_set_blinking_cycle
+                  0x0051fa                  _snake_led
+                  0x005252                  _flow_led
+                  0x0052d0                  _k2000_led
+                  0x005350                  _right_led
+                  0x0053b6                  _left_led
+                  0x00563c                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x003e26                  _Image
-                  0x003cb8                  _ImageRed
-                  0x00419c                  __ADCInterrupt
-                  0x005572                  __DefaultInterrupt
+                  0x003e90                  _Image
+                  0x003d22                  _ImageRed
+                  0x0041d4                  __ADCInterrupt
+                  0x00563c                  __DefaultInterrupt
                   0xf8000a                  __FGS.sec
                   0x0002f8                  __Getmem
                   0x0008ca                  __Litob
-                  0x003754                  __MI2CInterrupt
+                  0x0037be                  __MI2CInterrupt
                   0x000736                  __Puttxt
-                  0x001702                  __T2Interrupt
-                  0x001cca                  __T4Interrupt
-                  0x002d3a                  __T5Interrupt
-                  0x00379a                  __U1RXInterrupt
-                  0x0037dc                  __U1TXInterrupt
+                  0x00176c                  __T2Interrupt
+                  0x001d34                  __T4Interrupt
+                  0x002da4                  __T5Interrupt
+                  0x003804                  __U1RXInterrupt
+                  0x003846                  __U1TXInterrupt
                   0x000488                  __Vacopy
                   0x000b7c                  ___addsf3
-                  0x000f22                  ___divdi3
+                  0x000f8c                  ___divdi3
                   0x000c42                  ___divsf3
                   0x000a9e                  ___divsi3
                   0x000c36                  ___eqsf2
@@ -537,234 +543,235 @@ External Symbols in Program Memory (by name):
                   0x0004a2                  ___iPutfld
                   0x000c36                  ___lesf2
                   0x000c36                  ___ltsf2
-                  0x000f58                  ___moddi3
-                  0x001034                  ___muldi3
+                  0x000fc2                  ___moddi3
+                  0x00109e                  ___muldi3
                   0x000b12                  ___mulsf3
                   0x000c3e                  ___nesf2
                   0x000b7a                  ___subsf3
-                  0x000f0c                  ___udivdi3
-                  0x000e2a                  ___udivmoddi3
-                  0x000d08                  ___udivsi3
-                  0x000f1a                  ___umoddi3
-                  0x001090                  ___umuldi3
-                  0x000d84                  __fPropagateNaN
-                  0x000d96                  __fbopExit
-                  0x000d9e                  __fbopReturnNaN
-                  0x000da4                  __fcompare
-                  0x000d28                  __fpack
-                  0x000dda                  __funpack
-                  0x000d74                  __funpack2
+                  0x000f76                  ___udivdi3
+                  0x000e94                  ___udivmoddi3
+                  0x000d72                  ___udivsi3
+                  0x000f84                  ___umoddi3
+                  0x0010fa                  ___umuldi3
+                  0x000dee                  __fPropagateNaN
+                  0x000e00                  __fbopExit
+                  0x000e08                  __fbopReturnNaN
+                  0x000e0e                  __fcompare
+                  0x000d92                  __fpack
+                  0x000e44                  __funpack
+                  0x000dde                  __funpack2
                   0x0002c8                  __isprintf
                   0x000110                  __resetPRI
-                  0x004038                  _avoidBox
-                  0x003bae                  _calibrateGyroscope
-                  0x003fb6                  _clearSteps
-                  0x001580                  _e_activate_agenda
-                  0x004610                  _e_ad_is_acquisition_completed
-                  0x00461a                  _e_ad_is_array_filled
-                  0x00462c                  _e_ad_scan_off
-                  0x004624                  _e_ad_scan_on
-                  0x004ec8                  _e_blink_led
-                  0x004fda                  _e_blink_led0
-                  0x005006                  _e_blink_led1
-                  0x00502c                  _e_blink_led2
-                  0x00504e                  _e_blink_led3
-                  0x005076                  _e_blink_led4
-                  0x00509a                  _e_blink_led5
-                  0x0050c4                  _e_blink_led6
-                  0x0050f0                  _e_blink_led7
-                  0x004634                  _e_calibrate_ir
-                  0x0015e0                  _e_destroy_agenda
-                  0x001578                  _e_end_agendas_processing
-                  0x00477e                  _e_get_ambient_light
-                  0x004738                  _e_get_calibrated_prox
-                  0x00470a                  _e_get_prox
-                  0x00152e                  _e_get_steps_left
-                  0x001542                  _e_get_steps_right
-                  0x0037c0                  _e_getchar_uart1
-                  0x0035a2                  _e_i2c_ack
-                  0x00346e                  _e_i2c_deinit
-                  0x0034d8                  _e_i2c_disable
-                  0x0034cc                  _e_i2c_enable
-                  0x003434                  _e_i2c_init
-                  0x003608                  _e_i2c_nack
-                  0x00366e                  _e_i2c_read
-                  0x003480                  _e_i2c_reset
-                  0x003528                  _e_i2c_restart
-                  0x0034e4                  _e_i2c_start
-                  0x00356c                  _e_i2c_stop
-                  0x00371a                  _e_i2c_write
-                  0x003368                  _e_i2cp_deinit
-                  0x003378                  _e_i2cp_disable
-                  0x003370                  _e_i2cp_enable
-                  0x003360                  _e_i2cp_init
-                  0x003380                  _e_i2cp_read
-                  0x0033c8                  _e_i2cp_write
-                  0x0040a4                  _e_init_ad_scan
-                  0x0013e6                  _e_init_motors
-                  0x001180                  _e_init_port
-                  0x00376c                  _e_init_uart1
-                  0x0037b8                  _e_ischar_uart1
-                  0x004e2e                  _e_led_clear
-                  0x00169a                  _e_pause_agenda
-                  0x002172                  _e_po3030k_SetColorMatrix
-                  0x002e42                  _e_po3030k_config_cam
-                  0x00307e                  _e_po3030k_get_bytes_per_pixel
-                  0x001faa                  _e_po3030k_get_register
-                  0x001d34                  _e_po3030k_read_cam_registers
-                  0x002056                  _e_po3030k_set_adc_offset
-                  0x00220a                  _e_po3030k_set_ae_speed
-                  0x002344                  _e_po3030k_set_awb_ae
-                  0x0021ec                  _e_po3030k_set_awb_ae_tol
-                  0x001fea                  _e_po3030k_set_bias
-                  0x0021b2                  _e_po3030k_set_brigh_contr
-                  0x0021a0                  _e_po3030k_set_cb_cr_gain
-                  0x001ffc                  _e_po3030k_set_color_gain
-                  0x001d6a                  _e_po3030k_set_color_mode
-                  0x002096                  _e_po3030k_set_edge_prop
-                  0x00222a                  _e_po3030k_set_exposure
-                  0x00239e                  _e_po3030k_set_flicker_detection
-                  0x002494                  _e_po3030k_set_flicker_man_set
-                  0x002380                  _e_po3030k_set_flicker_mode
-                  0x0020ac                  _e_po3030k_set_gamma_coef
-                  0x002032                  _e_po3030k_set_integr_time
-                  0x00207e                  _e_po3030k_set_lens_gain
-                  0x002274                  _e_po3030k_set_max_min_awb
-                  0x002256                  _e_po3030k_set_max_min_exp
-                  0x001f30                  _e_po3030k_set_mirror
-                  0x00224a                  _e_po3030k_set_ref_exposure
-                  0x001f6c                  _e_po3030k_set_register
-                  0x001da8                  _e_po3030k_set_sampling_mode
-                  0x002062                  _e_po3030k_set_sepia
-                  0x0021c4                  _e_po3030k_set_sepia_tone
-                  0x001dd2                  _e_po3030k_set_speed
-                  0x001ebe                  _e_po3030k_set_vsync
-                  0x00229e                  _e_po3030k_set_weight_win
-                  0x0021d6                  _e_po3030k_set_ww
-                  0x001e18                  _e_po3030k_set_wx
-                  0x001e6e                  _e_po3030k_set_wy
-                  0x002112                  _e_po3030k_sync_register_array
-                  0x001d02                  _e_po3030k_write_cam_registers
-                  0x0020f4                  _e_po3030k_write_gamma_coef
-                  0x0030b6                  _e_po6030k_config_cam
-                  0x003328                  _e_po6030k_get_bytes_per_pixel
-                  0x002582                  _e_po6030k_read_register
-                  0x002894                  _e_po6030k_set_awb_ae
-                  0x002552                  _e_po6030k_set_bank
-                  0x00259e                  _e_po6030k_set_bayer_clkdiv
-                  0x002900                  _e_po6030k_set_exposure
-                  0x00285a                  _e_po6030k_set_mirror
-                  0x0026e2                  _e_po6030k_set_mode
-                  0x0025ae                  _e_po6030k_set_pclkdiv
-                  0x0028dc                  _e_po6030k_set_rgb_gain
-                  0x0027fc                  _e_po6030k_set_sketch_mode
-                  0x00279c                  _e_po6030k_set_vsync
-                  0x00273a                  _e_po6030k_set_wx
-                  0x002790                  _e_po6030k_set_wy
-                  0x002566                  _e_po6030k_write_register
-                  0x00176c                  _e_po8030d_config_cam
-                  0x0019de                  _e_po8030d_get_bytes_per_pixel
-                  0x002970                  _e_po8030d_read_register
-                  0x002c7e                  _e_po8030d_set_awb_ae
-                  0x002940                  _e_po8030d_set_bank
-                  0x0029fa                  _e_po8030d_set_bayer_clkdiv
-                  0x002d2a                  _e_po8030d_set_brightness
-                  0x002cea                  _e_po8030d_set_exposure
-                  0x002c44                  _e_po8030d_set_mirror
-                  0x002b0e                  _e_po8030d_set_mode
-                  0x002a0a                  _e_po8030d_set_pclkdiv
-                  0x002cc6                  _e_po8030d_set_rgb_gain
-                  0x002c28                  _e_po8030d_set_sketch_mode
-                  0x002bc8                  _e_po8030d_set_vsync
-                  0x002b66                  _e_po8030d_set_wx
-                  0x002bbc                  _e_po8030d_set_wy
-                  0x002954                  _e_po8030d_write_register
-                  0x002d9c                  _e_poxxxx_apply_timer_config
-                  0x001a16                  _e_poxxxx_config_cam
-                  0x001b9e                  _e_poxxxx_get_orientation
-                  0x001ada                  _e_poxxxx_init_cam
-                  0x002e3a                  _e_poxxxx_is_img_ready
-                  0x002d84                  _e_poxxxx_launch_capture
-                  0x001c04                  _e_poxxxx_set_awb_ae
-                  0x001c8c                  _e_poxxxx_set_exposure
-                  0x001a8a                  _e_poxxxx_set_mirror
-                  0x001c42                  _e_poxxxx_set_rgb_gain
-                  0x001ac8                  _e_poxxxx_write_cam_registers
-                  0x001666                  _e_reset_agenda
-                  0x0016ce                  _e_restart_agenda
-                  0x003820                  _e_send_uart1_char
-                  0x001630                  _e_set_agenda_cycle
-                  0x00512e                  _e_set_blinking_cycle
-                  0x004e44                  _e_set_body_led
-                  0x004e88                  _e_set_front_led
-                  0x004ad8                  _e_set_led
-                  0x0014ec                  _e_set_speed
-                  0x0013f8                  _e_set_speed_left
-                  0x001472                  _e_set_speed_right
-                  0x001536                  _e_set_steps_left
-                  0x00154a                  _e_set_steps_right
-                  0x001556                  _e_start_agendas_processing
-                  0x005116                  _e_start_led_blinking
-                  0x005124                  _e_stop_led_blinking
-                  0x003838                  _e_uart1_sending
-                  0x0029a6                  _enablePO8030
+                  0x004070                  _avoidBox
+                  0x003c18                  _calibrateGyroscope
+                  0x003fee                  _clearSteps
+                  0x0015ea                  _e_activate_agenda
+                  0x004648                  _e_ad_is_acquisition_completed
+                  0x004652                  _e_ad_is_array_filled
+                  0x004664                  _e_ad_scan_off
+                  0x00465c                  _e_ad_scan_on
+                  0x004f82                  _e_blink_led
+                  0x005094                  _e_blink_led0
+                  0x0050c0                  _e_blink_led1
+                  0x0050e6                  _e_blink_led2
+                  0x005108                  _e_blink_led3
+                  0x005130                  _e_blink_led4
+                  0x005154                  _e_blink_led5
+                  0x00517e                  _e_blink_led6
+                  0x0051aa                  _e_blink_led7
+                  0x00466c                  _e_calibrate_ir
+                  0x00164a                  _e_destroy_agenda
+                  0x0015e2                  _e_end_agendas_processing
+                  0x0047b6                  _e_get_ambient_light
+                  0x004770                  _e_get_calibrated_prox
+                  0x004742                  _e_get_prox
+                  0x001598                  _e_get_steps_left
+                  0x0015ac                  _e_get_steps_right
+                  0x00382a                  _e_getchar_uart1
+                  0x00360c                  _e_i2c_ack
+                  0x0034d8                  _e_i2c_deinit
+                  0x003542                  _e_i2c_disable
+                  0x003536                  _e_i2c_enable
+                  0x00349e                  _e_i2c_init
+                  0x003672                  _e_i2c_nack
+                  0x0036d8                  _e_i2c_read
+                  0x0034ea                  _e_i2c_reset
+                  0x003592                  _e_i2c_restart
+                  0x00354e                  _e_i2c_start
+                  0x0035d6                  _e_i2c_stop
+                  0x003784                  _e_i2c_write
+                  0x0033d2                  _e_i2cp_deinit
+                  0x0033e2                  _e_i2cp_disable
+                  0x0033da                  _e_i2cp_enable
+                  0x0033ca                  _e_i2cp_init
+                  0x0033ea                  _e_i2cp_read
+                  0x003432                  _e_i2cp_write
+                  0x0040dc                  _e_init_ad_scan
+                  0x001450                  _e_init_motors
+                  0x0011ea                  _e_init_port
+                  0x0037d6                  _e_init_uart1
+                  0x003822                  _e_ischar_uart1
+                  0x004ee8                  _e_led_clear
+                  0x001704                  _e_pause_agenda
+                  0x0021dc                  _e_po3030k_SetColorMatrix
+                  0x002eac                  _e_po3030k_config_cam
+                  0x0030e8                  _e_po3030k_get_bytes_per_pixel
+                  0x002014                  _e_po3030k_get_register
+                  0x001d9e                  _e_po3030k_read_cam_registers
+                  0x0020c0                  _e_po3030k_set_adc_offset
+                  0x002274                  _e_po3030k_set_ae_speed
+                  0x0023ae                  _e_po3030k_set_awb_ae
+                  0x002256                  _e_po3030k_set_awb_ae_tol
+                  0x002054                  _e_po3030k_set_bias
+                  0x00221c                  _e_po3030k_set_brigh_contr
+                  0x00220a                  _e_po3030k_set_cb_cr_gain
+                  0x002066                  _e_po3030k_set_color_gain
+                  0x001dd4                  _e_po3030k_set_color_mode
+                  0x002100                  _e_po3030k_set_edge_prop
+                  0x002294                  _e_po3030k_set_exposure
+                  0x002408                  _e_po3030k_set_flicker_detection
+                  0x0024fe                  _e_po3030k_set_flicker_man_set
+                  0x0023ea                  _e_po3030k_set_flicker_mode
+                  0x002116                  _e_po3030k_set_gamma_coef
+                  0x00209c                  _e_po3030k_set_integr_time
+                  0x0020e8                  _e_po3030k_set_lens_gain
+                  0x0022de                  _e_po3030k_set_max_min_awb
+                  0x0022c0                  _e_po3030k_set_max_min_exp
+                  0x001f9a                  _e_po3030k_set_mirror
+                  0x0022b4                  _e_po3030k_set_ref_exposure
+                  0x001fd6                  _e_po3030k_set_register
+                  0x001e12                  _e_po3030k_set_sampling_mode
+                  0x0020cc                  _e_po3030k_set_sepia
+                  0x00222e                  _e_po3030k_set_sepia_tone
+                  0x001e3c                  _e_po3030k_set_speed
+                  0x001f28                  _e_po3030k_set_vsync
+                  0x002308                  _e_po3030k_set_weight_win
+                  0x002240                  _e_po3030k_set_ww
+                  0x001e82                  _e_po3030k_set_wx
+                  0x001ed8                  _e_po3030k_set_wy
+                  0x00217c                  _e_po3030k_sync_register_array
+                  0x001d6c                  _e_po3030k_write_cam_registers
+                  0x00215e                  _e_po3030k_write_gamma_coef
+                  0x003120                  _e_po6030k_config_cam
+                  0x003392                  _e_po6030k_get_bytes_per_pixel
+                  0x0025ec                  _e_po6030k_read_register
+                  0x0028fe                  _e_po6030k_set_awb_ae
+                  0x0025bc                  _e_po6030k_set_bank
+                  0x002608                  _e_po6030k_set_bayer_clkdiv
+                  0x00296a                  _e_po6030k_set_exposure
+                  0x0028c4                  _e_po6030k_set_mirror
+                  0x00274c                  _e_po6030k_set_mode
+                  0x002618                  _e_po6030k_set_pclkdiv
+                  0x002946                  _e_po6030k_set_rgb_gain
+                  0x002866                  _e_po6030k_set_sketch_mode
+                  0x002806                  _e_po6030k_set_vsync
+                  0x0027a4                  _e_po6030k_set_wx
+                  0x0027fa                  _e_po6030k_set_wy
+                  0x0025d0                  _e_po6030k_write_register
+                  0x0017d6                  _e_po8030d_config_cam
+                  0x001a48                  _e_po8030d_get_bytes_per_pixel
+                  0x0029da                  _e_po8030d_read_register
+                  0x002ce8                  _e_po8030d_set_awb_ae
+                  0x0029aa                  _e_po8030d_set_bank
+                  0x002a64                  _e_po8030d_set_bayer_clkdiv
+                  0x002d94                  _e_po8030d_set_brightness
+                  0x002d54                  _e_po8030d_set_exposure
+                  0x002cae                  _e_po8030d_set_mirror
+                  0x002b78                  _e_po8030d_set_mode
+                  0x002a74                  _e_po8030d_set_pclkdiv
+                  0x002d30                  _e_po8030d_set_rgb_gain
+                  0x002c92                  _e_po8030d_set_sketch_mode
+                  0x002c32                  _e_po8030d_set_vsync
+                  0x002bd0                  _e_po8030d_set_wx
+                  0x002c26                  _e_po8030d_set_wy
+                  0x0029be                  _e_po8030d_write_register
+                  0x002e06                  _e_poxxxx_apply_timer_config
+                  0x001a80                  _e_poxxxx_config_cam
+                  0x001c08                  _e_poxxxx_get_orientation
+                  0x001b44                  _e_poxxxx_init_cam
+                  0x002ea4                  _e_poxxxx_is_img_ready
+                  0x002dee                  _e_poxxxx_launch_capture
+                  0x001c6e                  _e_poxxxx_set_awb_ae
+                  0x001cf6                  _e_poxxxx_set_exposure
+                  0x001af4                  _e_poxxxx_set_mirror
+                  0x001cac                  _e_poxxxx_set_rgb_gain
+                  0x001b32                  _e_poxxxx_write_cam_registers
+                  0x0016d0                  _e_reset_agenda
+                  0x001738                  _e_restart_agenda
+                  0x00388a                  _e_send_uart1_char
+                  0x00169a                  _e_set_agenda_cycle
+                  0x0051e8                  _e_set_blinking_cycle
+                  0x004efe                  _e_set_body_led
+                  0x004f42                  _e_set_front_led
+                  0x004b92                  _e_set_led
+                  0x001556                  _e_set_speed
+                  0x001462                  _e_set_speed_left
+                  0x0014dc                  _e_set_speed_right
+                  0x0015a0                  _e_set_steps_left
+                  0x0015b4                  _e_set_steps_right
+                  0x0015c0                  _e_start_agendas_processing
+                  0x0051d0                  _e_start_led_blinking
+                  0x0051de                  _e_stop_led_blinking
+                  0x0038a2                  _e_uart1_sending
+                  0x002a10                  _enablePO8030
                   0x000232                  _exit
-                  0x003f22                  _findGreen
-                  0x003db4                  _findRed
-                  0x005198                  _flow_led
-                  0x004808                  _followGetSensorValues
-                  0x0047a0                  _followgetSelectorValue
-                  0x004832                  _followsetSpeed
+                  0x003f8c                  _findGreen
+                  0x003e1e                  _findRed
+                  0x005252                  _flow_led
+                  0x004840                  _followGetSensorValues
+                  0x0047d8                  _followgetSelectorValue
+                  0x00486a                  _followsetSpeed
                   0x000256                  _free
-                  0x00395e                  _getAllAxesAcc
-                  0x003948                  _getAllAxesAccRaw
-                  0x003a7e                  _getAllAxesGyro
-                  0x003a68                  _getAllAxesGyroRaw
-                  0x001cc2                  _getCameraVersion
-                  0x003fd6                  _getFrontProx
-                  0x003e16                  _getImage
-                  0x003ca8                  _getImageRed
-                  0x003fde                  _getLeftProx
-                  0x004014                  _getRightProx
-                  0x001122                  _getSelector
-                  0x003ba0                  _getTemperature
-                  0x0039d8                  _getXAxisAcc
-                  0x003b04                  _getXAxisGyro
-                  0x003a08                  _getYAxisAcc
-                  0x003b38                  _getYAxisGyro
-                  0x003a38                  _getZAxisAcc
-                  0x003b6c                  _getZAxisGyro
-                  0x004aa0                  _getselector
-                  0x003404                  _idle_i2c
-                  0x003916                  _initAccAndGyro
-                  0x003f08                  _initGreen
-                  0x003d9a                  _initRed
-                  0x0029e6                  _init_po8030
-                  0x001214                  _isEpuckVersion1_3
-                  0x005216                  _k2000_led
-                  0x0052fc                  _left_led
-                  0x0010d4                  _main
+                  0x0039c8                  _getAllAxesAcc
+                  0x0039b2                  _getAllAxesAccRaw
+                  0x003ae8                  _getAllAxesGyro
+                  0x003ad2                  _getAllAxesGyroRaw
+                  0x001d2c                  _getCameraVersion
+                  0x00400e                  _getFrontProx
+                  0x003e80                  _getImage
+                  0x003d12                  _getImageRed
+                  0x004016                  _getLeftProx
+                  0x00404c                  _getRightProx
+                  0x00118c                  _getSelector
+                  0x003c0a                  _getTemperature
+                  0x003a42                  _getXAxisAcc
+                  0x003b6e                  _getXAxisGyro
+                  0x003a72                  _getYAxisAcc
+                  0x003ba2                  _getYAxisGyro
+                  0x003aa2                  _getZAxisAcc
+                  0x003bd6                  _getZAxisGyro
+                  0x004b5a                  _getselector
+                  0x00346e                  _idle_i2c
+                  0x003980                  _initAccAndGyro
+                  0x003f72                  _initGreen
+                  0x003e04                  _initRed
+                  0x002a50                  _init_po8030
+                  0x00127e                  _isEpuckVersion1_3
+                  0x0052d0                  _k2000_led
+                  0x0053b6                  _left_led
+                  0x00113e                  _main
                   0x000190                  _malloc
                   0x000a30                  _memchr
                   0x000306                  _memcpy
-                  0x003c94                  _rawToDpms
-                  0x003c80                  _rawToDps
-                  0x003854                  _readReg
-                  0x00386c                  _readRegMulti
-                  0x0047d8                  _reportValue
-                  0x005296                  _right_led
-                  0x00121e                  _run_left_motor
-                  0x001302                  _run_right_motor
-                  0x004870                  _run_wallfollow
-                  0x003fc4                  _setSpeed
-                  0x005140                  _snake_led
+                  0x003cfe                  _rawToDpms
+                  0x003cea                  _rawToDps
+                  0x0038be                  _readReg
+                  0x0038d6                  _readRegMulti
+                  0x004810                  _reportValue
+                  0x005350                  _right_led
+                  0x001288                  _run_left_motor
+                  0x00136c                  _run_right_motor
+                  0x0048da                  _run_wallfollow
+                  0x003ffc                  _setSpeed
+                  0x0051fa                  _snake_led
+                  0x000d08                  _sqrtf
                   0x000492                  _strchr
                   0x0002ea                  _strlen
-                  0x00115a                  _testAccGyroPresence
-                  0x00298c                  _testWriteReg
-                  0x004a7e                  _wait
-                  0x003f84                  _waitForSteps
-                  0x00383c                  _writeReg
+                  0x0011c4                  _testAccGyroPresence
+                  0x0029f6                  _testWriteReg
+                  0x004b38                  _wait
+                  0x0048a8                  _waitForSteps
+                  0x0038a6                  _writeReg
                   0x0002bc                  sprintf.io:_prout
 
 Memory Configuration
@@ -842,7 +849,7 @@ LOAD e_led.o
                   0x000002          0x2 SHORT 0x0 ((<code 336> (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000100       0x5262
+.text             0x000100       0x531c
  *(.handle)
  .handle          0x000100         0x10 jump_table
  *(.libc)
@@ -909,271 +916,273 @@ LOAD e_led.o
                   0x000c42                  __divsf3
  .libm            0x000cc6         0x42 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fixsfsi.o)
                   0x000cc6                  __fixsfsi
- .libm            0x000d08         0x20 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(udivsi3.o)
-                  0x000d08                  __udivsi3
- .libm            0x000d28         0x4c q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fpack.o)
-                  0x000d28                  _fpack
- .libm            0x000d74         0x10 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(funpack2.o)
-                  0x000d74                  _funpack2
- .libm            0x000d84         0x20 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(futil.o)
-                  0x000d84                  _fPropagateNaN
-                  0x000d96                  _fbopExit
-                  0x000d9e                  _fbopReturnNaN
- .libm            0x000da4         0x36 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fcompare.o)
-                  0x000da4                  _fcompare
- .libm            0x000dda         0x2a q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(funpack.o)
-                  0x000dda                  _funpack
- .libm            0x000e04        0x230 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divmoddi3.o)
-                  0x000e2a                  __udivmoddi3
-                  0x000f0c                  __udivdi3
-                  0x000f1a                  __umoddi3
-                  0x000f22                  __divdi3
-                  0x000f58                  __moddi3
- .libm            0x001034         0x5c q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o)
-                  0x001034                  __muldi3
- .libm            0x001090         0x44 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(umuldi3.o)
-                  0x001090                  __umuldi3
+ .libm            0x000d08         0x6a q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(sqrtf.o)
+                  0x000d08                  sqrtf
+ .libm            0x000d72         0x20 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(udivsi3.o)
+                  0x000d72                  __udivsi3
+ .libm            0x000d92         0x4c q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fpack.o)
+                  0x000d92                  _fpack
+ .libm            0x000dde         0x10 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(funpack2.o)
+                  0x000dde                  _funpack2
+ .libm            0x000dee         0x20 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(futil.o)
+                  0x000dee                  _fPropagateNaN
+                  0x000e00                  _fbopExit
+                  0x000e08                  _fbopReturnNaN
+ .libm            0x000e0e         0x36 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(fcompare.o)
+                  0x000e0e                  _fcompare
+ .libm            0x000e44         0x2a q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(funpack.o)
+                  0x000e44                  _funpack
+ .libm            0x000e6e        0x230 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(divmoddi3.o)
+                  0x000e94                  __udivmoddi3
+                  0x000f76                  __udivdi3
+                  0x000f84                  __umoddi3
+                  0x000f8c                  __divdi3
+                  0x000fc2                  __moddi3
+ .libm            0x00109e         0x5c q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(muldi3.o)
+                  0x00109e                  __muldi3
+ .libm            0x0010fa         0x44 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(umuldi3.o)
+                  0x0010fa                  __umuldi3
  *(.libdsp)
  *(.lib*)
  *(.text)
- .text            0x0010d4         0x86 main.o
-                  0x0010d4                  main
-                  0x001122                  getSelector
- .text            0x00115a         0xc4 e_init_port.o
-                  0x00115a                  testAccGyroPresence
-                  0x001180                  e_init_port
-                  0x001214                  isEpuckVersion1_3
- .text            0x00121e        0x338 e_motors.o
-                  0x00121e                  run_left_motor
-                  0x001302                  run_right_motor
-                  0x0013e6                  e_init_motors
-                  0x0013f8                  e_set_speed_left
-                  0x001472                  e_set_speed_right
-                  0x0014ec                  e_set_speed
-                  0x00152e                  e_get_steps_left
-                  0x001536                  e_set_steps_left
-                  0x001542                  e_get_steps_right
-                  0x00154a                  e_set_steps_right
- .text            0x001556        0x216 e_agenda.o
-                  0x001556                  e_start_agendas_processing
-                  0x001578                  e_end_agendas_processing
-                  0x001580                  e_activate_agenda
-                  0x0015e0                  e_destroy_agenda
-                  0x001630                  e_set_agenda_cycle
-                  0x001666                  e_reset_agenda
-                  0x00169a                  e_pause_agenda
-                  0x0016ce                  e_restart_agenda
-                  0x001702                  _T2Interrupt
- .text            0x00176c        0x2aa e_calc_po8030d.o
-                  0x00176c                  e_po8030d_config_cam
-                  0x0019de                  e_po8030d_get_bytes_per_pixel
- .text            0x001a16        0x2b4 e_common.o
-                  0x001a16                  e_poxxxx_config_cam
-                  0x001a8a                  e_poxxxx_set_mirror
-                  0x001ac8                  e_poxxxx_write_cam_registers
-                  0x001ada                  e_poxxxx_init_cam
-                  0x001b9e                  e_poxxxx_get_orientation
-                  0x001c04                  e_poxxxx_set_awb_ae
-                  0x001c42                  e_poxxxx_set_rgb_gain
-                  0x001c8c                  e_poxxxx_set_exposure
-                  0x001cc2                  getCameraVersion
- .text            0x001cca         0x38 e_interrupt.o
-                  0x001cca                  _T4Interrupt
- .text            0x001d02        0x850 e_po3030k_registers.o
-                  0x001d02                  e_po3030k_write_cam_registers
-                  0x001d34                  e_po3030k_read_cam_registers
-                  0x001d6a                  e_po3030k_set_color_mode
-                  0x001da8                  e_po3030k_set_sampling_mode
-                  0x001dd2                  e_po3030k_set_speed
-                  0x001e18                  e_po3030k_set_wx
-                  0x001e6e                  e_po3030k_set_wy
-                  0x001ebe                  e_po3030k_set_vsync
-                  0x001f30                  e_po3030k_set_mirror
-                  0x001f6c                  e_po3030k_set_register
-                  0x001faa                  e_po3030k_get_register
-                  0x001fea                  e_po3030k_set_bias
-                  0x001ffc                  e_po3030k_set_color_gain
-                  0x002032                  e_po3030k_set_integr_time
-                  0x002056                  e_po3030k_set_adc_offset
-                  0x002062                  e_po3030k_set_sepia
-                  0x00207e                  e_po3030k_set_lens_gain
-                  0x002096                  e_po3030k_set_edge_prop
-                  0x0020ac                  e_po3030k_set_gamma_coef
-                  0x0020f4                  e_po3030k_write_gamma_coef
-                  0x002112                  e_po3030k_sync_register_array
-                  0x002172                  e_po3030k_SetColorMatrix
-                  0x0021a0                  e_po3030k_set_cb_cr_gain
-                  0x0021b2                  e_po3030k_set_brigh_contr
-                  0x0021c4                  e_po3030k_set_sepia_tone
-                  0x0021d6                  e_po3030k_set_ww
-                  0x0021ec                  e_po3030k_set_awb_ae_tol
-                  0x00220a                  e_po3030k_set_ae_speed
-                  0x00222a                  e_po3030k_set_exposure
-                  0x00224a                  e_po3030k_set_ref_exposure
-                  0x002256                  e_po3030k_set_max_min_exp
-                  0x002274                  e_po3030k_set_max_min_awb
-                  0x00229e                  e_po3030k_set_weight_win
-                  0x002344                  e_po3030k_set_awb_ae
-                  0x002380                  e_po3030k_set_flicker_mode
-                  0x00239e                  e_po3030k_set_flicker_detection
-                  0x002494                  e_po3030k_set_flicker_man_set
- .text            0x002552        0x3ee e_po6030k_registers.o
-                  0x002552                  e_po6030k_set_bank
-                  0x002566                  e_po6030k_write_register
-                  0x002582                  e_po6030k_read_register
-                  0x00259e                  e_po6030k_set_bayer_clkdiv
-                  0x0025ae                  e_po6030k_set_pclkdiv
-                  0x0026e2                  e_po6030k_set_mode
-                  0x00273a                  e_po6030k_set_wx
-                  0x002790                  e_po6030k_set_wy
-                  0x00279c                  e_po6030k_set_vsync
-                  0x0027fc                  e_po6030k_set_sketch_mode
-                  0x00285a                  e_po6030k_set_mirror
-                  0x002894                  e_po6030k_set_awb_ae
-                  0x0028dc                  e_po6030k_set_rgb_gain
-                  0x002900                  e_po6030k_set_exposure
- .text            0x002940        0x3fa e_po8030d_registers.o
-                  0x002940                  e_po8030d_set_bank
-                  0x002954                  e_po8030d_write_register
-                  0x002970                  e_po8030d_read_register
-                  0x00298c                  testWriteReg
-                  0x0029a6                  enablePO8030
-                  0x0029e6                  init_po8030
-                  0x0029fa                  e_po8030d_set_bayer_clkdiv
-                  0x002a0a                  e_po8030d_set_pclkdiv
-                  0x002b0e                  e_po8030d_set_mode
-                  0x002b66                  e_po8030d_set_wx
-                  0x002bbc                  e_po8030d_set_wy
-                  0x002bc8                  e_po8030d_set_vsync
-                  0x002c28                  e_po8030d_set_sketch_mode
-                  0x002c44                  e_po8030d_set_mirror
-                  0x002c7e                  e_po8030d_set_awb_ae
-                  0x002cc6                  e_po8030d_set_rgb_gain
-                  0x002cea                  e_po8030d_set_exposure
-                  0x002d2a                  e_po8030d_set_brightness
- .text            0x002d3a        0x108 e_timers.o
-                  0x002d3a                  _T5Interrupt
-                  0x002d84                  e_poxxxx_launch_capture
-                  0x002d9c                  e_poxxxx_apply_timer_config
-                  0x002e3a                  e_poxxxx_is_img_ready
- .text            0x002e42        0x274 e_calc_po3030k.o
-                  0x002e42                  e_po3030k_config_cam
-                  0x00307e                  e_po3030k_get_bytes_per_pixel
- .text            0x0030b6        0x2aa e_calc_po6030k.o
-                  0x0030b6                  e_po6030k_config_cam
-                  0x003328                  e_po6030k_get_bytes_per_pixel
- .text            0x003360         0xa4 e_I2C_protocol.o
-                  0x003360                  e_i2cp_init
-                  0x003368                  e_i2cp_deinit
-                  0x003370                  e_i2cp_enable
-                  0x003378                  e_i2cp_disable
-                  0x003380                  e_i2cp_read
-                  0x0033c8                  e_i2cp_write
- .text            0x003404        0x368 e_I2C_master_module.o
-                  0x003404                  idle_i2c
-                  0x003434                  e_i2c_init
-                  0x00346e                  e_i2c_deinit
-                  0x003480                  e_i2c_reset
-                  0x0034cc                  e_i2c_enable
-                  0x0034d8                  e_i2c_disable
-                  0x0034e4                  e_i2c_start
-                  0x003528                  e_i2c_restart
-                  0x00356c                  e_i2c_stop
-                  0x0035a2                  e_i2c_ack
-                  0x003608                  e_i2c_nack
-                  0x00366e                  e_i2c_read
-                  0x00371a                  e_i2c_write
-                  0x003754                  _MI2CInterrupt
- .text            0x00376c         0x2e e_init_uart1.o
-                  0x00376c                  e_init_uart1
- .text            0x00379a         0x42 e_uart1_rx_char.o
-                  0x00379a                  _U1RXInterrupt
-                  0x0037b8                  e_ischar_uart1
-                  0x0037c0                  e_getchar_uart1
- .text            0x0037dc         0x60 e_uart1_tx_char.o
-                  0x0037dc                  _U1TXInterrupt
-                  0x003820                  e_send_uart1_char
-                  0x003838                  e_uart1_sending
- .text            0x00383c        0x46c e_lsm330.o
-                  0x00383c                  writeReg
-                  0x003854                  readReg
-                  0x00386c                  readRegMulti
-                  0x003916                  initAccAndGyro
-                  0x003948                  getAllAxesAccRaw
-                  0x00395e                  getAllAxesAcc
-                  0x0039d8                  getXAxisAcc
-                  0x003a08                  getYAxisAcc
-                  0x003a38                  getZAxisAcc
-                  0x003a68                  getAllAxesGyroRaw
-                  0x003a7e                  getAllAxesGyro
-                  0x003b04                  getXAxisGyro
-                  0x003b38                  getYAxisGyro
-                  0x003b6c                  getZAxisGyro
-                  0x003ba0                  getTemperature
-                  0x003bae                  calibrateGyroscope
-                  0x003c80                  rawToDps
-                  0x003c94                  rawToDpms
- .text            0x003ca8        0x16e findRed.o
-                  0x003ca8                  getImageRed
-                  0x003cb8                  ImageRed
-                  0x003d9a                  initRed
-                  0x003db4                  findRed
- .text            0x003e16        0x16e findGreen.o
-                  0x003e16                  getImage
-                  0x003e26                  Image
-                  0x003f08                  initGreen
-                  0x003f22                  findGreen
- .text            0x003f84        0x120 avoidBox.o
-                  0x003f84                  waitForSteps
-                  0x003fb6                  clearSteps
-                  0x003fc4                  setSpeed
-                  0x003fd6                  getFrontProx
-                  0x003fde                  getLeftProx
-                  0x004014                  getRightProx
-                  0x004038                  avoidBox
- .text            0x0040a4        0x590 e_ad_conv.o
-                  0x0040a4                  e_init_ad_scan
-                  0x00419c                  _ADCInterrupt
-                  0x004610                  e_ad_is_acquisition_completed
-                  0x00461a                  e_ad_is_array_filled
-                  0x004624                  e_ad_scan_on
-                  0x00462c                  e_ad_scan_off
- .text            0x004634        0x16c e_prox.o
-                  0x004634                  e_calibrate_ir
-                  0x00470a                  e_get_prox
-                  0x004738                  e_get_calibrated_prox
-                  0x00477e                  e_get_ambient_light
- .text            0x0047a0        0x2de runwallfollow.o
-                  0x0047a0                  followgetSelectorValue
-                  0x0047d8                  reportValue
-                  0x004808                  followGetSensorValues
-                  0x004832                  followsetSpeed
-                  0x004870                  run_wallfollow
- .text            0x004a7e         0x5a utility.o
-                  0x004a7e                  wait
-                  0x004aa0                  getselector
- .text            0x004ad8        0x88a e_led.o
-                  0x004ad8                  e_set_led
-                  0x004e2e                  e_led_clear
-                  0x004e44                  e_set_body_led
-                  0x004e88                  e_set_front_led
-                  0x004ec8                  e_blink_led
-                  0x004fda                  e_blink_led0
-                  0x005006                  e_blink_led1
-                  0x00502c                  e_blink_led2
-                  0x00504e                  e_blink_led3
-                  0x005076                  e_blink_led4
-                  0x00509a                  e_blink_led5
-                  0x0050c4                  e_blink_led6
-                  0x0050f0                  e_blink_led7
-                  0x005116                  e_start_led_blinking
-                  0x005124                  e_stop_led_blinking
-                  0x00512e                  e_set_blinking_cycle
-                  0x005140                  snake_led
-                  0x005198                  flow_led
-                  0x005216                  k2000_led
-                  0x005296                  right_led
-                  0x0052fc                  left_led
+ .text            0x00113e         0x86 main.o
+                  0x00113e                  main
+                  0x00118c                  getSelector
+ .text            0x0011c4         0xc4 e_init_port.o
+                  0x0011c4                  testAccGyroPresence
+                  0x0011ea                  e_init_port
+                  0x00127e                  isEpuckVersion1_3
+ .text            0x001288        0x338 e_motors.o
+                  0x001288                  run_left_motor
+                  0x00136c                  run_right_motor
+                  0x001450                  e_init_motors
+                  0x001462                  e_set_speed_left
+                  0x0014dc                  e_set_speed_right
+                  0x001556                  e_set_speed
+                  0x001598                  e_get_steps_left
+                  0x0015a0                  e_set_steps_left
+                  0x0015ac                  e_get_steps_right
+                  0x0015b4                  e_set_steps_right
+ .text            0x0015c0        0x216 e_agenda.o
+                  0x0015c0                  e_start_agendas_processing
+                  0x0015e2                  e_end_agendas_processing
+                  0x0015ea                  e_activate_agenda
+                  0x00164a                  e_destroy_agenda
+                  0x00169a                  e_set_agenda_cycle
+                  0x0016d0                  e_reset_agenda
+                  0x001704                  e_pause_agenda
+                  0x001738                  e_restart_agenda
+                  0x00176c                  _T2Interrupt
+ .text            0x0017d6        0x2aa e_calc_po8030d.o
+                  0x0017d6                  e_po8030d_config_cam
+                  0x001a48                  e_po8030d_get_bytes_per_pixel
+ .text            0x001a80        0x2b4 e_common.o
+                  0x001a80                  e_poxxxx_config_cam
+                  0x001af4                  e_poxxxx_set_mirror
+                  0x001b32                  e_poxxxx_write_cam_registers
+                  0x001b44                  e_poxxxx_init_cam
+                  0x001c08                  e_poxxxx_get_orientation
+                  0x001c6e                  e_poxxxx_set_awb_ae
+                  0x001cac                  e_poxxxx_set_rgb_gain
+                  0x001cf6                  e_poxxxx_set_exposure
+                  0x001d2c                  getCameraVersion
+ .text            0x001d34         0x38 e_interrupt.o
+                  0x001d34                  _T4Interrupt
+ .text            0x001d6c        0x850 e_po3030k_registers.o
+                  0x001d6c                  e_po3030k_write_cam_registers
+                  0x001d9e                  e_po3030k_read_cam_registers
+                  0x001dd4                  e_po3030k_set_color_mode
+                  0x001e12                  e_po3030k_set_sampling_mode
+                  0x001e3c                  e_po3030k_set_speed
+                  0x001e82                  e_po3030k_set_wx
+                  0x001ed8                  e_po3030k_set_wy
+                  0x001f28                  e_po3030k_set_vsync
+                  0x001f9a                  e_po3030k_set_mirror
+                  0x001fd6                  e_po3030k_set_register
+                  0x002014                  e_po3030k_get_register
+                  0x002054                  e_po3030k_set_bias
+                  0x002066                  e_po3030k_set_color_gain
+                  0x00209c                  e_po3030k_set_integr_time
+                  0x0020c0                  e_po3030k_set_adc_offset
+                  0x0020cc                  e_po3030k_set_sepia
+                  0x0020e8                  e_po3030k_set_lens_gain
+                  0x002100                  e_po3030k_set_edge_prop
+                  0x002116                  e_po3030k_set_gamma_coef
+                  0x00215e                  e_po3030k_write_gamma_coef
+                  0x00217c                  e_po3030k_sync_register_array
+                  0x0021dc                  e_po3030k_SetColorMatrix
+                  0x00220a                  e_po3030k_set_cb_cr_gain
+                  0x00221c                  e_po3030k_set_brigh_contr
+                  0x00222e                  e_po3030k_set_sepia_tone
+                  0x002240                  e_po3030k_set_ww
+                  0x002256                  e_po3030k_set_awb_ae_tol
+                  0x002274                  e_po3030k_set_ae_speed
+                  0x002294                  e_po3030k_set_exposure
+                  0x0022b4                  e_po3030k_set_ref_exposure
+                  0x0022c0                  e_po3030k_set_max_min_exp
+                  0x0022de                  e_po3030k_set_max_min_awb
+                  0x002308                  e_po3030k_set_weight_win
+                  0x0023ae                  e_po3030k_set_awb_ae
+                  0x0023ea                  e_po3030k_set_flicker_mode
+                  0x002408                  e_po3030k_set_flicker_detection
+                  0x0024fe                  e_po3030k_set_flicker_man_set
+ .text            0x0025bc        0x3ee e_po6030k_registers.o
+                  0x0025bc                  e_po6030k_set_bank
+                  0x0025d0                  e_po6030k_write_register
+                  0x0025ec                  e_po6030k_read_register
+                  0x002608                  e_po6030k_set_bayer_clkdiv
+                  0x002618                  e_po6030k_set_pclkdiv
+                  0x00274c                  e_po6030k_set_mode
+                  0x0027a4                  e_po6030k_set_wx
+                  0x0027fa                  e_po6030k_set_wy
+                  0x002806                  e_po6030k_set_vsync
+                  0x002866                  e_po6030k_set_sketch_mode
+                  0x0028c4                  e_po6030k_set_mirror
+                  0x0028fe                  e_po6030k_set_awb_ae
+                  0x002946                  e_po6030k_set_rgb_gain
+                  0x00296a                  e_po6030k_set_exposure
+ .text            0x0029aa        0x3fa e_po8030d_registers.o
+                  0x0029aa                  e_po8030d_set_bank
+                  0x0029be                  e_po8030d_write_register
+                  0x0029da                  e_po8030d_read_register
+                  0x0029f6                  testWriteReg
+                  0x002a10                  enablePO8030
+                  0x002a50                  init_po8030
+                  0x002a64                  e_po8030d_set_bayer_clkdiv
+                  0x002a74                  e_po8030d_set_pclkdiv
+                  0x002b78                  e_po8030d_set_mode
+                  0x002bd0                  e_po8030d_set_wx
+                  0x002c26                  e_po8030d_set_wy
+                  0x002c32                  e_po8030d_set_vsync
+                  0x002c92                  e_po8030d_set_sketch_mode
+                  0x002cae                  e_po8030d_set_mirror
+                  0x002ce8                  e_po8030d_set_awb_ae
+                  0x002d30                  e_po8030d_set_rgb_gain
+                  0x002d54                  e_po8030d_set_exposure
+                  0x002d94                  e_po8030d_set_brightness
+ .text            0x002da4        0x108 e_timers.o
+                  0x002da4                  _T5Interrupt
+                  0x002dee                  e_poxxxx_launch_capture
+                  0x002e06                  e_poxxxx_apply_timer_config
+                  0x002ea4                  e_poxxxx_is_img_ready
+ .text            0x002eac        0x274 e_calc_po3030k.o
+                  0x002eac                  e_po3030k_config_cam
+                  0x0030e8                  e_po3030k_get_bytes_per_pixel
+ .text            0x003120        0x2aa e_calc_po6030k.o
+                  0x003120                  e_po6030k_config_cam
+                  0x003392                  e_po6030k_get_bytes_per_pixel
+ .text            0x0033ca         0xa4 e_I2C_protocol.o
+                  0x0033ca                  e_i2cp_init
+                  0x0033d2                  e_i2cp_deinit
+                  0x0033da                  e_i2cp_enable
+                  0x0033e2                  e_i2cp_disable
+                  0x0033ea                  e_i2cp_read
+                  0x003432                  e_i2cp_write
+ .text            0x00346e        0x368 e_I2C_master_module.o
+                  0x00346e                  idle_i2c
+                  0x00349e                  e_i2c_init
+                  0x0034d8                  e_i2c_deinit
+                  0x0034ea                  e_i2c_reset
+                  0x003536                  e_i2c_enable
+                  0x003542                  e_i2c_disable
+                  0x00354e                  e_i2c_start
+                  0x003592                  e_i2c_restart
+                  0x0035d6                  e_i2c_stop
+                  0x00360c                  e_i2c_ack
+                  0x003672                  e_i2c_nack
+                  0x0036d8                  e_i2c_read
+                  0x003784                  e_i2c_write
+                  0x0037be                  _MI2CInterrupt
+ .text            0x0037d6         0x2e e_init_uart1.o
+                  0x0037d6                  e_init_uart1
+ .text            0x003804         0x42 e_uart1_rx_char.o
+                  0x003804                  _U1RXInterrupt
+                  0x003822                  e_ischar_uart1
+                  0x00382a                  e_getchar_uart1
+ .text            0x003846         0x60 e_uart1_tx_char.o
+                  0x003846                  _U1TXInterrupt
+                  0x00388a                  e_send_uart1_char
+                  0x0038a2                  e_uart1_sending
+ .text            0x0038a6        0x46c e_lsm330.o
+                  0x0038a6                  writeReg
+                  0x0038be                  readReg
+                  0x0038d6                  readRegMulti
+                  0x003980                  initAccAndGyro
+                  0x0039b2                  getAllAxesAccRaw
+                  0x0039c8                  getAllAxesAcc
+                  0x003a42                  getXAxisAcc
+                  0x003a72                  getYAxisAcc
+                  0x003aa2                  getZAxisAcc
+                  0x003ad2                  getAllAxesGyroRaw
+                  0x003ae8                  getAllAxesGyro
+                  0x003b6e                  getXAxisGyro
+                  0x003ba2                  getYAxisGyro
+                  0x003bd6                  getZAxisGyro
+                  0x003c0a                  getTemperature
+                  0x003c18                  calibrateGyroscope
+                  0x003cea                  rawToDps
+                  0x003cfe                  rawToDpms
+ .text            0x003d12        0x16e findRed.o
+                  0x003d12                  getImageRed
+                  0x003d22                  ImageRed
+                  0x003e04                  initRed
+                  0x003e1e                  findRed
+ .text            0x003e80        0x16e findGreen.o
+                  0x003e80                  getImage
+                  0x003e90                  Image
+                  0x003f72                  initGreen
+                  0x003f8c                  findGreen
+ .text            0x003fee         0xee avoidBox.o
+                  0x003fee                  clearSteps
+                  0x003ffc                  setSpeed
+                  0x00400e                  getFrontProx
+                  0x004016                  getLeftProx
+                  0x00404c                  getRightProx
+                  0x004070                  avoidBox
+ .text            0x0040dc        0x590 e_ad_conv.o
+                  0x0040dc                  e_init_ad_scan
+                  0x0041d4                  _ADCInterrupt
+                  0x004648                  e_ad_is_acquisition_completed
+                  0x004652                  e_ad_is_array_filled
+                  0x00465c                  e_ad_scan_on
+                  0x004664                  e_ad_scan_off
+ .text            0x00466c        0x16c e_prox.o
+                  0x00466c                  e_calibrate_ir
+                  0x004742                  e_get_prox
+                  0x004770                  e_get_calibrated_prox
+                  0x0047b6                  e_get_ambient_light
+ .text            0x0047d8        0x360 runwallfollow.o
+                  0x0047d8                  followgetSelectorValue
+                  0x004810                  reportValue
+                  0x004840                  followGetSensorValues
+                  0x00486a                  followsetSpeed
+                  0x0048a8                  waitForSteps
+                  0x0048da                  run_wallfollow
+ .text            0x004b38         0x5a utility.o
+                  0x004b38                  wait
+                  0x004b5a                  getselector
+ .text            0x004b92        0x88a e_led.o
+                  0x004b92                  e_set_led
+                  0x004ee8                  e_led_clear
+                  0x004efe                  e_set_body_led
+                  0x004f42                  e_set_front_led
+                  0x004f82                  e_blink_led
+                  0x005094                  e_blink_led0
+                  0x0050c0                  e_blink_led1
+                  0x0050e6                  e_blink_led2
+                  0x005108                  e_blink_led3
+                  0x005130                  e_blink_led4
+                  0x005154                  e_blink_led5
+                  0x00517e                  e_blink_led6
+                  0x0051aa                  e_blink_led7
+                  0x0051d0                  e_start_led_blinking
+                  0x0051de                  e_stop_led_blinking
+                  0x0051e8                  e_set_blinking_cycle
+                  0x0051fa                  snake_led
+                  0x005252                  flow_led
+                  0x0052d0                  k2000_led
+                  0x005350                  right_led
+                  0x0053b6                  left_led
 
 usercode
  *(usercode)
@@ -1254,132 +1263,132 @@ userdata
  *(.debug_aranges)
 
 .ivt              0x000004         0x7c
-                  0x000004          0x4 LONG 0x5572 DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
-                  0x000006          0x4 LONG 0x5572 DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
-                  0x000008          0x4 LONG 0x5572 DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
-                  0x00000a          0x4 LONG 0x5572 DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
-                  0x00000c          0x4 LONG 0x5572 DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
-                  0x00000e          0x4 LONG 0x5572 DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
-                  0x000010          0x4 LONG 0x5572 DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
-                  0x000012          0x4 LONG 0x5572 DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
-                  0x000014          0x4 LONG 0x5572 DEFINED (__INT0Interrupt)?<code 336> (__INT0Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000016          0x4 LONG 0x5572 DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000018          0x4 LONG 0x5572 DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x5572 DEFINED (__T1Interrupt)?<code 336> (__T1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00001c          0x4 LONG 0x5572 DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00001e          0x4 LONG 0x5572 DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000020          0x4 LONG 0x1702 DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x5572 DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000024          0x4 LONG 0x5572 DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000026          0x4 LONG 0x379a DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000028          0x4 LONG 0x37dc DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00002a          0x4 LONG 0x419c DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00002c          0x4 LONG 0x5572 DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00002e          0x4 LONG 0x5572 DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000030          0x4 LONG 0x3754 DEFINED (__MI2CInterrupt)?<code 336> (__MI2CInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000032          0x4 LONG 0x5572 DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000034          0x4 LONG 0x5572 DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000036          0x4 LONG 0x5572 DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000038          0x4 LONG 0x5572 DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00003a          0x4 LONG 0x5572 DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00003c          0x4 LONG 0x5572 DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00003e          0x4 LONG 0x1cca DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000040          0x4 LONG 0x2d3a DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000042          0x4 LONG 0x5572 DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000044          0x4 LONG 0x5572 DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000046          0x4 LONG 0x5572 DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000048          0x4 LONG 0x5572 DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00004a          0x4 LONG 0x5572 DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00004c          0x4 LONG 0x5572 DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00004e          0x4 LONG 0x5572 DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000050          0x4 LONG 0x5572 DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000052          0x4 LONG 0x5572 DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000054          0x4 LONG 0x5572 DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000056          0x4 LONG 0x5572 DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000058          0x4 LONG 0x5572 DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00005a          0x4 LONG 0x5572 DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00005c          0x4 LONG 0x5572 DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00005e          0x4 LONG 0x5572 DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000060          0x4 LONG 0x5572 DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000062          0x4 LONG 0x5572 DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000064          0x4 LONG 0x5572 DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000066          0x4 LONG 0x5572 DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x000068          0x4 LONG 0x5572 DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00006a          0x4 LONG 0x5572 DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00006c          0x4 LONG 0x5572 DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
-                  0x00006e          0x4 LONG 0x5572 DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
-                  0x000070          0x4 LONG 0x5572 DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
-                  0x000072          0x4 LONG 0x5572 DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
-                  0x000074          0x4 LONG 0x5572 DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
-                  0x000076          0x4 LONG 0x5572 DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
-                  0x000078          0x4 LONG 0x5572 DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
-                  0x00007a          0x4 LONG 0x5572 DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
-                  0x00007c          0x4 LONG 0x5572 DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
-                  0x00007e          0x4 LONG 0x5572 DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
+                  0x000004          0x4 LONG 0x563c DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
+                  0x000006          0x4 LONG 0x563c DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
+                  0x000008          0x4 LONG 0x563c DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
+                  0x00000a          0x4 LONG 0x563c DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
+                  0x00000c          0x4 LONG 0x563c DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
+                  0x00000e          0x4 LONG 0x563c DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
+                  0x000010          0x4 LONG 0x563c DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
+                  0x000012          0x4 LONG 0x563c DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
+                  0x000014          0x4 LONG 0x563c DEFINED (__INT0Interrupt)?<code 336> (__INT0Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000016          0x4 LONG 0x563c DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000018          0x4 LONG 0x563c DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x563c DEFINED (__T1Interrupt)?<code 336> (__T1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00001c          0x4 LONG 0x563c DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00001e          0x4 LONG 0x563c DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000020          0x4 LONG 0x176c DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x563c DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000024          0x4 LONG 0x563c DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000026          0x4 LONG 0x3804 DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000028          0x4 LONG 0x3846 DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00002a          0x4 LONG 0x41d4 DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00002c          0x4 LONG 0x563c DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00002e          0x4 LONG 0x563c DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000030          0x4 LONG 0x37be DEFINED (__MI2CInterrupt)?<code 336> (__MI2CInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000032          0x4 LONG 0x563c DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000034          0x4 LONG 0x563c DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000036          0x4 LONG 0x563c DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000038          0x4 LONG 0x563c DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00003a          0x4 LONG 0x563c DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00003c          0x4 LONG 0x563c DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00003e          0x4 LONG 0x1d34 DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000040          0x4 LONG 0x2da4 DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000042          0x4 LONG 0x563c DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000044          0x4 LONG 0x563c DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000046          0x4 LONG 0x563c DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000048          0x4 LONG 0x563c DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00004a          0x4 LONG 0x563c DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00004c          0x4 LONG 0x563c DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00004e          0x4 LONG 0x563c DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000050          0x4 LONG 0x563c DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x563c DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000054          0x4 LONG 0x563c DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000056          0x4 LONG 0x563c DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000058          0x4 LONG 0x563c DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00005a          0x4 LONG 0x563c DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00005c          0x4 LONG 0x563c DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00005e          0x4 LONG 0x563c DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000060          0x4 LONG 0x563c DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000062          0x4 LONG 0x563c DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000064          0x4 LONG 0x563c DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000066          0x4 LONG 0x563c DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x000068          0x4 LONG 0x563c DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00006a          0x4 LONG 0x563c DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00006c          0x4 LONG 0x563c DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
+                  0x00006e          0x4 LONG 0x563c DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
+                  0x000070          0x4 LONG 0x563c DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
+                  0x000072          0x4 LONG 0x563c DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
+                  0x000074          0x4 LONG 0x563c DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
+                  0x000076          0x4 LONG 0x563c DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
+                  0x000078          0x4 LONG 0x563c DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
+                  0x00007a          0x4 LONG 0x563c DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
+                  0x00007c          0x4 LONG 0x563c DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
+                  0x00007e          0x4 LONG 0x563c DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
 
 .aivt             0x000084         0x7c
-                  0x000084          0x4 LONG 0x5572 DEFINED (__AltReservedTrap0)?<code 336> (__AltReservedTrap0):DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
-                  0x000086          0x4 LONG 0x5572 DEFINED (__AltOscillatorFail)?<code 336> (__AltOscillatorFail):DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
-                  0x000088          0x4 LONG 0x5572 DEFINED (__AltAddressError)?<code 336> (__AltAddressError):DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
-                  0x00008a          0x4 LONG 0x5572 DEFINED (__AltStackError)?<code 336> (__AltStackError):DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
-                  0x00008c          0x4 LONG 0x5572 DEFINED (__AltMathError)?<code 336> (__AltMathError):DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
-                  0x00008e          0x4 LONG 0x5572 DEFINED (__AltReservedTrap5)?<code 336> (__AltReservedTrap5):DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
-                  0x000090          0x4 LONG 0x5572 DEFINED (__AltReservedTrap6)?<code 336> (__AltReservedTrap6):DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
-                  0x000092          0x4 LONG 0x5572 DEFINED (__AltReservedTrap7)?<code 336> (__AltReservedTrap7):DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
-                  0x000094          0x4 LONG 0x5572 DEFINED (__AltINT0Interrupt)?<code 336> (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?<code 336> (__INT0Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000096          0x4 LONG 0x5572 DEFINED (__AltIC1Interrupt)?<code 336> (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x000098          0x4 LONG 0x5572 DEFINED (__AltOC1Interrupt)?<code 336> (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00009a          0x4 LONG 0x5572 DEFINED (__AltT1Interrupt)?<code 336> (__AltT1Interrupt):DEFINED (__T1Interrupt)?<code 336> (__T1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00009c          0x4 LONG 0x5572 DEFINED (__AltIC2Interrupt)?<code 336> (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x00009e          0x4 LONG 0x5572 DEFINED (__AltOC2Interrupt)?<code 336> (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a0          0x4 LONG 0x1702 DEFINED (__AltT2Interrupt)?<code 336> (__AltT2Interrupt):DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a2          0x4 LONG 0x5572 DEFINED (__AltT3Interrupt)?<code 336> (__AltT3Interrupt):DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a4          0x4 LONG 0x5572 DEFINED (__AltSPI1Interrupt)?<code 336> (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a6          0x4 LONG 0x379a DEFINED (__AltU1RXInterrupt)?<code 336> (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000a8          0x4 LONG 0x37dc DEFINED (__AltU1TXInterrupt)?<code 336> (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000aa          0x4 LONG 0x419c DEFINED (__AltADCInterrupt)?<code 336> (__AltADCInterrupt):DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ac          0x4 LONG 0x5572 DEFINED (__AltNVMInterrupt)?<code 336> (__AltNVMInterrupt):DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ae          0x4 LONG 0x5572 DEFINED (__AltSI2CInterrupt)?<code 336> (__AltSI2CInterrupt):DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b0          0x4 LONG 0x3754 DEFINED (__AltMI2CInterrupt)?<code 336> (__AltMI2CInterrupt):DEFINED (__MI2CInterrupt)?<code 336> (__MI2CInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b2          0x4 LONG 0x5572 DEFINED (__AltCNInterrupt)?<code 336> (__AltCNInterrupt):DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b4          0x4 LONG 0x5572 DEFINED (__AltINT1Interrupt)?<code 336> (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b6          0x4 LONG 0x5572 DEFINED (__AltIC7Interrupt)?<code 336> (__AltIC7Interrupt):DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000b8          0x4 LONG 0x5572 DEFINED (__AltIC8Interrupt)?<code 336> (__AltIC8Interrupt):DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ba          0x4 LONG 0x5572 DEFINED (__AltOC3Interrupt)?<code 336> (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000bc          0x4 LONG 0x5572 DEFINED (__AltOC4Interrupt)?<code 336> (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000be          0x4 LONG 0x1cca DEFINED (__AltT4Interrupt)?<code 336> (__AltT4Interrupt):DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c0          0x4 LONG 0x2d3a DEFINED (__AltT5Interrupt)?<code 336> (__AltT5Interrupt):DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c2          0x4 LONG 0x5572 DEFINED (__AltINT2Interrupt)?<code 336> (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c4          0x4 LONG 0x5572 DEFINED (__AltU2RXInterrupt)?<code 336> (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c6          0x4 LONG 0x5572 DEFINED (__AltU2TXInterrupt)?<code 336> (__AltU2TXInterrupt):DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000c8          0x4 LONG 0x5572 DEFINED (__AltSPI2Interrupt)?<code 336> (__AltSPI2Interrupt):DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ca          0x4 LONG 0x5572 DEFINED (__AltC1Interrupt)?<code 336> (__AltC1Interrupt):DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000cc          0x4 LONG 0x5572 DEFINED (__AltIC3Interrupt)?<code 336> (__AltIC3Interrupt):DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ce          0x4 LONG 0x5572 DEFINED (__AltIC4Interrupt)?<code 336> (__AltIC4Interrupt):DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d0          0x4 LONG 0x5572 DEFINED (__AltIC5Interrupt)?<code 336> (__AltIC5Interrupt):DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d2          0x4 LONG 0x5572 DEFINED (__AltIC6Interrupt)?<code 336> (__AltIC6Interrupt):DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d4          0x4 LONG 0x5572 DEFINED (__AltOC5Interrupt)?<code 336> (__AltOC5Interrupt):DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d6          0x4 LONG 0x5572 DEFINED (__AltOC6Interrupt)?<code 336> (__AltOC6Interrupt):DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000d8          0x4 LONG 0x5572 DEFINED (__AltOC7Interrupt)?<code 336> (__AltOC7Interrupt):DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000da          0x4 LONG 0x5572 DEFINED (__AltOC8Interrupt)?<code 336> (__AltOC8Interrupt):DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000dc          0x4 LONG 0x5572 DEFINED (__AltINT3Interrupt)?<code 336> (__AltINT3Interrupt):DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000de          0x4 LONG 0x5572 DEFINED (__AltINT4Interrupt)?<code 336> (__AltINT4Interrupt):DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e0          0x4 LONG 0x5572 DEFINED (__AltC2Interrupt)?<code 336> (__AltC2Interrupt):DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e2          0x4 LONG 0x5572 DEFINED (__AltPWMInterrupt)?<code 336> (__AltPWMInterrupt):DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e4          0x4 LONG 0x5572 DEFINED (__AltQEIInterrupt)?<code 336> (__AltQEIInterrupt):DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e6          0x4 LONG 0x5572 DEFINED (__AltDCIInterrupt)?<code 336> (__AltDCIInterrupt):DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000e8          0x4 LONG 0x5572 DEFINED (__AltLVDInterrupt)?<code 336> (__AltLVDInterrupt):DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ea          0x4 LONG 0x5572 DEFINED (__AltFLTAInterrupt)?<code 336> (__AltFLTAInterrupt):DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ec          0x4 LONG 0x5572 DEFINED (__AltFLTBInterrupt)?<code 336> (__AltFLTBInterrupt):DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
-                  0x0000ee          0x4 LONG 0x5572 DEFINED (__AltInterrupt45)?<code 336> (__AltInterrupt45):DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
-                  0x0000f0          0x4 LONG 0x5572 DEFINED (__AltInterrupt46)?<code 336> (__AltInterrupt46):DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
-                  0x0000f2          0x4 LONG 0x5572 DEFINED (__AltInterrupt47)?<code 336> (__AltInterrupt47):DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
-                  0x0000f4          0x4 LONG 0x5572 DEFINED (__AltInterrupt48)?<code 336> (__AltInterrupt48):DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
-                  0x0000f6          0x4 LONG 0x5572 DEFINED (__AltInterrupt49)?<code 336> (__AltInterrupt49):DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
-                  0x0000f8          0x4 LONG 0x5572 DEFINED (__AltInterrupt50)?<code 336> (__AltInterrupt50):DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
-                  0x0000fa          0x4 LONG 0x5572 DEFINED (__AltInterrupt51)?<code 336> (__AltInterrupt51):DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
-                  0x0000fc          0x4 LONG 0x5572 DEFINED (__AltInterrupt52)?<code 336> (__AltInterrupt52):DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
-                  0x0000fe          0x4 LONG 0x5572 DEFINED (__AltInterrupt53)?<code 336> (__AltInterrupt53):DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
+                  0x000084          0x4 LONG 0x563c DEFINED (__AltReservedTrap0)?<code 336> (__AltReservedTrap0):DEFINED (__ReservedTrap0)?<code 336> (__ReservedTrap0):<code 336> (__DefaultInterrupt)
+                  0x000086          0x4 LONG 0x563c DEFINED (__AltOscillatorFail)?<code 336> (__AltOscillatorFail):DEFINED (__OscillatorFail)?<code 336> (__OscillatorFail):<code 336> (__DefaultInterrupt)
+                  0x000088          0x4 LONG 0x563c DEFINED (__AltAddressError)?<code 336> (__AltAddressError):DEFINED (__AddressError)?<code 336> (__AddressError):<code 336> (__DefaultInterrupt)
+                  0x00008a          0x4 LONG 0x563c DEFINED (__AltStackError)?<code 336> (__AltStackError):DEFINED (__StackError)?<code 336> (__StackError):<code 336> (__DefaultInterrupt)
+                  0x00008c          0x4 LONG 0x563c DEFINED (__AltMathError)?<code 336> (__AltMathError):DEFINED (__MathError)?<code 336> (__MathError):<code 336> (__DefaultInterrupt)
+                  0x00008e          0x4 LONG 0x563c DEFINED (__AltReservedTrap5)?<code 336> (__AltReservedTrap5):DEFINED (__ReservedTrap5)?<code 336> (__ReservedTrap5):<code 336> (__DefaultInterrupt)
+                  0x000090          0x4 LONG 0x563c DEFINED (__AltReservedTrap6)?<code 336> (__AltReservedTrap6):DEFINED (__ReservedTrap6)?<code 336> (__ReservedTrap6):<code 336> (__DefaultInterrupt)
+                  0x000092          0x4 LONG 0x563c DEFINED (__AltReservedTrap7)?<code 336> (__AltReservedTrap7):DEFINED (__ReservedTrap7)?<code 336> (__ReservedTrap7):<code 336> (__DefaultInterrupt)
+                  0x000094          0x4 LONG 0x563c DEFINED (__AltINT0Interrupt)?<code 336> (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?<code 336> (__INT0Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000096          0x4 LONG 0x563c DEFINED (__AltIC1Interrupt)?<code 336> (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?<code 336> (__IC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x000098          0x4 LONG 0x563c DEFINED (__AltOC1Interrupt)?<code 336> (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?<code 336> (__OC1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00009a          0x4 LONG 0x563c DEFINED (__AltT1Interrupt)?<code 336> (__AltT1Interrupt):DEFINED (__T1Interrupt)?<code 336> (__T1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00009c          0x4 LONG 0x563c DEFINED (__AltIC2Interrupt)?<code 336> (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?<code 336> (__IC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x00009e          0x4 LONG 0x563c DEFINED (__AltOC2Interrupt)?<code 336> (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?<code 336> (__OC2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a0          0x4 LONG 0x176c DEFINED (__AltT2Interrupt)?<code 336> (__AltT2Interrupt):DEFINED (__T2Interrupt)?<code 336> (__T2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a2          0x4 LONG 0x563c DEFINED (__AltT3Interrupt)?<code 336> (__AltT3Interrupt):DEFINED (__T3Interrupt)?<code 336> (__T3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a4          0x4 LONG 0x563c DEFINED (__AltSPI1Interrupt)?<code 336> (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?<code 336> (__SPI1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a6          0x4 LONG 0x3804 DEFINED (__AltU1RXInterrupt)?<code 336> (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?<code 336> (__U1RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000a8          0x4 LONG 0x3846 DEFINED (__AltU1TXInterrupt)?<code 336> (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?<code 336> (__U1TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000aa          0x4 LONG 0x41d4 DEFINED (__AltADCInterrupt)?<code 336> (__AltADCInterrupt):DEFINED (__ADCInterrupt)?<code 336> (__ADCInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ac          0x4 LONG 0x563c DEFINED (__AltNVMInterrupt)?<code 336> (__AltNVMInterrupt):DEFINED (__NVMInterrupt)?<code 336> (__NVMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ae          0x4 LONG 0x563c DEFINED (__AltSI2CInterrupt)?<code 336> (__AltSI2CInterrupt):DEFINED (__SI2CInterrupt)?<code 336> (__SI2CInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b0          0x4 LONG 0x37be DEFINED (__AltMI2CInterrupt)?<code 336> (__AltMI2CInterrupt):DEFINED (__MI2CInterrupt)?<code 336> (__MI2CInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b2          0x4 LONG 0x563c DEFINED (__AltCNInterrupt)?<code 336> (__AltCNInterrupt):DEFINED (__CNInterrupt)?<code 336> (__CNInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b4          0x4 LONG 0x563c DEFINED (__AltINT1Interrupt)?<code 336> (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?<code 336> (__INT1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b6          0x4 LONG 0x563c DEFINED (__AltIC7Interrupt)?<code 336> (__AltIC7Interrupt):DEFINED (__IC7Interrupt)?<code 336> (__IC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000b8          0x4 LONG 0x563c DEFINED (__AltIC8Interrupt)?<code 336> (__AltIC8Interrupt):DEFINED (__IC8Interrupt)?<code 336> (__IC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ba          0x4 LONG 0x563c DEFINED (__AltOC3Interrupt)?<code 336> (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?<code 336> (__OC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000bc          0x4 LONG 0x563c DEFINED (__AltOC4Interrupt)?<code 336> (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?<code 336> (__OC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000be          0x4 LONG 0x1d34 DEFINED (__AltT4Interrupt)?<code 336> (__AltT4Interrupt):DEFINED (__T4Interrupt)?<code 336> (__T4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c0          0x4 LONG 0x2da4 DEFINED (__AltT5Interrupt)?<code 336> (__AltT5Interrupt):DEFINED (__T5Interrupt)?<code 336> (__T5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c2          0x4 LONG 0x563c DEFINED (__AltINT2Interrupt)?<code 336> (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?<code 336> (__INT2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c4          0x4 LONG 0x563c DEFINED (__AltU2RXInterrupt)?<code 336> (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?<code 336> (__U2RXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c6          0x4 LONG 0x563c DEFINED (__AltU2TXInterrupt)?<code 336> (__AltU2TXInterrupt):DEFINED (__U2TXInterrupt)?<code 336> (__U2TXInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000c8          0x4 LONG 0x563c DEFINED (__AltSPI2Interrupt)?<code 336> (__AltSPI2Interrupt):DEFINED (__SPI2Interrupt)?<code 336> (__SPI2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ca          0x4 LONG 0x563c DEFINED (__AltC1Interrupt)?<code 336> (__AltC1Interrupt):DEFINED (__C1Interrupt)?<code 336> (__C1Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000cc          0x4 LONG 0x563c DEFINED (__AltIC3Interrupt)?<code 336> (__AltIC3Interrupt):DEFINED (__IC3Interrupt)?<code 336> (__IC3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ce          0x4 LONG 0x563c DEFINED (__AltIC4Interrupt)?<code 336> (__AltIC4Interrupt):DEFINED (__IC4Interrupt)?<code 336> (__IC4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d0          0x4 LONG 0x563c DEFINED (__AltIC5Interrupt)?<code 336> (__AltIC5Interrupt):DEFINED (__IC5Interrupt)?<code 336> (__IC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d2          0x4 LONG 0x563c DEFINED (__AltIC6Interrupt)?<code 336> (__AltIC6Interrupt):DEFINED (__IC6Interrupt)?<code 336> (__IC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d4          0x4 LONG 0x563c DEFINED (__AltOC5Interrupt)?<code 336> (__AltOC5Interrupt):DEFINED (__OC5Interrupt)?<code 336> (__OC5Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d6          0x4 LONG 0x563c DEFINED (__AltOC6Interrupt)?<code 336> (__AltOC6Interrupt):DEFINED (__OC6Interrupt)?<code 336> (__OC6Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000d8          0x4 LONG 0x563c DEFINED (__AltOC7Interrupt)?<code 336> (__AltOC7Interrupt):DEFINED (__OC7Interrupt)?<code 336> (__OC7Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000da          0x4 LONG 0x563c DEFINED (__AltOC8Interrupt)?<code 336> (__AltOC8Interrupt):DEFINED (__OC8Interrupt)?<code 336> (__OC8Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000dc          0x4 LONG 0x563c DEFINED (__AltINT3Interrupt)?<code 336> (__AltINT3Interrupt):DEFINED (__INT3Interrupt)?<code 336> (__INT3Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000de          0x4 LONG 0x563c DEFINED (__AltINT4Interrupt)?<code 336> (__AltINT4Interrupt):DEFINED (__INT4Interrupt)?<code 336> (__INT4Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e0          0x4 LONG 0x563c DEFINED (__AltC2Interrupt)?<code 336> (__AltC2Interrupt):DEFINED (__C2Interrupt)?<code 336> (__C2Interrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e2          0x4 LONG 0x563c DEFINED (__AltPWMInterrupt)?<code 336> (__AltPWMInterrupt):DEFINED (__PWMInterrupt)?<code 336> (__PWMInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e4          0x4 LONG 0x563c DEFINED (__AltQEIInterrupt)?<code 336> (__AltQEIInterrupt):DEFINED (__QEIInterrupt)?<code 336> (__QEIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e6          0x4 LONG 0x563c DEFINED (__AltDCIInterrupt)?<code 336> (__AltDCIInterrupt):DEFINED (__DCIInterrupt)?<code 336> (__DCIInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000e8          0x4 LONG 0x563c DEFINED (__AltLVDInterrupt)?<code 336> (__AltLVDInterrupt):DEFINED (__LVDInterrupt)?<code 336> (__LVDInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ea          0x4 LONG 0x563c DEFINED (__AltFLTAInterrupt)?<code 336> (__AltFLTAInterrupt):DEFINED (__FLTAInterrupt)?<code 336> (__FLTAInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ec          0x4 LONG 0x563c DEFINED (__AltFLTBInterrupt)?<code 336> (__AltFLTBInterrupt):DEFINED (__FLTBInterrupt)?<code 336> (__FLTBInterrupt):<code 336> (__DefaultInterrupt)
+                  0x0000ee          0x4 LONG 0x563c DEFINED (__AltInterrupt45)?<code 336> (__AltInterrupt45):DEFINED (__Interrupt45)?<code 336> (__Interrupt45):<code 336> (__DefaultInterrupt)
+                  0x0000f0          0x4 LONG 0x563c DEFINED (__AltInterrupt46)?<code 336> (__AltInterrupt46):DEFINED (__Interrupt46)?<code 336> (__Interrupt46):<code 336> (__DefaultInterrupt)
+                  0x0000f2          0x4 LONG 0x563c DEFINED (__AltInterrupt47)?<code 336> (__AltInterrupt47):DEFINED (__Interrupt47)?<code 336> (__Interrupt47):<code 336> (__DefaultInterrupt)
+                  0x0000f4          0x4 LONG 0x563c DEFINED (__AltInterrupt48)?<code 336> (__AltInterrupt48):DEFINED (__Interrupt48)?<code 336> (__Interrupt48):<code 336> (__DefaultInterrupt)
+                  0x0000f6          0x4 LONG 0x563c DEFINED (__AltInterrupt49)?<code 336> (__AltInterrupt49):DEFINED (__Interrupt49)?<code 336> (__Interrupt49):<code 336> (__DefaultInterrupt)
+                  0x0000f8          0x4 LONG 0x563c DEFINED (__AltInterrupt50)?<code 336> (__AltInterrupt50):DEFINED (__Interrupt50)?<code 336> (__Interrupt50):<code 336> (__DefaultInterrupt)
+                  0x0000fa          0x4 LONG 0x563c DEFINED (__AltInterrupt51)?<code 336> (__AltInterrupt51):DEFINED (__Interrupt51)?<code 336> (__Interrupt51):<code 336> (__DefaultInterrupt)
+                  0x0000fc          0x4 LONG 0x563c DEFINED (__AltInterrupt52)?<code 336> (__AltInterrupt52):DEFINED (__Interrupt52)?<code 336> (__Interrupt52):<code 336> (__DefaultInterrupt)
+                  0x0000fe          0x4 LONG 0x563c DEFINED (__AltInterrupt53)?<code 336> (__AltInterrupt53):DEFINED (__Interrupt53)?<code 336> (__Interrupt53):<code 336> (__DefaultInterrupt)
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -2643,10 +2652,10 @@ LOAD jump_table
 LOAD data_init
 LOAD default_isr
 
-.const              0xd362         0x5a
- .const             0xd362          0x4 main.o
- .const             0xd366          0x4 avoidBox.o
- .const             0xd36a         0x52 runwallfollow.o
+.const              0xd41c         0x64
+ .const             0xd41c          0x4 main.o
+ .const             0xd420          0x4 avoidBox.o
+ .const             0xd424         0x5c runwallfollow.o
 
 .nbss               0x0800        0x3b6
  .nbss              0x0800        0x3b6 e_ad_conv.o
@@ -2761,15 +2770,19 @@ LOAD default_isr
  .ndata             0x11ae          0x2 e_led.o
 
 .nbss               0x11b0          0x2
- .nbss              0x11b0          0x2 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(brk.o)
-                    0x11b0                  __curbrk
+ .nbss              0x11b0          0x2 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libm-coff.a(errno.o)
+                    0x11b0                  errno
 
-.dconst             0x11b2          0x8
- .dconst            0x11b2          0x8 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
+.nbss               0x11b2          0x2
+ .nbss              0x11b2          0x2 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libpic30-coff.a(brk.o)
+                    0x11b2                  __curbrk
 
-.dinit            0x0053bc        0x1b6
- .dinit           0x0053bc        0x1b6 data_init
+.dconst             0x11b4          0x8
+ .dconst            0x11b4          0x8 q:/microchip/vfs/sft_mnt/program files (x86)/microchip/mplab c30/bin/../lib\libc-coff.a(xprintf.io)
 
-.isr              0x005572          0x2
- .isr             0x005572          0x2 default_isr
-                  0x005572                  _DefaultInterrupt
+.dinit            0x005480        0x1bc
+ .dinit           0x005480        0x1bc data_init
+
+.isr              0x00563c          0x2
+ .isr             0x00563c          0x2 default_isr
+                  0x00563c                  _DefaultInterrupt

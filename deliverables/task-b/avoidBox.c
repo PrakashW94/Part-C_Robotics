@@ -115,17 +115,6 @@ NOT USED
     // return rad*180/PI;
 // }
 
-void waitForSteps(int steps)
-{
-	int startSteps = e_get_steps_left();
-	e_set_steps_left(0);
-	
-	int endSteps = e_get_steps_left() + steps;
-	while( abs(e_get_steps_left()) < endSteps );
-	
-	e_set_steps_left(startSteps);
-}
-
 void clearSteps()
 {
 	e_set_steps_left(0);
