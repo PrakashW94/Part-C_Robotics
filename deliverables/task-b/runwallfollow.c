@@ -227,7 +227,8 @@ void run_wallfollow() {
 		if (rightwheel - leftwheel > 210)
 		{
 			turningLeft = 1;
-			if (finishedLeft && abs(e_get_steps_left()) > 100)
+			int currSteps = e_get_steps_left();
+			if (finishedLeft && abs(currSteps) > 400)
 			{
 				reportValue("starting 2nd turn", 1);
 				int lsteps = e_get_steps_left();
@@ -244,8 +245,18 @@ void run_wallfollow() {
 		else if (turningLeft)
 		{
 			reportValue("finished left", 1);
-			e_set_steps_left(0);
-			e_set_steps_right(0);
+
+			// If first robot
+			//e_set_steps_left(0);
+			//e_set_steps_right(0);
+
+			// If second Robot
+			followsetSpeed(400, 400);
+			waitForSteps(400);
+			followsetSpeed(0, 0);
+			reportValue("moved 400", 400);
+			break;
+
 			turningLeft = 0;
 			finishedLeft = 1;		
 		}
@@ -255,10 +266,11 @@ void run_wallfollow() {
 
 		wait(15000);
 	}	
-
-	// Get robot to move back 20% of box side length
-	int firstRobotPos = lineDist * 0.2;
-	followsetSpeed(-400, -400);
-	waitForSteps(firstRobotPos);
-	followsetSpeed(0, 0);
+	
+	// 	If first robot
+	// 	Get robot to move back 20% of box side length
+	//	int firstRobotPos = lineDist * 0.2;
+	//	followsetSpeed(-400, -400);
+	//	waitForSteps(firstRobotPos);
+	//	followsetSpeed(0, 0);
 }
