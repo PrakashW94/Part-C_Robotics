@@ -174,13 +174,18 @@ void updateProgress()
 		angle = angle - 2 * PI;
 		rCurrent = rCurrent - stepsToRotate(2*PI);
 	}
-	x += floor(h * sin(angle));
-	y += floor(h * cos(angle));
+	if (angle < -2*PI)
+	{
+		angle = angle + 2 * PI;
+		rCurrent = rCurrent + stepsToRotate(2*PI);
+	}
+	x += (int)(h * sin(angle));
+	y += (int)(h * cos(angle));
 	
 	d[i] = distToGoal(x, y, xg, yg);
 	q[i] = 100 - floor((d[i]/d[0])*100);
 	j++;
-	clearSteps();	
+	clearSteps();
 }
 
 void moveToGoal()
@@ -191,7 +196,6 @@ void moveToGoal()
 	{
 		angle = 2*PI - angle; 
 		r = stepsToRotate(angle);
-		reportValue("rotating ACW", RADtoDEG(angle));
 		setSpeed(-s, s);
 		waitForSteps(r);
 		setSpeed(s, s);
@@ -200,7 +204,6 @@ void moveToGoal()
 	else
 	{
 		r = stepsToRotate(angle);
-		reportValue("rotating CW", RADtoDEG(angle));
 		setSpeed(s, -s);
 		waitForSteps(r);
 		setSpeed(s, s);
@@ -239,20 +242,30 @@ void progressReport()
 
 void pathfinder()
 {
-	setGoal(0, 10000);
+	setGoal(0, 3000);
 	while(1)
 	{
 		moveToGoal();
 		clearSteps();
-		while (fp < 200 && q[i] <= 98)
+		while (fp < 200 && d[i] >= 50)
 		{
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
 			waitForSteps(10);
 			h = e_get_steps_left();
 			updateProgress();
-			reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), q[i]);
+			double angle = angleFromGoal(x, y, xg, yg);
+			reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), d[i]);
+			
+			//correction for angle
+			int correction = RADtoDEG(angle);
+			if (correction > 10 && correction < 350)
+			{
+				reportValue("Correcting", correction);
+				moveToGoal();
+				clearSteps();
+			}
 		}
-		if (q[i] >= 98)
+		if (d[i] <= 50)
 		{
 			e_set_led(8, 2);
 			setSpeed(0,0);
@@ -262,43 +275,35 @@ void pathfinder()
 		}
 		
 		progressReport();
-		int qb = q[i];
 		hCurrent = 0;
 		double db = d[i];
 		int onMline = 0;
 		int failed = 0;
+		e_set_led(4, 1);
 		do 
 		{
 			onMline = avoidBoundary(db);
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
 			
-			//DEBUGGING
 			if (onMline)
 			{//Check whether or not the point on mline is improvement
 				progressReport();
-				reportValue("qb", qb);
-				reportValue("qi", q[i]);
 				
 				int dDiff = d[i] - db;
-				if (dDiff < 200 && dDiff > 0)
+				if (dDiff < 250 && dDiff > 0)
 				{
 					failed = 1;
-				}					
-				//setSpeed(0, 0);
-				//while(1){}
-				//Check if qb is the same?
-				//Check if d[i] has decreased by enough?
+				}
 			}
-			//END DEBUGGING
-			
 		} while
 		(
 			q[i] <= 98 &&
 			!failed &&
 			!(onMline && db > d[i] && fp < 200)
 		);
-		
-		if (q[i] >= 98)
+		e_set_led(4, 0);
+		checkMline = 0;
+		if (d[i] <= 50)
 		{
 			e_set_led(8, 2);
 			setSpeed(0,0);
@@ -308,8 +313,8 @@ void pathfinder()
 		
 		if (failed)
 		{
-			//e_set_led(0,2);
 			setSpeed(0,0);
+			e_set_led(4, 1);
 			reportValue("Finished, Failure!", -1);
 			while(1){}
 		}
@@ -338,11 +343,11 @@ int avoidBoundary(int db)
 	{
 		switch(rightProx)
 		{
-			case 150 ... 750: 
+			case 250 ... 650: 
 			{//go straight with the object on the right
-				while ((rightProx < 750) && (rightProx > 150))
+				while ((rightProx < 650) && (rightProx > 250))
 				{
-					if(leftProx > 400)
+					if(leftProx > 250)
 					{//detect object on left, turn left if found
 						clearSteps();
 						while (leftProx > 400)
@@ -358,22 +363,27 @@ int avoidBoundary(int db)
 					else
 					{//go straight and check for mline
 						setSpeed(s, s);
+						wait(delayTimer);
 						h = e_get_steps_left();
 						hCurrent += h;
 						updateProgress();
 						
 						int mDist = distToMline(x, y, xg, yg);
-						reportXY(x, y, checkMline, mDist);
+						reportXY(x, y, RADtoDEG(angleToRotate(rCurrent)), mDist);
 						if (checkMline)
 						{
-							if (mDist < 10)
+							if (mDist < 30)
 							{
+								LED0 = 1;
 								int dDiff = d[i] - db;
-								if (d[i] < db || dDiff < 200)
+								reportValue("M-line found, dDiff", dDiff);
+								if (d[i] < db || dDiff < 300)
 								{
 									LED0 = 1;
+									setSpeed(0, 0);
 									return 1;
 								}
+								LED0 = 0;
 							}
 						}
 						else
@@ -390,7 +400,7 @@ int avoidBoundary(int db)
 				}
 				break;
 			}
-			case 751 ... 5000:
+			case 651 ... 5000:
 			{//moving towards object, turn left slightly
 				clearSteps();
 				while (rightProx > 650)
@@ -423,8 +433,8 @@ int avoidBoundary(int db)
 	updateProgress();
 	clearSteps();
 	setSpeed(s, s);
+	wait(delayTimer);
 	h = e_get_steps_left();
 	updateProgress();
-	wait(delayTimer);
 	return 0;
 }
