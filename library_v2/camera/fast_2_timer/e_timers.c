@@ -33,12 +33,13 @@ char _poxxxx_line_conf[330];
  * This mean that the picture is comming from the camera ( we will have the first line soon )
  */
 void __attribute__((interrupt, auto_psv))
-_T5Interrupt(void) {
-	IFS1bits.T5IF = 0;		//clear timer5 interrupt status flag (zero means no pending interrupt requests)
-	/* let's enable Hsync */
-	T4CONbits.TON = 1;		//start timer4
-	/* single shot */
-	T5CONbits.TON = 0;		//stop timer5
+_T5Interrupt(void) 
+{
+		IFS1bits.T5IF = 0;		//clear timer5 interrupt status flag (zero means no pending interrupt requests)
+		/* let's enable Hsync */
+		T4CONbits.TON = 1;		//start timer4
+		/* single shot */
+		T5CONbits.TON = 0;		//stop timer5
 }
 
 
@@ -60,7 +61,6 @@ static void init_timer4(void) {
 	T4CONbits.TON = 0;		//stop timer4
 	IEC1bits.T4IE = 1;		//enable timer4 interrupt
 }
-
 
 
 /*! Launch a capture in the \a buf buffer

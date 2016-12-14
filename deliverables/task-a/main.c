@@ -24,6 +24,7 @@
 #include "high_level/packet.h"
 #include "high_level/init.h"
 #include "high_level/traverse.h"
+#include "high_level/findGreen.h"
 
 #include "custom_util/bluetooth_util.h"
 #include "custom_util/constants.c"
@@ -43,6 +44,9 @@ int main()
 	e_init_motors();
 	e_init_ad_scan();
 	e_init_uart1();
+	
+
+	//wait(1000000);
 
 	int counter = 0;
 
@@ -164,14 +168,9 @@ int main()
     		ircomEnableContinuousListening();
     		ircomListen();
 
-<<<<<<< HEAD
 			e_activate_agenda( emit, 30000 );
 			e_activate_agenda( receive, 30000 );
-=======
-			e_activate_agenda( emit, 3000 );
-			e_activate_agenda( receive, 500 );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
-			
+
 			setPacketToEmit( CMD_SET_STATE, STATE_TEST_SIDE_FOLLOW );
 
 			while( 1 );

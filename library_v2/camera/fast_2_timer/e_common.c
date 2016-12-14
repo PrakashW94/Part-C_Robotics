@@ -76,7 +76,7 @@ void e_poxxxx_write_cam_registers(void) {
 int e_poxxxx_init_cam(void) {
 	int i;
 	unsigned char reg0, reg1;
-	e_init_port();
+	e_init_port();	
 	e_i2cp_init();
 	CAM_RESET=0;
 	for(i=100;i;i--) __asm__ volatile ("nop");
@@ -195,4 +195,21 @@ void e_poxxxx_set_exposure(unsigned long exp) {
 }
 unsigned int getCameraVersion() {
     return camera_version;
+}
+
+
+void turn_off_camera(void) 
+{
+	int i;
+
+    //INTCON1bits.NSTDIS = 1;
+
+    IPC5 = 0;//(IPC5 & 0xF00F);
+	
+	// Stop timers
+	T4CONbits.TON = 0;	
+	T5CONbits.TON = 0;
+
+    CAM_RESET = 0;
+	for(i=100;i;i--) __asm__ volatile ("nop");
 }

@@ -10,19 +10,17 @@
 #include "custom_util/motor_control.h"
 
 #include "high_level/global.h"
-<<<<<<< HEAD
+#include "high_level/findGreen.h"
 #include "high_level/wall_follow.h"
-=======
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 
 #include "ircom/e_ad_conv.h"
 #include "ircom/emitter.h"
+#include "ircom/ircom.h"
 
 #include "traverse.h"
 
 #include "custom_util/utility.h"
 
-<<<<<<< HEAD
 #define NEAR_WALL_THRESHOLD 200
 
 #define APPROACH_WALL_THRESHOLD 40
@@ -31,13 +29,13 @@
 
 int TURNING = 0;
 
+int steps_one_side[2] = { -1 , -1 };
+
 int front_right_prox;
 int front_left_prox;
 
-=======
-int TURNING = 0;
-
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
+void disableCameraTimers();
+void enableCameraTimers();
 
 /**
 * Initialise the search behaviours.
@@ -45,25 +43,20 @@ int TURNING = 0;
 void initTraverse()
 {
 	global.phase = PHASE_SEARCH;
+	
+	// Set up camera
+	btcomSendString( "Starting camera..." ); 
+	//initGreen();
+	btcomSendString( "Camera started." );
 
-<<<<<<< HEAD
 	setPacketToEmit( CMD_SET_STATE, STATE_FOLLOW );
 
 	do
 	{
-		// btcomSendInt( PHASE_SEARCH );
+	//	btcomSendInt( PHASE_SEARCH );
 		traverse();
 	}
 	while( global.phase < PHASE_SEARCH_COMPLETE );		
-=======
-	e_activate_agenda( emitFollow, 10000 );
-
-	do
-	{
-		traverse();
-	}
-	while( global.phase == PHASE_SEARCH );		
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 }
 
 void endTraverse()
@@ -75,8 +68,7 @@ void endTraverse()
 void traverse()
 {	
 	e_led_clear();
-<<<<<<< HEAD
-		
+
 	if( global.phase < PHASE_SEARCH_COMPLETE )
 	{
 			front_right_prox = e_get_calibrated_prox( 0 );
@@ -88,59 +80,31 @@ void traverse()
 			btcomSendInt( front_right_prox );	
 			btcomSendString( "========== \r\n" );
 		*/
-	
-			if( triggerAvoidWall() == 1 )
+			int triggerAvoid = triggerAvoidWall();
+
+			if( triggerAvoid == 1 )
 			{	
+				if( foundObject() == 1 )
+				{
+					btcomSendString( "Found object, finishing traverse. \r\n" );
+					endTraverse();
+					return;
+				}
 				btcomSendString( "Avoiding wall... \r\n" );
-			//	LED1 = 1;
 				avoidWall();
 				btcomSendString( "Completed avoiding wall... \r\n" );
 			}
-		/*	else if( approachingWall() == 1 )
-			{
-				btcomSendString( "Approaching wall... \r\n" );
-				LED2 = 1;
-				approachWall();
-			}*/
-			else if( foundObject() == 1 )
-			{	
-				btcomSendString( "Found object, finishing traverse. \r\n" );
-			//	LED3 = 1;
-				endTraverse();
-			}
+		//	else if( foundObject() == 1 )
+		//	{	
+			//	btcomSendString( "Found object, finishing traverse. \r\n" );
+			//	endTraverse();
+		//	}
 			else
 			{	
-			//	btcomSendString( "Cruising. \r\n" );
-			//	LED3 = 1;
+				//btcomSendString( "Cruising. \r\n" );
 				cruise();
 			}
-			wait( 20000 );
-=======
-
-	if( global.phase == PHASE_SEARCH )
-	{
-			if( triggerAvoidWall() == 1 )
-				{	
-					btcomSendString( "Avoiding wall... \r\n" );
-					LED1 = 1;
-					avoidWall();
-					btcomSendString( "Completed avoiding wall... \r\n" );
-				}
-				else if( foundObject() == 1 )
-				{	
-					btcomSendString( "Found object, finishing traverse. \r\n" );
-					LED2 = 1;
-					endTraverse();
-				}
-				else
-				{	
-				//	btcomSendString( "Cruising. \r\n" );
-					LED3 = 1;
-					cruise();
-				}
-				wait( 20000 );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
-				
+			wait( 200000 );				
 	}
 }
 
@@ -150,7 +114,6 @@ void traverse()
 
 void cruise()
 {
-<<<<<<< HEAD
 	int left_speed = BASE_SPEED;
 	int right_speed = BASE_SPEED;
 
@@ -177,9 +140,6 @@ void cruise()
 	}	
 
 	set_wheel_speeds( left_speed, right_speed );
-=======
-	set_wheel_speeds( BASE_SPEED, BASE_SPEED );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 }
 
 
@@ -211,7 +171,7 @@ int stillTurning()
 	}	
 }
 
-<<<<<<< HEAD
+
 void followWall( int side, int stepsToFollowFor )
 {
 	int prox;
@@ -239,51 +199,53 @@ void followWall( int side, int stepsToFollowFor )
 }
 
 
-=======
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 void avoidWall()
 {	
 	btcomSendString( "Traverse Direction: " );
 	btcomSendInt( global.traverseDirection );
 
+	if( steps_one_side[0] == -1 ||
+		steps_one_side[1] == -1 )
+	{
+		steps_one_side[0] = e_get_steps_left();
+		steps_one_side[1] = e_get_steps_right();
+		
+		btcomSendString( "[TRAVERSE] Setting steps: \r\n");
+		btcomSendInt( steps_one_side[0] );
+		btcomSendInt( steps_one_side[1] );
+	}	
+
+	clearSteps();
+
+
 	switch( global.traverseDirection )
 	{
+
 		case RIGHT:
 			turn90DegreesTo( LEFT );
-<<<<<<< HEAD
 			runWallFollow( RIGHT, 1000 ); 
 			//followWall( RIGHT, 1000 );
 			//moveForwards( BASE_SPEED, 1000 );
-=======
-			moveForwards( BASE_SPEED, 1000 );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 			turn90DegreesTo( LEFT );
 			break;
+
 		case LEFT:
 			turn90DegreesTo( RIGHT );
-<<<<<<< HEAD
-			runWallFollow( RIGHT, 1000 ); 
+			runWallFollow( LEFT, 1000 ); 
 			//followWall( LEFT, 1000 ); 
 			//moveForwards( BASE_SPEED, 1000 );
 			turn90DegreesTo( RIGHT );
 			break;
+
 	}
 	btcomSendString( "Switching: " );
-=======
-			moveForwards( BASE_SPEED, 1000 );
-			turn90DegreesTo( RIGHT );
-			break;
-	}
-	btcomSendString( "Switching..." );
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	switchTraverseSide();
 	btcomSendInt( global.traverseDirection );
 	
 }
 
 int triggerAvoidWall()
-{	
-<<<<<<< HEAD
+{
 //	btcomSendString( "Prox: " );
 //	btcomSendInt( front_prox );
 
@@ -306,21 +268,13 @@ int approachingWall()
 
 	if( front_right_prox > approach_threshold ||
 		front_left_prox > approach_threshold )
-=======
-	int front_prox = e_get_calibrated_prox(0);
-
-	btcomSendString( "Prox: " );
-	btcomSendInt( front_prox );
-
-	if( front_prox > 300 )
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 	{
 		return 1;
 	}
 	return 0;
 }
 
-<<<<<<< HEAD
+
 void approachWall( int *left_speed, int *right_speed )
 {	
 	int diff = front_right_prox - front_left_prox;
@@ -341,13 +295,31 @@ void approachWall( int *left_speed, int *right_speed )
 	}
 }
 
-=======
->>>>>>> 72b18d279e37cdb4884232228eb6abe0dd67a99f
 
 /**
 * "Search" Behaviour
 */
 int foundObject()
 {
+
+//	int foundGreen;
+	//btcomSendString( "Checking green... \r\n" );
+//	foundGreen = findGreen();
+	//btcomSendString( "Finished checking green... \r\n" );
+	//foundGreen = 0;
+//	return foundGreen;
+
+	if( triggerAvoidWall() == 1 )
+	{
+		btcomSendString( "[TRAVERSE] Checking steps: \r\n");
+		btcomSendInt( e_get_steps_left() );
+		btcomSendInt( e_get_steps_right() );
+
+		if( e_get_steps_left() < ( steps_one_side[0] - 200 ) &&
+		 e_get_steps_right() < ( steps_one_side[1] - 200 ) )
+		{	
+			return 1;
+		}	
+	}
 	return 0;
 }

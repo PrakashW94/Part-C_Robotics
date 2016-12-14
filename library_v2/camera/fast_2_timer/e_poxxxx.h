@@ -48,4 +48,6 @@ void e_poxxxx_set_awb_ae(int awb, int ae);
 void e_poxxxx_set_rgb_gain(unsigned char r, unsigned char g, unsigned char b);
 void e_poxxxx_set_exposure(unsigned long exp);
 
+void turn_off_camera();
+
 #endif
