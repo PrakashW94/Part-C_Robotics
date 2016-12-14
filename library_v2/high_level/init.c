@@ -7,6 +7,7 @@
 #include "high_level/global.h"
 #include "high_level/packet.h" 
 #include "high_level/traverse.h"
+#include "high_level/positionAroundObject.h"
 
 #include "ircom/ircom.h"
 

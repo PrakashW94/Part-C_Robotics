@@ -1,7 +1,7 @@
 #ifndef _GLOBAL
 #define _GLOBAL
 
-#define BASE_SPEED 300
+#define BASE_SPEED 400
 
 #define LEFT 0
 #define RIGHT 1
@@ -22,6 +22,8 @@
 #define PHASE_INIT_COMPLETE 1
 #define PHASE_SEARCH 2
 #define PHASE_SEARCH_COMPLETE 3
+#define PHASE_BOX_FOLLOW 4
+#define PHASE_BOX_FOLLOW_COMPLETE 5
 #define PHASE_FINISH 10
 
 

@@ -25,6 +25,7 @@
 #include "high_level/init.h"
 #include "high_level/traverse.h"
 #include "high_level/findGreen.h"
+#include "high_level/positionAroundObject.h"
 
 #include "custom_util/bluetooth_util.h"
 #include "custom_util/constants.c"
@@ -207,8 +208,49 @@ int main()
     		ircomEnableContinuousListening();
     		ircomListen();
 			initTraverse();
+			
+			while( global.phase < PHASE_SEARCH_COMPLETE );
+			btcomSendString( "Starting box follow." );
+			initBoxFollow();
 
 			while( 1 );
+			break;
+		// Box follow test
+		case 11:
+			btcomSendString( "Starting box follow test (Right -> Left)." );
+			
+			initGlobal(LEFT);
+	
+			e_start_agendas_processing();
+			e_calibrate_ir(); 
+
+			LED1 = 1;
+			wait(1000000);
+			LED1 = 0;
+			
+			btcomSendString( "Starting box follow." );
+			initBoxFollow();
+				
+			BODY_LED = 1;
+			
+			while( 1 );
+			break;
+		case 12:
+			btcomSendString( "Starting box follow test (Left -> Right)." );
+			initGlobal(RIGHT);
+			
+			e_start_agendas_processing();
+			e_calibrate_ir(); 
+			
+			LED1 = 1;			
+			wait(1000000);
+			LED1 = 0;
+
+			btcomSendString( "Starting box follow." );
+			initBoxFollow();
+			
+			while( 1 );
+			break;
 		default:
 			// Indicated an unregistered selector.
 			BODY_LED = 1;
