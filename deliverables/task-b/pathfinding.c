@@ -212,17 +212,6 @@ void moveToGoal()
 	updateProgress();
 }
 
-int getProx(int sensors[], int noOfSensors)
-{
-	int k;
-	double prox;
-	for (k = 0;k < noOfSensors; k++)
-	{
-		prox = prox + e_get_prox(sensors[k]);
-	}
-	return (int)(prox/noOfSensors);
-}
-
 void progressReport()
 {
 	reportValue("****START PROGRESS REPORT****", -1);
@@ -274,7 +263,6 @@ void pathfinder()
 			while(1){}
 		}
 		
-		progressReport();
 		hCurrent = 0;
 		double db = d[i];
 		int onMline = 0;
@@ -286,11 +274,9 @@ void pathfinder()
 			fp = (int)((e_get_prox(6) + e_get_prox(7) + e_get_prox(0) + e_get_prox(1))/4);
 			
 			if (onMline)
-			{//Check whether or not the point on mline is improvement
-				progressReport();
-				
+			{//Check whether or not the point on mline is improvement				
 				int dDiff = d[i] - db;
-				if (dDiff < 250 && dDiff > 0)
+				if (dDiff < 250 && dDiff > -250)
 				{
 					failed = 1;
 				}
@@ -347,7 +333,7 @@ int avoidBoundary(int db)
 			{//go straight with the object on the right
 				while ((rightProx < 650) && (rightProx > 250))
 				{
-					if(leftProx > 250)
+					if(leftProx > 400)
 					{//detect object on left, turn left if found
 						clearSteps();
 						while (leftProx > 400)
