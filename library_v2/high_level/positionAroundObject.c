@@ -144,7 +144,8 @@ void positionAroundObject() {
 		turn90DegreesTo( LEFT );
 	}
 */	
-	
+	//e_calibrate_ir();
+
 	while (1) {
 
 		_followGetSensorValues(distances); // read sensor values
@@ -252,7 +253,7 @@ void positionAroundObject() {
 					rightwheel+=position_weightright[i]*(distances[i]>>4);
 				}
 			}
-	
+
 			if (rightwheel < 0)
 			{
 				turningRight = 1;
