@@ -33,8 +33,8 @@ int main()
 	int selector = getSelector();
 	if (selector > 0)
 	{
-		e_set_speed_left(300);
-		e_set_speed_right(300);
+		e_set_speed_left(1000);
+		e_set_speed_right(1000);
 		accel();
 		/*while(1)
 		{
