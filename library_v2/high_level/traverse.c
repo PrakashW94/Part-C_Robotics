@@ -71,6 +71,8 @@ void traverse()
 
 	if( global.phase < PHASE_SEARCH_COMPLETE )
 	{
+			btcomSendString( "Runnning traverse.." );
+
 			front_right_prox = e_get_calibrated_prox( 0 );
 			front_left_prox = e_get_calibrated_prox( 7 );
 		
@@ -104,7 +106,7 @@ void traverse()
 				//btcomSendString( "Cruising. \r\n" );
 				cruise();
 			}
-			wait( 200000 );				
+			wait( 20000 );				
 	}
 }
 
