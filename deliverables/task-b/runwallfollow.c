@@ -141,11 +141,12 @@ void run_wallfollow() {
 	int gostraight;
 
 	int turningRight = 0;
+	int finishedRight = 0;
 	int turningLeft = 0;
 	int finishedLeft = 0;
 	int lineDist = 0;
 
-	int firstRobot = 0;
+	int firstRobot = 1;
 	int movingDown = 1;
 
 	while (1) {
@@ -185,9 +186,36 @@ void run_wallfollow() {
 			if (leftwheel - rightwheel > 210)
 			{
 				turningRight = 1;
-				reportValue("turning right, diff:", leftwheel - rightwheel);
+				if (finishedRight && abs(currSteps) > 400 && firstRobot)
+				{
+					// if first robot
+					reportValue("starting 2nd turn", 1);
+					int lsteps = e_get_steps_left();
+					int rsteps = e_get_steps_right();
+					lineDist = sqrt(pow(lsteps, 2) + pow(rsteps, 2));
+					reportValue("left steps", lsteps);
+					reportValue("right steps", rsteps);
+					reportValue("lineDist", lineDist);
+					finishedLeft = 0;
+					followsetSpeed(0, 0);
+					break;
+				}				
 			}
-			
+			else if (turningRight)
+			{
+				reportValue("finished right", 1);
+
+				e_set_steps_left(0);
+				e_set_steps_right(0);			
+
+				turningRight = 0;
+				finishedRight = 1;		
+			}
+			else if (finishedRight && abs(currSteps) > 500 && !firstRobot)
+			{
+				followsetSpeed(0, 0);
+				break;
+			}		
 			
 		} 
 		else 
@@ -274,12 +302,20 @@ void run_wallfollow() {
 	{
 		// 	Get robot to move back 20% of box side length
 		int firstRobotPos = lineDist * 0.2;
-		followsetSpeed(-400, -400);
+		followsetSpeed(-400, -400);		
 		waitForSteps(firstRobotPos);
 		followsetSpeed(0, 0);	
 
 		// Rotate to face box (roughly)
-		followsetSpeed(-200, 200);
+		if (movingDown)
+		{
+			followsetSpeed(300, -300);
+		}
+		else
+		{
+			followsetSpeed(-300, 300);
+		}
+		
 		waitForSteps(200);
 		followsetSpeed(0, 0);
 
@@ -298,7 +334,15 @@ void run_wallfollow() {
 		// Rotate towards box more exact
 		if (distances[7] > distances[0] + 500)
 		{
-			followsetSpeed(-200, 200);
+			
+			if (movingDown)
+			{
+				followsetSpeed(300, -300);
+			}
+			else
+			{
+				followsetSpeed(-300, 300);
+			}
 			waitForSteps(100);
 			followsetSpeed(0, 0);
 		}
@@ -306,7 +350,14 @@ void run_wallfollow() {
 	else
 	{
 		// Second robot rotates 90 degrees to face box
-		followsetSpeed(-200, 200);
+		if (movingDown)
+		{
+			followsetSpeed(300, -300);
+		}
+		else
+		{
+			followsetSpeed(-300, 300);
+		}
 		waitForSteps(333);
 		followsetSpeed(0, 0);
 
