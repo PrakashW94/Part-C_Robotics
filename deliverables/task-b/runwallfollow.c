@@ -92,13 +92,6 @@ int follow_weightright[8] = {10,10,5,0,0,-5,-10,-10};
 	wait(100000);
 }*/
 
-/*! \brief Looking at the selector value
- * \return The selector value from 0 to 15
- */
-int followgetSelectorValue() {
-	return SELECTOR0 + 2*SELECTOR1 + 4*SELECTOR2 + 8*SELECTOR3;
-}
-
 void reportValue(char* title, int value)
 {
 	char uartbuffer[100];
@@ -146,8 +139,6 @@ void run_wallfollow() {
 	int distances[NB_SENSORS];		// array keeping the distance sensor readings
 	int i;							// FOR-loop counters
 	int gostraight;
-	int loopcount;
-	unsigned char selector_change;
 
 	int turningRight = 0;
 	int turningLeft = 0;
@@ -155,19 +146,14 @@ void run_wallfollow() {
 	int lineDist = 0;
 
 	int firstRobot = 0;
-	
-	loopcount=0;
-	selector_change = !(followgetSelectorValue() & 0x0001);
+	int movingDown = 1;
 
 	while (1) {
 		followGetSensorValues(distances); // read sensor values
 
 		gostraight=0;
-		if ((followgetSelectorValue() & 0x0001) == RIGHT_FOLLOW) {
-			//reportValue("rightfollow", -1);
-			if(selector_change == LEFT_FOLLOW) {
-				selector_change = RIGHT_FOLLOW;
-			}  
+		if (movingDown) 
+		{
 			for (i=0; i<8; i++) {
 				if (distances[i]>50) {break;}
 			}
@@ -184,11 +170,28 @@ void run_wallfollow() {
 					distances[3]-=100;
 				}
 			}
-		} else {
-			//reportValue("leftfollow", -1);
-			if(selector_change == RIGHT_FOLLOW) {
-				selector_change = LEFT_FOLLOW;
+
+			leftwheel=BIAS_SPEED;
+			rightwheel=BIAS_SPEED;
+			if (gostraight==0) {
+				for (i=0; i<8; i++) {
+					leftwheel+=follow_weightleft[i]*(distances[i]>>4);
+					rightwheel+=follow_weightright[i]*(distances[i]>>4);
+				}
 			}
+	
+		//	reportValue("diff", rightwheel - leftwheel);
+			int currSteps = e_get_steps_left();
+			if (leftwheel - rightwheel > 210)
+			{
+				turningRight = 1;
+				reportValue("turning right, diff:", leftwheel - rightwheel);
+			}
+			
+			
+		} 
+		else 
+		{			
 			for (i=0; i<8; i++) {
 				if (distances[i]>50) {break;}
 			}
@@ -204,63 +207,62 @@ void run_wallfollow() {
 					distances[5]-=600;
 					distances[6]-=200;
 				}
+			}			
+
+			leftwheel=BIAS_SPEED;
+			rightwheel=BIAS_SPEED;
+			if (gostraight==0) {
+				for (i=0; i<8; i++) {
+					leftwheel+=follow_weightleft[i]*(distances[i]>>4);
+					rightwheel+=follow_weightright[i]*(distances[i]>>4);
+				}
 			}
-		}
-
-		leftwheel=BIAS_SPEED;
-		rightwheel=BIAS_SPEED;
-		if (gostraight==0) {
-			for (i=0; i<8; i++) {
-				leftwheel+=follow_weightleft[i]*(distances[i]>>4);
-				rightwheel+=follow_weightright[i]*(distances[i]>>4);
-			}
-		}
-
-		if (rightwheel < 0)
-		{
-			turningRight = 1;
-		}
-		else if (turningRight)
-		{
-			reportValue("finished right", 1);
-			turningRight = 0;
-		}	
-
-
-		int currSteps = e_get_steps_left();
-		if (rightwheel - leftwheel > 210)
-		{
-			turningLeft = 1;
-			if (finishedLeft && abs(currSteps) > 400 && firstRobot)
+	
+			if (rightwheel < 0)
 			{
-				// if first robot
-				reportValue("starting 2nd turn", 1);
-				int lsteps = e_get_steps_left();
-				int rsteps = e_get_steps_right();
-				lineDist = sqrt(pow(lsteps, 2) + pow(rsteps, 2));
-				reportValue("left steps", lsteps);
-				reportValue("right steps", rsteps);
-				reportValue("lineDist", lineDist);
-				finishedLeft = 0;
+				turningRight = 1;
+			}
+			else if (turningRight)
+			{
+				reportValue("finished right", 1);
+				turningRight = 0;
+			}
+
+			int currSteps = e_get_steps_left();
+			if (rightwheel - leftwheel > 210)
+			{
+				turningLeft = 1;
+				if (finishedLeft && abs(currSteps) > 400 && firstRobot)
+				{
+					// if first robot
+					reportValue("starting 2nd turn", 1);
+					int lsteps = e_get_steps_left();
+					int rsteps = e_get_steps_right();
+					lineDist = sqrt(pow(lsteps, 2) + pow(rsteps, 2));
+					reportValue("left steps", lsteps);
+					reportValue("right steps", rsteps);
+					reportValue("lineDist", lineDist);
+					finishedLeft = 0;
+					followsetSpeed(0, 0);
+					break;
+				}			
+			}
+			else if (turningLeft)
+			{
+				reportValue("finished left", 1);
+
+				e_set_steps_left(0);
+				e_set_steps_right(0);			
+
+				turningLeft = 0;
+				finishedLeft = 1;		
+			}
+			else if (finishedLeft && abs(currSteps) > 500 && !firstRobot)
+			{
 				followsetSpeed(0, 0);
 				break;
-			}			
-		}
-		else if (turningLeft)
-		{
-			reportValue("finished left", 1);
-
-			e_set_steps_left(0);
-			e_set_steps_right(0);			
-
-			turningLeft = 0;
-			finishedLeft = 1;		
-		}
-		else if (finishedLeft && abs(currSteps) > 500 && !firstRobot)
-		{
-			followsetSpeed(0, 0);
-			break;
-		}
+			}
+		}		
 
 		// set robot speed
 		followsetSpeed(leftwheel, rightwheel);
