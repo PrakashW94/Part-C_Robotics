@@ -45,6 +45,8 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 #include "a_d/advance_ad_scan/e_ad_conv.h"
 #include "a_d/advance_ad_scan/e_prox.h"
 
+//#include "high_level/global.h"
+
 #include "utility.h"
 #include "runwallfollow.h"
 
@@ -134,7 +136,7 @@ void waitForSteps(int steps)
 }
 
 /*! \brief The "main" function of the program */
-void run_wallfollow() {
+void positionAroundObject() {
 	int leftwheel, rightwheel;		// motor speed left and right
 	int distances[NB_SENSORS];		// array keeping the distance sensor readings
 	int i;							// FOR-loop counters
@@ -146,7 +148,10 @@ void run_wallfollow() {
 	int finishedLeft = 0;
 	int lineDist = 0;
 
+	// firstRobot = global.isMaster;
 	int firstRobot = 1;
+
+	// movingDown = global.traverseDirection;
 	int movingDown = 1;
 
 	while (1) {

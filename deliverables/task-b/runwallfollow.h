@@ -21,10 +21,10 @@
  * \author Jonathan Besuchet
  */
 
-#ifndef _WALLFOLLOW
-#define _WALLFOLLOW
+#ifndef _POSITIONAROUNDOBJECT
+#define _POSITIONAROUNDOBJECT
 
 
-void run_wallfollow();
+void positionAroundObject();
 
 #endif
