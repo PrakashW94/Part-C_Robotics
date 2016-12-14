@@ -7,6 +7,7 @@
 #include "high_level/global.h"
 #include "high_level/packet.h" 
 #include "high_level/traverse.h"
+#include "high_level/positionAroundObject.h"
 
 #include "ircom/ircom.h"
 
@@ -63,7 +64,7 @@ void initHighLevelMaster( int isMaster )
 	init();
 
 	btcomSendString( "Setting SET_STATE -> PROPOSE_MASTER packet emit. \r\n" );
-	setPacketToEmit( CMD_SET_STATE, STATE_PROPOSE_MASTER );	
+	setPacketToEmit( CMD_SET_STATE, STATE_INIT_BOX_FOLLOW );	
 	
 	btcomSendString( "Waiting to handshake with follower... \r\n" );
 	while( global.phase < PHASE_INIT_COMPLETE );	
@@ -85,12 +86,13 @@ void initHighLevelMaster( int isMaster )
 	* Phase 2 - Found the box. Now to go round box.
 	**/
 	
+	setPacketToEmit( CMD_SET_STATE, STATE_INIT_BOX_FOLLOW );
+	wait( 200000 );
 	btcomSendString( "Start box follow... \r\n" );
-	initBoxFollow();
+	initBoxFollow( 1 );
 	btcomSendString( "Waiting to complete box follow... \r\n" );
 	while( global.phase < PHASE_BOX_FOLLOW_COMPLETE );
 	btcomSendString( "Completed box follow." );	
-
 
 	BODY_LED = 1;
 	btcomSendString( "Waiting to finish... \r\n" );
@@ -112,10 +114,32 @@ void initHighLevelFollower()
 
 	e_destroy_agenda( emit );	
 
+	/**
+	* Phase 1 - Do nothing but listen to follow commands.
+	**/
 	BODY_LED = 1;
+
+	/**
+	* Phase 2 - Wait for SET_STATE -> PHASE_BOX_FOLLOW
+	**/
+	while ( global.phase < PHASE_BOX_FOLLOW );
+
+	/**
+	* Phase 3 - Perform the "follower" box follow
+	**/
+	BODY_LED = 0;
 	
+	btcomSendString( "Received a phase box follow message.. Preparing box follow \r\n" );
+
+	initBoxFollow( 1 ); // init box follow for second epuck.	
+	while( global.phase < PHASE_BOX_FOLLOW_COMPLETE );
+	btcomSendString( "Completed box follow." );	
+
+	BODY_LED = 1;
+
 	btcomSendString( "Waiting to finish... \r\n" );
 	while( global.phase != PHASE_FINISH );
+
 	
 	btcomSendString( "Finished \r\n" );
 

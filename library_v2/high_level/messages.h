@@ -38,3 +38,6 @@
 // Follow me state
 #define STATE_FOLLOW 20 // Tell other robot to follow this robot
 
+
+#define STATE_INIT_BOX_FOLLOW 30 // Tell other robot to start box follow.
+

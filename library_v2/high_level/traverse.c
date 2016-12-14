@@ -22,9 +22,8 @@
 #include "custom_util/utility.h"
 
 #define NEAR_WALL_THRESHOLD 200
-
+#define NEAR_OBJECT_THRESHOLD 150
 #define APPROACH_WALL_THRESHOLD 40
-
 #define WALL_CLOSEST_THRESHOLD 200
 
 int TURNING = 0;
@@ -75,32 +74,18 @@ void traverse()
 
 			front_right_prox = e_get_calibrated_prox( 0 );
 			front_left_prox = e_get_calibrated_prox( 7 );
-		
-		/*	
-			btcomSendString( "=== IR === \r\n" );
-			btcomSendInt( front_left_prox );
-			btcomSendInt( front_right_prox );	
-			btcomSendString( "========== \r\n" );
-		*/
-			int triggerAvoid = triggerAvoidWall();
-
-			if( triggerAvoid == 1 )
+			
+			if( foundObject() == 1 )
+			{
+				btcomSendString( "Found object, finishing traverse. \r\n" );
+				endTraverse();
+			}
+			else if( triggerAvoidWall() == 1 )
 			{	
-				if( foundObject() == 1 )
-				{
-					btcomSendString( "Found object, finishing traverse. \r\n" );
-					endTraverse();
-					return;
-				}
 				btcomSendString( "Avoiding wall... \r\n" );
 				avoidWall();
 				btcomSendString( "Completed avoiding wall... \r\n" );
 			}
-		//	else if( foundObject() == 1 )
-		//	{	
-			//	btcomSendString( "Found object, finishing traverse. \r\n" );
-			//	endTraverse();
-		//	}
 			else
 			{	
 				//btcomSendString( "Cruising. \r\n" );
@@ -303,25 +288,17 @@ void approachWall( int *left_speed, int *right_speed )
 */
 int foundObject()
 {
-
-//	int foundGreen;
-	//btcomSendString( "Checking green... \r\n" );
-//	foundGreen = findGreen();
-	//btcomSendString( "Finished checking green... \r\n" );
-	//foundGreen = 0;
-//	return foundGreen;
-
-	if( triggerAvoidWall() == 1 )
+	if( front_right_prox > NEAR_OBJECT_THRESHOLD && front_left_prox > NEAR_OBJECT_THRESHOLD )
 	{
 		btcomSendString( "[TRAVERSE] Checking steps: \r\n");
 		btcomSendInt( e_get_steps_left() );
 		btcomSendInt( e_get_steps_right() );
-
-		if( e_get_steps_left() < ( steps_one_side[0] - 200 ) &&
-		 e_get_steps_right() < ( steps_one_side[1] - 200 ) )
+		
+		if( e_get_steps_left() < ( steps_one_side[0] - 200 ) && e_get_steps_right() < ( steps_one_side[1] - 200 ) )
 		{	
 			return 1;
 		}	
 	}
+
 	return 0;
 }

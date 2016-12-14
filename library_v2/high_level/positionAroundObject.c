@@ -34,24 +34,30 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  */
 
 #include "p30f6014A.h"
+
+#include "math.h"
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
+
+#include "btcom/btcom.h"
+
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
 #include "motor_led/advance_one_timer/e_agenda.h"
 #include "motor_led/advance_one_timer/e_motors.h"
+
 #include "uart/e_uart_char.h"
-#include "a_d/advance_ad_scan/e_ad_conv.h"
-#include "a_d/advance_ad_scan/e_prox.h"
 
-//#include "high_level/global.h"
+#include "ircom/e_ad_conv.h"
 
-#include "utility.h"
-#include "runwallfollow.h"
+#include "high_level/global.h"
+#include "high_level/wall_follow.h"
 
-#include "math.h"
+#include "custom_util/utility.h"
+#include "custom_util/motor_control.h"
 
+#include "positionAroundObject.h"
 
 #define LEFT_FOLLOW			0		// behaviors IDs	
 #define RIGHT_FOLLOW		1 
@@ -59,84 +65,52 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 #define NB_SENSORS          8		// number of sensors
 #define BIAS_SPEED      	350		// robot bias speed
 #define SENSOR_THRESHOLD	300		// discount sensor noise below threshold
-#define MAXSPEED 			800		// maximum robot speed
+#define MAXSPEED 			400		// maximum robot speed
 
 
-int follow_sensorzero[8];
-int follow_weightleft[8] = {-10,-10,-5,0,0,5,10,10};
-int follow_weightright[8] = {10,10,5,0,0,-5,-10,-10};
+int position_sensorzero[8];
+int position_weightleft[8] = {-10,-10,-5,0,0,5,10,10};
+int position_weightright[8] = {10,10,5,0,0,-5,-10,-10};
 
-/*! \breif Callibrate the proxymity sensor */
-/*void follow_sensor_calibrate() {
-	int i, j;
-	char buffer[80];
-	long sensor[8];
 
-	for (i=0; i<8; i++) {
-		sensor[i]=0;
-	}
-	
-	for (j=0; j<32; j++) {
-		for (i=0; i<8; i++) {
-			sensor[i]+=e_get_prox(i);
-		}
-		wait(10000);
-	}
-
-	for (i=0; i<8; i++) {
-		follow_sensorzero[i]=(sensor[i]>>5);
-		sprintf(buffer, "%d, ", follow_sensorzero[i]);
-		e_send_uart1_char(buffer, strlen(buffer));
-	}
-
-	sprintf(buffer, " calibration done\r\n");
-	e_send_uart1_char(buffer, strlen(buffer));
-	wait(100000);
-}*/
-
-void reportValue(char* title, int value)
+void _waitForSteps(int steps)
 {
-	char uartbuffer[100];
-	sprintf(uartbuffer, "(%s - %d)\r\n", title, value);
-	int length = strlen(uartbuffer);
-	e_send_uart1_char(uartbuffer, length);
-	while(e_uart1_sending()){}
+ 	int startSteps = e_get_steps_left();
+ 	e_set_steps_left(0);
+ 	
+ 	int endSteps = e_get_steps_left() + steps;
+ 	while( abs(e_get_steps_left()) < endSteps );
+ 	
+	e_set_steps_left(startSteps);
 }
 
 
 /*! \breif Read the sensors proxymities
  * \param sensorTable Where the value must be stocked
  */
-void followGetSensorValues(int *sensorTable) {
+void _followGetSensorValues(int *sensorTable) {
 	unsigned int i;
+
+//	btcomSendString( "=== SENSORS ===" );
 	for (i=0; i < NB_SENSORS; i++) {
 		sensorTable[i] = e_get_calibrated_prox(i); //e_get_prox(i) - follow_sensorzero[i];
-	}		
+//		btcomSendInt( sensorTable[i] );
+	}	
+//	btcomSendString( "=============== \r\n\r\n" );	
 }
 
-/*! \brief Set robot speed */
-void followsetSpeed(int LeftSpeed, int RightSpeed) {
-	if (LeftSpeed < -MAXSPEED) {LeftSpeed = -MAXSPEED;}
-	if (LeftSpeed >  MAXSPEED) {LeftSpeed =  MAXSPEED;}
-	if (RightSpeed < -MAXSPEED) {RightSpeed = -MAXSPEED;}
-	if (RightSpeed >  MAXSPEED) {RightSpeed =  MAXSPEED;}
-	e_set_speed_left(LeftSpeed);
-	e_set_speed_right(RightSpeed); 
-}
-
-void waitForSteps(int steps)
+void initBoxFollow( int useMasterCheck )
 {
-	int startSteps = e_get_steps_left();
-	e_set_steps_left(0);
+	global.phase = PHASE_BOX_FOLLOW;
 	
-	int endSteps = e_get_steps_left() + steps;
-	while( abs(e_get_steps_left()) < endSteps );
-	
-	e_set_steps_left(startSteps);
+	positionAroundObject( useMasterCheck );
+
+	global.phase = PHASE_BOX_FOLLOW_COMPLETE;
 }
 
 /*! \brief The "main" function of the program */
-void positionAroundObject() {
+void positionAroundObject( int useMasterCheck ) 
+{
 	int leftwheel, rightwheel;		// motor speed left and right
 	int distances[NB_SENSORS];		// array keeping the distance sensor readings
 	int i;							// FOR-loop counters
@@ -147,18 +121,37 @@ void positionAroundObject() {
 	int turningLeft = 0;
 	int finishedLeft = 0;
 	int lineDist = 0;
+	
+	int firstRobot;
 
 	// firstRobot = global.isMaster;
-	int firstRobot = 1;
+	if( useMasterCheck == 1 )
+	{
+		firstRobot = global.isMaster;
+	}
+	else
+	{
+		firstRobot = 1;
+	}
+	
+	int movingDown = global.traverseDirection;
 
-	// movingDown = global.traverseDirection;
-	int movingDown = 1;
-
+/*	if( movingDown == LEFT )
+	{
+		turn90DegreesTo( RIGHT );
+	}
+	else
+	{
+		turn90DegreesTo( LEFT );
+	}
+*/	
+	
 	while (1) {
-		followGetSensorValues(distances); // read sensor values
+
+		_followGetSensorValues(distances); // read sensor values
 
 		gostraight=0;
-		if (movingDown) 
+		if ( movingDown == RIGHT ) 
 		{
 			for (i=0; i<8; i++) {
 				if (distances[i]>50) {break;}
@@ -166,10 +159,10 @@ void positionAroundObject() {
 			if (i==8) {
 				gostraight=1;
 			} else {
-				follow_weightleft[0]=-10;
-				follow_weightleft[7]=-10;
-				follow_weightright[0]=10;
-				follow_weightright[7]=10;
+				position_weightleft[0]=-10;
+				position_weightleft[7]=-10;
+				position_weightright[0]=10;
+				position_weightright[7]=10;
 				if (distances[2]>300) {
 					distances[1]-=200;
 					distances[2]-=600;
@@ -179,28 +172,37 @@ void positionAroundObject() {
 
 			leftwheel=BIAS_SPEED;
 			rightwheel=BIAS_SPEED;
-			if (gostraight==0) {
-				for (i=0; i<8; i++) {
-					leftwheel+=follow_weightleft[i]*(distances[i]>>4);
-					rightwheel+=follow_weightright[i]*(distances[i]>>4);
+
+			if ( gostraight == 0 ) 
+			{
+				for (i=0; i<8; i++)
+ 				{
+					leftwheel += position_weightleft[i] * ( distances[i] >> 4 );
+					rightwheel += position_weightright[i] * ( distances[i] >> 4 );
 				}
 			}
 	
-		//	reportValue("diff", rightwheel - leftwheel);
 			int currSteps = e_get_steps_left();
-			if (leftwheel - rightwheel > 210)
+			int diff = leftwheel - rightwheel;
+		
+			//reportValue("Left", leftwheel );
+			//reportValue("Right", rightwheel );
+			//reportValue("Left-Right", diff );
+
+		
+			if ( diff > 350 )
 			{
 				turningRight = 1;
 				if (finishedRight && abs(currSteps) > 400 && firstRobot)
 				{
 					// if first robot
-					reportValue("starting 2nd turn", 1);
+					//reportValue("starting 2nd turn", 1);
 					int lsteps = e_get_steps_left();
 					int rsteps = e_get_steps_right();
 					lineDist = sqrt(pow(lsteps, 2) + pow(rsteps, 2));
-					reportValue("left steps", lsteps);
-					reportValue("right steps", rsteps);
-					reportValue("lineDist", lineDist);
+					//reportValue("left steps", lsteps);
+					//reportValue("right steps", rsteps);
+					//reportValue("lineDist", lineDist);
 					finishedLeft = 0;
 					followsetSpeed(0, 0);
 					break;
@@ -208,10 +210,9 @@ void positionAroundObject() {
 			}
 			else if (turningRight)
 			{
-				reportValue("finished right", 1);
+				//reportValue("finished right", 1);
 
-				e_set_steps_left(0);
-				e_set_steps_right(0);			
+				clearSteps();			
 
 				turningRight = 0;
 				finishedRight = 1;		
@@ -223,6 +224,7 @@ void positionAroundObject() {
 			}		
 			
 		} 
+		// Moving LEFT
 		else 
 		{			
 			for (i=0; i<8; i++) {
@@ -231,10 +233,10 @@ void positionAroundObject() {
 			if (i==8) {
 				gostraight=1;
 			} else {
-				follow_weightleft[0]=10;
-				follow_weightleft[7]=10;
-				follow_weightright[0]=-10;
-				follow_weightright[7]=-10;
+				position_weightleft[0]=10;
+				position_weightleft[7]=10;
+				position_weightright[0]=-10;
+				position_weightright[7]=-10;
 				if (distances[5]>300) {
 					distances[4]-=100;
 					distances[5]-=600;
@@ -246,8 +248,8 @@ void positionAroundObject() {
 			rightwheel=BIAS_SPEED;
 			if (gostraight==0) {
 				for (i=0; i<8; i++) {
-					leftwheel+=follow_weightleft[i]*(distances[i]>>4);
-					rightwheel+=follow_weightright[i]*(distances[i]>>4);
+					leftwheel+=position_weightleft[i]*(distances[i]>>4);
+					rightwheel+=position_weightright[i]*(distances[i]>>4);
 				}
 			}
 	
@@ -257,24 +259,24 @@ void positionAroundObject() {
 			}
 			else if (turningRight)
 			{
-				reportValue("finished right", 1);
+				//reportValue("finished right", 1);
 				turningRight = 0;
 			}
 
 			int currSteps = e_get_steps_left();
-			if (rightwheel - leftwheel > 210)
+			if (rightwheel - leftwheel > 350 )
 			{
 				turningLeft = 1;
 				if (finishedLeft && abs(currSteps) > 400 && firstRobot)
 				{
 					// if first robot
-					reportValue("starting 2nd turn", 1);
+					//reportValue("starting 2nd turn", 1);
 					int lsteps = e_get_steps_left();
 					int rsteps = e_get_steps_right();
 					lineDist = sqrt(pow(lsteps, 2) + pow(rsteps, 2));
-					reportValue("left steps", lsteps);
-					reportValue("right steps", rsteps);
-					reportValue("lineDist", lineDist);
+					//reportValue("left steps", lsteps);
+					//reportValue("right steps", rsteps);
+					//reportValue("lineDist", lineDist);
 					finishedLeft = 0;
 					followsetSpeed(0, 0);
 					break;
@@ -282,7 +284,7 @@ void positionAroundObject() {
 			}
 			else if (turningLeft)
 			{
-				reportValue("finished left", 1);
+				//reportValue("finished left", 1);
 
 				e_set_steps_left(0);
 				e_set_steps_right(0);			
@@ -308,7 +310,7 @@ void positionAroundObject() {
 		// 	Get robot to move back 20% of box side length
 		int firstRobotPos = lineDist * 0.2;
 		followsetSpeed(-400, -400);		
-		waitForSteps(firstRobotPos);
+		_waitForSteps(firstRobotPos);
 		followsetSpeed(0, 0);	
 
 		// Rotate to face box (roughly)
@@ -321,23 +323,23 @@ void positionAroundObject() {
 			followsetSpeed(-300, 300);
 		}
 		
-		waitForSteps(200);
+		_waitForSteps(200);
 		followsetSpeed(0, 0);
 
 		// Move towards box
 		followsetSpeed(200, 200);
-		followGetSensorValues(distances);
+		_followGetSensorValues(distances);
 		while (distances[0] < 1400 && distances[7] < 1400)
 		{
-			followGetSensorValues(distances);
+			_followGetSensorValues(distances);
 			wait(15000);
 		}
 		followsetSpeed(0, 0);
-		reportValue("sensor0", distances[0]);
-		reportValue("sensor7", distances[7]);
+		//reportValue("sensor0", distances[0]);
+		//reportValue("sensor7", distances[7]);
 
 		// Rotate towards box more exact
-		if (distances[7] > distances[0] + 500)
+	/*	if (distances[7] > distances[0] + 500)
 		{
 			
 			if (movingDown)
@@ -348,9 +350,10 @@ void positionAroundObject() {
 			{
 				followsetSpeed(-300, 300);
 			}
-			waitForSteps(100);
+			_waitForSteps(100);
 			followsetSpeed(0, 0);
 		}
+	*/
 	}	
 	else
 	{
@@ -363,19 +366,65 @@ void positionAroundObject() {
 		{
 			followsetSpeed(-300, 300);
 		}
-		waitForSteps(333);
+		_waitForSteps(333);
 		followsetSpeed(0, 0);
 
 		// Move towards box
 		followsetSpeed(200, 200);
-		followGetSensorValues(distances);
+		_followGetSensorValues(distances);
 		while (distances[0] < 1400 && distances[7] < 1400)
 		{
-			followGetSensorValues(distances);
+			_followGetSensorValues(distances);
 			wait(15000);
 		}
 		followsetSpeed(0, 0);
-		reportValue("sensor0", distances[0]);
-		reportValue("sensor7", distances[7]);
+		//reportValue("sensor0", distances[0]);
+		//reportValue("sensor7", distances[7]);
 	}
+}
+
+
+void moveToObject()
+{
+
+	int SPEED = 400;
+	int NEAR_OBJECT_THRESHOLD = 200;
+	int APPROACH_OBJECT_THRESHOLD = 40;
+	//int OBJECT_CLOSEST_THRESHOLD = 200;
+
+	int found = 0;
+	int left_speed = SPEED;
+	int right_speed = SPEED;
+
+	int front_right_prox = e_get_calibrated_prox( 0 );
+	int front_left_prox = e_get_calibrated_prox( 7 );
+	
+	while( found == 0 )
+	{
+		if( front_right_prox > NEAR_OBJECT_THRESHOLD && front_left_prox > NEAR_OBJECT_THRESHOLD )
+		{
+			found = 1;
+			break;
+		}
+
+		// If we are approaching an object, we want to move closer to it at a slow speed.
+		if( front_right_prox > APPROACH_OBJECT_THRESHOLD || front_left_prox > APPROACH_OBJECT_THRESHOLD )
+		{
+			int diff = front_right_prox - front_left_prox;
+	
+			// Right prox is closer.
+			if( diff > 0 )
+			{
+				// Left needs to go faster than right.
+				right_speed = right_speed - ( diff * 2 ) ;
+			}	
+			// Left prox is closer.
+			else if( diff < 0 )
+			{
+				// Right needs to go faster than left.
+				left_speed = left_speed - ( -diff * 2 );
+			}
+		}
+	} 
+	set_wheel_speeds( 0, 0 );
 }

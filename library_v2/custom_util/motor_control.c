@@ -100,6 +100,7 @@ void waitForSteps( int steps )
 	}
 }
 
+
 void clearSteps()
 {
 	e_set_steps_left( 0 );

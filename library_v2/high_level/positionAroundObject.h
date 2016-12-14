@@ -27,4 +27,6 @@
 
 void positionAroundObject();
 
+void initBoxFollow();
+
 #endif

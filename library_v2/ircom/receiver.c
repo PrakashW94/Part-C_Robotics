@@ -2,11 +2,14 @@
 
 #include "custom_util/motor_control.h"
 
+#include "motor_led/advance_one_timer/e_led.h"
+#include "motor_led/advance_one_timer/e_motors.h"
+
+#include "motor_led/e_epuck_ports.h"
+
 #include "high_level/global.h"
 #include "high_level/packet.h"
 #include "high_level/init.h"
-
-#include "motor_led/advance_one_timer/e_motors.h"
 
 #include "ircom.h"
 #include "ircomReceive.h"
@@ -230,6 +233,12 @@ void processStateChange( IrcomMessage imsg, Packet packet )
 			}
 			btcomSendString( "Master already proposed. \r\n" );
 			break;
+		
+		case STATE_INIT_BOX_FOLLOW:
+			set_wheel_speeds( 0, 0 );
+			LED6 = 1;
+			global.phase = PHASE_BOX_FOLLOW;
+			break;		
 
 		// Move to direction signal was received from.
 		case STATE_FOLLOW:
