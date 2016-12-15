@@ -205,7 +205,6 @@ void processStateChange( IrcomMessage imsg, Packet packet )
 			global.traverseDirection = RIGHT;
 			LED4 = 1 ;
 			break;		
-		
 		case STATE_PUSH_BOX:
 			global.phase = PHASE_PUSH_BOX;
 			break;
