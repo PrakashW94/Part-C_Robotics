@@ -22,4 +22,8 @@ void emitFollow();
 */
 void emitPos();
 
+/*
+* Emite push box messages.
+*/
+void emitPushBox();
 #endif

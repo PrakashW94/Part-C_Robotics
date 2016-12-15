@@ -3,11 +3,13 @@
 #include "btcom/btcom.h" 
 
 #include "custom_util/utility.h"
+#include "custom_util/motor_control.h"
 
 #include "high_level/global.h"
 #include "high_level/packet.h" 
 #include "high_level/traverse.h"
 #include "high_level/positionAroundObject.h"
+#include "high_level/boxPush.h"
 
 #include "ircom/ircom.h"
 
@@ -21,23 +23,23 @@
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
 
-void init()
+void init( int direction )
 {
 	// Initialise global vars
-	initGlobal( RIGHT );
+	initGlobal( direction );
 
 	// Start agenda processing
 	e_start_agendas_processing();
 
 	// Prepare IR for comms.
-	e_calibrate_ir(); 
+	//e_calibrate_ir(); 
     ircomStart();
 	ircomEnableContinuousListening();
     ircomListen();
 
 	// Prepare comms agenda.
 	// Emit needs to be long (10000) for follow msg to be received by follower.
-	e_activate_agenda( emit, 10000 );
+	e_activate_agenda( emit, 15000 );
 //	e_activate_agenda( emitPos, 50000 );	
 	e_activate_agenda( receive, 1000 );			
 }
@@ -59,12 +61,12 @@ void initFollower()
 }
 
 
-void initHighLevelMaster( int isMaster )
+void initHighLevelMaster( int isMaster, int direction )
 {	
-	init();
+	init( direction );
 
 	btcomSendString( "Setting SET_STATE -> PROPOSE_MASTER packet emit. \r\n" );
-	setPacketToEmit( CMD_SET_STATE, STATE_INIT_BOX_FOLLOW );	
+	setPacketToEmit( CMD_SET_STATE, STATE_PROPOSE_MASTER );	
 	
 	btcomSendString( "Waiting to handshake with follower... \r\n" );
 	while( global.phase < PHASE_INIT_COMPLETE );	
@@ -87,21 +89,44 @@ void initHighLevelMaster( int isMaster )
 	**/
 	
 	setPacketToEmit( CMD_SET_STATE, STATE_INIT_BOX_FOLLOW );
-	wait( 200000 );
+	set_wheel_speeds( 0, 0 );
+	wait( 1000000 );
+
+
+	if( global.isMaster == 1 )
+	{
+		if ( global.traverseDirection == LEFT )
+		{
+			setPacketToEmit( CMD_SET_STATE, STATE_DIRECTION_LEFT );
+		}
+		else
+		{
+			setPacketToEmit( CMD_SET_STATE, STATE_DIRECTION_RIGHT );
+		}
+	}	
+
+	wait( 1000000 );
 	btcomSendString( "Start box follow... \r\n" );
 	initBoxFollow( 1 );
 	btcomSendString( "Waiting to complete box follow... \r\n" );
 	while( global.phase < PHASE_BOX_FOLLOW_COMPLETE );
 	btcomSendString( "Completed box follow." );	
 
+	e_led_clear();
+	while( global.phase < PHASE_PUSH_BOX );
+	btcomSendString( "Starting box push");
 	BODY_LED = 1;
+	startBoxPush();
+		
+	while( global.phase != PHASE_PUSH_BOX_COMPLETE );
+ 
 	btcomSendString( "Waiting to finish... \r\n" );
 	while( global.phase != PHASE_FINISH );
 }
 
 void initHighLevelFollower()
 {
-	init();
+	init( RIGHT );
 
 	initFollower();
 	
@@ -130,12 +155,18 @@ void initHighLevelFollower()
 	BODY_LED = 0;
 	
 	btcomSendString( "Received a phase box follow message.. Preparing box follow \r\n" );
-
+	set_wheel_speeds( 0, 0 );
+	wait( 10000000 );
+	moveToObject();
 	initBoxFollow( 1 ); // init box follow for second epuck.	
 	while( global.phase < PHASE_BOX_FOLLOW_COMPLETE );
 	btcomSendString( "Completed box follow." );	
-
+	
+	emitPushBox();
+	
 	BODY_LED = 1;
+	startBoxPush();
+	while( global.phase < PHASE_PUSH_BOX_COMPLETE );
 
 	btcomSendString( "Waiting to finish... \r\n" );
 	while( global.phase != PHASE_FINISH );

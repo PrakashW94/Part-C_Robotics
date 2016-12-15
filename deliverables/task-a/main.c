@@ -148,7 +148,7 @@ int main()
 		case 6:
 			btcomSendString( "Starting high level behaviour (Master) \r\n" );
 			LED4 = 1;
-			initHighLevelMaster();
+			initHighLevelMaster( 1,  RIGHT );
 			while(1);
 			break;
 		// High level Behaviour
@@ -159,22 +159,10 @@ int main()
 			break;
 		// Traverse test (Left)
 		case 8:	
-			btcomSendString( "Starting Traverse Test. Left Robot" );
-			LED2 = 1;
-
-			initGlobal( LEFT );
-			e_start_agendas_processing();
-			e_calibrate_ir(); 
-    		ircomStart();
-    		ircomEnableContinuousListening();
-    		ircomListen();
-
-			e_activate_agenda( emit, 30000 );
-			e_activate_agenda( receive, 30000 );
-
-			setPacketToEmit( CMD_SET_STATE, STATE_TEST_SIDE_FOLLOW );
-
-			while( 1 );
+			btcomSendString( "Starting high level behaviour (R -> L) (Master) \r\n" );
+			LED4 = 1;
+			initHighLevelMaster( 1, LEFT );
+			while(1);
 			break;
 		// Traverse test (Right)
 		case 9:
@@ -202,7 +190,7 @@ int main()
 			initGlobal( RIGHT );
 
 			e_start_agendas_processing();
-			e_calibrate_ir(); 
+			//e_calibrate_ir(); 
 
     		ircomStart();
     		ircomEnableContinuousListening();
@@ -222,7 +210,6 @@ int main()
 			initGlobal(LEFT);
 	
 			e_start_agendas_processing();
-			e_calibrate_ir(); 
 
 			LED1 = 1;
 			wait(1000000);
@@ -240,7 +227,6 @@ int main()
 			initGlobal(RIGHT);
 			
 			e_start_agendas_processing();
-			e_calibrate_ir(); 
 			
 			LED1 = 1;			
 			wait(1000000);
@@ -250,6 +236,16 @@ int main()
 			initBoxFollow( 0 );
 			
 			while( 1 );
+			break;
+		case 13:
+			// Start agenda processing
+			e_start_agendas_processing();
+			initGlobal(LEFT);
+			global.isMaster = 0;
+			LED1 = 1;
+			moveToObject();
+			initBoxFollow( 1 );
+			while(1)
 			break;
 		default:
 			// Indicated an unregistered selector.

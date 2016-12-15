@@ -10,16 +10,21 @@
 
 void emit()
 {	
-	//btcomSendString("Sending IR message... \r\n");
-	int packet = toBinFromInts( global.commandToEmit, global.payloadToEmit );
-
-	ircomSend( packet );
-	
-	//btcomSendString("Sending...");
-	
-	while ( ircomSendDone() == 0 );
-
-	//btcomSendString("Sent IR Message. \r\n");	
+	// CHANGED
+	if( ircomSendDone() == 1 )
+	{
+		//btcomSendString("Sending IR message... \r\n");
+		
+		int packet = toBinFromInts( global.commandToEmit, global.payloadToEmit );
+		
+		ircomSend( packet );
+			
+		btcomSendString("Sending...");
+		
+		//	while ( ircomSendDone() == 0 );
+		
+		//btcomSendString("Sent IR Message. \r\n");	
+	}	
 }
 
 void emitMasterAcks()
@@ -28,7 +33,7 @@ void emitMasterAcks()
 
 	int i;
 		
-	for( i = 0; i < 5 ; i++ )
+	for( i = 0; i < 10 ; i++ )
 	{
 		int packet = toBinFromInts( CMD_SET_STATE, STATE_ACK_MASTER );
 	
@@ -49,6 +54,23 @@ void emitFollow()
 	while( ircomSendDone() == 0 );
 }
 
+void emitPushBox()
+{
+	btcomSendString( "Emitting start box push." );
+
+	int i;
+		
+	for( i = 0; i < 10 ; i++ )
+	{
+		int packet = toBinFromInts( CMD_SET_STATE, STATE_PUSH_BOX );
+	
+		ircomSend( packet );
+
+		while( ircomSendDone() == 0 );
+		
+		wait( 10000 );
+	}	
+}
 
 void emitPos()
 {	

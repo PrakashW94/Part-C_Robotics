@@ -23,7 +23,7 @@
 
 #define NEAR_WALL_THRESHOLD 200
 #define NEAR_OBJECT_THRESHOLD 150
-#define APPROACH_WALL_THRESHOLD 40
+#define APPROACH_WALL_THRESHOLD 80
 #define WALL_CLOSEST_THRESHOLD 200
 
 int TURNING = 0;
@@ -42,11 +42,6 @@ void enableCameraTimers();
 void initTraverse()
 {
 	global.phase = PHASE_SEARCH;
-	
-	// Set up camera
-	btcomSendString( "Starting camera..." ); 
-	//initGreen();
-	btcomSendString( "Camera started." );
 
 	setPacketToEmit( CMD_SET_STATE, STATE_FOLLOW );
 
@@ -70,7 +65,7 @@ void traverse()
 
 	if( global.phase < PHASE_SEARCH_COMPLETE )
 	{
-			btcomSendString( "Runnning traverse.." );
+		//	btcomSendString( "Runnning traverse.. \r\n" );
 
 			front_right_prox = e_get_calibrated_prox( 0 );
 			front_left_prox = e_get_calibrated_prox( 7 );

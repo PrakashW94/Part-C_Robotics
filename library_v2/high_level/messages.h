@@ -41,3 +41,7 @@
 
 #define STATE_INIT_BOX_FOLLOW 30 // Tell other robot to start box follow.
 
+#define STATE_DIRECTION_LEFT 40
+#define STATE_DIRECTION_RIGHT 41
+
+#define STATE_PUSH_BOX 50
