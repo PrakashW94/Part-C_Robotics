@@ -25,8 +25,10 @@
 #define _POSITIONAROUNDOBJECT
 
 
-void positionAroundObject();
+void positionAroundObject( int useMasterCheck );
 
-void initBoxFollow();
+void initBoxFollow( int useMasterCheck );
+
+void moveToObject();
 
 #endif

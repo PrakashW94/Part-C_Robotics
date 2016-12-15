@@ -202,7 +202,7 @@ int main()
 			initGlobal( RIGHT );
 
 			e_start_agendas_processing();
-			e_calibrate_ir(); 
+			//e_calibrate_ir(); 
 
     		ircomStart();
     		ircomEnableContinuousListening();
@@ -222,7 +222,6 @@ int main()
 			initGlobal(LEFT);
 	
 			e_start_agendas_processing();
-			e_calibrate_ir(); 
 
 			LED1 = 1;
 			wait(1000000);
@@ -240,7 +239,6 @@ int main()
 			initGlobal(RIGHT);
 			
 			e_start_agendas_processing();
-			e_calibrate_ir(); 
 			
 			LED1 = 1;			
 			wait(1000000);
@@ -250,6 +248,16 @@ int main()
 			initBoxFollow( 0 );
 			
 			while( 1 );
+			break;
+		case 13:
+			// Start agenda processing
+			e_start_agendas_processing();
+			initGlobal(LEFT);
+			global.isMaster = 0;
+			LED1 = 1;
+			moveToObject();
+			initBoxFollow( 1 );
+			while(1)
 			break;
 		default:
 			// Indicated an unregistered selector.

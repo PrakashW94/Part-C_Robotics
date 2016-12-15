@@ -197,6 +197,15 @@ void processStateChange( IrcomMessage imsg, Packet packet )
 			asm("nop");
 			break;
 		
+		case STATE_DIRECTION_LEFT:
+			LED4 = 1;
+			global.traverseDirection = LEFT;
+			break;
+		case STATE_DIRECTION_RIGHT:
+			global.traverseDirection = RIGHT;
+			LED4 = 1 ;
+			break;		
+
 		case STATE_ACK:
 		case STATE_ACK_MASTER:
 			processAck();
@@ -236,7 +245,6 @@ void processStateChange( IrcomMessage imsg, Packet packet )
 		
 		case STATE_INIT_BOX_FOLLOW:
 			set_wheel_speeds( 0, 0 );
-			LED6 = 1;
 			global.phase = PHASE_BOX_FOLLOW;
 			break;		
 
@@ -262,12 +270,12 @@ void process( IrcomMessage imsg )
 	Packet packet;
 	toPacket( &packet, imsg.value);
 	
-/*	
+
 	btcomSendString( "=== PACKET === \r\n" );	
 	btcomSendInt( packet.command );
 	btcomSendInt( packet.payload );
 	btcomSendString( "============== \r\n" );
-*/
+
 
 	switch( packet.command )
 	{

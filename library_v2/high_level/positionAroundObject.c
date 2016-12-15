@@ -53,6 +53,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 
 #include "high_level/global.h"
 #include "high_level/wall_follow.h"
+#include "high_level/packet.h"
 
 #include "custom_util/utility.h"
 #include "custom_util/motor_control.h"
@@ -108,11 +109,11 @@ void _followsetSpeed(int LeftSpeed, int RightSpeed) {
 	e_set_speed_right(RightSpeed); 
 }
 
-void initBoxFollow()
+void initBoxFollow( int useMasterCheck )
 {
 	global.phase = PHASE_BOX_FOLLOW;
-	
-	positionAroundObject( userMasterCheck );
+
+	positionAroundObject( useMasterCheck );
 
 	global.phase = PHASE_BOX_FOLLOW_COMPLETE;
 }
@@ -133,7 +134,6 @@ void positionAroundObject( int useMasterCheck )
 	
 	int firstRobot;
 
-	// firstRobot = global.isMaster;
 	if( useMasterCheck == 1 )
 	{
 		firstRobot = global.isMaster;
@@ -154,26 +154,9 @@ void positionAroundObject( int useMasterCheck )
 		turn90DegreesTo( LEFT );
 	}
 */	
-	
-	while (1) {
 
-	// firstRobot = global.isMaster;
-	int firstRobot = 1;
-	
-	int movingDown = global.traverseDirection;
-
-/*	if( movingDown == LEFT )
+	while (1) 
 	{
-		turn90DegreesTo( RIGHT );
-	}
-	else
-	{
-		turn90DegreesTo( LEFT );
-	}
-*/	
-	//e_calibrate_ir();
-
-	while (1) {
 
 		_followGetSensorValues(distances); // read sensor values
 
@@ -181,7 +164,7 @@ void positionAroundObject( int useMasterCheck )
 		if ( movingDown == RIGHT ) 
 		{
 			for (i=0; i<8; i++) {
-				if (distances[i]>50) {break;}
+				if (distances[i]>200) {break;}
 			}
 			if (i==8) {
 				gostraight=1;
@@ -256,7 +239,7 @@ void positionAroundObject( int useMasterCheck )
 		else 
 		{			
 			for (i=0; i<8; i++) {
-				if (distances[i]>50) {break;}
+				if (distances[i]>200) {break;}
 			}
 			if (i==8) {
 				gostraight=1;
@@ -332,7 +315,8 @@ void positionAroundObject( int useMasterCheck )
 		_followsetSpeed(leftwheel, rightwheel);
 
 		wait(15000);
-	}	
+	}
+	
 	
 	if (firstRobot)
 	{
@@ -410,6 +394,7 @@ void positionAroundObject( int useMasterCheck )
 		//reportValue("sensor0", distances[0]);
 		//reportValue("sensor7", distances[7]);
 	}
+
 }
 
 
@@ -422,14 +407,20 @@ void moveToObject()
 	//int OBJECT_CLOSEST_THRESHOLD = 200;
 
 	int found = 0;
-	int left_speed = SPEED;
-	int right_speed = SPEED;
+	int left_speed;
+	int right_speed;
 
-	int front_right_prox = e_get_calibrated_prox( 0 );
-	int front_left_prox = e_get_calibrated_prox( 7 );
-	
+	LED5 = 1;
+
 	while( found == 0 )
 	{
+		left_speed = SPEED;
+		right_speed = SPEED;
+
+		LED6 = 1;
+		int front_right_prox = e_get_calibrated_prox( 0 );
+		int front_left_prox = e_get_calibrated_prox( 7 );
+
 		if( front_right_prox > NEAR_OBJECT_THRESHOLD && front_left_prox > NEAR_OBJECT_THRESHOLD )
 		{
 			found = 1;
@@ -454,6 +445,9 @@ void moveToObject()
 				left_speed = left_speed - ( -diff * 2 );
 			}
 		}
+		set_wheel_speeds( left_speed, right_speed );
 	} 
+	LED6 = 0;
+	BODY_LED= 1;
 	set_wheel_speeds( 0, 0 );
 }

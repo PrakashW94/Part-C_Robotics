@@ -3,6 +3,7 @@
 #include "btcom/btcom.h" 
 
 #include "custom_util/utility.h"
+#include "custom_util/motor_control.h"
 
 #include "high_level/global.h"
 #include "high_level/packet.h" 
@@ -30,7 +31,7 @@ void init()
 	e_start_agendas_processing();
 
 	// Prepare IR for comms.
-	e_calibrate_ir(); 
+	//e_calibrate_ir(); 
     ircomStart();
 	ircomEnableContinuousListening();
     ircomListen();
@@ -64,7 +65,7 @@ void initHighLevelMaster( int isMaster )
 	init();
 
 	btcomSendString( "Setting SET_STATE -> PROPOSE_MASTER packet emit. \r\n" );
-	setPacketToEmit( CMD_SET_STATE, STATE_INIT_BOX_FOLLOW );	
+	setPacketToEmit( CMD_SET_STATE, STATE_PROPOSE_MASTER );	
 	
 	btcomSendString( "Waiting to handshake with follower... \r\n" );
 	while( global.phase < PHASE_INIT_COMPLETE );	
@@ -87,7 +88,23 @@ void initHighLevelMaster( int isMaster )
 	**/
 	
 	setPacketToEmit( CMD_SET_STATE, STATE_INIT_BOX_FOLLOW );
-	wait( 200000 );
+	set_wheel_speeds( 0, 0 );
+	wait( 1000000 );
+
+
+	if( global.isMaster == 1 )
+	{
+		if ( global.traverseDirection == LEFT )
+		{
+			setPacketToEmit( CMD_SET_STATE, STATE_DIRECTION_LEFT );
+		}
+		else
+		{
+			setPacketToEmit( CMD_SET_STATE,STATE_DIRECTION_LEFT );
+		}
+	}	
+
+	wait( 1000000 );
 	btcomSendString( "Start box follow... \r\n" );
 	initBoxFollow( 1 );
 	btcomSendString( "Waiting to complete box follow... \r\n" );
@@ -130,7 +147,9 @@ void initHighLevelFollower()
 	BODY_LED = 0;
 	
 	btcomSendString( "Received a phase box follow message.. Preparing box follow \r\n" );
-
+	set_wheel_speeds( 0, 0 );
+	wait( 10000000 );
+	moveToObject();
 	initBoxFollow( 1 ); // init box follow for second epuck.	
 	while( global.phase < PHASE_BOX_FOLLOW_COMPLETE );
 	btcomSendString( "Completed box follow." );	

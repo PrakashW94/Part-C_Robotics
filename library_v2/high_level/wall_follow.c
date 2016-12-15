@@ -19,7 +19,7 @@
 
 #define NB_SENSORS          8		// number of sensors
 #define BIAS_SPEED      	200		// robot bias speed
-#define SENSOR_THRESHOLD	200		// discount sensor noise below threshold
+#define SENSOR_THRESHOLD	300		// discount sensor noise below threshold
 #define MAXSPEED 			800		// maximum robot speed
 
 
@@ -46,7 +46,7 @@ void follow_sensor_calibrate()
 	{
 		for (i=0; i<8; i++) 
 		{
-			sensor[i] += e_get_calibrated_prox( i );
+			sensor[i] += e_get_prox( i );
 		}
 		wait( 10000 );
 	}
@@ -54,7 +54,7 @@ void follow_sensor_calibrate()
 	for ( i = 0; i < 8; i++ ) 
 	{
 		follow_sensorzero[i] = ( sensor[i] >> 5 );
-		//btcomSendInt( follow_sensorzero[i] );
+		btcomSendInt( follow_sensorzero[i] );
 	}
 
 	btcomSendString( "[WALL_FOLLOW] Calibration done. \r\n" );
@@ -72,7 +72,7 @@ void followGetSensorValues(int *sensorTable)
 	
 	for ( i = 0; i < NB_SENSORS; i++ ) 
 	{
-		sensorTable[i] = e_get_calibrated_prox( i ) - follow_sensorzero[i];
+		sensorTable[i] = e_get_prox( i ) - follow_sensorzero[i];
 	}		
 }
 
@@ -150,7 +150,7 @@ void runWallFollow( int side, int stepsToFollowFor )
 				follow_weightleft[7] =- 10;
 				follow_weightright[0] = 10;
 				follow_weightright[7] = 10;
-				if ( distances[2] > SENSOR_THRESHOLD ) 
+				if ( distances[2] > 300 ) 
 				{
 					distances[1] -= 200;
 					distances[2] -= 600;
@@ -164,16 +164,14 @@ void runWallFollow( int side, int stepsToFollowFor )
 			e_set_led( 6, 1 );
 			e_set_led( 2, 0 );
 
-			//btcomSendString( "=== SENSORS ==== \r\n");
 			for ( i = 0; i < 8; i++ ) 
 			{
-			//	btcomSendInt( distances[i] );
 				if ( distances[i] > 50 )
 				{
 					break;
 				}
 			}
-			//btcomSendString( "=============== \r\n" );
+	
 			if ( i == 8 ) 
 			{
 				gostraight = 1;
@@ -184,7 +182,7 @@ void runWallFollow( int side, int stepsToFollowFor )
 				follow_weightleft[7] = 10;
 				follow_weightright[0] =- 10;
 				follow_weightright[7] =- 10;
-				if ( distances[5] > SENSOR_THRESHOLD ) 
+				if ( distances[5] > 300 ) 
 				{
 					distances[4] -= 100;
 					distances[5] -= 600;
@@ -209,5 +207,4 @@ void runWallFollow( int side, int stepsToFollowFor )
 
 		wait(15000);
 	}	
-	btcomSendString( "[WALL FOLLOW] complete." );
 }
