@@ -52,6 +52,7 @@ void initTraverse()
 	global.phase = PHASE_SEARCH;
 	
 	// Send the follow packet to other robots now.
+
 	setPacketToEmit( CMD_SET_STATE, STATE_FOLLOW );
 
 	do
