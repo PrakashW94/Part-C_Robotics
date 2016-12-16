@@ -1,10 +1,3 @@
-/*
-TO DO LIST
-- mDist and dDist as percentages?
-- Test recursion loop
-- Suitable LEDs
-*/
-
 #include "motor_led/e_epuck_ports.h"
 #include "motor_led/e_init_port.h"
 #include "motor_led/e_led.h"

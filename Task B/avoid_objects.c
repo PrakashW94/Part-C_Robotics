@@ -57,8 +57,6 @@ void avoidBoundary()
 	int x, y, xg, yg, h, r, invr;
 	h = 0; r = 0;
 	
-	
-	//testProx(frontleft, 4, "frontleft");
 	//left led on
 	setLeds(leftLeds, 3);
 	int r0 = e_get_steps_right();
@@ -148,7 +146,6 @@ void avoidBoundary()
 		updateRight(-s);
 		frontleftProx = getProx(frontleft, 4);
 		wait(delayTimer);
-		//TO DO: bug where this loop breaks prematurely?
 	}
 	//left leds off
 	setLeds(rightLeds, 3);
